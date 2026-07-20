@@ -1,0 +1,53 @@
+# ADR 00XX: Nest CQRS command/query separation in the hexagonal kernel
+
+- Status: accepted (F33)
+- Date: 2026-07-17
+- Supersedes part of: [adr-0001-hexagonal-architecture.md](adr-0001-hexagonal-architecture.md)
+
+## Context
+
+ADR-0001 fixed a hexagonal layout but left the *application layer* open: some
+domains used plain `use-case` classes (`clients`), one used Nest
+`CommandBus`/`QueryBus` (`audit`), and the rest used a generic `CrudService`
+over a Prisma delegate. That variance makes an AI restriction strategy
+impossible to apply uniformly — we cannot intercept "all writes" when writes
+are scattered across services.
+
+F33 requires one uniform pattern.
+
+## Decision
+
+Adopt **Nest CQRS** as the single application-layer pattern for every domain in
+`libs/base/backend/src/lib/hex`:
+
+- Writes are `Command`s handled by `@CommandHandler`s.
+- Reads are `Query`s handled by `@QueryHandler`s.
+- The domain facade (`*Service`) only injects `CommandBus`/`QueryBus` and
+  dispatches — it holds no business logic (legacy `use-case` classes and
+  `CrudService` are deprecated).
+- Handlers are auto-discovered by Nest's `CqrsModule`; no per-feature bus
+  registration.
+- The shared kernel (`CqrsInfraModule`) provides `CqrsModule`, `UnitOfWork`
+  and the AI gateways.
+
+This makes "every write goes through the `CommandBus`" a structural guarantee,
+so the AI boundary is enforced by routing: `AiQueryGateway` holds a `QueryBus`
+only; an AI `CommandBus` (future `AiCommandGateway`) is an explicit allow-list.
+
+## Consequences
+
+- `tools/scripts/check-domain-conventions.mjs` enforces
+  `application/<x>/{commands,queries,handlers}/` and forbids loose
+  `infrastructure/*.module.ts` (use `--strict` in CI).
+- `tools/scripts/new-domain.mjs` scaffolds the CQRS template directly.
+- `audit` keeps its existing CQRS handlers but moves them under
+  `application/audit/` (Fase 2).
+- `clients` migrates its `use-case` classes to handlers (Fase 1) as the
+  reference template.
+- More files per domain, accepted as the cost of a uniform, AI-gateable seam.
+
+## See also
+
+- Canonical layout: F33 plan → `application/<x>/` section.
+- AI policy: [`docs/guides/ai-cqrs-policy.md`](../../docs/guides/ai-cqrs-policy.md).
+- Convention linter: `tools/scripts/check-domain-conventions.mjs`.

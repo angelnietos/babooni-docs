@@ -1,0 +1,523 @@
+# UI Component Catalog — ownership and app consumption matrix
+# Plan: plan-pulido-profundizacion-post-capas.md §0.6
+# Validated by:
+#   node tools/scripts/check-ui-ownership.mjs
+#   node tools/scripts/check-storybook-owner-tags.mjs
+
+version: 1
+
+principles:
+  - Generic presentational components live in @base/*-ui only.
+  - Product-specific Figma/branding lives in @josanz/angular-ui (cliente Josanz).
+  - SaaS CRM branding lives in @saas/shared-ui, which re-exports @base/angular-ui.
+  - Template apps (arquetipos) never import @josanz/* or @saas/*.
+  - Arquetipos apps/features compose premium wrappers from @arquetipos/arquetipos-*-ui
+    (F19-UIWRAP); @base/*-ui stays for primitives inside those wrappers and infra helpers.
+  - Josanz app never imports @arquetipos/* or @saas/*.
+  - SaaS apps never import @arquetipos/* (may import @josanz/* for shared ERP domains).
+  - Feature libs compose UI from their allowed package; no raw duplicated HTML/CSS.
+
+# Storybook owner tags (F7-UI0.4) — project-level in each `.storybook/preview.ts`
+storybookOwnerTags:
+  base-angular-ui:
+    package: "@base/angular-ui"
+    preview: libs/base/frontend/angular/platform/ui/.storybook/preview.ts
+    tag: owner:base
+  base-react-ui:
+    package: "@base/react-ui"
+    preview: libs/base/frontend/react/platform/ui/.storybook/preview.ts
+    tag: owner:base
+  josanz-angular-ui:
+    package: "@josanz/angular-ui"
+    preview: libs/clientes/josanz/angular-ui/.storybook/preview.ts
+    tag: owner:josanz
+
+# App route → lazy shell (F7-A2)
+lazyShells:
+  verifactu-platform:
+    - { path: identity, shell: "@saas/identity-shell" }
+    - { path: clients, shell: "@saas/clients-shell" }
+    - { path: invoices, shell: "@saas/invoices-shell" }
+    - { path: verifactu, shell: "@saas/verifactu-shell" }
+  document-generator:
+    - { path: documents, shell: "@josanz/documents-shell" }
+    - { path: auth, note: "app docs-auth.routes + @base/angular authGuard" }
+  verifactu-crm-api:
+    - { note: "composition root — @saas/clients, @saas/identity, @saas/invoicing-backend, @saas/verifactu (F8 aliases)" }
+  verifactu-worker:
+    - { note: "@saas/verifactu-adapters BullMQ worker" }
+
+apps:
+  josanz:
+    layer: clientes
+    path: apps/clientes/josanz/frontend/josanz
+    framework: angular
+    primaryUi: "@josanz/angular-ui"
+    allowedUiPackages:
+      - "@josanz/angular-ui"
+    forbiddenImportPatterns:
+      - "@arquetipos/"
+      - "@josanz-erp/"
+      - "@generic-crm/"
+
+  josanz-api:
+    layer: clientes
+    path: apps/clientes/josanz/backend
+    framework: node
+    allowedUiPackages: []
+    forbiddenImportPatterns:
+      - "@arquetipos/"
+
+  angular-single:
+    layer: arquetipos
+    path: apps/arquetipos/frontend/angular/single-tenant/angular-single
+    framework: angular
+    primaryUi: "@arquetipos/arquetipos-angular-ui"
+    allowedUiPackages:
+      - "@arquetipos/arquetipos-angular-ui"
+      - "@base/angular-ui"
+    forbiddenImportPatterns:
+      - "@josanz/"
+    note: "@base/angular-ui allowed only for infra (provideErrorReporting, reportWebVitals)."
+
+  angular-multi:
+    layer: arquetipos
+    path: apps/arquetipos/frontend/angular/multi-tenant/angular-multi
+    framework: angular
+    primaryUi: "@arquetipos/arquetipos-angular-ui"
+    allowedUiPackages:
+      - "@arquetipos/arquetipos-angular-ui"
+      - "@base/angular-ui"
+    forbiddenImportPatterns:
+      - "@josanz/"
+    note: "@base/angular-ui allowed only for infra (provideErrorReporting, reportWebVitals)."
+
+  react-single:
+    layer: arquetipos
+    path: apps/arquetipos/frontend/react/single-tenant/react-single
+    framework: react
+    primaryUi: "@arquetipos/arquetipos-react-ui"
+    allowedUiPackages:
+      - "@arquetipos/arquetipos-react-ui"
+      - "@base/react-ui"
+    forbiddenImportPatterns:
+      - "@josanz/"
+    note: "@base/react-ui allowed only for infra (installGlobalErrorHandler, reportWebVitals)."
+
+  react-multi:
+    layer: arquetipos
+    path: apps/arquetipos/frontend/react/multi-tenant/react-multi
+    framework: react
+    primaryUi: "@arquetipos/arquetipos-react-ui"
+    allowedUiPackages:
+      - "@arquetipos/arquetipos-react-ui"
+      - "@base/react-ui"
+    forbiddenImportPatterns:
+      - "@josanz/"
+    note: "@base/react-ui allowed only for infra (installGlobalErrorHandler, reportWebVitals)."
+
+  mf-host-angular:
+    layer: arquetipos
+    path: apps/arquetipos/frontend/angular/microfrontend/mf-host
+    framework: angular
+    primaryUi: "@arquetipos/arquetipos-angular-ui"
+    allowedUiPackages:
+      - "@arquetipos/arquetipos-angular-ui"
+      - "@base/angular-ui"
+      - "@base/shared-store"
+    forbiddenImportPatterns:
+      - "@josanz/"
+
+  mf-remote-react:
+    layer: arquetipos
+    path: apps/arquetipos/frontend/react/microfrontend/mf-remote-clients
+    framework: react
+    primaryUi: "@arquetipos/arquetipos-react-ui"
+    allowedUiPackages:
+      - "@arquetipos/arquetipos-react-ui"
+      - "@base/react-ui"
+      - "@base/shared-store"
+    forbiddenImportPatterns:
+      - "@josanz/"
+    note: "Remote may still boot with base infra; prefer arquetipos-react-ui for feature UI."
+
+  document-generator:
+    layer: productos-saas
+    path: apps/productos-saas/document-generator
+    framework: angular
+    primaryUi: "@josanz/angular-ui"
+    allowedUiPackages:
+      - "@josanz/angular-ui"
+      - "@base/angular-ui"
+    forbiddenImportPatterns:
+      - "@arquetipos/"
+    lazyShells:
+      - "@josanz/documents-shell"
+    note: "Reuses Josanz documents domain; extends @base via @josanz/angular-ui and authGuard"
+
+  verifactu-platform:
+    layer: productos-saas
+    path: apps/productos-saas/verifactu-platform
+    framework: angular
+    primaryUi: "@saas/shared-ui"
+    allowedUiPackages:
+      - "@saas/shared-ui"
+      - "@base/angular-ui"
+    forbiddenImportPatterns:
+      - "@arquetipos/"
+      - "@josanz/"
+    lazyShells:
+      - "@saas/identity-shell"
+      - "@saas/clients-shell"
+      - "@saas/invoices-shell"
+      - "@saas/verifactu-shell"
+
+  verifactu-crm-api:
+    layer: productos-saas
+    path: apps/productos-saas/verifactu-crm-api
+    framework: backend
+    primaryUi: null
+    allowedUiPackages: []
+    forbiddenImportPatterns:
+      - "@arquetipos/"
+      - "@josanz/"
+
+  verifactu-worker:
+    layer: productos-saas
+    path: apps/productos-saas/verifactu-worker
+    framework: backend
+    primaryUi: null
+    allowedUiPackages: []
+    forbiddenImportPatterns:
+      - "@arquetipos/"
+      - "@josanz/"
+
+uiPackages:
+  "@base/angular-ui":
+    owner: base
+    layer: base
+    path: libs/base/frontend/angular/platform/ui
+    storybookProject: base-angular-ui
+    storybookOwnerTag: owner:base
+      - angular-single
+      - angular-multi
+      - mf-host-angular
+    alsoReExportedBy:
+      - "@josanz/angular-ui"
+
+  "@base/react-ui":
+    owner: base
+    layer: base
+    path: libs/base/frontend/react/platform/ui
+    storybookProject: base-react-ui
+    storybookOwnerTag: owner:base
+      - react-single
+      - react-multi
+      - mf-remote-react
+
+  "@base/react-shared":
+    owner: base
+    layer: base
+    path: libs/base/frontend/react/react-shared/src
+    consumedByApps:
+      - react-single
+      - react-multi
+
+  "@josanz/angular-ui":
+    owner: josanz
+    layer: clientes
+    path: libs/clientes/josanz/angular-ui
+    storybookProject: josanz-angular-ui
+    storybookOwnerTag: owner:josanz
+      - document-generator
+    consumedByFeaturePattern: "@josanz/*-features"
+    note: >
+      Product Figma kit. Features Josanz should import this package only,
+      not @base/angular-ui directly (re-export base primitives over time via UI1).
+
+  "@josanz/storybook":
+    owner: josanz
+    layer: clientes
+    path: libs/clientes/josanz/storybook
+    consumedByApps:
+      - josanz
+    note: >
+      Shared Storybook arg-types/helpers for Josanz stories. Import via
+      @josanz/storybook/arg-types (workspace:*); no tsconfig path (F11-DX6).
+
+  "@saas/shared-ui":
+    owner: productos-saas
+    layer: productos-saas
+    path: libs/productos-saas/crm/frontend/angular/shared/ui
+    extends: "@base/angular-ui"
+    consumedByApps:
+      - verifactu-platform
+    consumedByFeaturePattern: "@saas/*-feature"
+    note: >
+      CRM SaaS kit (gcrm-*). Re-exports @base/angular-ui; features import @saas/shared-ui only.
+
+featureUiRules:
+  "@josanz/*-features":
+    allowedUi:
+      - "@josanz/angular-ui"
+    forbiddenUi:
+      - "@base/angular-ui"
+      - "@arquetipos/*"
+    note: >
+      Josanz features import @josanz/angular-ui only. Generic primitives are
+      re-exported as Base* from @base/angular-ui (e.g. BaseSkeletonComponent).
+      Direct @base/angular-ui imports remain forbidden — enforced by
+      check:ui-ownership:strict in CI.
+
+  "@base/*-features":
+    allowedUi:
+      - "@base/angular-ui"
+      - "@base/react-ui"
+      - "@base/angular-ui"
+      - "@base/react-shared"
+    forbiddenUi:
+      - "@josanz/*"
+
+  "@arquetipos/*-features":
+    allowedUi:
+      - "@arquetipos/arquetipos-angular-ui"
+      - "@arquetipos/arquetipos-react-ui"
+    forbiddenUi:
+      - "@base/angular-ui"
+      - "@base/react-ui"
+      - "@josanz/*"
+      - "@saas/*"
+    note: >
+      Features compose Arq* wrappers from @arquetipos/arquetipos-*-ui (F19-UIWRAP).
+      Base primitives stay inside the wrappers; do not import @base/*-ui from features.
+
+  "@saas/*-feature":
+    allowedUi:
+      - "@saas/shared-ui"
+    forbiddenUi:
+      - "@base/angular-ui"
+      - "@josanz/*"
+      - "@arquetipos/*"
+    note: "@saas/shared-ui re-exports @base/angular-ui — features use SaaS package only."
+
+# Registered components (extend on each migration PR)
+components:
+  Button:
+    owner: base
+    status: stable
+    themedBy: josanz
+    packages:
+      - "@base/angular-ui"
+      - "@josanz/angular-ui"
+      - "@arquetipos/arquetipos-angular-ui"
+      - "@arquetipos/arquetipos-react-ui"
+    selectors:
+      base: lib-button
+      josanz: josanz-button
+      arquetipos: arq-button
+      arquetiposReact: ArqButton
+    consumers:
+      josanz: via-josanz-ui
+      angular-single: via-arquetipos-ui
+      react-single: via-arquetipos-ui
+
+  Input:
+    owner: base
+    status: stable
+    themedBy: josanz
+    packages:
+      - "@base/angular-ui"
+      - "@josanz/angular-ui"
+      - "@arquetipos/arquetipos-angular-ui"
+      - "@arquetipos/arquetipos-react-ui"
+    selectors:
+      base: lib-input
+      josanz: josanz-input
+      arquetipos: arq-input
+      arquetiposReact: ArqInput
+    consumers:
+      josanz: via-josanz-ui
+      angular-single: via-arquetipos-ui
+      react-single: via-arquetipos-ui
+
+  Table:
+    owner: base
+    status: stable
+    themedBy: arquetipos
+    packages:
+      - "@base/angular-ui"
+      - "@arquetipos/arquetipos-angular-ui"
+      - "@arquetipos/arquetipos-react-ui"
+    selectors:
+      base: lib-table
+      arquetipos: arq-table
+      arquetiposReact: ArqTable
+    consumers:
+      angular-single: via-arquetipos-ui
+      react-single: via-arquetipos-ui
+    note: Arq wrappers add striped/hoverable/compact/stickyHeader.
+
+  Card:
+    owner: base
+    status: stable
+    themedBy: arquetipos
+    packages:
+      - "@base/angular-ui"
+      - "@arquetipos/arquetipos-angular-ui"
+      - "@arquetipos/arquetipos-react-ui"
+    selectors:
+      base: lib-card
+      arquetipos: arq-card
+      arquetiposReact: ArqCard
+    consumers:
+      angular-single: via-arquetipos-ui
+      react-single: via-arquetipos-ui
+
+  Badge:
+    owner: base
+    status: stable
+    themedBy: arquetipos
+    packages:
+      - "@base/angular-ui"
+      - "@josanz/angular-ui"
+      - "@arquetipos/arquetipos-angular-ui"
+      - "@arquetipos/arquetipos-react-ui"
+    selectors:
+      base: lib-badge
+      arquetipos: arq-badge
+      arquetiposReact: ArqBadge
+    consumers:
+      josanz: via-josanz-ui
+      angular-single: via-arquetipos-ui
+      react-single: via-arquetipos-ui
+
+  Pagination:
+    owner: base
+    status: stable
+    themedBy: josanz
+    packages:
+      - "@base/angular-ui"
+      - "@josanz/angular-ui"
+    selectors:
+      base: lib-pagination
+      baseNumbered: lib-numbered-pagination
+      josanz: josanz-pagination
+    consumers:
+      josanz: via-josanz-ui
+      angular-single: direct
+
+  Select:
+    owner: base
+    status: stable
+    themedBy: josanz
+    packages:
+      - "@base/angular-ui"
+      - "@josanz/angular-ui"
+    selectors:
+      base: lib-select
+      josanz: josanz-select
+    consumers:
+      josanz: via-josanz-ui
+      angular-single: direct
+
+  Skeleton:
+    owner: base
+    status: stable
+    themedBy: josanz
+    packages:
+      - "@base/angular-ui"
+      - "@josanz/angular-ui"
+    selectors:
+      base: lib-skeleton
+      josanz: josanz-skeleton
+    consumers:
+      josanz: via-josanz-ui
+    note: F14-UI2 — base implementation; josanz wrapper injects theme tokens.
+
+  MainListLayout:
+    owner: josanz
+    status: promotion-deferred
+    note: F7-UI1 defers — depends on Josanz filter-tabs, list-view-selector, theme service.
+    packages:
+      - "@josanz/angular-ui"
+    consumers:
+      josanz: direct
+
+  JosanzFigmaDetailShell:
+    owner: josanz
+    status: stable
+    packages:
+      - "@josanz/angular-ui"
+    consumers:
+      josanz: direct
+
+  PageHeader:
+    owner: base
+    status: stable
+    packages:
+      - "@base/angular-ui"
+    consumers:
+      angular-single: direct
+      josanz: via-base-features-auth-clients
+
+promotionCandidates:
+  - name: Skeleton
+    from: "@josanz/angular-ui"
+    to: "@base/angular-ui"
+    agent: F14-UI2
+    status: promoted
+    reason: Base lib-skeleton + josanz-skeleton theme wrapper; BaseSkeletonComponent re-export.
+
+  - name: Badge
+    from: "@josanz/angular-ui"
+    to: "@base/angular-ui"
+    agent: F14-UI4
+    status: promoted
+    reason: lib-presentation-badge + josanz-badge theme wrapper (F14-UI1 tokens).
+
+  - name: Alert
+    from: "@josanz/angular-ui"
+    to: "@base/angular-ui"
+    agent: F14-UI4
+    status: promoted
+    reason: lib-presentation-alert + josanz-alert theme wrapper.
+
+  - name: EmptyState
+    from: "@josanz/angular-ui"
+    to: "@base/angular-ui"
+    agent: F14-UI4
+    status: promoted
+    reason: lib-presentation-empty-state + josanz-empty-state; actions stay Josanz chrome.
+
+  - name: MainListLayout
+    from: "@josanz/angular-ui"
+    to: "@base/angular-ui"
+    agent: UI1
+    status: deferred
+    reason: Josanz-specific layout chrome; extract after filter-tabs / list-view promotion.
+
+migrationTargets:
+  document-generator:
+    toBase:
+      - id: block-editor-host
+        origin: josanz-erp/libs/browser/feature/document-generator/src/lib/block-editor
+        target: "@base/angular-ui/document-editor"
+        status: promoted
+      - id: sanitize-export-svg
+        origin: josanz-erp/.../sanitize-export-svg.ts
+        target: "@base/shared"
+        status: proposed
+    toJosanzUi:
+      - id: theme-selector
+        origin: josanz-erp/.../theme-selector
+        target: "@josanz/angular-ui"
+        status: proposed
+      - id: document-generator-layout
+        origin: josanz-erp/.../document-generator-layout
+        target: "@josanz/angular-ui"
+        status: proposed
+    toFeatures:
+      - id: document-create-editor
+        origin: josanz-erp/.../document-create
+        target: "@josanz/documents-features/components"
+        status: proposed
