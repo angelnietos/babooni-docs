@@ -19,6 +19,10 @@ principles:
 
 # Storybook owner tags (F7-UI0.4) — project-level in each `.storybook/preview.ts`
 storybookOwnerTags:
+  base-native-ui:
+    package: "@base/native-ui"
+    preview: libs/base/frontend/crosscutting/native-ui/.storybook/preview.ts
+    tag: owner:base
   base-angular-ui:
     package: "@base/angular-ui"
     preview: libs/base/frontend/angular/platform/ui/.storybook/preview.ts

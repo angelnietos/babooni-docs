@@ -199,7 +199,7 @@ pnpm check:legacy-paths
 pnpm check:migration-encoding
 ```
 
-Última ronda cerrada: **[F52](./plans/rounds/plans-52-fifty-two-round/)**. Ronda activa (lista): **[F53](./plans/rounds/plans-53-fifty-three-round/)** — native-ui SoT + freeze UI framework + Storybook serve/native. Siguiente: **[F54](./plans/rounds/plans-54-fifty-four-round/)** — migración features, oleadas import, deprecation, CI SB/visual, tokens, a11y, **paridad arquetipos entre frameworks**. Índice: [plans/README.md](./plans/README.md).
+Última ronda cerrada: **[F54](./plans/rounds/plans-54-fifty-four-round/)**. Ronda activa (lista): **[F55](./plans/rounds/plans-55-fifty-five-round/)** — carry oleada Lit 2, Chromatic, coverage/parity strict, Code Connect, a11y. Índice: [plans/README.md](./plans/README.md).
 
 Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md) — unit → integration (Postgres) → e2e Playwright.
 

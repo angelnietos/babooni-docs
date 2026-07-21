@@ -2,11 +2,10 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
-> **Arranque:** tras F52 cerrada. Tema central: **primitivos Lit en
-> `@base/native-ui`** como única SoT cross-framework; frameworks solo wrappers;
-> Storybook `serve` + SB de native-ui.
+> Cerrado junto con F54 (wrappers 14+3 CEs, Storybook native, soft/strict gate,
+> inventario A3). Detalle en [F54 Resultado](../plans-54-fifty-four-round/README.md).
 
 ## Dependencias externas
 

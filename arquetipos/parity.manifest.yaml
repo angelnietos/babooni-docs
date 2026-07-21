@@ -1,0 +1,48 @@
+version: 1
+canary_domains:
+  - auth
+  - clients
+  - users
+  - audit
+architecture:
+  required_layers:
+    - api
+    - data-access
+    - shell
+    - features
+  thin_default: true
+  feature_shape:
+    - layout
+    - pages
+    - components
+ui:
+  policy: native-first
+  allowed_import_patterns:
+    - "@base/native-ui"
+    - "Native*"
+    - "ArqNative*"
+    - "@arquetipos/arquetipos-*-ui"
+  forbidden_new_in_features:
+    - ButtonComponent
+    - ArqButtonComponent
+    - ArqButton
+stacks:
+  angular-single:
+    parity_level: full
+  react-single:
+    parity_level: full
+  next-single:
+    parity_level: core
+  ionic-single:
+    parity_level: mobile
+  rn-single:
+    parity_level: token
+required_routes:
+  - auth
+  - clients
+  - users
+  - audit
+parity_rules:
+  - { id: arch-four-layers, type: architecture }
+  - { id: ui-native-only, type: ui-import }
+  - { id: clients-empty-error, type: behavior, ref: dual-stack-clients-parity.md }

@@ -14,21 +14,20 @@ Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `traslad
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| [plans-53-fifty-three-round](./rounds/plans-53-fifty-three-round/) | listo para ejecutar | Native-ui SoT + freeze framework UI + Storybook serve/native + imports + gates |
+| [plans-55-fifty-five-round](./rounds/plans-55-fifty-five-round/) | listo para ejecutar | Carry F54: oleada Lit 2, Chromatic, coverage/parity strict, Code Connect, a11y gaps |
 
 ## Siguiente (preparada)
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| [plans-54-fifty-four-round](./rounds/plans-54-fifty-four-round/) | listo para ejecutar | Migración features → native, oleadas import, deprecation, CI SB/visual, tokens, a11y, **paridad arquetipos**, gate strict |
-
-> F54 arranca tras **F53-F1** (o en paralelo solo docs). No marcar F53
-> `completado` desde la carpeta F54.
+| — | — | F56: remove primitivos `@deprecated` (F54-A3) + residual F55 |
 
 ## Rondas completadas (archivo)
 
 | Ronda | Tema |
 |-------|------|
+| [plans-54](./rounds/plans-54-fifty-four-round/) | Migración native wrappers, oleadas Lit, tokens, SB CI, parity, gate strict |
+| [plans-53](./rounds/plans-53-fifty-three-round/) | Native-ui SoT + freeze + wrappers/SB (cerrado en paralelo con F54) |
 | [plans-52](./rounds/plans-52-fifty-two-round/) | Publish workflow + workspace-deps strict + storybook + coverage soft + peers mobile |
 | [plans-51](./rounds/plans-51-fifty-one-round/) | Workspace Ionic + cobertura BE + mobile layers + SaaS typecheck + npm publish canario |
 | [plans-50](./rounds/plans-50-fifty-round/) | Typecheck FE + tests BE + int-specs + Metro/CI |

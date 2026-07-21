@@ -116,6 +116,7 @@ No empieces el primitivo dentro de una feature Josanz ni como Angular-only en ba
 | Feature con CSS suelto “provisional” eterno | Token / UI package |
 | Wrapper Josanz vacío “por si acaso” | Re-export |
 | Nuevo primitivo framework-only en base | CE + `Native*` |
+| Feature plantilla importando `ArqButton` / `ButtonComponent` legacy | `ArqNative*` / `Native*` (`check:ui-native-first`) |
 | Un Storybook de producto mezclando capas base | Ownership por paquete; SB native primero |
 
 ---

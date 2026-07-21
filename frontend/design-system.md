@@ -36,22 +36,27 @@ Gate: `node tools/scripts/check-ui-ownership.mjs` (F53+: soft native-first).
 
 | Proyecto | Serve (objetivo) | Build | Puerto (ref.) |
 |----------|------------------|-------|----------------|
-| `base-native-ui` | sí (F53-B2) | sí | ~4400 |
+| `base-native-ui` | sí (`nx storybook base-native-ui`, :6007) | sí (CI) | 6007 |
 | `base-angular-ui` | sí (F53-B1) | sí (CI) | ~4402 |
 | `base-react-ui` | sí (F53-B1) | sí (CI) | ~4403 |
 | `josanz-angular-ui` | sí | sí | 4401 |
 
 - Stories en el paquete **dueño** del componente.
 - Plantillas Arquetipos: targets Nx o deprecación explícita (F53-D2).
-- CI visual / Chromatic: F54-B1.
+- **CI visual / Chromatic:** defer F55 — sin token Chromatic; `build-storybook`
+  `base-native-ui` en CI basta como señal de rotura de stories (F54-B1).
 
 ```bash
-# Cuando existan targets F53:
 pnpm nx storybook base-native-ui
+pnpm nx build-storybook base-native-ui
 pnpm nx storybook base-angular-ui
 pnpm nx storybook base-react-ui
 pnpm nx storybook josanz-angular-ui
 ```
+
+Tokens compartidos: `@base/ui-tokens` (+ `./css`, `./rn`). A11y:
+[native-ui-a11y-matrix.md](./native-ui-a11y-matrix.md). Figma:
+[figma-native-ui-map.md](./figma-native-ui-map.md).
 
 ## Figma / handoff
 
@@ -59,7 +64,7 @@ pnpm nx storybook josanz-angular-ui
 2. Marcar qué es **native / base wrapper** vs **variante de producto**.
 3. Implementar: **CE en native-ui primero**; luego wrapper; re-export o wrap de marca.
 4. Actualizar `ui-component-catalog.yaml` si el ownership cambia.
-5. Code Connect ↔ native-ui: [F54-D1](../plans/rounds/plans-54-fifty-four-round/1750000108000-f54-figma-code-connect-native-ui.md).
+5. Code Connect ↔ native-ui: [figma-native-ui-map.md](./figma-native-ui-map.md).
 
 ## Tokens
 

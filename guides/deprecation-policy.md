@@ -85,8 +85,8 @@ Los primitivos Angular/React/Ionic **paralelos** a `@base/native-ui` están
 | Fase | Acción |
 |------|--------|
 | F53+ | No añadir/evolucionar (salvo bug crítico) |
-| F54-A3 | Marcar `@deprecated` + alternativa `Native*` |
-| F55+ (planificado) | Remove en `major` tras ventana de política |
+| F54-A3 | Marcar `@deprecated` + alternativa `Native*` (**hecho** 2026-07-22) |
+| F56+ (planificado) | Remove en `major` tras ventana de política |
 
 Sigue las reglas JSDoc de § Paquetes. Branding `@josanz/angular-ui` **no** se
 depreca en bloque por este freeze.

@@ -34,7 +34,7 @@ flowchart LR
 |---------|--------|
 | Mode | Independent (`projectsRelationship: independent`) |
 | Filtro | `tag:publishable` |
-| Oleada | `@base/shared`, `@base/native-ui`, `@base/angular-ui` @ `0.1.0` |
+| Oleada | `@base/shared`, `@base/native-ui`, `@base/angular-ui`, `@base/react-ui`, `@base/ui-tokens` @ `0.1.0` |
 | Peers Angular UI | `@angular/common|core|router` ^21, `rxjs` ^7.8 |
 | Peers Ionic UI | `@angular/*` ~21.2, `@ionic/angular` ^8.5 |
 | Peers RN UI | `react`/`react-dom` **18.3.1**, `react-native` 0.76.9 |
