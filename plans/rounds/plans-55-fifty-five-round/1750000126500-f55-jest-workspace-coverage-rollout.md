@@ -21,7 +21,7 @@ outputs quedan incompletos.
 
 | Artefacto | Rol |
 |-----------|-----|
-| `jest.shared.cjs` | cache `node_modules/.cache/jest`, reporters, `collectCoverageFrom` |
+| `jest.shared.cjs` | cache `node_modules/.cache/jest`, reporters; **no** default `collectCoverageFrom` (opt-in inventory) |
 | `jest.preset.js` | `@nx/jest/preset` + shared (React / Node / isomórfico) |
 | `jest.preset.angular.cjs` | `jest-preset-angular` + shared |
 | `pnpm test:coverage*` | `nx … test -- --coverage` + `merge-jest-coverage.mjs` |

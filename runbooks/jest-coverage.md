@@ -10,15 +10,23 @@ isomórfico). Nx (`@nx/jest/plugin`) infiere `test` desde `jest.config.*`.
 
 | Archivo | Uso |
 |---------|-----|
-| `jest.shared.cjs` | Defaults: cache, reporters, `collectCoverageFrom`, `coverageDirectory` |
+| `jest.shared.cjs` | Defaults: cache, reporters, `coverageDirectory` (sin forzar inventario) |
 | `jest.preset.js` | React / Node / isomórfico (`@nx/jest/preset` + shared) |
 | `jest.preset.angular.cjs` | Angular (`jest-preset-angular` + shared) |
 | `tools/scripts/merge-jest-coverage.mjs` | Une `coverage-final.json` → `coverage/global/` |
+
+**Qué aparece en el HTML de coverage:** por defecto **solo módulos cargados** durante
+la corrida. Un `collectCoverageFrom: ['src/**']` amplio mete todos los `.ts` en el
+informe (filas a **0%** aunque los CEs Lit estén mockeados). Por eso el shared
+**no** define `collectCoverageFrom`; los gates BE usan su propio globs en
+`libs/base/backend/jest.config.cts`. Opt-in inventario: `OPT_IN_COLLECT_COVERAGE_FROM`
+en `jest.shared.cjs`.
 
 **Salida por proyecto:** `coverage/<projectRoot>/` (lcov, html, json, json-summary).  
 **Global:** `coverage/global/` tras el merge.  
 **Cache Jest:** `node_modules/.cache/jest`.  
 **Cache Nx:** target `test` cacheable; inputs incluyen los presets del root.
+
 
 ## Apps vs libs
 
@@ -96,8 +104,9 @@ Jest desde la raíz del repo con `-c path/to/config` → a menudo `coverage/root
 | Síntoma | Causa / fix |
 |---------|-------------|
 | Merge: “no coverage-final.json” | Falta reporter `json` (viene en shared) o no corriste `--coverage` |
+| HTML lleno de carpetas a **0%** | Había `collectCoverageFrom` amplio — shared ya no lo fuerza; regenera coverage |
 | `react` / `react-dom` version mismatch | Pin dirs desde workspace root (ver `base-react-ui` jest.config) |
-| Lit ESM en Jest CJS | Mock `@base/native-ui` / shim `registerNativeUi` |
+| Lit ESM en Jest CJS | Mock `@base/native-ui` / shim `registerNativeUi` (CEs no se ejecutan → no piden coverage) |
 | Comentario `/**/` en globs | Cierra JSDoc ESM — no usar `**/` dentro de `/** … */` |
 | Cache Nx no restaura coverage | `outputs` del target deben incluir `coverage/...` (plugin + `coverageDirectory`) |
 
