@@ -180,7 +180,7 @@ pnpm check:legacy-paths
 pnpm check:migration-encoding
 ```
 
-Última ronda completada: **F48**. Pendiente / activa: ver [plans/README.md](./plans/README.md) (F49 listo, F47 en progreso).
+Última ronda cerrada: **F49** (parcial; A3/A4 → F50). Ronda activa: **[F50](./plans/rounds/plans-50-fifty-round/)** — typecheck FE + tests + DX. Índice: [plans/README.md](./plans/README.md).
 
 Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md) — unit → integration (Postgres) → e2e Playwright.
 

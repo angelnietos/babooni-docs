@@ -2,12 +2,13 @@
 
 ## Estado
 
-listo para ejecutar
+en progreso (F50-B1 completado)
 
 ## Dependencias externas
 
 - F49 cerrada (parcial): A1/A2/B1 hechos; A3/A4 → esta ronda.
 - Biblia operativa ampliada (docs motor): hub, testing-pyramid, UI wrap, mobile/Next/Keycloak.
+- F47 cerrada como superseded (F50-B1).
 
 ## Hitos
 
@@ -16,7 +17,7 @@ listo para ejecutar
 | F50-A1 | [Frontend typecheck coverage](1750000050000-f50-frontend-typecheck-coverage.md) | Carry F49-A3 |
 | F50-A2 | [Tests backend faltantes](1750000051000-f50-add-missing-backend-tests.md) | Carry F49-A4 |
 | F50-A3 | [Tipar int-specs / residual `as any` en tests](1750000052000-f50-cleanup-any-casts-in-int-specs.md) | Carry F49-A2 residual |
-| F50-B1 | [Cerrar rondas zombie F47 (+ alinear F43)](1750000053000-f50-close-stale-rounds.md) | Deuda planes |
+| F50-B1 | [Cerrar rondas zombie F47 (+ alinear F43)](1750000053000-f50-close-stale-rounds.md) | **completado** |
 | F50-C1 | [DX mobile Metro + matriz puertos](1750000054000-f50-mobile-metro-and-ports-dx.md) | Motor opt-in |
 | F50-C2 | [Gates CI ↔ biblia (PR checklist)](1750000055000-f50-align-ci-gates-with-bible.md) | Calidad |
 | F50-D1 | [Documentación y cierre F50](1750000056000-f50-documentation.md) | Cierre |

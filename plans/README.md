@@ -14,7 +14,7 @@ Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `traslad
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| [plans-50-fifty-round](./rounds/plans-50-fifty-round/) | listo para ejecutar | Typecheck FE + tests BE + int-specs + DX Metro/CI + higiene planes |
+| [plans-50-fifty-round](./rounds/plans-50-fifty-round/) | en progreso | Typecheck FE + tests BE + int-specs + DX Metro/CI (B1 hecho) |
 
 ## Rondas completadas (archivo)
 
