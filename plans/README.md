@@ -8,20 +8,21 @@ Planes de trabajo del monorepo. **No son la biblia operativa** — si contradice
 - **`rounds/`** — rondas `plans-{n}-{nombre}-round/` (histórico + activas).
 - **`global/`** — políticas transversales (`F00-*`).
 
-Estado por plan: `listo para ejecutar` | `en progreso` | `completado`.
+Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `trasladado`.
 
-## Rondas activas / pendientes
+## Ronda activa
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| [plans-49-forty-nine-round](./rounds/plans-49-forty-nine-round/) | listo para ejecutar | Deep imports finales + any-cast + FE typecheck |
-| [plans-47-forty-seven-round](./rounds/plans-47-forty-seven-round/) | en progreso | Cierre deuda F43 + typecheck + polish |
+| [plans-50-fifty-round](./rounds/plans-50-fifty-round/) | listo para ejecutar | Typecheck FE + tests BE + int-specs + DX Metro/CI + higiene planes |
 
 ## Rondas completadas (archivo)
 
 | Ronda | Tema |
 |-------|------|
-| [plans-48](./rounds/plans-48-forty-eight-round/) | Typecheck hygiene + barrels + deep-imports + any-cast |
+| [plans-49](./rounds/plans-49-forty-nine-round/) | Deep-imports + any impl. (A3/A4 → F50) |
+| [plans-48](./rounds/plans-48-forty-eight-round/) | Typecheck hygiene + barrels + deep-imports + any-cast specs |
+| [plans-47](./rounds/plans-47-forty-seven-round/) | Superseded por F48/F49 (harness / deep-imports / josanz-ui) |
 | [plans-46](./rounds/plans-46-forty-six-round/) | Typecheck hygiene + DX |
 | [plans-45](./rounds/plans-45-forty-five-round/) | Cierre F44 + typecheck + Node/Nx + harness |
 | [plans-44](./rounds/plans-44-forty-four-round/) | Deprecation hygiene + versionado |
