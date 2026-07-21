@@ -1,17 +1,32 @@
-# Planes activos
+# Planes
 
-Este directorio contiene los **planes de trabajo en curso** del proyecto.
-No es un archivo histórico: cuando una ronda se cierra, su plan se elimina de aquí
-(queda en git para trazabilidad).
+Este directorio contiene los **planes de trabajo** del proyecto.
+
+## Estructura
+
+- **`rounds/`** — rondas cerradas/archivadas (`plans-{n}-{nombre}-round/`).
+- **`global/`** — planes globales transversales (no ligados a una ronda).
+
+Los planes activos de ronda se mantienen en sus carpetas dentro de `rounds/`
+hasta que se cierran. Cuando una ronda termina, su carpeta permanece en git
+para trazabilidad.
 
 ## Convención
 
-- **1 plan por ronda** con ID `F{N}-*` (ej. `F41-*`, `F42-*`).
-- Cada ronda tiene su propia carpeta: `plans-{n}-{nombre}-round/`.
+- **Rondas:** una carpeta por ronda con ID `F{N}-*` (ej. `F41-*`, `F42-*`).
+  Formato de carpeta: `plans-{n}-{nombre}-round/`.
+- **Globales:** archivo único con ID `F00-*` para políticas transversales.
 - Estado de cada plan: `listo para ejecutar` | `en progreso` | `completado`.
-- Dependencias entre planes se documentan en la sección de orden de ejecución.
 
-## Ronda actual
+## Rondas archivadas
 
-- `plans-42-forty-two-round/` — ronda F42 activa (cierre de deuda remanente F41).
-- `plans-41-forty-one-round/` — ronda F41 completada (deuda principal cerrada; detalle en su README).
+- `rounds/plans-46-forty-six-round/` — ronda F46 en progreso (typecheck hygiene + DX improvements).
+- `rounds/plans-45-forty-five-round/` — ronda F45 completada (cierre F44 + cobertura typecheck + compatibilidad Node/Nx + harness tests + documentación).
+- `rounds/plans-44-forty-four-round/` — ronda F44 completada (deprecation hygiene + versionado + specs remanentes).
+- `rounds/plans-43-forty-three-round/` — ronda F43 activa (consolidación facade + cleanup remanente F42).
+- `rounds/plans-42-forty-two-round/` — ronda F42 iniciada; F42-B1 completado en F43-A1; B2/B3/F1/B4 pendientes para F43.
+- `rounds/plans-41-forty-one-round/` — ronda F41 completada (deuda principal cerrada; detalle en su README).
+
+## Planes globales
+
+- `global/F00-node-nx-compatibility.md` — política de compatibilidad Node.js ↔ Nx y prevención de incompatibilidades de versiones.

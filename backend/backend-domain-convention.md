@@ -330,6 +330,32 @@ Si el dominio es kernel compartido sin reglas Josanz: solo capas `@base/*` + mó
 
 ---
 
+## CQRS Facade pattern (F42-B1 / F43-A1)
+
+`CqrsFacade<TDto>` y `TenantScopedCqrsFacade<TDto>` ahora aceptan **4 tipos genéricos**:
+
+```typescript
+CqrsFacade<
+  TDto,                        // DTO de respuesta
+  TCreateDto = Omit<TDto,'id'>,  // payload create
+  TUpdateDto = Partial<TDto>,     // payload update
+  TQueryDto = { tenantId?: string } & QueryOptions  // query findPage
+>
+```
+
+- **Thin domains** (`billing`, `inventory`, `projects`, `roles`, `tenants`): usan los defaults → `CqrsFacade<T>` o `TenantScopedCqrsFacade<T>`.
+- **Thick domains** (`clients`, `users`, `settings`): inyectan los 4 parámetros con sus DTOs específicos:
+  ```typescript
+  export class ClientsService extends TenantScopedCqrsFacade<
+    ClientDto, CreateClientDto, UpdateClientDto, ListClientsQueryDto
+  > { ... }
+  ```
+- `findPage` acepta un **objeto query** (`{ tenantId, page, pageSize, sort, order, ... }`) en vez de `(tenantId, options)`. Los controllers construyen el objeto y lo pasan completo.
+- `update(id, data, tenantId?)`: la firma base recibe `(id, data, tenantId)`; los thick domains delegan con `override update(id, data, tenantId)`.
+- Métodos extra del dominio (`findByEmail`, `sendInviteEmail`) se declaran como métodos propios sin relación con la interfaz base.
+
+Esto elimina los `// @ts-expect-error TS2416` que antes eran necesarios para sobreescribir métodos con DTOs específicos.
+
 ## Verificación
 
 ```bash

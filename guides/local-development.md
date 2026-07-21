@@ -98,6 +98,7 @@ Un cambio nuevo debe preservar «arranca sin infra opcional».
 | Sin datos en dashboard | Sin seed | `pnpm josanz:bootstrap` |
 | Errores TS en `*-features/*` paths | Artefacto IDE | Wildcards en `tsconfig.base.json` — `tsc` sí pasa |
 | `pnpm install` falla workspace | Falta `workspace:*` | `pnpm add @base/foo --filter @josanz/bar --workspace` |
+| Language server Nx no responde / cuelga | Node fuera de rango para Nx | 1) Recargar VS Code. 2) `pnpm nx reset`. 3) `pnpm check:node-nx` para verificar compatibilidad. |
 
 ---
 
@@ -130,3 +131,15 @@ Puertos: Postgres `5440`, Redis `6381`, CRM API `3120`, Worker `3130`, Platform 
 - [database-migrations.md](../runbooks/database-migrations.md)
 - [pnpm-layout.md](../runbooks/pnpm-layout.md)
 - [kafka-redis-outage.md](../runbooks/kafka-redis-outage.md)
+
+## Compatibilidad Node ↔ Nx
+
+El workspace usa Nx `23.x`, que soporta Node `20.x` y `22.x`. No usar Node `24.x` con esta versión de Nx.
+
+Para verificar compatibilidad:
+
+```bash
+pnpm check:node-nx
+```
+
+Si el script falla, actualiza Node a una versión compatible (ver matriz en `docs/plans/global/F00-node-nx-compatibility.md`).
