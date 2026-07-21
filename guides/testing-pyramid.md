@@ -79,16 +79,19 @@ Garantiza que `findById` añade `tenantId` al `where` (multi-tenant).
 ## Comandos
 
 ```bash
-# Unit @base/backend
-pnpm exec jest -c libs/base/backend/jest.config.cts
+# Unit affected (preferido; Nx cachea tests sin cambios)
+pnpm test:affected
 
-# Coverage gate (audit / settings / tenants) — F51-A3
+# Coverage por proyecto → coverage/<projectRoot>/  (+ merge global)
+pnpm test:coverage:affected          # Jest --coverage en affected
+pnpm test:coverage:merge             # → coverage/global/ (html, lcov, summary)
+pnpm test:coverage:report:affected   # coverage + merge
+
+# Unit @base/backend (gate F51 domains)
+pnpm exec jest -c libs/base/backend/jest.config.cts
 pnpm test:cov
 pnpm test:cov:check
 pnpm test:cov:domains
-
-# Affected (preferido)
-pnpm test:affected
 
 # Integration (requiere Postgres en :5440)
 pnpm exec jest -c libs/base/backend/jest.integration.config.ts
@@ -96,6 +99,11 @@ pnpm exec jest -c libs/base/backend/jest.integration.config.ts
 # E2E Josanz
 pnpm exec playwright test -c apps/clientes/josanz/frontend/josanz-e2e/playwright.config.mts --project=chromium
 ```
+
+**Jest global:** `jest.preset.js` + `jest.shared.cjs` (cache en
+`node_modules/.cache/jest`, reporters lcov/html/json-summary, `coverage/` por
+proyecto). Angular con `jest-preset-angular`: `workspaceJestDefaults()` o
+`jest.preset.angular.cjs`.
 
 Si `nx test` cuelga: [nx-daemon.md](../runbooks/nx-daemon.md) o jest directo.
 
