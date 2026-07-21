@@ -19,7 +19,9 @@ Cuándo usarla: localizar la plantilla FE correcta tras decidir stack.
 - Misma arquitectura 4 capas que Angular (paridad canario clients).
 - Útil cuando el equipo es React y **no** hace falta Next.
 
-Paridad: [../frontend/dual-stack-clients-parity.md](../frontend/dual-stack-clients-parity.md).
+Paridad: [../frontend/dual-stack-clients-parity.md](../frontend/dual-stack-clients-parity.md)
+(canario clients). Marco multi-framework + tooling:
+[F54-B4](../plans/rounds/plans-54-fifty-four-round/1750000104500-f54-arquetipos-cross-framework-parity.md).
 
 ---
 

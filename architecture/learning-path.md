@@ -64,7 +64,8 @@ Elige **clients** (dominio de referencia).
 ## L3 — Producto y marca (mid)
 
 1. [guides/add-frontend-domain.md](../guides/add-frontend-domain.md) + [add-backend-domain.md](../guides/add-backend-domain.md)
-2. [ui-re-export-vs-wrapper.md](../guides/ui-re-export-vs-wrapper.md) + [design-system.md](../frontend/design-system.md)
+2. [ui-re-export-vs-wrapper.md](../guides/ui-re-export-vs-wrapper.md) + [design-system.md](../frontend/design-system.md) + [ui-strategy.md](../frontend/ui-strategy.md) (SoT Lit / freeze)
+3. ADRs [0010](../adr/adr-0010-native-ui-lit-sot.md) · [0011](../adr/adr-0011-storybook-native-ui-first.md) · [0006](../adr/adr-0006-frontend-layering.md)
 3. [josanz-product-exceptions.md](../frontend/josanz-product-exceptions.md)
 4. [../arquetipos/how-to-use.md](../arquetipos/how-to-use.md) — copiar plantilla sin clonar Facebook
 5. ADR [0008](../adr/adr-0008-platform-scope-vs-mvp-client.md) — MVP vs opt-in

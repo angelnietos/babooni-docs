@@ -71,7 +71,22 @@ documentada y migrable sin sorpresas para consumidores internos y externos.
 
 ## Publicación npm
 
-Versionar/publicar libs publicables (cuando el tooling exista):
+Versionar/publicar libs publicables:
 [npm-publish-and-versioning.md](./npm-publish-and-versioning.md)
 (F51-E1 / F52-A1). Esta política de deprecación aplica al semver de esos
 paquetes; no sustituye el flujo de release.
+
+## UI framework-only en `@base/*-ui` (F53 / F54)
+
+Los primitivos Angular/React/Ionic **paralelos** a `@base/native-ui` están
+**congelados** ([ADR 0010](../adr/adr-0010-native-ui-lit-sot.md),
+[ui-strategy § freeze](../frontend/ui-strategy.md)):
+
+| Fase | Acción |
+|------|--------|
+| F53+ | No añadir/evolucionar (salvo bug crítico) |
+| F54-A3 | Marcar `@deprecated` + alternativa `Native*` |
+| F55+ (planificado) | Remove en `major` tras ventana de política |
+
+Sigue las reglas JSDoc de § Paquetes. Branding `@josanz/angular-ui` **no** se
+depreca en bloque por este freeze.

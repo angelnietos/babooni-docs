@@ -2,40 +2,24 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
-## Objetivo
+## Resultado
 
-F51-E1 define el sistema de publicación (`.npmrc`, Nx Release, tags
-`publishable`, oleada canario `@base/*`). Si al cerrar F51 quedan gaps
-(herramienta a medias, sin dry-run, sin guía), **esta ronda los cierra**
-sin reescribir el diseño.
+F51-E1 canario ya cerrado. Gaps residuales cerrados aquí:
 
-Si F51-E1 ya está `completado` con todos los criterios, este plan se reduce a
-**verificación** + Resultado «nada que hacer» y se marca completado.
+| Gap | Entrega |
+|-----|---------|
+| Publish real | `pnpm publish:publishable` + workflow [release-publishable.yml](../../../../.github/workflows/release-publishable.yml) (`workflow_dispatch`, dry-run default) |
+| Guía | [npm-publish-and-versioning.md](../../../guides/npm-publish-and-versioning.md) — Verdaccio, GH Actions, peers |
+| Dry-run | `publish:publishable` → 3 tarballs semver, sin upload |
+| Scopes producto | Sin publicar `@josanz` / `@saas` |
 
-## Contexto (baseline al abrir F52)
-
-| Pieza | Esperado tras F51-E1 | Si falta → trabajo aquí |
-|-------|----------------------|-------------------------|
-| `.npmrc` / `.npmrc.example` | Presente | Crear + documentar secretos CI |
-| `nx.json` → `release` | Config independent | Añadir groups `@base` canario |
-| Guía operativa | `docs/guides/npm-publish-and-versioning.md` | Completar (ver F52-C2) |
-| Dry-run pack/publish | Oleada canario verde | Ejecutar y fijar `files`/`publishConfig` |
-| Tag `publishable` | En libs candidatas | Inventario + tags |
-
-## Tareas
-
-1. Auditar estado real vs criterios de [F51-E1](../plans-51-fifty-one-round/1750000067000-f51-npm-publish-and-lib-versioning.md).
-2. Completar gaps: registry example, `NPM_TOKEN` en docs CI (sin secretos),
-   `nx release --dry-run` / `npm pack` en canarios.
-3. Verificar que artefactos publicados **no** llevan `workspace:*` crudo.
-4. Gate opcional `check:publishable-deps` (o documentar por qué se difiere).
-5. Enlazar Resultado a F52-C2 (guía) y deprecation-policy.
+Residual = 0 para oleada canario. Ampliar oleada / registry product → futura ronda.
 
 ## Criterios de aceptación
 
-- [ ] Checklist F51-E1 100% verde **o** Residual explícito = 0 para canarios.
-- [ ] `.npmrc.example` en repo (sin tokens).
-- [ ] Al menos un `nx release` / pack dry-run documentado en Resultado.
-- [ ] No publicar scopes producto (`@josanz`, `@saas`) sin decisión explícita.
+- [x] Checklist F51-E1 100% + residual canario = 0.
+- [x] `.npmrc.example` presente.
+- [x] Pack + publish dry-run documentados.
+- [x] No publicar scopes producto sin decisión.

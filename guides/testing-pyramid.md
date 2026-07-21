@@ -117,7 +117,9 @@ Si `nx test` cuelga: [nx-daemon.md](../runbooks/nx-daemon.md) o jest directo.
    en el plan / este guide (crypto `audit-hash`, Nest `audit.extension`, entity,
    Prisma repos → int-specs).
 
-Gate CI estricto: diferido a F52 cuando el harness local/CI midan igual.
+Gate CI (F52-B2): **soft** en job `quality` (`continue-on-error` + artifact
+`base-backend-coverage`). Strict (fail job) diferido tras N PRs estables —
+dueño: maintainers backend / siguiente ronda si el soft no falla en main.
 
 ---
 

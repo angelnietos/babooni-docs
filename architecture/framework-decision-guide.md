@@ -90,8 +90,11 @@ deploys separados). No por “tener el arquetipo MF”.
 
 Independiente de Angular vs React vs Next:
 
-- Primitivos en `@base/native-ui` (Lit CE)
-- Wrappers por framework + marca
+- **SoT:** primitivos en `@base/native-ui` (Lit CE) — [ADR 0010](../adr/adr-0010-native-ui-lit-sot.md)
+- Wrappers por framework (`Native*`) + marca; **freeze** de primitivos
+  solo-framework nuevos en base ([ui-strategy](../frontend/ui-strategy.md) § freeze)
+- Storybook: native primero — [ADR 0011](../adr/adr-0011-storybook-native-ui-first.md)
+- RN: tokens/API, no Lit en native
 
 Ver [../frontend/ui-strategy.md](../frontend/ui-strategy.md).
 

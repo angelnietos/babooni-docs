@@ -7,10 +7,10 @@ Capas, stacks (Angular / React / Next / mobile), UI nativa (Lit) y paridad.
 | Orden | Doc | Contenido |
 |-------|-----|-----------|
 | 1 | [how-it-works.md](./how-it-works.md) | 4 capas, apps thin, data flow |
-| 2 | [ui-strategy.md](./ui-strategy.md) | Lit native-ui + wrappers por framework |
+| 2 | [ui-strategy.md](./ui-strategy.md) | Lit native-ui SoT + freeze + wrappers ([ADR 0010](../adr/adr-0010-native-ui-lit-sot.md)) |
 | 3 | [../architecture/framework-decision-guide.md](../architecture/framework-decision-guide.md) | Cuándo Angular / React / Next / RN |
 | 4 | [../architecture/frontend-deep-dive.md](../architecture/frontend-deep-dive.md) | Deep dive capas |
-| 5 | [design-system.md](./design-system.md) | Tokens, Storybook, catálogo |
+| 5 | [design-system.md](./design-system.md) | Tokens, Storybook ([ADR 0011](../adr/adr-0011-storybook-native-ui-first.md)), catálogo |
 | 6 | [arquetipos-thin-libs.md](./arquetipos-thin-libs.md) | Thin libs plantilla |
 | 7 | [workspace-packages.md](./workspace-packages.md) | exports ↔ paths |
 

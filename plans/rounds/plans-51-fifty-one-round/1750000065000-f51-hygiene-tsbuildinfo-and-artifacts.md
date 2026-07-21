@@ -2,21 +2,21 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
 Evitar que artefactos de typecheck (`*.tsbuildinfo`) y similares entren en
 commits / PRs. Alinear `.gitignore` y limpiar tracked si aplica.
 
-## Tareas
+## Resultado
 
-1. Auditar `git ls-files '*.tsbuildinfo'`.
-2. Añadir / confirmar ignore en `.gitignore`.
-3. `git rm --cached` de tracked sin borrar el archivo local si es útil.
-4. Opcional: script pre-commit / check en CI que falle si se stagean.
+- `.gitignore`: `*.tsbuildinfo` + `**/*.tsbuildinfo`.
+- Untracked del índice: `apps/arquetipos/frontend/nextjs/next-{single,multi}/tsconfig.tsbuildinfo`
+  (`git rm --cached`).
+- `git ls-files '*.tsbuildinfo'` → vacío.
 
 ## Criterios de aceptación
 
-- [ ] Ningún `*.tsbuildinfo` tracked (salvo excepción documentada).
-- [ ] `.gitignore` cubre el patrón.
+- [x] Ningún `*.tsbuildinfo` tracked.
+- [x] `.gitignore` cubre el patrón.

@@ -25,9 +25,11 @@ flowchart LR
 | [backend-apps.md](./backend-apps.md) | Monolito, gateway, clients-ms |
 | [frontend-apps.md](./frontend-apps.md) | Angular, React, Next, MF |
 | [mobile-apps.md](./mobile-apps.md) | Ionic + React Native Expo |
+| [parity.md](./parity.md) *(F54-B4)* | Paridad multi-framework + tooling — doc se crea al ejecutar el plan |
 
 Libs thin: [../frontend/arquetipos-thin-libs.md](../frontend/arquetipos-thin-libs.md).  
-Decisión de stack: [../architecture/framework-decision-guide.md](../architecture/framework-decision-guide.md).
+Decisión de stack: [../architecture/framework-decision-guide.md](../architecture/framework-decision-guide.md).  
+Paridad plantillas (plan): [F54-B4](../plans/rounds/plans-54-fifty-four-round/1750000104500-f54-arquetipos-cross-framework-parity.md).
 
 ---
 

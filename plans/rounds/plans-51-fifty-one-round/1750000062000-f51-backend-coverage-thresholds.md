@@ -16,8 +16,12 @@ umbral ≥ 80% en el scope audit / settings / tenants (o justificar gaps).
 - `collectCoverageFrom` acotado a `domains/{audit,settings,tenants}/**`.
 - Exclusiones: `audit-hash.ts`, `audit.extension.ts`, `audit.entity.ts`,
   Prisma repos (`*.prisma.repository.ts`), barrels/modules/DTOs/commands/queries/ports.
-- Umbrales: global + por dominio — statements/functions/lines **80%**, branches **65%**.
+- Umbrales: **global** statements/functions/lines **80%**, branches **65%**
+  (scope ya limitado por `collectCoverageFrom`). No usar keys por carpeta
+  (`./src/lib/domains/audit/`) — en Windows Istanbul reporta paths absolutos y
+  Jest falla con *Coverage data for … was not found*.
 - Output: `coverage/libs/base/backend`.
+- Gate: `pnpm test:cov:check` = coverage + `testPathPatterns` audit|settings|tenants.
 
 **Scripts root:**
 

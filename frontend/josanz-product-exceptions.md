@@ -116,6 +116,17 @@ provideEffects(usersStore.Effects);
 
 ---
 
+## F52-B1 — `@josanz/storybook` (tooling, no dominio)
+
+| Decisión | Tooling Storybook en `libs/clientes/josanz/storybook` — **no** es dominio 4 capas |
+|----------|-----------------------------------------------------------------------------------|
+
+- Tags: `layer:clientes`, `runtime:angular`, `type:tooling`.
+- Heurística `check-lib-layout`: path `…/clientes/*/storybook` → `runtime:angular`.
+- Exporta helpers (`./arg-types`); no lazy-load de features.
+
+---
+
 ## Comparativa rápida
 
 | Caso | Path / paquete | Capas Josanz | Fuente de verdad |

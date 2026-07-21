@@ -20,10 +20,12 @@ changes can be evaluated against the original rationale.
 | [0007](adr-0007-http-trace-context.md) | HTTP trace context | Propagate W3C traceparent across FE→API |
 | [0008](adr-0008-platform-scope-vs-mvp-client.md) | Platform vs MVP client | Default client = web SPA + monolith; Next/RN/Ionic/MF/MS are opt-in |
 | [0009](adr-0009-cqrs-nest.md) | Nest CQRS in hexagonal kernel | Commands/Queries only; facades dispatch; AI-gateable writes |
+| [0010](adr-0010-native-ui-lit-sot.md) | Lit native-ui SoT | `@base/native-ui` = cross-framework SoT; freeze framework-only primitives in base; wrappers + RN tokens |
+| [0011](adr-0011-storybook-native-ui-first.md) | Storybook native-first | SB serve+build on native-ui; serve on base Angular/React UI; ownership by package |
 
 ## How to use these
 
-- Before changing a cross-cutting system (auth, encryption, events, tenancy),
+- Before changing a cross-cutting system (auth, encryption, events, tenancy, **UI SoT**),
   read its ADR and respect the stated **consequences**.
 - To propose a reversal or a new cross-cutting decision, add a new
   `adr-NNNN-*.md` (copy the accepted format) and link it here. Keep the table
@@ -34,4 +36,5 @@ changes can be evaluated against the original rationale.
 ## Enlaces
 
 - [architecture/overview.md](../architecture/overview.md) — mapa mental apps vs libs
+- [frontend/ui-strategy.md](../frontend/ui-strategy.md) — Lit + wrappers (operativo)
 - [docs/README.md](../README.md) — biblia del monorepo

@@ -8,7 +8,10 @@ Receta para un **dominio de producto** (patrón Josanz). Para plantillas Arqueti
 
 1. Elige un **slug** único (`orders`, `fleet`, …) — plural en rutas HTTP (`/api/orders`).
 2. Confirma si el dominio es **solo UI** (consume API existente) o necesita **backend nuevo** → [add-backend-domain.md](./add-backend-domain.md).
-3. UI de marca → `@josanz/angular-ui`. Genérico → `@base/angular-ui`.
+3. UI de marca → `@josanz/angular-ui`. Genérico → preferir wrappers `Native*`
+   de `@base/angular-ui` / CE `@base/native-ui` ([ui-strategy](../frontend/ui-strategy.md),
+   [ADR 0010](../adr/adr-0010-native-ui-lit-sot.md)). **No** nuevos primitivos
+   solo-Angular en base.
 
 ---
 
@@ -70,7 +73,9 @@ node tools/scripts/check-ui-ownership.mjs
 node tools/scripts/check-frontend-conventions.mjs
 ```
 
-**Regla:** features `components/` importan `@josanz/angular-ui` (producto) o `@base/angular-ui` (kernel). No mezclar capas arquetipos ↔ clientes.
+**Regla:** features `components/` importan `@josanz/angular-ui` (producto) o
+wrappers/`Native*` de `@base/angular-ui` (kernel). Preferir native-ui SoT
+([ADR 0010](../adr/adr-0010-native-ui-lit-sot.md)). No mezclar capas arquetipos ↔ clientes.
 
 ---
 

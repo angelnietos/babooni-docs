@@ -70,6 +70,6 @@ pnpm nx typecheck <project>
 
 - [docs/README.md](./README.md) — hub
 - [guides/README.md](./guides/README.md)
-- [guides/npm-publish-and-versioning.md](./guides/npm-publish-and-versioning.md) — publicar libs (en construcción)
+- [guides/npm-publish-and-versioning.md](./guides/npm-publish-and-versioning.md) — publicar libs canario + workflow manual
 - [plans/README.md](./plans/README.md) — rondas activas / siguientes
 - [CONTRIBUTING.md](../CONTRIBUTING.md) — contribuir código

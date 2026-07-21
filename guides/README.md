@@ -34,7 +34,7 @@ Estilo de autoría: [CONTRIBUTING-DOCS.md](../CONTRIBUTING-DOCS.md).
 | [roles-rbac.md](./roles-rbac.md) | Roles DB + Keycloak + fieldPolicies |
 | [api-versioning.md](./api-versioning.md) | Versionado de API HTTP |
 | [deprecation-policy.md](./deprecation-policy.md) | Deprecaciones y `check:deprecated` |
-| [npm-publish-and-versioning.md](./npm-publish-and-versioning.md) | Publicar libs + semver (en construcción — F51-E1 / F52) |
+| [npm-publish-and-versioning.md](./npm-publish-and-versioning.md) | Publicar libs + semver (F51-E1 + F52-A1 workflow) |
 | [sonar-local.md](./sonar-local.md) | SonarQube local |
 | [pr-checklist.md](./pr-checklist.md) | Checklist antes de abrir PR |
 | [ui-re-export-vs-wrapper.md](./ui-re-export-vs-wrapper.md) | Re-export vs wrapper en UI de producto |
@@ -45,6 +45,8 @@ Estilo de autoría: [CONTRIBUTING-DOCS.md](../CONTRIBUTING-DOCS.md).
 - [frontend/arquetipos-thin-libs.md](../frontend/arquetipos-thin-libs.md) — plantillas sin duplicar base
 - [frontend/josanz-product-exceptions.md](../frontend/josanz-product-exceptions.md) — audit, users, angular-ui
 - [frontend/design-system.md](../frontend/design-system.md) — tokens, Storybook, catálogo
+- [frontend/ui-strategy.md](../frontend/ui-strategy.md) — Lit SoT + freeze ([ADR 0010](../adr/adr-0010-native-ui-lit-sot.md))
+- [adr/README.md](../adr/README.md) — decisiones (incl. 0010/0011 UI)
 - [backend/backend-domain-convention.md](../backend/backend-domain-convention.md) — slugs, BD, empaquetados
 - [productos-saas/productos-saas-extends-base.md](../productos-saas/productos-saas-extends-base.md) — SaaS sobre base
 
@@ -60,6 +62,8 @@ Estilo de autoría: [CONTRIBUTING-DOCS.md](../CONTRIBUTING-DOCS.md).
 | `tools/scripts/check-lib-layout.mjs` | Path físico vs categoría lib |
 | `tools/scripts/check-ui-ownership.mjs` | UI base vs josanz vs arquetipos |
 | `tools/scripts/audit-workspace-deps.mjs` | Imports `@scope/*` sin `workspace:*` (`pnpm check:workspace-deps:strict`) |
+| `tools/scripts/check-publishable-deps.mjs` | Libs `tag:publishable` sin deps workspace private |
+| `tools/scripts/pack-publishable.mjs` | `npm pack` canario + reescritura `workspace:*` |
 
 ## Verificación mínima tras cualquier guía
 

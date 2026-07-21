@@ -100,12 +100,14 @@ Rutas legacy renombradas en F5–F7: [legacy-paths.md](./legacy-paths.md).
 | Extender kernel `@base` | [guides/extend-kernel-domain.md](./guides/extend-kernel-domain.md) |
 | Tests (pirámide / harness) | [guides/testing-pyramid.md](./guides/testing-pyramid.md) |
 | UI re-export vs wrapper | [guides/ui-re-export-vs-wrapper.md](./guides/ui-re-export-vs-wrapper.md) |
+| Nuevo primitivo UI / Lit SoT | [frontend/ui-strategy.md](./frontend/ui-strategy.md) ([ADR 0010](./adr/adr-0010-native-ui-lit-sot.md)) |
+| Storybook UI | [frontend/design-system.md](./frontend/design-system.md) ([ADR 0011](./adr/adr-0011-storybook-native-ui-first.md)) |
 | Mobile Ionic / RN | [guides/add-mobile-domain.md](./guides/add-mobile-domain.md) |
 | Next.js | [guides/add-next-domain.md](./guides/add-next-domain.md) |
 | Module Federation | [guides/module-federation-dev.md](./guides/module-federation-dev.md) |
 | Keycloak | [guides/keycloak-setup.md](./guides/keycloak-setup.md) |
 | Checklist PR | [guides/pr-checklist.md](./guides/pr-checklist.md) |
-| Publicar / versionar libs npm | [guides/npm-publish-and-versioning.md](./guides/npm-publish-and-versioning.md) (en construcción — F51-E1 / F52-A1) |
+| Publicar / versionar libs npm | [guides/npm-publish-and-versioning.md](./guides/npm-publish-and-versioning.md) (canario + workflow F52-A1) |
 
 Índice completo: [guides/README.md](./guides/README.md). Estilo docs: [CONTRIBUTING-DOCS.md](./CONTRIBUTING-DOCS.md).
 
@@ -132,9 +134,12 @@ Rutas legacy renombradas en F5–F7: [legacy-paths.md](./legacy-paths.md).
 | [arquetipos-thin-libs.md](./frontend/arquetipos-thin-libs.md) | Plantillas sin duplicar base |
 | [josanz-product-exceptions.md](./frontend/josanz-product-exceptions.md) | UI raíz, audit/users thin |
 | [design-system.md](./frontend/design-system.md) | Tokens, Storybook, catálogo, Figma |
+| [ui-strategy.md](./frontend/ui-strategy.md) | Lit SoT + freeze framework-only + wrappers |
 | [ui-component-catalog.yaml](./frontend/ui-component-catalog.yaml) | Quién posee cada componente |
 | [ui-re-export-vs-wrapper.md](./guides/ui-re-export-vs-wrapper.md) | Re-export vs wrapper |
 | [adr-0006](./adr/adr-0006-frontend-layering.md) | 4 capas, paridad Angular/React |
+| [adr-0010](./adr/adr-0010-native-ui-lit-sot.md) | Lit native-ui = SoT cross-framework |
+| [adr-0011](./adr/adr-0011-storybook-native-ui-first.md) | Storybook native-first + serve |
 | [workspace-packages.md](./frontend/workspace-packages.md) | Paquetes y paths |
 | [testing-pyramid.md](./guides/testing-pyramid.md) | Unit / int / e2e |
 
@@ -194,7 +199,7 @@ pnpm check:legacy-paths
 pnpm check:migration-encoding
 ```
 
-Última ronda cerrada: **[F50](./plans/rounds/plans-50-fifty-round/)** (typecheck FE + tests + Metro/CI). Ronda activa: **[F51](./plans/rounds/plans-51-fifty-one-round/)** — higiene workspace Ionic, cobertura BE, mobile layers, SaaS typecheck, **npm publish + versionado de libs**. Siguiente (listo): **[F52](./plans/rounds/plans-52-fifty-two-round/)** — carry publish, `workspace-deps:strict`, storybook layout, coverage CI soft, peers mobile, docs. Índice: [plans/README.md](./plans/README.md).
+Última ronda cerrada: **[F52](./plans/rounds/plans-52-fifty-two-round/)**. Ronda activa (lista): **[F53](./plans/rounds/plans-53-fifty-three-round/)** — native-ui SoT + freeze UI framework + Storybook serve/native. Siguiente: **[F54](./plans/rounds/plans-54-fifty-four-round/)** — migración features, oleadas import, deprecation, CI SB/visual, tokens, a11y, **paridad arquetipos entre frameworks**. Índice: [plans/README.md](./plans/README.md).
 
 Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md) — unit → integration (Postgres) → e2e Playwright.
 
@@ -303,4 +308,5 @@ Si un plan histórico contradice esta biblia, **prevalece la biblia**.
 
 Diagrama interactivo: abre el Canvas **arquetipos-platform-bible** en Cursor (panel Canvas junto al chat).
 
-*Última ampliación biblia: motor de empresa, pirámide de tests, design system, mobile/Next/MF, Keycloak how-to. Mantén este índice al añadir runbooks o ADRs.*
+*Última ampliación biblia: ADR 0010/0011 (native-ui SoT + Storybook), F53/F54.
+Mantén este índice al añadir runbooks o ADRs.*

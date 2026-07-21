@@ -49,15 +49,15 @@ El monorepo hoist **React 19** en la raíz; Expo RN necesita **React 18**. Sin p
 en Metro, `ArqInput`/`ArqButton` fallan con *"Objects are not valid as a React child"*
 (React duplicado).
 
-Config compartida: `tools/metro/create-arquetipos-expo-metro-config.cjs`
-(allowlist en `@nx/enforce-module-boundaries`, igual que configs ESLint).
-Cada app:
+Paquete workspace: `@arquetipos/expo-metro-config`
+(`libs/arquetipos/frontend/mobile/rn/metro-config`). Cada app declara
+`workspace:*` y requiere por nombre (sin allowlist ESLint):
 
 ```js
 // apps/arquetipos/mobile/react-native-{single,multi}/metro.config.js
 const {
   createArquetiposExpoMetroConfig,
-} = require('../../../../tools/metro/create-arquetipos-expo-metro-config.cjs');
+} = require('@arquetipos/expo-metro-config');
 module.exports = createArquetiposExpoMetroConfig(__dirname);
 ```
 
@@ -68,6 +68,18 @@ El helper fija:
   (y peers) desde `node_modules` de la **app**
 
 Tras cambiar Metro: reiniciar Expo con `--clear`.
+
+## Peers canónicos (F52-C1)
+
+| Paquete | Peers |
+|---------|--------|
+| `@base/angular-ui` | `@angular/common\|core\|router` ^21, `rxjs` ^7.8 |
+| `@base/ionic-ui` | `@angular/common\|core` ~21.2, `@ionic/angular` ^8.5 |
+| `@base/react-native-ui` | `react`/`react-dom` **18.3.1**, `react-native` 0.76.9, `react-native-web` ~0.19 |
+| Apps RN Expo | React **18** (no 19 del hoist raíz) — ver Metro arriba |
+
+Frameworks van en **peers**, no en `dependencies` de las libs UI (evita dual package).
+Publicables: [npm-publish-and-versioning.md](./npm-publish-and-versioning.md).
 
 ## Typecheck
 

@@ -38,12 +38,23 @@ Cuándo usarla: al exponer un componente de `@base/*-ui` en una capa de producto
 
 Nunca un wrapper que solo re-expone la base sin valor añadido.
 
+## Relación con native-ui (F53+)
+
+Antes de wrap/re-export de marca:
+
+1. ¿El átomo genérico vive en `@base/native-ui`? → wrap `Native*` en base, luego
+   marca.
+2. ¿Solo existe primitivo framework-only legacy en base? → **no** inventes otro;
+   abre CE + wrapper ([ADR 0010](../adr/adr-0010-native-ui-lit-sot.md)).
+3. Wrapper de marca sobre `Native*` / CE = patrón preferido para capar branding.
+
 ## Catálogo y ownership
 
 - Máquina de verdad: [ui-component-catalog.yaml](../frontend/ui-component-catalog.yaml)
 - Gate CI: `pnpm check:ui-ownership` / `node tools/scripts/check-ui-ownership.mjs`
 - Excepciones Josanz: [josanz-product-exceptions.md](../frontend/josanz-product-exceptions.md)
 - Design system: [design-system.md](../frontend/design-system.md)
+- Estrategia + freeze: [ui-strategy.md](../frontend/ui-strategy.md)
 
 ## Verificación
 
@@ -54,5 +65,5 @@ pnpm nx typecheck josanz-angular-ui   # o el paquete UI tocado
 
 ## Enlaces
 
-- ADR [0006](../adr/adr-0006-frontend-layering.md)
+- ADR [0006](../adr/adr-0006-frontend-layering.md) · [0010](../adr/adr-0010-native-ui-lit-sot.md)
 - Rule de agente: `.cursor/rules/ui-wrap-decider.mdc` (apunta a esta guía)

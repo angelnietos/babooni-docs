@@ -286,6 +286,7 @@ Rutas antiguas: [legacy-paths.md](../legacy-paths.md).
 | CQRS Nest | [adr-0009](../adr/adr-0009-cqrs-nest.md) | Commands/Queries; facades solo dispatch |
 | Testing | [testing-pyramid.md](../guides/testing-pyramid.md) | Unit → int → e2e; harnesses |
 | UI wrap | [ui-re-export-vs-wrapper.md](../guides/ui-re-export-vs-wrapper.md) | Re-export vs wrapper |
+| UI SoT Lit | [ui-strategy.md](../frontend/ui-strategy.md) · [ADR 0010](../adr/adr-0010-native-ui-lit-sot.md) | native-ui + freeze |
 | Design system | [design-system.md](../frontend/design-system.md) | Catálogo + Storybook |
 | Mobile / Next / MF | [add-mobile](../guides/add-mobile-domain.md) / [add-next](../guides/add-next-domain.md) / [MF](../guides/module-federation-dev.md) | Opt-in ADR 0008 |
 

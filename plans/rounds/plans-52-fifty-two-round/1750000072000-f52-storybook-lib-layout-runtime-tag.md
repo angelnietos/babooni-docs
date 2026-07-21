@@ -2,36 +2,18 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
-## Objetivo
+## Resultado
 
-`node tools/scripts/check-lib-layout.mjs` deja **1 warn**:
-
-```
-warn libs/clientes/josanz/storybook: could not infer runtime category from path
-```
-
-Tooling Storybook no es un dominio de 4 capas; hay que etiquetarlo de forma
-explícita (tag `runtime:*` + excepción documentada o path/heurística) para que
-`--strict` / CI no acumule ruido.
-
-## Tareas
-
-1. Revisar cómo `check-lib-layout.mjs` infiere `runtime:*` y excepciones
-   existentes (`platform-no-features`, etc.).
-2. Elegir una de:
-   - **A)** Añadir excepción documentada `josanz-storybook-tooling` + tag
-     `runtime:angular` (o `type:tooling` si el script lo soporta).
-   - **B)** Ajustar heurística de path para `…/storybook` bajo clientes.
-3. Actualizar `package.json` / `project.json` de `@josanz/storybook` con tags
-   Nx coherentes (`layer:clientes`, runtime).
-4. Mencionar en [design-system.md](../../../frontend/design-system.md) o
-   [josanz-product-exceptions.md](../../../frontend/josanz-product-exceptions.md)
-   que Storybook es tooling, no dominio.
+- Heurística: `…/clientes/*/storybook` → `runtime:angular` en `check-lib-layout.mjs`.
+- Tags `josanz-storybook`: `layer:clientes`, `runtime:angular`, `type:tooling`
+  (quitado `runtime:isomorphic` / `scope:client-angular`).
+- Doc: [josanz-product-exceptions.md](../../../frontend/josanz-product-exceptions.md) § F52-B1.
+- `check-lib-layout --strict`: 0 warn storybook.
 
 ## Criterios de aceptación
 
-- [ ] `check-lib-layout` (warn mode): 0 warns storybook.
-- [ ] Con `--strict` (si aplica a este caso): no fail por storybook.
-- [ ] Excepción o heurística documentada en Resultado + doc frontend corta.
+- [x] 0 warns storybook.
+- [x] `--strict` no falla por storybook.
+- [x] Excepción/heurística documentada.

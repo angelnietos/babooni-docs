@@ -77,20 +77,24 @@ Detalle de cuándo elegir qué: [framework-decision-guide](../architecture/frame
 ## 5. UI: tres niveles (importante)
 
 ```
-@base/native-ui (Lit CE)     ← primitivos cross-framework (SoT visual bajo)
-        ↓ wrappers
-@base/angular-ui / react-ui / next-ui / react-native-ui
+@base/native-ui (Lit CE)     ← SoT visual cross-framework (ADR 0010)
+        ↓ wrappers Native*
+@base/angular-ui / react-ui / next-ui   (+ legacy congelado F53+)
+@base/react-native-ui                   ← tokens/API; no Lit
         ↓ marca
 @josanz/angular-ui · @arquetipos/*-ui · @saas/shared-ui
 ```
 
 - **Lit / custom elements** (`@base/native-ui`): una base reutilizable para Angular,
-  React, Next… sin reimplementar button/input N veces.
+  React, Next, Ionic… sin reimplementar button/input N veces.
 - **Wrappers de framework**: API idiomática (inputs Angular, props React) +
-  extensión.
+  capar/extender el CE (**preferido**).
+- **Legacy framework-only en base:** existe, pero **congelado** (F53+); no crecer ahí.
 - **Wrappers de producto**: branding ([ui-re-export-vs-wrapper](../guides/ui-re-export-vs-wrapper.md)).
 
-Estrategia detallada: [ui-strategy.md](./ui-strategy.md).
+Estrategia + freeze: [ui-strategy.md](./ui-strategy.md). ADRs:
+[0010](../adr/adr-0010-native-ui-lit-sot.md),
+[0011](../adr/adr-0011-storybook-native-ui-first.md).
 
 ---
 

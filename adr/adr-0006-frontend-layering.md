@@ -62,4 +62,7 @@ the frontend and its cross-cutting governance.
 - Convention linter: `tools/scripts/check-frontend-conventions.mjs`.
 - Contributor guide: `CONTRIBUTING.md`.
 - Shared components: `libs/base/frontend/{angular,react}/features/src/shared/`.
+- UI SoT (Lit) & freeze: [ADR 0010](adr-0010-native-ui-lit-sot.md),
+  [ui-strategy.md](../frontend/ui-strategy.md).
+- Storybook: [ADR 0011](adr-0011-storybook-native-ui-first.md).
 - Back to the [docs hub](../README.md).

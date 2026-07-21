@@ -14,21 +14,23 @@ Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `traslad
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| [plans-51-fifty-one-round](./rounds/plans-51-fifty-one-round/) | activa / en progreso | Workspace Ionic + cobertura BE + mobile layers + SaaS typecheck + **npm publish/versionado** |
+| [plans-53-fifty-three-round](./rounds/plans-53-fifty-three-round/) | listo para ejecutar | Native-ui SoT + freeze framework UI + Storybook serve/native + imports + gates |
 
 ## Siguiente (preparada)
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| [plans-52-fifty-two-round](./rounds/plans-52-fifty-two-round/) | listo para ejecutar | Carry publish + workspace-deps strict + storybook layout + coverage CI soft + peers mobile + docs |
+| [plans-54-fifty-four-round](./rounds/plans-54-fifty-four-round/) | listo para ejecutar | Migración features → native, oleadas import, deprecation, CI SB/visual, tokens, a11y, **paridad arquetipos**, gate strict |
 
-> F52 arranca tras **F51-D1** (o en paralelo solo docs C2). No marcar F51
-> `completado` hasta que sus hitos pendientes (A3/B1/C*/E1/D1) cierren.
+> F54 arranca tras **F53-F1** (o en paralelo solo docs). No marcar F53
+> `completado` desde la carpeta F54.
 
 ## Rondas completadas (archivo)
 
 | Ronda | Tema |
 |-------|------|
+| [plans-52](./rounds/plans-52-fifty-two-round/) | Publish workflow + workspace-deps strict + storybook + coverage soft + peers mobile |
+| [plans-51](./rounds/plans-51-fifty-one-round/) | Workspace Ionic + cobertura BE + mobile layers + SaaS typecheck + npm publish canario |
 | [plans-50](./rounds/plans-50-fifty-round/) | Typecheck FE + tests BE + int-specs + Metro/CI |
 | [plans-49](./rounds/plans-49-forty-nine-round/) | Deep-imports + any impl. (A3/A4 → F50) |
 | [plans-48](./rounds/plans-48-forty-eight-round/) | Typecheck hygiene + barrels + deep-imports + any-cast specs |
