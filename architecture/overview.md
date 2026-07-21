@@ -1,17 +1,29 @@
 # Arquitectura — mapa mental
 
-Documento de referencia para entender **de dónde viene cada pieza** y **por qué** está organizada así. Si acabas de llegar, lee esto después de [getting-started.md](../getting-started.md).
+Documento de referencia para entender **de dónde viene cada pieza** y **por qué**
+está organizada así. Si acabas de llegar:
+
+1. [getting-started.md](../getting-started.md) — instalar  
+2. [learning-path.md](./learning-path.md) — ruta junior → senior  
+3. Este overview (mapa)  
+4. Deep dives cuando toques código  
+
+Visión de negocio / IA por dominio: [platform-vision.md](./platform-vision.md).  
+Decisión de frameworks: [framework-decision-guide.md](./framework-decision-guide.md).  
+Plantillas: [../arquetipos/README.md](../arquetipos/README.md).
 
 ---
 
 ## 0. Este monorepo como motor de empresa
 
 No es un solo producto: es una **plataforma** para fabricar ERP, plantillas y SaaS
-reutilizando el mismo kernel (`@base/*`).
+reutilizando el mismo kernel (`@base/*`). La biblia + CQRS permiten que **humanos e IA**
+generen dominios correctos; el horizonte es **modelos especialistas por dominio**
+vendidos como SaaS ([platform-vision.md](./platform-vision.md)).
 
 | Rol | Quién | Responsabilidad |
 |-----|-------|-----------------|
-| **Platform** | Equipo kernel | `@base/*`, ADRs, gates CI, Prisma dual, auth Keycloak |
+| **Platform** | Equipo kernel | `@base/*`, ADRs, gates CI, Prisma dual, auth Keycloak, seams AI |
 | **Product** | Equipo cliente / SaaS | `@josanz/*`, `@saas/*`, branding, composición en `apps/` |
 | **Template** | Platform + DX | `@arquetipos/*` thin — copy-paste seguro sin acoplar productos |
 
@@ -24,6 +36,7 @@ flowchart TB
     BE["backend hex + CQRS"]
     FE["4 capas FE + UI"]
     SH["shared DTOs"]
+    AI["AI query gate"]
   end
   subgraph products ["Productos"]
     J["Josanz ERP"]
@@ -43,9 +56,12 @@ Lifecycle de un dominio (resumen):
 4. FE: api → data-access → features ← ui; shell lazy
 5. Authz permissions + eventos outbox si aplica
 6. Tests unit (+ harness) y smoke e2e
+7. (Opcional) registrar queries en AI registry del dominio
 
-Detalle: [new-product-e2e-walkthrough.md](../guides/new-product-e2e-walkthrough.md),
-[testing-pyramid.md](../guides/testing-pyramid.md), ADR [0009](../adr/adr-0009-cqrs-nest.md).
+**Detalle narrado:** [domain-lifecycle.md](./domain-lifecycle.md).  
+Guías: [new-product-e2e-walkthrough.md](../guides/new-product-e2e-walkthrough.md),
+[testing-pyramid.md](../guides/testing-pyramid.md).  
+ADRs: [0009 CQRS](../adr/adr-0009-cqrs-nest.md), [ai-cqrs-policy](../guides/ai-cqrs-policy.md).
 
 ---
 
@@ -146,7 +162,8 @@ domains/<x>/
 | `@arquetipos/arquetipos-backend` | thin re-export | Plantillas; sin dominio propio |
 
 Convención completa: [backend/backend-domain-convention.md](../backend/backend-domain-convention.md).  
-ADR: [adr-0001](../adr/adr-0001-hexagonal-architecture.md).
+**Deep dive (junior→senior):** [backend-deep-dive.md](./backend-deep-dive.md).  
+ADR: [adr-0001](../adr/adr-0001-hexagonal-architecture.md), [adr-0009](../adr/adr-0009-cqrs-nest.md).
 
 ---
 
@@ -172,7 +189,8 @@ api → data-access → features ← ui
 
 **Por qué 4 capas:** separar contrato, estado, UI tonta y routing permite lazy loading, tests por capa y paridad Angular ↔ React.
 
-ADR: [adr-0006](../adr/adr-0006-frontend-layering.md).
+ADR: [adr-0006](../adr/adr-0006-frontend-layering.md).  
+**Deep dive:** [frontend-deep-dive.md](./frontend-deep-dive.md).
 
 ### Plantillas thin (Arquetipos)
 
@@ -313,7 +331,14 @@ Si un plan histórico contradice `docs/backend/` o `AGENTS.md`, **gana la biblia
 
 ## Enlaces
 
-- [README.md](../README.md) — índice maestro
-- [guides/README.md](../guides/README.md) — recetas por tarea
-- [backend-domain-convention.md](../backend/backend-domain-convention.md)
-- [AGENTS.md](../../AGENTS.md)
+| Doc | Para qué |
+|-----|----------|
+| [learning-path.md](./learning-path.md) | Onboarding por niveles |
+| [platform-vision.md](./platform-vision.md) | Motor + IA por dominio + SaaS |
+| [domain-lifecycle.md](./domain-lifecycle.md) | Request E2E de un dominio |
+| [backend-deep-dive.md](./backend-deep-dive.md) | Hex + CQRS al detalle |
+| [frontend-deep-dive.md](./frontend-deep-dive.md) | 4 capas al detalle |
+| [README.md](../README.md) | Hub biblia |
+| [guides/README.md](../guides/README.md) | Recetas |
+| [backend-domain-convention.md](../backend/backend-domain-convention.md) | Slugs / BD |
+| [AGENTS.md](../../AGENTS.md) | Contrato agentes |

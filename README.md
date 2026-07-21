@@ -11,20 +11,29 @@ Este monorepo es el **motor de empresa**: kernel `@base/*` + productos (`@josanz
 | # | Documento | Tiempo | Qué aprendes |
 |---|-----------|--------|--------------|
 | 1 | **[getting-started.md](./getting-started.md)** | 30 min | Instalar, infra, Josanz en local |
-| 2 | **[architecture/overview.md](./architecture/overview.md)** | 20 min | Por qué existen `@base`, apps vs libs, BD, hexagonal, 4 capas FE |
-| 3 | **[guides/README.md](./guides/README.md)** | 5 min | Recetas por tarea («quiero añadir X») |
-| 4 | **[backend/backend-domain-convention.md](./backend/backend-domain-convention.md)** | 15 min | Slugs, empaquetados Nest, matriz BD por app |
-| 5 | **[adr/README.md](./adr/README.md)** | según tema | Decisiones irreversibles (auth, Kafka, cifrado…) |
+| 2 | **[architecture/learning-path.md](./architecture/learning-path.md)** | 10 min | Ruta junior → senior |
+| 3 | **[architecture/overview.md](./architecture/overview.md)** | 25 min | Capas, apps vs libs, hex, 4 capas FE |
+| 4 | **[architecture/framework-decision-guide.md](./architecture/framework-decision-guide.md)** | 15 min | Nest/Angular/React/Next/RN — cuándo cada uno |
+| 5 | **[architecture/platform-vision.md](./architecture/platform-vision.md)** | 15 min | Motor + IA por dominio + SaaS futuro |
+| 6 | **[arquetipos/README.md](./arquetipos/README.md)** | 15 min | Plantillas `apps/arquetipos` como modelo |
+| 7 | **[guides/README.md](./guides/README.md)** | 5 min | Recetas por tarea |
+| 8 | **[backend/README.md](./backend/README.md)** / **[frontend/README.md](./frontend/README.md)** | 20 min | Cómo funciona back/front |
+| 9 | **[adr/README.md](./adr/README.md)** | según tema | Decisiones irreversibles |
 
-Después: [AGENTS.md](../AGENTS.md) (resumen para herramientas) y [SERVICES.md](../SERVICES.md) (catálogo de dominios HTTP).
+Deep dives: [domain-lifecycle](./architecture/domain-lifecycle.md),
+[backend-deep-dive](./architecture/backend-deep-dive.md),
+[frontend-deep-dive](./architecture/frontend-deep-dive.md).
+
+Después: [AGENTS.md](../AGENTS.md) y [SERVICES.md](../SERVICES.md).
 
 ## Cómo leer esta biblia
 
 | Nivel | Cuándo | Documentos |
 |-------|--------|-----------|
-| **Día 1** | Primer día en el repo | [getting-started.md](./getting-started.md) + [architecture/overview.md](./architecture/overview.md) (15 min) |
-| **Día 2** | Antes de tocar código | [guides/README.md](./guides/README.md) + [frontend/workspace-packages.md](./frontend/workspace-packages.md) (30 min) |
-| **Tarea específica** | Voy a hacer X | Ir directo a la guía correspondiente en [guides/](./guides/) |
+| **Día 1** | Primer día en el repo | [getting-started](./getting-started.md) + [learning-path](./architecture/learning-path.md) L0–L1 + [overview](./architecture/overview.md) |
+| **Día 2** | Antes de tocar código | [platform-vision](./architecture/platform-vision.md) + [guides/README](./guides/README.md) + [workspace-packages](./frontend/workspace-packages.md) |
+| **Primera feature** | Voy a cambiar un dominio | [domain-lifecycle](./architecture/domain-lifecycle.md) + deep dive FE o BE |
+| **Tarea específica** | Voy a hacer X | Guía en [guides/](./guides/) |
 
 Si un plan histórico contradice esta biblia, **prevalece la biblia**. Los planes activos están en [docs/plans/](./plans/).
 
@@ -68,6 +77,10 @@ libs/
 └── productos-saas/          # @saas/*, verifactu worker/ledger
 
 docs/                        # ← Estás aquí (biblia operativa)
+├── architecture/            # mapa, visión, decisión frameworks
+├── arquetipos/              # plantillas apps/arquetipos como modelo
+├── backend/ · frontend/     # cómo funciona cada lado
+├── guides/ · adr/ · runbooks/
 tools/scripts/               # Linters y scaffolding (convenciones en código)
 ```
 
@@ -218,22 +231,40 @@ Si un plan histórico contradice esta biblia, **prevalece la biblia**.
 ### Desarrollador nuevo (día 1)
 
 1. [getting-started.md](./getting-started.md)
-2. [architecture/overview.md](./architecture/overview.md) (§0 motor)
-3. [guides/local-development.md](./guides/local-development.md)
+2. [architecture/learning-path.md](./architecture/learning-path.md)
+3. [architecture/overview.md](./architecture/overview.md) (§0 motor)
+4. [guides/local-development.md](./guides/local-development.md)
+
+### Visión / producto / IA
+
+1. [architecture/platform-vision.md](./architecture/platform-vision.md)
+2. [architecture/framework-decision-guide.md](./architecture/framework-decision-guide.md)
+3. [arquetipos/how-to-use.md](./arquetipos/how-to-use.md)
+4. [guides/ai-cqrs-policy.md](./guides/ai-cqrs-policy.md)
+5. ADR [0009](./adr/adr-0009-cqrs-nest.md)
 
 ### Backend
 
-1. [architecture/overview.md § Backend](./architecture/overview.md#3-backend--hexagonal-por-dominio)
-2. [backend-domain-convention.md](./backend/backend-domain-convention.md)
-3. [guides/add-backend-domain.md](./guides/add-backend-domain.md)
-4. [testing-pyramid.md](./guides/testing-pyramid.md) + ADRs 0001, 0002, 0009
+1. [backend/why-nest.md](./backend/why-nest.md) + [backend/how-it-works.md](./backend/how-it-works.md)
+2. [architecture/backend-deep-dive.md](./architecture/backend-deep-dive.md)
+3. [architecture/domain-lifecycle.md](./architecture/domain-lifecycle.md)
+4. [backend-domain-convention.md](./backend/backend-domain-convention.md)
+5. [guides/add-backend-domain.md](./guides/add-backend-domain.md)
+6. [testing-pyramid.md](./guides/testing-pyramid.md) + ADRs 0001, 0002, 0009
 
 ### Frontend / Design
 
-1. [architecture/overview.md § Frontend](./architecture/overview.md#4-frontend--cuatro-capas-por-dominio)
-2. [frontend/design-system.md](./frontend/design-system.md) + [ui-re-export-vs-wrapper.md](./guides/ui-re-export-vs-wrapper.md)
-3. [guides/add-frontend-domain.md](./guides/add-frontend-domain.md)
-4. [ui-component-catalog.yaml](./frontend/ui-component-catalog.yaml)
+1. [frontend/how-it-works.md](./frontend/how-it-works.md) + [frontend/ui-strategy.md](./frontend/ui-strategy.md)
+2. [architecture/frontend-deep-dive.md](./architecture/frontend-deep-dive.md)
+3. [architecture/framework-decision-guide.md](./architecture/framework-decision-guide.md)
+4. [frontend/design-system.md](./frontend/design-system.md) + [ui-re-export-vs-wrapper.md](./guides/ui-re-export-vs-wrapper.md)
+5. [guides/add-frontend-domain.md](./guides/add-frontend-domain.md)
+
+### Plantillas Arquetipos
+
+1. [arquetipos/README.md](./arquetipos/README.md)
+2. [arquetipos/catalog.md](./arquetipos/catalog.md)
+3. [arquetipos/how-to-use.md](./arquetipos/how-to-use.md)
 
 ### Mobile / Next / MF
 
