@@ -18,8 +18,9 @@ checks in sequence.
 | Boundaries smoke | `pnpm lint:boundaries` | module-boundary violations on all shell/feature/ui |
 | Slim barrel | `pnpm check:slim-barrel` | domain stores imported from `@base/angular` / `@base/react` in apps |
 | Documents parity | `pnpm check:documents-route-parity` | doc-gen routes diverge from josanz-erp (needs `JOSANZ_ERP_ROOT`) |
-| Soft coverage BE (F52-B2) | `pnpm test:cov:check` en job `quality` (`continue-on-error` + artifact) | Below threshold — **warn** only; strict fail deferred |
-| Arquetipos parity (F54-B4) | `pnpm check:arquetipos-parity` *(planificado)* | Drift rutas/dominios/UI entre stacks plantilla |
+| Soft coverage BE (F52-B2 / F55-C1) | `pnpm test:cov:check` en job `quality` (`continue-on-error` + artifact) | Below threshold — **warn** only; strict fail deferred |
+| Jest workspace coverage (F55-C3) | `pnpm test:coverage:affected` + `test:coverage:merge` → `coverage/global/` | Soft / nightly primero; no umbral workspace fail en F55 |
+| Arquetipos parity (F54-B4) | `pnpm check:arquetipos-parity` | Drift rutas/dominios/UI entre stacks plantilla |
 
 ### F12-NM — Base Prisma nested `node_modules` (resolved)
 
@@ -74,10 +75,14 @@ If `typecheck:affected` times out locally after a large diff vs stale
 pnpm hygiene
 pnpm check:ui-ownership:strict
 pnpm typecheck:affected
+pnpm test:affected
+# opcional coverage workspace:
+# pnpm test:coverage:report:affected
 ```
 
 Antes de abrir PR: [guides/pr-checklist.md](../guides/pr-checklist.md) (espejo de
-`verify` / `frontend` / `quality` en `.github/workflows/ci.yml`). Runbook:
+`verify` / `frontend` / `quality` en `.github/workflows/ci.yml`). Runbook Jest:
+[runbooks/jest-coverage.md](../runbooks/jest-coverage.md).
 [typecheck-and-lint-gates.md](../runbooks/typecheck-and-lint-gates.md).
 
 After structural / prisma changes:

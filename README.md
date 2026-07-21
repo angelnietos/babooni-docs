@@ -164,6 +164,7 @@ Rutas legacy renombradas en F5–F7: [legacy-paths.md](./legacy-paths.md).
 | [kafka-redis-outage.md](./runbooks/kafka-redis-outage.md) | Modo degradado |
 | [pnpm-layout.md](./runbooks/pnpm-layout.md) | Workspaces |
 | [nx-daemon.md](./runbooks/nx-daemon.md) | Daemon hang / `NX_DAEMON=false` |
+| [jest-coverage.md](./runbooks/jest-coverage.md) | Preset Jest, coverage por proyecto + merge global |
 
 ### Decisiones de arquitectura (ADRs)
 
@@ -199,9 +200,9 @@ pnpm check:legacy-paths
 pnpm check:migration-encoding
 ```
 
-Última ronda cerrada: **[F54](./plans/rounds/plans-54-fifty-four-round/)**. Ronda activa (lista): **[F55](./plans/rounds/plans-55-fifty-five-round/)** — carry oleada Lit 2, Chromatic, coverage/parity strict, Code Connect, a11y. Índice: [plans/README.md](./plans/README.md).
+Última ronda cerrada: **[F54](./plans/rounds/plans-54-fifty-four-round/)**. Ronda activa (lista): **[F55](./plans/rounds/plans-55-fifty-five-round/)** — carry oleada Lit 2, Chromatic, coverage BE + Jest workspace (C3), parity, Code Connect, a11y. Índice: [plans/README.md](./plans/README.md).
 
-Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md) — unit → integration (Postgres) → e2e Playwright.
+Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md) — unit → integration (Postgres) → e2e Playwright. Operativa Jest/coverage: [runbooks/jest-coverage.md](./runbooks/jest-coverage.md).
 
 ---
 
@@ -280,8 +281,9 @@ Si un plan histórico contradice esta biblia, **prevalece la biblia**.
 ### QA
 
 1. [testing-pyramid.md](./guides/testing-pyramid.md)
-2. [pr-checklist.md](./guides/pr-checklist.md)
-3. [frontend/ci-gates.md](./frontend/ci-gates.md)
+2. [runbooks/jest-coverage.md](./runbooks/jest-coverage.md)
+3. [pr-checklist.md](./guides/pr-checklist.md)
+4. [frontend/ci-gates.md](./frontend/ci-gates.md)
 
 ### DevOps / SRE
 
@@ -308,5 +310,5 @@ Si un plan histórico contradice esta biblia, **prevalece la biblia**.
 
 Diagrama interactivo: abre el Canvas **arquetipos-platform-bible** en Cursor (panel Canvas junto al chat).
 
-*Última ampliación biblia: ADR 0010/0011 (native-ui SoT + Storybook), F53/F54.
+*Última ampliación biblia: Jest shared + coverage runbook (F55-C3), ADR 0010/0011.
 Mantén este índice al añadir runbooks o ADRs.*

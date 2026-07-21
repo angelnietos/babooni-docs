@@ -25,8 +25,9 @@ listo para ejecutar
 | F55-B3 | [A11y gaps: focus trap modal + tabs teclado](1750000124000-f55-native-ui-a11y-gaps.md) | Carry F54-B3 |
 | F55-C1 | [Coverage BE soft → strict](1750000125000-f55-coverage-ci-strict.md) | Carry F54-D2 |
 | F55-C2 | [`check:arquetipos-parity --strict` en CI](1750000126000-f55-arquetipos-parity-strict.md) | Carry F54-B4 |
+| F55-C3 | [Jest workspace: preset + coverage libs/apps](1750000126500-f55-jest-workspace-coverage-rollout.md) | Infra Jest global |
 | F55-D1 | [Figma Code Connect piloto button/input/alert](1750000127000-f55-figma-code-connect-pilot.md) | Carry F54-D1 |
-| F55-D2 | [Storybook serve arquetipos UI (orphan configs)](1750000128000-f55-arquetipos-storybook-targets.md) | Carry F53-D2 |
+| F55-D2 | [Storybook serve arquetipos UI](1750000128000-f55-arquetipos-storybook-targets.md) | **completado** |
 | F55-E1 | [Documentación y cierre F55](1750000129000-f55-documentation.md) | Cierre |
 
 ## Objetivo
@@ -36,18 +37,20 @@ listo para ejecutar
 3. Smoke Playwright multi-stack + parity checker **strict**.
 4. Cerrar gaps a11y críticos (modal trap, tabs arrow).
 5. Promover coverage BE a fail en CI con evidencia.
-6. Piloto Code Connect o defer con token ausente.
-7. Targets Storybook arquetipos UI huérfanos.
+6. Rollout Jest shared preset + coverage a libs/apps (merge `coverage/global`).
+7. Piloto Code Connect o defer con token ausente.
+8. Targets Storybook arquetipos UI huérfanos.
 
 ## Orden de ejecución
 
 1. **A1** oleada select/icon/pagination.
 2. **B3** a11y gaps (puede ir en paralelo a A*).
-3. **C1** coverage strict cuando haya N PRs verdes post-F54.
-4. **B1 + B2** visual (Chromatic / Playwright) tras SB native estable.
-5. **C2** parity strict tras B2 o con allowlist menguante.
-6. **D1 / D2 / A2** según acceso Figma y capacidad.
-7. **E1** cierre; remove deprecated → **F56** (no en esta ronda).
+3. **C1** coverage BE strict cuando haya N PRs verdes post-F54.
+4. **C3** Jest preset/coverage rollout (puede ir en paralelo a C1; no mezclar umbrales).
+5. **B1 + B2** visual (Chromatic / Playwright) tras SB native estable.
+6. **C2** parity strict tras B2 o con allowlist menguante.
+7. **D1 / D2 / A2** según acceso Figma y capacidad.
+8. **E1** cierre; remove deprecated → **F56** (no en esta ronda).
 
 ## Riesgos
 
@@ -61,6 +64,7 @@ listo para ejecutar
 - [ ] Oleada 2 con ≥2 CEs nuevos (select y/o icon y/o pagination) + wrappers.
 - [ ] Estrategia visual elegida e integrada **o** defer con motivo.
 - [ ] Coverage BE strict **o** defer F56 con conteo de PRs.
+- [ ] Jest shared preset en mayoría de `test` targets **o** exclusiones en F55-C3.
 - [ ] `check:arquetipos-parity --strict` en CI **o** defer justificado.
 - [ ] A11y modal/tabs documentado pass o issue abierto.
 - [ ] Hub: F55 archivo; F56 solo si hay carry de remove deprecated.
@@ -74,6 +78,6 @@ listo para ejecutar
 | SB native en CI | Chromatic / visual |
 | Parity soft + manifest | Strict + smoke Playwright |
 | A11y matriz + smoke | Focus trap / tabs teclado |
-| Coverage soft | Strict |
+| Coverage soft | Strict BE (C1) + Jest workspace rollout (C3) |
 | Matriz Figma | Code Connect piloto |
 | — | Storybook targets arquetipos UI |

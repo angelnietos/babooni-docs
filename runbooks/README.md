@@ -34,6 +34,7 @@ Procedimientos operativos para Josanz, plantillas Arquetipos y SaaS Verifactu. C
 
 - [Module Federation deploy](./module-federation-deploy.md) — host + remotes en prod
 - [Typecheck & lint gates](./typecheck-and-lint-gates.md) — gates locales y CI
+- [Jest + coverage](./jest-coverage.md) — preset compartido, `coverage/<project>`, merge global
 - [Verifactu demo e2e](./verifactu-demo-e2e.md) — smoke CRM / worker
 
 DX MF local: [guides/module-federation-dev.md](../guides/module-federation-dev.md).

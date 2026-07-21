@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -20,5 +20,12 @@ F55 los cablea o depreca explícitamente.
 
 ## Criterios de aceptación
 
-- [ ] Targets verdes **o** deprecación documentada en design-system.
-- [ ] Sin configs muertas sin nota.
+- [x] Targets verdes **o** deprecación documentada en design-system.
+- [x] Sin configs muertas sin nota.
+
+## Resultado
+
+Targets `storybook` / `build-storybook` (+ `continuous`) en
+`base-native-ui`, `base-angular-ui`, `base-react-ui`, `josanz-angular-ui`,
+`arquetipos-angular-ui`, `arquetipos-react-ui`. Plugin `@nx/storybook/plugin` en
+`nx.json`. Puertos: 4401–4405 + 6007. Doc: [design-system.md](../../../frontend/design-system.md).

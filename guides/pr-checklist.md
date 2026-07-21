@@ -42,6 +42,8 @@ En **push a `main`**, CI añade `pnpm typecheck:all` (red de seguridad F16-TC).
 En PRs basta `verify:affected` + los `check:*` del job.
 
 Si Nx cuelga: [nx-daemon.md](../runbooks/nx-daemon.md) o `tsc` / jest directo.
+Coverage: [jest-coverage.md](../runbooks/jest-coverage.md) ·
+`pnpm test:coverage:report:affected` (opcional).
 
 ## Docs
 

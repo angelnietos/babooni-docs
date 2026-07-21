@@ -14,7 +14,7 @@ Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `traslad
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| [plans-55-fifty-five-round](./rounds/plans-55-fifty-five-round/) | listo para ejecutar | Carry F54: oleada Lit 2, Chromatic, coverage/parity strict, Code Connect, a11y gaps |
+| [plans-55-fifty-five-round](./rounds/plans-55-fifty-five-round/) | listo para ejecutar | Carry F54: Lit 2, Chromatic, coverage BE + Jest workspace, parity, Code Connect |
 
 ## Siguiente (preparada)
 
