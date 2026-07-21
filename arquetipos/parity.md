@@ -29,7 +29,7 @@ pnpm check:arquetipos-parity               # soft local
 | Mobile | Ionic | CE / native en hosts DOM |
 | Token | RN | API/tokens alineados (`@base/ui-tokens`); **no** Lit |
 
-## Visual / layout smoke (F55-B2)
+## Visual / layout smoke (F55-B2 / F56-A2)
 
 Secuencia canario **idéntica** en `angular-single-e2e` y `react-single-e2e`
 (`src/smoke.spec.ts`):
@@ -38,5 +38,10 @@ Secuencia canario **idéntica** en `angular-single-e2e` y `react-single-e2e`
 2. Login demo → `/clients`, `/users`, `/audit` con `main` visible
 3. Login readonly → sin link Audit; Clients visible
 
-CI `e2e-web` (main only) ejecuta angular-single + multi stacks. Screenshots
-opcionales / Chromatic → [F55-B1](../plans/rounds/plans-55-fifty-five-round/1750000122000-f55-chromatic-visual-regression.md) (defer token).
+**Sin API (F56):** `pnpm mockserver` + `pnpm arq:fe:angular-single:mock` (o
+`react-single:mock`) — checklist en [mockserver.md](../runbooks/mockserver.md).
+
+**Build:** `pnpm arq:fe:build:smoke` (CI soft).
+
+CI `e2e-web` (main only) ejecuta angular-single + multi stacks con Keycloak real.
+Chromatic → carry F56-D1 / F57.

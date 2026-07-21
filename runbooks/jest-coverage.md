@@ -32,6 +32,10 @@ en `jest.shared.cjs`.
 `libs/base/backend/jest.config.cts` (umbrales dominio gate C1) o comentario
 `// jest-preset: exclude`.
 
+**Coverage backend workspace (F56-B1):** `pnpm test:coverage:backend` —
+`nx run-many -t test -p tag:runtime:backend -- --coverage` (+ merge opcional).
+No sustituye ni baja `pnpm test:cov:check` (dominios audit/settings/tenants).
+
 
 ## Apps vs libs
 

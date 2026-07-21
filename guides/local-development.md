@@ -91,6 +91,14 @@ pnpm saas:crm:generate
 # Tests
 npx jest --config libs/base/backend/jest.config.ts
 npx jest --config apps/clientes/josanz/backend/jest.config.ts --runInBand
+pnpm test:coverage:backend   # F56 — coverage libs/apps tag:runtime:backend
+
+# Arquetipos FE (F56)
+pnpm arq:fe:build:smoke      # build angular-single + react-single
+pnpm mockserver              # :4010 OIDC stub + /api fixtures
+pnpm arq:fe:angular-single:mock
+pnpm arq:fe:react-single:mock
+# Runbook: docs/runbooks/mockserver.md
 
 # Convenciones
 node tools/scripts/check-lib-layout.mjs --strict
