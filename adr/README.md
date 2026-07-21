@@ -19,6 +19,7 @@ changes can be evaluated against the original rationale.
 | [0006](adr-0006-frontend-layering.md) | Frontend layering & paridad | `shared/` presentacional, forma `layout/pages/components`, paridad Angular↔React, gobernanza en CI |
 | [0007](adr-0007-http-trace-context.md) | HTTP trace context | Propagate W3C traceparent across FE→API |
 | [0008](adr-0008-platform-scope-vs-mvp-client.md) | Platform vs MVP client | Default client = web SPA + monolith; Next/RN/Ionic/MF/MS are opt-in |
+| [0009](adr-0009-cqrs-nest.md) | Nest CQRS in hexagonal kernel | Commands/Queries only; facades dispatch; AI-gateable writes |
 
 ## How to use these
 

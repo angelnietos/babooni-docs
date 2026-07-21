@@ -66,5 +66,5 @@ documentada y migrable sin sorpresas para consumidores internos y externos.
 
 ## Cumplimiento
 
-- CI ejecuta `pnpm check:deprecated` (ver [guía de tooling](../tools/check-deprecated-usage.md)).
+- CI ejecuta `pnpm check:deprecated` (`tools/scripts/check-deprecated-usage.mjs`).
 - PRs que reintroducen usos prohibidos sin marca `allowed` fallan el build.

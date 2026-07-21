@@ -1,8 +1,9 @@
-# ADR 00XX: Nest CQRS command/query separation in the hexagonal kernel
+# ADR 0009: Nest CQRS command/query separation in the hexagonal kernel
 
 - Status: accepted (F33)
 - Date: 2026-07-17
 - Supersedes part of: [adr-0001-hexagonal-architecture.md](adr-0001-hexagonal-architecture.md)
+- Formerly: `adr-00xx-cqrs-nest.md`
 
 ## Context
 
@@ -18,7 +19,7 @@ F33 requires one uniform pattern.
 ## Decision
 
 Adopt **Nest CQRS** as the single application-layer pattern for every domain in
-`libs/base/backend/src/lib/hex`:
+`@base/backend` (`libs/base/backend/src/lib/domains/`):
 
 - Writes are `Command`s handled by `@CommandHandler`s.
 - Reads are `Query`s handled by `@QueryHandler`s.
@@ -40,14 +41,13 @@ only; an AI `CommandBus` (future `AiCommandGateway`) is an explicit allow-list.
   `application/<x>/{commands,queries,handlers}/` and forbids loose
   `infrastructure/*.module.ts` (use `--strict` in CI).
 - `tools/scripts/new-domain.mjs` scaffolds the CQRS template directly.
-- `audit` keeps its existing CQRS handlers but moves them under
-  `application/audit/` (Fase 2).
-- `clients` migrates its `use-case` classes to handlers (Fase 1) as the
-  reference template.
+- `audit` keeps its existing CQRS handlers under `application/`.
+- `clients` is the reference template for handlers.
 - More files per domain, accepted as the cost of a uniform, AI-gateable seam.
 
 ## See also
 
-- Canonical layout: F33 plan → `application/<x>/` section.
-- AI policy: [`docs/guides/ai-cqrs-policy.md`](../../docs/guides/ai-cqrs-policy.md).
+- AI policy: [ai-cqrs-policy.md](../guides/ai-cqrs-policy.md).
 - Convention linter: `tools/scripts/check-domain-conventions.mjs`.
+- Testing handlers: [testing-pyramid.md](../guides/testing-pyramid.md).
+- Back to the [docs hub](../README.md).

@@ -1,7 +1,7 @@
 # AI access policy over CQRS
 
 > Applicability: `@base/backend` hexagonal kernel (F33). Companion to
-> [adr-00xx-cqrs-nest.md](../adr/adr-00xx-cqrs-nest.md).
+> [adr-0009-cqrs-nest.md](../adr/adr-0009-cqrs-nest.md).
 
 ## Principle
 

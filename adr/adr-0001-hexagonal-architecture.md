@@ -46,7 +46,7 @@ their own thin app shell (`apps/`).
 > **Update (F33, 2026-07-17):** the application layer now uses a single
 > **Nest CQRS** pattern (commands/queries/handlers + a thin bus-dispatching
 > facade). The original "use-cases + service" and generic `CrudService` variants
-> are deprecated. See [adr-00xx-cqrs-nest.md](adr-00xx-cqrs-nest.md).
+> are deprecated. See [adr-0009-cqrs-nest.md](adr-0009-cqrs-nest.md).
 
 > **Update (2026-07-18):** dropped the `hex/` umbrella — `domains/`,
 > `crosscutting/`, `shared/`, and `integration/` sit beside `platform/` under

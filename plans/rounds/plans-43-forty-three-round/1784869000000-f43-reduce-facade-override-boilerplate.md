@@ -60,7 +60,7 @@ claridad ni romper la convención de dispatchers personalizados.
 - [ ] Evaluar si `settings.service.ts` puede eliminar `create`/`findPage`/`update`
       usando factories de comandos genéricos (riesgo: perder claridad del mapeo).
 - [ ] Añadir helper `commandFromDto(dto, mapper)` si se decide generalizar.
-- [ ] Actualizar ADR `adr-00xx-cqrs-nest.md` con la convención de overrides.
+- [ ] Actualizar ADR `adr-0009-cqrs-nest.md` con la convención de overrides.
 
 ## Criterio de aceptación
 

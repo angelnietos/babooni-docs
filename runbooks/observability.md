@@ -1,38 +1,57 @@
-# Observability runbook (F8-OBS1)
+# Observability runbook
 
-## Current stack
+Procedimiento operativo de señales (logs, métricas, trazas, alertas).
 
-| Signal | Implementation |
-|--------|----------------|
+## Stack actual
+
+| Señal | Implementación |
+|-------|----------------|
 | Logs | `LoggingInterceptor` — JSON `{ requestId, traceparent, tenantId, userId, … }` |
-| Metrics | Prometheus `/api/metrics` |
-| Errors | Sentry filter (when `SENTRY_DSN` set) |
-| Health | `/api/health`, `/api/health/ready` |
-| Tracing seam | `TracingService` — real spans when `OTEL_ENABLED=true` + `@opentelemetry/api` |
+| Métricas | Prometheus `/api/metrics` (también documentado como `/metrics` según app) |
+| Errores | Sentry filter si `SENTRY_DSN` |
+| Health | `/api/health` (liveness), `/api/health/ready` (readiness) |
+| Tracing | `TracingService` — spans si `OTEL_ENABLED=true` + `@opentelemetry/api` |
 
-## W3C trace context (baseline)
+Dashboards / alertas: `deploy/observability/`.
 
-Every HTTP response includes:
+## W3C trace context
 
-- `x-request-id` — correlation id (reused from request or minted)
-- `traceparent` — W3C trace context (propagated from inbound header or minted)
+Cada respuesta HTTP incluye:
 
-Downstream calls should forward both headers. `TracingService.injectContext()` adds
-OTel propagation when enabled.
+- `x-request-id` — correlación (reusa inbound o mint)
+- `traceparent` — W3C (propaga o mint)
 
-## Enable OpenTelemetry (optional)
+Downstream debe reenviar ambos. `TracingService.injectContext()` añade
+propagación OTel cuando está activo. ADR: [0007](../adr/adr-0007-http-trace-context.md).
+
+## OpenTelemetry (opcional)
 
 ```bash
 OTEL_ENABLED=true
-# install @opentelemetry/api + SDK in the deployment image
+# SDK OTel en la imagen de deploy
 ```
 
-Jaeger/Tempo are **not** bundled in `docker-compose.dev.yml` yet — add when you need
-visual traces in local dev.
+Jaeger/Tempo **no** van en `docker-compose.dev.yml` por defecto — añadirlos
+cuando el equipo necesite trazas visuales en local.
 
-## Smoke
+## Onboarding SRE — checklist
+
+1. Confirmar scrape de `/api/metrics` en el cluster.
+2. Importar dashboards bajo `deploy/observability/`.
+3. Alertas mínimas: `ApiHigh5xxRate`, `OutboxBacklogGrowing`, readiness Postgres.
+4. Runbook de outage Kafka/Redis: [kafka-redis-outage.md](./kafka-redis-outage.md).
+5. Tras deploy: 10 min de watch en 5xx + outbox ([deploy.md](./deploy.md)).
+
+## Smoke local
 
 ```bash
 curl -i http://localhost:3000/api/health
-# expect x-request-id + traceparent response headers
+curl -i http://localhost:3000/api/health/ready
+# expect x-request-id + traceparent
 ```
+
+## Enlaces
+
+- [docs/README.md](../README.md)
+- [deploy.md](./deploy.md)
+- [scaling.md](./scaling.md)

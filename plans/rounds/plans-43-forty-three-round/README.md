@@ -53,6 +53,6 @@
 
 - [F42 README](../plans-42-forty-two-round/README.md) — ronda anterior
 - [F41 README](../plans-41-forty-one-round/README.md) — ronda F41 completada
-- [docs/backend/backend-domain-convention.md](../backend/backend-domain-convention.md) — convención actualizada
-- [docs/adr/adr-00xx-cqrs-nest.md](../adr/adr-00xx-cqrs-nest.md) — ADR CQRS Nest
-- [docs/guides/ai-cqrs-policy.md](../guides/ai-cqrs-policy.md) — política AI CQRS
+- [docs/backend/backend-domain-convention.md](../../../backend/backend-domain-convention.md) — convención actualizada
+- [docs/adr/adr-0009-cqrs-nest.md](../../../adr/adr-0009-cqrs-nest.md) — ADR CQRS Nest
+- [docs/guides/ai-cqrs-policy.md](../../../guides/ai-cqrs-policy.md) — política AI CQRS

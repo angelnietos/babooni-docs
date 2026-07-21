@@ -55,8 +55,8 @@ El gateway (`api-gateway`) **no importa** `PrismaModule` — sin persistencia.
 
 | Path | Rol | Contiene |
 |------|-----|----------|
-| [`libs/base/backend/prisma/{single,multi}/`](../../../libs/base/backend/prisma/) | **Artefactos de schema** | `schema.prisma`, `migrations/`, client generado (`@base/prisma-single` / `@base/prisma-multi`) |
-| [`libs/base/backend/src/lib/platform/kernel/prisma/`](../../../libs/base/backend/src/lib/platform/kernel/prisma/) | **Runtime Nest** | `PrismaModule`, `PrismaSingleService` / `PrismaMultiService`, token `PRISMA_SERVICE`, `resolve-database-url`, extensiones (PII/audit) |
+| [`libs/base/backend/prisma/{single,multi}/`](../../libs/base/backend/prisma/) | **Artefactos de schema** | `schema.prisma`, `migrations/`, client generado (`@base/prisma-single` / `@base/prisma-multi`) |
+| [`libs/base/backend/src/lib/platform/kernel/prisma/`](../../libs/base/backend/src/lib/platform/kernel/prisma/) | **Runtime Nest** | `PrismaModule`, `PrismaSingleService` / `PrismaMultiService`, token `PRISMA_SERVICE`, `resolve-database-url`, extensiones (PII/audit) |
 
 ```mermaid
 flowchart TB

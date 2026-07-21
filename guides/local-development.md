@@ -6,20 +6,51 @@ Complemento de [getting-started.md](../getting-started.md) con detalle operativo
 
 ## Servicios y puertos (dev)
 
+### Infra
+
 | Servicio | Puerto host | Variable / notas |
 |----------|-------------|------------------|
 | Postgres | 5440 | `DATABASE_URL` |
 | Redis | 6381 | `REDIS_HOST`, `REDIS_PORT` — opcional |
 | Kafka | 9094 | `KAFKA_BROKERS` |
 | Keycloak | 9080 | `KEYCLOAK_URL` |
+
+### APIs y gateways
+
+| App | Puerto | Notas |
+|-----|--------|-------|
 | josanz-api | 3000 | `pnpm josanz-api:dev` |
-| josanz SPA | 4200 | `pnpm nx serve josanz` |
-| api (monolito) | 3000 | `pnpm nx serve api` |
+| api (monolito arquetipos) | 3000 | `pnpm nx serve api` |
 | api-gateway | 4000 | `GATEWAY_PORT` |
 | clients-ms gRPC | 50051 | `CLIENTS_MS_GRPC_PORT` |
 | clients-ms HTTP | 4001 | health |
+| verifactu-crm-api | 3120 | SaaS CRM |
+| verifactu-worker | 3130 | BullMQ worker |
 
-Catálogo completo: [SERVICES.md](../../SERVICES.md).
+### Frontends web
+
+| App | Puerto | Notas |
+|-----|--------|-------|
+| josanz SPA | 4200 | `pnpm nx serve josanz` |
+| angular-single / multi | 4200 / 4203 | plantillas |
+| react-single / multi | 4201 / 4202 | plantillas |
+| next-single | 4240 | Next opt-in |
+| verifactu-platform | 4230 | CRM UI |
+| document-generator | 4210 | docs UI (también zona MF) |
+| MF host / remotes | 4210–4212 | ver project.json |
+
+### Mobile
+
+| App | Puerto web | Comando |
+|-----|------------|---------|
+| ionic-single | 4300 | `pnpm nx serve ionic-single` |
+| ionic-multi | 4301 | `pnpm nx serve ionic-multi` |
+| react-native-single | 8091 | Expo `--web` |
+| react-native-multi | 8092 | Expo `--web` |
+
+Guías: [add-mobile-domain.md](./add-mobile-domain.md), [add-next-domain.md](./add-next-domain.md), [module-federation-dev.md](./module-federation-dev.md).
+
+Catálogo HTTP: [SERVICES.md](../../SERVICES.md).
 
 ---
 
@@ -99,7 +130,8 @@ Un cambio nuevo debe preservar «arranca sin infra opcional».
 | Errores TS en `*-features/*` paths | Artefacto IDE | Wildcards en `tsconfig.base.json` — `tsc` sí pasa |
 | `pnpm install` falla workspace | Falta `workspace:*` | `pnpm add @base/foo --filter @josanz/bar --workspace` |
 | Language server Nx no responde / cuelga | Node fuera de rango para Nx | 1) Recargar VS Code. 2) `pnpm nx reset`. 3) `pnpm check:node-nx` para verificar compatibilidad. |
-| Mismatch tipos React 18/19 en React Native | `@types/react` 19.x proyecto vs 18.x RN interno | Cast explícito localizado (`as any`) en callbacks de render children — ver `libs/base/frontend/mobile/rn/ui/src/lib/ArqTabs.tsx`. |
+| Mismatch tipos React 18/19 en React Native | `@types/react` 19.x raíz vs 18.x RN | Pin Metro a React 18 de la app (`disableHierarchicalLookup` + `extraNodeModules`) — [add-mobile-domain.md](./add-mobile-domain.md). Casts locales solo si queda mismatch de types. |
+| Pantalla blanca RN web + error `$$typeof` en ArqInput | React 19 + React 18 en el mismo bundle | Reiniciar Expo con `--clear` tras arreglar `metro.config.js` |
 
 ---
 

@@ -2,6 +2,8 @@
 
 > **Empieza aquí.** Este índice orienta a cualquier desarrollador (o agente IA) sobre qué es el repo, por qué está organizado así, cómo hacer cambios y dónde profundizar.
 
+Este monorepo es el **motor de empresa**: kernel `@base/*` + productos (`@josanz/*`, `@saas/*`) + plantillas `@arquetipos/*`. Default = SPA + monolito; Next / mobile / MF / MS son opt-in ([ADR 0008](./adr/adr-0008-platform-scope-vs-mvp-client.md)).
+
 ---
 
 ## Lectura obligatoria (orden sugerido)
@@ -81,8 +83,17 @@ Rutas legacy renombradas en F5–F7: [legacy-paths.md](./legacy-paths.md).
 | Nueva pantalla / dominio UI | [guides/add-frontend-domain.md](./guides/add-frontend-domain.md) |
 | Nuevo endpoint / módulo API | [guides/add-backend-domain.md](./guides/add-backend-domain.md) |
 | Extraer microservicio | [guides/add-microservice.md](./guides/add-microservice.md) |
-| Nuevo producto cliente | [guides/new-client-product.md](./guides/new-client-product.md) → [nuevo-cliente-checklist.md](./clientes/nuevo-cliente-checklist.md) |
+| Nuevo producto cliente | [guides/new-client-product.md](./guides/new-client-product.md) → [walkthrough E2E](./guides/new-product-e2e-walkthrough.md) |
 | Extender kernel `@base` | [guides/extend-kernel-domain.md](./guides/extend-kernel-domain.md) |
+| Tests (pirámide / harness) | [guides/testing-pyramid.md](./guides/testing-pyramid.md) |
+| UI re-export vs wrapper | [guides/ui-re-export-vs-wrapper.md](./guides/ui-re-export-vs-wrapper.md) |
+| Mobile Ionic / RN | [guides/add-mobile-domain.md](./guides/add-mobile-domain.md) |
+| Next.js | [guides/add-next-domain.md](./guides/add-next-domain.md) |
+| Module Federation | [guides/module-federation-dev.md](./guides/module-federation-dev.md) |
+| Keycloak | [guides/keycloak-setup.md](./guides/keycloak-setup.md) |
+| Checklist PR | [guides/pr-checklist.md](./guides/pr-checklist.md) |
+
+Índice completo: [guides/README.md](./guides/README.md). Estilo docs: [CONTRIBUTING-DOCS.md](./CONTRIBUTING-DOCS.md).
 
 ---
 
@@ -97,22 +108,28 @@ Rutas legacy renombradas en F5–F7: [legacy-paths.md](./legacy-paths.md).
 | [SERVICES.md](../SERVICES.md) | Rutas `/api/*`, eventos, cross-cutting |
 | [adr-0001](./adr/adr-0001-hexagonal-architecture.md) | Hexagonal |
 | [adr-0002](./adr/adr-0002-prisma-multi-single-tenancy.md) | single vs multi tenant |
+| [adr-0009](./adr/adr-0009-cqrs-nest.md) | CQRS Nest en el kernel |
 
 ### Frontend
 
 | Doc | Contenido |
 |-----|-----------|
+| [frontend/README.md](./frontend/README.md) | Índice FE |
 | [arquetipos-thin-libs.md](./frontend/arquetipos-thin-libs.md) | Plantillas sin duplicar base |
 | [josanz-product-exceptions.md](./frontend/josanz-product-exceptions.md) | UI raíz, audit/users thin |
+| [design-system.md](./frontend/design-system.md) | Tokens, Storybook, catálogo, Figma |
 | [ui-component-catalog.yaml](./frontend/ui-component-catalog.yaml) | Quién posee cada componente |
+| [ui-re-export-vs-wrapper.md](./guides/ui-re-export-vs-wrapper.md) | Re-export vs wrapper |
 | [adr-0006](./adr/adr-0006-frontend-layering.md) | 4 capas, paridad Angular/React |
-| [tsconfig-paths-audit.md](./frontend/tsconfig-paths-audit.md) | Paths y wildcards |
+| [workspace-packages.md](./frontend/workspace-packages.md) | Paquetes y paths |
+| [testing-pyramid.md](./guides/testing-pyramid.md) | Unit / int / e2e |
 
 ### Clientes y SaaS
 
 | Doc | Contenido |
 |-----|-----------|
 | [nuevo-cliente-checklist.md](./clientes/nuevo-cliente-checklist.md) | Scaffold `@acme/*` |
+| [new-product-e2e-walkthrough.md](./guides/new-product-e2e-walkthrough.md) | Narrativa E2E producto |
 | [josanz-verifactu-billing-integration.md](./clientes/josanz-verifactu-billing-integration.md) | Billing → Verifactu |
 | [productos-saas-extends-base.md](./productos-saas/productos-saas-extends-base.md) | SaaS sobre kernel |
 | [apps/productos-saas/README.md](../apps/productos-saas/README.md) | Mapa apps SaaS |
@@ -163,7 +180,9 @@ pnpm check:legacy-paths
 pnpm check:migration-encoding
 ```
 
-Pirámide de tests: unit (`libs/**/jest.config.ts`) → integration (`jest.integration.config.ts`, requiere Postgres) → e2e Josanz (`apps/clientes/josanz/backend/jest.config.ts`).
+Última ronda completada: **F48**. Pendiente / activa: ver [plans/README.md](./plans/README.md) (F49 listo, F47 en progreso).
+
+Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md) — unit → integration (Postgres) → e2e Playwright.
 
 ---
 
@@ -174,9 +193,10 @@ Pirámide de tests: unit (`libs/**/jest.config.ts`) → integration (`jest.integ
 | **Nx daemon** | `nx serve` a veces cuelga | `npx tsc -p … --noEmit`; `pnpm josanz-api:dev` |
 | **Dual Prisma schema** | `single` vs `multi` deben estar en paridad | `pnpm check:schema-parity` |
 | **Paths wildcard IDE** | Errores fantasma en `*-features/*` | Ignorar si `tsc` pasa |
-| **Keycloak** | Backend no emite JWT; valida JWKS | Realm `josanz` vs `arquetipos` |
+| **Keycloak** | Backend no emite JWT; valida JWKS | Realm `josanz` vs `arquetipos` — [keycloak-setup.md](./guides/keycloak-setup.md) |
 | **Infra opcional** | Sin Redis/Kafka el proceso arranca | No exijas Redis para boot local |
 | **Capas ESLint** | `@josanz` no importa `@arquetipos` | `layer:*` tags |
+| **RN web blanco** | React 19 raíz + React 18 Expo | Metro pin — [add-mobile-domain.md](./guides/add-mobile-domain.md) |
 
 ---
 
@@ -186,7 +206,8 @@ Pirámide de tests: unit (`libs/**/jest.config.ts`) → integration (`jest.integ
 |-----------|--------|
 | `docs/README.md`, `architecture/`, `guides/`, `backend/`, `frontend/`, `runbooks/`, `adr/` | **Fuente de verdad operativa** |
 | `AGENTS.md`, `tools/scripts/` | Contrato para CI y agentes |
-| `docs/plans/` | Planes activos (trabajo en curso) |
+| `docs/plans/` | Planes (activos + archivo) — [plans/README.md](./plans/README.md) |
+| [CONTRIBUTING-DOCS.md](./CONTRIBUTING-DOCS.md) | Cómo escribir docs |
 
 Si un plan histórico contradice esta biblia, **prevalece la biblia**.
 
@@ -197,7 +218,7 @@ Si un plan histórico contradice esta biblia, **prevalece la biblia**.
 ### Desarrollador nuevo (día 1)
 
 1. [getting-started.md](./getting-started.md)
-2. [architecture/overview.md](./architecture/overview.md)
+2. [architecture/overview.md](./architecture/overview.md) (§0 motor)
 3. [guides/local-development.md](./guides/local-development.md)
 
 ### Backend
@@ -205,14 +226,25 @@ Si un plan histórico contradice esta biblia, **prevalece la biblia**.
 1. [architecture/overview.md § Backend](./architecture/overview.md#3-backend--hexagonal-por-dominio)
 2. [backend-domain-convention.md](./backend/backend-domain-convention.md)
 3. [guides/add-backend-domain.md](./guides/add-backend-domain.md)
-4. ADRs 0001–0005 según el cambio
+4. [testing-pyramid.md](./guides/testing-pyramid.md) + ADRs 0001, 0002, 0009
 
-### Frontend
+### Frontend / Design
 
 1. [architecture/overview.md § Frontend](./architecture/overview.md#4-frontend--cuatro-capas-por-dominio)
-2. [arquetipos-thin-libs.md](./frontend/arquetipos-thin-libs.md) o excepciones Josanz
+2. [frontend/design-system.md](./frontend/design-system.md) + [ui-re-export-vs-wrapper.md](./guides/ui-re-export-vs-wrapper.md)
 3. [guides/add-frontend-domain.md](./guides/add-frontend-domain.md)
 4. [ui-component-catalog.yaml](./frontend/ui-component-catalog.yaml)
+
+### Mobile / Next / MF
+
+1. ADR [0008](./adr/adr-0008-platform-scope-vs-mvp-client.md)
+2. [add-mobile-domain.md](./guides/add-mobile-domain.md) / [add-next-domain.md](./guides/add-next-domain.md) / [module-federation-dev.md](./guides/module-federation-dev.md)
+
+### QA
+
+1. [testing-pyramid.md](./guides/testing-pyramid.md)
+2. [pr-checklist.md](./guides/pr-checklist.md)
+3. [frontend/ci-gates.md](./frontend/ci-gates.md)
 
 ### DevOps / SRE
 
@@ -221,19 +253,22 @@ Si un plan histórico contradice esta biblia, **prevalece la biblia**.
 3. [deploy.md](./runbooks/deploy.md)
 4. [observability.md](./runbooks/observability.md)
 
+### Producto nuevo
+
+1. [new-product-e2e-walkthrough.md](./guides/new-product-e2e-walkthrough.md)
+2. [nuevo-cliente-checklist.md](./clientes/nuevo-cliente-checklist.md)
+
 ---
 
 ## Enlaces externos al repo
 
-- [CONTRIBUTING.md](../CONTRIBUTING.md) — puerta de entrada para contribuir
+- [CONTRIBUTING.md](../CONTRIBUTING.md) — contribuir código
+- [CONTRIBUTING-DOCS.md](./CONTRIBUTING-DOCS.md) — contribuir documentación
 - [Agent config sync](../.opencode/README.md) — Cursor / Copilot / OpenCode / Kilo
-- [Canvas — mapa visual del monorepo](/Users/amuni/.cursor/projects/c-Users-amuni-Desktop-arquetipos/canvases/arquetipos-platform-bible.canvas.tsx)
 - [AGENTS.md](../AGENTS.md) — reglas monorepo para agentes
 - [SERVICES.md](../SERVICES.md) — catálogo dominios
 - [.github/workflows/ci.yml](../.github/workflows/ci.yml) — pipeline CI
 
----
+Diagrama interactivo: abre el Canvas **arquetipos-platform-bible** en Cursor (panel Canvas junto al chat).
 
-Diagrama interactivo del monorepo: [arquetipos-platform-bible.canvas.tsx](/Users/amuni/.cursor/projects/c-Users-amuni-Desktop-arquetipos/canvases/arquetipos-platform-bible.canvas.tsx) (Cursor Canvas).
-
-*Última ampliación biblia: arquitectura app×BD, guías por tarea, getting-started. Mantén este índice al añadir runbooks o ADRs.*
+*Última ampliación biblia: motor de empresa, pirámide de tests, design system, mobile/Next/MF, Keycloak how-to. Mantén este índice al añadir runbooks o ADRs.*

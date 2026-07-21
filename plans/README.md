@@ -1,33 +1,39 @@
 # Planes
 
-Este directorio contiene los **planes de trabajo** del proyecto.
+Planes de trabajo del monorepo. **No son la biblia operativa** — si contradicen
+`docs/README.md` / `architecture/` / `guides/`, gana la biblia.
 
 ## Estructura
 
-- **`rounds/`** — rondas cerradas/archivadas (`plans-{n}-{nombre}-round/`).
-- **`global/`** — planes globales transversales (no ligados a una ronda).
+- **`rounds/`** — rondas `plans-{n}-{nombre}-round/` (histórico + activas).
+- **`global/`** — políticas transversales (`F00-*`).
 
-Los planes activos de ronda se mantienen en sus carpetas dentro de `rounds/`
-hasta que se cierran. Cuando una ronda termina, su carpeta permanece en git
-para trazabilidad.
+Estado por plan: `listo para ejecutar` | `en progreso` | `completado`.
 
-## Convención
+## Rondas activas / pendientes
 
-- **Rondas:** una carpeta por ronda con ID `F{N}-*` (ej. `F41-*`, `F42-*`).
-  Formato de carpeta: `plans-{n}-{nombre}-round/`.
-- **Globales:** archivo único con ID `F00-*` para políticas transversales.
-- Estado de cada plan: `listo para ejecutar` | `en progreso` | `completado`.
+| Ronda | Estado | Tema |
+|-------|--------|------|
+| [plans-49-forty-nine-round](./rounds/plans-49-forty-nine-round/) | listo para ejecutar | Deep imports finales + any-cast + FE typecheck |
+| [plans-47-forty-seven-round](./rounds/plans-47-forty-seven-round/) | en progreso | Cierre deuda F43 + typecheck + polish |
 
-## Rondas archivadas
+## Rondas completadas (archivo)
 
-- `rounds/plans-47-forty-seven-round/` — ronda F47 en progreso (cierre deuda F43 + typecheck coverage + architecture polish).
-- `rounds/plans-46-forty-six-round/` — ronda F46 completada (typecheck hygiene + DX improvements).
-- `rounds/plans-45-forty-five-round/` — ronda F45 completada (cierre F44 + cobertura typecheck + compatibilidad Node/Nx + harness tests + documentación).
-- `rounds/plans-44-forty-four-round/` — ronda F44 completada (deprecation hygiene + versionado + specs remanentes).
-- `rounds/plans-43-forty-three-round/` — ronda F43 activa (consolidación facade + cleanup remanente F42).
-- `rounds/plans-42-forty-two-round/` — ronda F42 iniciada; F42-B1 completado en F43-A1; B2/B3/F1/B4 pendientes para F43.
-- `rounds/plans-41-forty-one-round/` — ronda F41 completada (deuda principal cerrada; detalle en su README).
+| Ronda | Tema |
+|-------|------|
+| [plans-48](./rounds/plans-48-forty-eight-round/) | Typecheck hygiene + barrels + deep-imports + any-cast |
+| [plans-46](./rounds/plans-46-forty-six-round/) | Typecheck hygiene + DX |
+| [plans-45](./rounds/plans-45-forty-five-round/) | Cierre F44 + typecheck + Node/Nx + harness |
+| [plans-44](./rounds/plans-44-forty-four-round/) | Deprecation hygiene + versionado |
+| [plans-43](./rounds/plans-43-forty-three-round/) | Facade consolidation + cleanup F42 |
+| [plans-42](./rounds/plans-42-forty-two-round/) | Harness + deep imports (parcial → F43) |
+| [plans-41](./rounds/plans-41-forty-one-round/) | Deuda principal / convenciones |
 
 ## Planes globales
 
-- `global/F00-node-nx-compatibility.md` — política de compatibilidad Node.js ↔ Nx y prevención de incompatibilidades de versiones.
+- [global/F00-node-nx-compatibility.md](./global/F00-node-nx-compatibility.md) — Node.js ↔ Nx
+
+## Enlaces
+
+- [docs/README.md](../README.md) — biblia
+- [CONTRIBUTING-DOCS.md](../CONTRIBUTING-DOCS.md) — estilo de docs

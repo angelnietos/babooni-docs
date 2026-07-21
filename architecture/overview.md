@@ -4,6 +4,51 @@ Documento de referencia para entender **de dónde viene cada pieza** y **por qu�
 
 ---
 
+## 0. Este monorepo como motor de empresa
+
+No es un solo producto: es una **plataforma** para fabricar ERP, plantillas y SaaS
+reutilizando el mismo kernel (`@base/*`).
+
+| Rol | Quién | Responsabilidad |
+|-----|-------|-----------------|
+| **Platform** | Equipo kernel | `@base/*`, ADRs, gates CI, Prisma dual, auth Keycloak |
+| **Product** | Equipo cliente / SaaS | `@josanz/*`, `@saas/*`, branding, composición en `apps/` |
+| **Template** | Platform + DX | `@arquetipos/*` thin — copy-paste seguro sin acoplar productos |
+
+**Default (ADR 0008):** SPA web + monolito Nest. Opt-in: Next, Ionic, React Native,
+Module Federation, microservicios.
+
+```mermaid
+flowchart TB
+  subgraph engine ["Motor @base"]
+    BE["backend hex + CQRS"]
+    FE["4 capas FE + UI"]
+    SH["shared DTOs"]
+  end
+  subgraph products ["Productos"]
+    J["Josanz ERP"]
+    S["SaaS Verifactu"]
+    T["Plantillas Arquetipos"]
+  end
+  J --> engine
+  S --> engine
+  T --> engine
+```
+
+Lifecycle de un dominio (resumen):
+
+1. DTO en `@scope/shared`
+2. Schema Prisma (+ migrate) si persiste
+3. Hex: ports → handlers CQRS → adapters HTTP/Prisma
+4. FE: api → data-access → features ← ui; shell lazy
+5. Authz permissions + eventos outbox si aplica
+6. Tests unit (+ harness) y smoke e2e
+
+Detalle: [new-product-e2e-walkthrough.md](../guides/new-product-e2e-walkthrough.md),
+[testing-pyramid.md](../guides/testing-pyramid.md), ADR [0009](../adr/adr-0009-cqrs-nest.md).
+
+---
+
 ## 1. La pregunta que responde este repo
 
 > ¿Cómo construir varios productos (ERP, plantillas, SaaS) reutilizando el mismo dominio sin copiar código ni mezclar marcas?
@@ -215,11 +260,16 @@ Rutas antiguas: [legacy-paths.md](../legacy-paths.md).
 
 | Tema | ADR / doc | Regla rápida |
 |------|-----------|--------------|
-| Auth | [adr-0005](../adr/adr-0005-jwt-vs-keycloak.md) | Keycloak OIDC; backend valida JWKS, no emite JWT |
+| Auth | [adr-0005](../adr/adr-0005-jwt-vs-keycloak.md) + [keycloak-setup.md](../guides/keycloak-setup.md) | Keycloak OIDC; backend valida JWKS, no emite JWT |
 | Eventos | [adr-0004](../adr/adr-0004-kafka-outbox.md) | Outbox transaccional → Kafka at-least-once |
 | Cifrado PII | [adr-0003](../adr/adr-0003-aes-256-gcm-vs-kms.md) | AES-256-GCM en app layer |
 | Trazas HTTP | [adr-0007](../adr/adr-0007-http-trace-context.md) | W3C traceparent |
 | Observabilidad | [runbooks/observability.md](../runbooks/observability.md) | Logs JSON, `/metrics`, OTel opcional |
+| CQRS Nest | [adr-0009](../adr/adr-0009-cqrs-nest.md) | Commands/Queries; facades solo dispatch |
+| Testing | [testing-pyramid.md](../guides/testing-pyramid.md) | Unit → int → e2e; harnesses |
+| UI wrap | [ui-re-export-vs-wrapper.md](../guides/ui-re-export-vs-wrapper.md) | Re-export vs wrapper |
+| Design system | [design-system.md](../frontend/design-system.md) | Catálogo + Storybook |
+| Mobile / Next / MF | [add-mobile](../guides/add-mobile-domain.md) / [add-next](../guides/add-next-domain.md) / [MF](../guides/module-federation-dev.md) | Opt-in ADR 0008 |
 
 ---
 

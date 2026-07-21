@@ -1,45 +1,57 @@
 # Runbook — Deploy & rollback
 
-## GitOps (ArgoCD) — preferred
+## GitOps (ArgoCD) — preferido
 
-Applications live in `deploy/argocd/josanz-app.yaml` (dev / staging / prod),
-each tracking the Helm chart in `deploy/helm/josanz` with its own `valueFiles`
-and `targetRevision`.
+Apps en `deploy/argocd/josanz-app.yaml` (dev / staging / prod), tracking Helm
+`deploy/helm/josanz` con `valueFiles` y `targetRevision` por entorno.
 
-- **Sync**: ArgoCD auto-reconciles on git push. Check status:
+- **Sync**: ArgoCD reconcilia al push. Estado:
   ```bash
   argocd app get josanz-prod
-  argocd app sync josanz-prod        # force a sync
+  argocd app sync josanz-prod
   ```
-- **Rollback** (bad release):
+- **Rollback**:
   ```bash
   argocd app history josanz-prod
   argocd app rollback josanz-prod <revision>
   ```
 
-## Manual Helm — fallback
+## Helm manual — fallback
 
 ```bash
-# Set the immutable image digest (CI injects the SHA; never 'latest' in prod).
 helm upgrade --install josanz deploy/helm/josanz \
   -n josanz -f deploy/helm/josanz/values.yaml -f deploy/helm/josanz/values-prod.yaml \
   --set image.tag=<SHA>
 
-# Rollback
 helm history josanz -n josanz
 helm rollback josanz <revision> -n josanz
 ```
 
+Nunca `latest` en prod — digest/SHA inmutable.
+
 ## Pre-flight
 
-1. Image digest is immutable and scanned.
-2. `helm template -f values-prod.yaml` renders cleanly (`helm lint` green).
-3. DB migration applied (`prisma migrate deploy`) before the new pods serve.
-4. Secrets present (`kubectl -n josanz get secret josanz-secrets`).
+1. Image digest escaneado e inmutable.
+2. `helm template -f values-prod.yaml` + `helm lint` verdes.
+3. `prisma migrate deploy` **antes** de que los pods nuevos sirvan tráfico.
+4. Secrets presentes (`kubectl -n josanz get secret josanz-secrets`).
+5. Paridad schema si hubo cambio Prisma (`pnpm check:schema-parity` en CI).
 
 ## Post-deploy
 
 - `kubectl -n josanz rollout status deploy/josanz`
-- Hit `GET /api/health/ready` → expect `200 { status: "ready" }` (or
-  `degraded` if an optional dep is intentionally down).
-- Watch `ApiHigh5xxRate` / `OutboxBacklogGrowing` alerts for the first 10m.
+- `GET /api/health/ready` → `200` ready o `degraded` si dep opcional caída
+- 10 min: alertas `ApiHigh5xxRate` / `OutboxBacklogGrowing`
+- Logs JSON con `requestId` / `tenantId` ([observability.md](./observability.md))
+
+## Rollback rápido
+
+1. ArgoCD/Helm rollback a revisión anterior.
+2. Si migrate no es backward-compatible: restore según [backup-restore-pii.md](./backup-restore-pii.md) (coordina con datos).
+3. Comunicar degraded mode si Kafka/Redis afectados ([kafka-redis-outage.md](./kafka-redis-outage.md)).
+
+## Enlaces
+
+- [secrets.md](./secrets.md)
+- [database-migrations.md](./database-migrations.md)
+- [scaling.md](./scaling.md)
