@@ -119,3 +119,5 @@ Elige **clients** (dominio de referencia).
 - [overview.md](./overview.md)
 - [platform-vision.md](./platform-vision.md)
 - Hub: [docs/README.md](../README.md)
+- Estilo docs: [CONTRIBUTING-DOCS.md](../CONTRIBUTING-DOCS.md)
+- Planes (no son biblia): [plans/README.md](../plans/README.md)

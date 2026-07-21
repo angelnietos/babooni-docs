@@ -123,11 +123,13 @@ Una plataforma está “lista para multiplicar con IA” cuando:
 - [x] Capas npm y FE/BE documentadas (overview + deep dives).
 - [x] CQRS + AI gate documentados.
 - [x] Pirámide de tests y harnesses documentados.
+- [ ] Oleada canario de libs `@base/*` publicables + semver (F51-E1 / F52-A1 —
+      ver [npm-publish-and-versioning.md](../guides/npm-publish-and-versioning.md)).
 - [ ] Cada dominio kernel tiene queries AI registradas y ejemplos de payload.
 - [ ] Eval suite mínima (“¿el agente inventó un path ilegal?”).
 - [ ] Playbook “añadir especialista de dominio” (datos, tools, permisos, pricing).
 
-Los tres últimos son trabajo de producto futuro; el motor y la biblia son el cimiento.
+Los ítems abiertos son trabajo de producto / platform; el motor y la biblia son el cimiento.
 
 ---
 
@@ -138,4 +140,5 @@ Los tres últimos son trabajo de producto futuro; el motor y la biblia son el ci
 - [backend-deep-dive.md](./backend-deep-dive.md) / [frontend-deep-dive.md](./frontend-deep-dive.md)
 - [domain-lifecycle.md](./domain-lifecycle.md) — request de punta a punta
 - [guides/ai-cqrs-policy.md](../guides/ai-cqrs-policy.md)
+- [guides/npm-publish-and-versioning.md](../guides/npm-publish-and-versioning.md) — kernel como paquete (en construcción)
 - Hub: [docs/README.md](../README.md)

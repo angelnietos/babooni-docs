@@ -18,7 +18,7 @@ checks in sequence.
 | Boundaries smoke | `pnpm lint:boundaries` | module-boundary violations on all shell/feature/ui |
 | Slim barrel | `pnpm check:slim-barrel` | domain stores imported from `@base/angular` / `@base/react` in apps |
 | Documents parity | `pnpm check:documents-route-parity` | doc-gen routes diverge from josanz-erp (needs `JOSANZ_ERP_ROOT`) |
-| Typecheck | `pnpm typecheck:affected` | tsc error on affected projects |
+| Soft coverage BE (F52) | `pnpm nx test base-backend --coverage` + step CI soft | Below threshold — warn first ([F52-B2](../plans/rounds/plans-52-fifty-two-round/1750000073000-f52-ci-soft-coverage-gate.md)) |
 
 ### F12-NM — Base Prisma nested `node_modules` (resolved)
 

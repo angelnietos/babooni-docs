@@ -2,23 +2,48 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
 F50 añadió ≥ 10 tests pero no midió cobertura formal. Instrumentar y fijar
 umbral ≥ 80% en el scope audit / settings / tenants (o justificar gaps).
 
-## Tareas
+## Resultado
 
-1. Configurar coverage en Jest de `base-backend` (collectCoverageFrom domains).
-2. Script o target Nx: `pnpm nx test base-backend --coverage` (o script root).
-3. Umbrales por path o global documentados en [testing-pyramid.md](../../../guides/testing-pyramid.md).
-4. Opcional: gate CI soft (warn) → strict en F52 si es estable.
-5. Rellenar gaps si coverage < 80% (handlers / mappers / interceptor).
+**Config** (`libs/base/backend/jest.config.cts`):
+
+- `collectCoverageFrom` acotado a `domains/{audit,settings,tenants}/**`.
+- Exclusiones: `audit-hash.ts`, `audit.extension.ts`, `audit.entity.ts`,
+  Prisma repos (`*.prisma.repository.ts`), barrels/modules/DTOs/commands/queries/ports.
+- Umbrales: global + por dominio — statements/functions/lines **80%**, branches **65%**.
+- Output: `coverage/libs/base/backend`.
+
+**Scripts root:**
+
+| Script | Uso |
+|--------|-----|
+| `pnpm test:cov` | Suite + coverage |
+| `pnpm test:cov:check` | Coverage + summary (gate local) |
+| `pnpm test:cov:domains` | Solo specs audit/settings/tenants + coverage |
+
+**Specs añadidos:** `audit.mappers.spec.ts`, `tenant.errors.spec.ts`,
+`settings.service.spec.ts`.
+
+**Medición local** (`testPathPatterns=domains/(audit|settings|tenants)/`):
+
+| Métrica | Valor |
+|---------|-------|
+| Statements | ~96% |
+| Branches | ~78% |
+| Functions | ~94% |
+| Lines | ~95% |
+
+Doc: [testing-pyramid.md](../../../guides/testing-pyramid.md) § cobertura F51-A3.
+CI soft warn → F52 si se estabiliza.
 
 ## Criterios de aceptación
 
-- [ ] Reporte coverage reproducible localmente.
-- [ ] audit / settings / tenants ≥ 80% statements (o tabla de exclusiones).
-- [ ] Doc de cómo leer el reporte en biblia/guides.
+- [x] Reporte coverage reproducible localmente.
+- [x] audit / settings / tenants ≥ 80% statements (exclusiones documentadas).
+- [x] Doc de cómo leer el reporte en biblia/guides.

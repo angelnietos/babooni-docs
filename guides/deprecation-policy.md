@@ -68,3 +68,10 @@ documentada y migrable sin sorpresas para consumidores internos y externos.
 
 - CI ejecuta `pnpm check:deprecated` (`tools/scripts/check-deprecated-usage.mjs`).
 - PRs que reintroducen usos prohibidos sin marca `allowed` fallan el build.
+
+## Publicación npm
+
+Versionar/publicar libs publicables (cuando el tooling exista):
+[npm-publish-and-versioning.md](./npm-publish-and-versioning.md)
+(F51-E1 / F52-A1). Esta política de deprecación aplica al semver de esos
+paquetes; no sustituye el flujo de release.

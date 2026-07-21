@@ -105,6 +105,7 @@ Rutas legacy renombradas en F5–F7: [legacy-paths.md](./legacy-paths.md).
 | Module Federation | [guides/module-federation-dev.md](./guides/module-federation-dev.md) |
 | Keycloak | [guides/keycloak-setup.md](./guides/keycloak-setup.md) |
 | Checklist PR | [guides/pr-checklist.md](./guides/pr-checklist.md) |
+| Publicar / versionar libs npm | [guides/npm-publish-and-versioning.md](./guides/npm-publish-and-versioning.md) (en construcción — F51-E1 / F52-A1) |
 
 Índice completo: [guides/README.md](./guides/README.md). Estilo docs: [CONTRIBUTING-DOCS.md](./CONTRIBUTING-DOCS.md).
 
@@ -193,7 +194,7 @@ pnpm check:legacy-paths
 pnpm check:migration-encoding
 ```
 
-Última ronda cerrada: **F49** (parcial; A3/A4 → F50). Ronda activa: **[F50](./plans/rounds/plans-50-fifty-round/)** — typecheck FE + tests + DX. Índice: [plans/README.md](./plans/README.md).
+Última ronda cerrada: **[F50](./plans/rounds/plans-50-fifty-round/)** (typecheck FE + tests + Metro/CI). Ronda activa: **[F51](./plans/rounds/plans-51-fifty-one-round/)** — higiene workspace Ionic, cobertura BE, mobile layers, SaaS typecheck, **npm publish + versionado de libs**. Siguiente (listo): **[F52](./plans/rounds/plans-52-fifty-two-round/)** — carry publish, `workspace-deps:strict`, storybook layout, coverage CI soft, peers mobile, docs. Índice: [plans/README.md](./plans/README.md).
 
 Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md) — unit → integration (Postgres) → e2e Playwright.
 

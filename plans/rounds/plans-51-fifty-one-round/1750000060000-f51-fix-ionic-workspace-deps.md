@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -11,17 +11,31 @@ que deberían resolverse como `workspace:*` (p. ej. `@base/ionic-dashboard-api`,
 `@base/ionic-auth-data-access`). Sin esto no se puede actualizar lockfile ni
 añadir paquetes nuevos de forma fiable.
 
-## Tareas
+## Resultado
 
-1. Inventariar `package.json` bajo `libs/base/frontend/mobile/ionic/**` con deps
-   que no existen en el workspace ni en npm.
-2. Crear libs faltantes (thin stubs) **o** corregir nombres a paquetes reales.
-3. `pnpm install` root verde; `pnpm check:workspace-deps:strict` sin regresiones.
-4. Documentar en [local-development.md](../../../guides/local-development.md)
-   si hay orden de bootstrap especial.
+**Causa:** las libs dashboard (Ionic + RN) declaraban deps internas como
+`"0.0.0"` en lugar de `"workspace:*"`. pnpm interpretaba eso como versión npm
+pública → 404.
+
+**Fix (11 pins → `workspace:*`):**
+
+| Package | Deps corregidas |
+|---------|-----------------|
+| `@base/ionic-dashboard-data-access` | `@base/ionic-dashboard-api` |
+| `@base/ionic-dashboard-features` | auth-data-access, dashboard-data-access, ionic-ui |
+| `@base/ionic-dashboard-shell` | auth-data-access, dashboard-features |
+| `@base/react-native-dashboard-data-access` | dashboard-api |
+| `@base/react-native-dashboard-features` | ui, dashboard-api, dashboard-data-access |
+| `@base/react-native-dashboard-shell` | dashboard-features |
+
+- `pnpm install` raíz → exit 0.
+- Inventario: cero `@base|@arquetipos|@josanz|@saas` sin protocolo `workspace:` en deps.
+- Nota en [local-development.md](../../../guides/local-development.md) (tabla troubleshooting).
+- `check:workspace-deps:strict` sigue con violaciones **preexistentes** ajenas
+  (undeclared imports en arquetipos/josanz/react); no introducidas por este fix.
 
 ## Criterios de aceptación
 
-- [ ] `pnpm install` en raíz exit 0.
-- [ ] Cero referencias a `@base/ionic-*` que no sean workspace packages.
-- [ ] Nota en Resultado con lista de packages creados/renombrados.
+- [x] `pnpm install` en raíz exit 0.
+- [x] Cero referencias a `@base/ionic-*` (y RN dashboard) tipadas como versión npm.
+- [x] Nota en Resultado con lista de packages tocados.

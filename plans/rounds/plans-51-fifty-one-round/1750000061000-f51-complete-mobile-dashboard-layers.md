@@ -2,29 +2,21 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
-## Objetivo
+## Resultado
 
-`check-lib-layout` avisa:
+Thin re-exports de `@base/*` bajo arquetipos (patrón auth/clients):
 
-- `arquetipos/frontend/mobile/ionic/dashboard` — incomplete layers `[shell]`
-- `arquetipos/frontend/mobile/rn/dashboard` — incomplete layers `[shell]`
+**RN:** `@arquetipos/react-native-dashboard-{api,data-access,features}`  
+**Ionic:** `@arquetipos/ionic-dashboard-{api,data-access,features}`
 
-Alinear con el patrón 4 capas (api / data-access / shell / features) o
-documentar excepción permanente en biblia + script.
-
-## Tareas
-
-1. Comparar con un dominio mobile completo (p. ej. `clients` / `auth`).
-2. Añadir capas thin faltantes (re-export `@base/*` donde aplique) **o**
-   registrar excepción en [josanz-product-exceptions](../../../frontend/josanz-product-exceptions.md)
-   / guía mobile + ajustar `check-lib-layout` allowlist.
-3. Preferir thin stubs sobre features vacías (YAGNI).
-4. `node tools/scripts/check-lib-layout.mjs` sin esos warns.
+- Paths en `tsconfig.base.json` + `check:exports-paths` OK (371 packages).
+- `check-lib-layout`: warns dashboard **eliminados** (queda solo storybook josanz, preexistente).
+- Tags `layer:arquetipos` + `runtime:react|angular` + `type:api|data-access|feature`.
 
 ## Criterios de aceptación
 
-- [ ] Warns de dashboard mobile resueltos o excepciones documentadas.
-- [ ] Tags `runtime:*` / `layer:arquetipos` coherentes.
-- [ ] Typecheck de shells afectados verde.
+- [x] Warns de dashboard mobile resueltos.
+- [x] Tags `runtime:*` / `layer:arquetipos` coherentes.
+- [x] Typecheck de capas nuevas / shells (ver Resultado / CI local).

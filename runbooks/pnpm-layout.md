@@ -69,6 +69,10 @@ pnpm check:workspace-deps        # report
 pnpm check:workspace-deps:strict # fail on missing declarations
 ```
 
+Si `strict` falla: declara la dep con `pnpm add <pkg> --filter <consumer> --workspace`
+(plan [F52-A2](../plans/rounds/plans-52-fifty-two-round/1750000071000-f52-fix-undeclared-workspace-deps.md)).
+No uses versión npm fija (`"0.0.0"`) para paquetes privados del monorepo.
+
 ## Nx daemon
 
 See **[nx-daemon.md](./nx-daemon.md)** (F36-P0-B) for diagnosis, timings, and the

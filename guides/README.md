@@ -34,6 +34,7 @@ Estilo de autoría: [CONTRIBUTING-DOCS.md](../CONTRIBUTING-DOCS.md).
 | [roles-rbac.md](./roles-rbac.md) | Roles DB + Keycloak + fieldPolicies |
 | [api-versioning.md](./api-versioning.md) | Versionado de API HTTP |
 | [deprecation-policy.md](./deprecation-policy.md) | Deprecaciones y `check:deprecated` |
+| [npm-publish-and-versioning.md](./npm-publish-and-versioning.md) | Publicar libs + semver (en construcción — F51-E1 / F52) |
 | [sonar-local.md](./sonar-local.md) | SonarQube local |
 | [pr-checklist.md](./pr-checklist.md) | Checklist antes de abrir PR |
 | [ui-re-export-vs-wrapper.md](./ui-re-export-vs-wrapper.md) | Re-export vs wrapper en UI de producto |
@@ -58,6 +59,7 @@ Estilo de autoría: [CONTRIBUTING-DOCS.md](../CONTRIBUTING-DOCS.md).
 | `tools/scripts/check-frontend-conventions.mjs` | Valida layout/pages/components |
 | `tools/scripts/check-lib-layout.mjs` | Path físico vs categoría lib |
 | `tools/scripts/check-ui-ownership.mjs` | UI base vs josanz vs arquetipos |
+| `tools/scripts/audit-workspace-deps.mjs` | Imports `@scope/*` sin `workspace:*` (`pnpm check:workspace-deps:strict`) |
 
 ## Verificación mínima tras cualquier guía
 
@@ -65,4 +67,5 @@ Estilo de autoría: [CONTRIBUTING-DOCS.md](../CONTRIBUTING-DOCS.md).
 pnpm nx typecheck <project>
 node tools/scripts/check-lib-layout.mjs
 node tools/scripts/check-frontend-conventions.mjs   # si tocaste frontend
+pnpm check:workspace-deps:strict                   # si tocaste package.json / imports entre libs
 ```

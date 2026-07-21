@@ -154,8 +154,10 @@ Mapa mental completo: [architecture/overview.md](./architecture/overview.md).
 | Añadir API / dominio backend | [guides/add-backend-domain.md](./guides/add-backend-domain.md) |
 | Extraer un microservicio | [guides/add-microservice.md](./guides/add-microservice.md) |
 | Crear producto cliente nuevo | [clientes/nuevo-cliente-checklist.md](./clientes/nuevo-cliente-checklist.md) |
+| Publicar / versionar una lib | [guides/npm-publish-and-versioning.md](./guides/npm-publish-and-versioning.md) |
 | Cambiar auth, eventos, cifrado… | [adr/README.md](./adr/README.md) |
 | Desplegar / incidentes | [runbooks/README.md](./runbooks/README.md) |
+| Ver planes activos | [plans/README.md](./plans/README.md) |
 
 ---
 

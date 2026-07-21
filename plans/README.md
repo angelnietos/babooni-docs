@@ -14,12 +14,22 @@ Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `traslad
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| [plans-50-fifty-round](./rounds/plans-50-fifty-round/) | en progreso | Typecheck FE + tests BE + int-specs + DX Metro/CI (B1 hecho) |
+| [plans-51-fifty-one-round](./rounds/plans-51-fifty-one-round/) | activa / en progreso | Workspace Ionic + cobertura BE + mobile layers + SaaS typecheck + **npm publish/versionado** |
+
+## Siguiente (preparada)
+
+| Ronda | Estado | Tema |
+|-------|--------|------|
+| [plans-52-fifty-two-round](./rounds/plans-52-fifty-two-round/) | listo para ejecutar | Carry publish + workspace-deps strict + storybook layout + coverage CI soft + peers mobile + docs |
+
+> F52 arranca tras **F51-D1** (o en paralelo solo docs C2). No marcar F51
+> `completado` hasta que sus hitos pendientes (A3/B1/C*/E1/D1) cierren.
 
 ## Rondas completadas (archivo)
 
 | Ronda | Tema |
 |-------|------|
+| [plans-50](./rounds/plans-50-fifty-round/) | Typecheck FE + tests BE + int-specs + Metro/CI |
 | [plans-49](./rounds/plans-49-forty-nine-round/) | Deep-imports + any impl. (A3/A4 → F50) |
 | [plans-48](./rounds/plans-48-forty-eight-round/) | Typecheck hygiene + barrels + deep-imports + any-cast specs |
 | [plans-47](./rounds/plans-47-forty-seven-round/) | Superseded por F48/F49 (harness / deep-imports / josanz-ui) |

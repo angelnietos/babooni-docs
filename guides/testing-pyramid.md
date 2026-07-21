@@ -80,7 +80,12 @@ Garantiza que `findById` añade `tenantId` al `where` (multi-tenant).
 
 ```bash
 # Unit @base/backend
-pnpm exec jest -c libs/base/backend/jest.config.ts
+pnpm exec jest -c libs/base/backend/jest.config.cts
+
+# Coverage gate (audit / settings / tenants) — F51-A3
+pnpm test:cov
+pnpm test:cov:check
+pnpm test:cov:domains
 
 # Affected (preferido)
 pnpm test:affected
@@ -96,12 +101,23 @@ Si `nx test` cuelga: [nx-daemon.md](../runbooks/nx-daemon.md) o jest directo.
 
 ---
 
-## Umbrales de cobertura (orientativos)
+## Umbrales de cobertura
 
-| Proyecto | Statements / lines |
-|----------|-------------------|
-| `@base/backend` | ≥ 70% |
-| Apps / libs producto | ≥ 60% |
+| Scope | Statements / functions / lines | Branches |
+|-------|--------------------------------|----------|
+| `@base/backend` domains **audit / settings / tenants** (F51-A3) | ≥ **80%** | ≥ **65%** |
+| Resto `@base/backend` (orientativo) | ≥ 70% | — |
+| Apps / libs producto (orientativo) | ≥ 60% | — |
+
+**Cómo medir (F51-A3):**
+
+1. Desde la raíz: `pnpm test:cov:check` (usa `libs/base/backend/jest.config.cts`).
+2. Resumen en consola (`text-summary`) + `coverage/libs/base/backend/lcov.info`.
+3. Si falla el umbral: mirar tabla por archivo; rellenar specs o documentar exclusión
+   en el plan / este guide (crypto `audit-hash`, Nest `audit.extension`, entity,
+   Prisma repos → int-specs).
+
+Gate CI estricto: diferido a F52 cuando el harness local/CI midan igual.
 
 ---
 
@@ -115,7 +131,8 @@ Si `nx test` cuelga: [nx-daemon.md](../runbooks/nx-daemon.md) o jest directo.
 ## Verificación
 
 ```bash
-pnpm exec jest -c libs/base/backend/jest.config.ts --passWithNoTests=false
+pnpm exec jest -c libs/base/backend/jest.config.cts --passWithNoTests=false
+pnpm test:cov:check
 pnpm check:domain-conventions
 ```
 
