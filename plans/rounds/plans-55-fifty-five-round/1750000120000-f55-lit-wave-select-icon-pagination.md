@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -28,6 +28,12 @@ Arq + stories + catálogo.
 
 ## Criterios de aceptación
 
-- [ ] ≥ 2 de {select, icon, pagination} con DoD completo.
-- [ ] Cero primitivos framework-only nuevos en base.
-- [ ] Typecheck/lint de proyectos tocados verde.
+- [x] ≥ 2 de {select, icon, pagination} con DoD completo.
+- [x] Cero primitivos framework-only nuevos en base.
+- [x] Typecheck/lint de proyectos tocados verde.
+
+## Resultado
+
+Oleada 2 completa: CEs `base-select`, `base-icon`, `base-pagination` en
+`@base/native-ui`; wrappers Angular/React `Native*` + Arq `ArqNative*`;
+`catalog.stories` + inventario actualizado (oleada 2).

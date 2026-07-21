@@ -200,7 +200,7 @@ pnpm check:legacy-paths
 pnpm check:migration-encoding
 ```
 
-Última ronda cerrada: **[F54](./plans/rounds/plans-54-fifty-four-round/)**. Ronda activa (lista): **[F55](./plans/rounds/plans-55-fifty-five-round/)** — carry oleada Lit 2, Chromatic, coverage BE + Jest workspace (C3), parity, Code Connect, a11y. Índice: [plans/README.md](./plans/README.md).
+Última ronda cerrada: **[F55](./plans/rounds/plans-55-fifty-five-round/)**. Ronda activa (lista): **[F56](./plans/rounds/plans-56-fifty-six-round/)** — build/visual apps arquetipos, Jest BE, MockServer FE-only (+ carry Chromatic/Code Connect/remove). Índice: [plans/README.md](./plans/README.md).
 
 Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md) — unit → integration (Postgres) → e2e Playwright. Operativa Jest/coverage: [runbooks/jest-coverage.md](./runbooks/jest-coverage.md).
 

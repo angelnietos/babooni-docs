@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -18,5 +18,9 @@ frontend (o hygiene) cuando arch/UI/func estén estables.
 
 ## Criterios de aceptación
 
-- [ ] Strict en CI **o** defer con lista de gaps.
-- [ ] Mensaje de fallo apunta a `docs/arquetipos/parity.md`.
+- [x] Strict en CI **o** defer con lista de gaps.
+- [x] Mensaje de fallo apunta a `docs/arquetipos/parity.md`.
+
+## Resultado
+
+CI frontend ejecuta `check:arquetipos-parity -- --strict` (pasa).

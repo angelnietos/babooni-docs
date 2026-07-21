@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+defer F56
 
 ## Objetivo
 
@@ -18,5 +18,10 @@ sin herramienta. F55 crea mappings Code Connect para el piloto si hay acceso.
 
 ## Criterios de aceptación
 
-- [ ] Piloto Code Connect **o** defer explícito (sin token).
-- [ ] Sin regresiones ownership UI.
+- [x] Piloto Code Connect **o** defer explícito (sin token).
+- [x] Sin regresiones ownership UI.
+
+## Resultado
+
+Defer Code Connect: no hay token Figma. Matriz actualizada con select / icon /
+pagination; piloto Code Connect → F56.

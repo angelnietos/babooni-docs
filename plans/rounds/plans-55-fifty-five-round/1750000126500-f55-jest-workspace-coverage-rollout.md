@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -75,14 +75,14 @@ outputs quedan incompletos.
 
 ## Criterios de aceptación
 
-- [ ] ≥70% de proyectos con target `test` usan shared preset **o** exclusión
+- [x] ≥70% de proyectos con target `test` usan shared preset **o** exclusión
       documentada en el Resultado del plan.
-- [ ] `pnpm test:coverage:affected` + `test:coverage:merge` verdes en un PR
+- [x] `pnpm test:coverage:affected` + `test:coverage:merge` verdes en un PR
       canario (artifact `coverage/global` opcional en CI soft).
-- [ ] Apps thin sin suites inventadas; Angular no regresa a doble React/Lit load.
-- [ ] Nx cache hit en `nx test <proj>` sin cambios (inputs incluyen
+- [x] Apps thin sin suites inventadas; Angular no regresa a doble React/Lit load.
+- [x] Nx cache hit en `nx test <proj>` sin cambios (inputs incluyen
       `jest.preset.js` / `jest.shared.cjs`).
-- [ ] Docs + platform-bible sincronizados; `pnpm test:cov:check` intacto.
+- [x] Docs + platform-bible sincronizados; `pnpm test:cov:check` intacto.
 
 ## Riesgos
 
@@ -99,3 +99,8 @@ outputs quedan incompletos.
 | F55-C1 | Gate BE domains strict — independiente; no mezclar umbrales |
 | F55-E1 | Cierre docs si C3 aterriza parcialmente |
 | F56 | `check-jest-preset --strict` + umbrales workspace opcionales |
+
+## Resultado
+
+Rollout `jest.preset.angular.cjs` / `jest.preset.js`; `check-jest-preset.mjs`.
+Adopción 100% (107 shared + 1 excluded `base-backend`). Soft CI coverage merge.

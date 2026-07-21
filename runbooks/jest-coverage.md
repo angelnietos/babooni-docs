@@ -27,6 +27,11 @@ en `jest.shared.cjs`.
 **Cache Jest:** `node_modules/.cache/jest`.  
 **Cache Nx:** target `test` cacheable; inputs incluyen los presets del root.
 
+**Adopción preset (F55-C3):** `pnpm check:jest-preset` (warn) /
+`pnpm check:jest-preset:strict`. Exclusión documentada:
+`libs/base/backend/jest.config.cts` (umbrales dominio gate C1) o comentario
+`// jest-preset: exclude`.
+
 
 ## Apps vs libs
 

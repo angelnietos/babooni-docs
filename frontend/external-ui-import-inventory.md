@@ -1,4 +1,4 @@
-# Inventario UI externo → Lit (F53-A3 / F54-A2)
+# Inventario UI externo → Lit (F53-A3 / F54-A2 / F55-A1)
 
 Snapshot 2026-07-22. No hay catálogo externo con licencia/credenciales en el
 workspace; la priorización usa **gaps** del design system interno
@@ -11,11 +11,11 @@ workspace; la priorización usa **gaps** del design system interno
 | 1 | Divider | gap interno | **Oleada 1** → `base-divider` |
 | 2 | Progress | gap interno | **Oleada 1** → `base-progress` |
 | 3 | Chip / tag removable | gap (badge ≠ chip) | **Oleada 1** → `base-chip` |
-| 4 | Select | angular-ui `select` | F55 |
-| 5 | Icon set | angular/react icon | F55 (sprite / CE) |
-| 6 | Pagination | shared pagination | F55 |
+| 4 | Select | angular-ui `select` | **Oleada 2** → `base-select` |
+| 5 | Icon set | angular/react icon | **Oleada 2** → `base-icon` |
+| 6 | Pagination | numbered pagination | **Oleada 2** → `base-pagination` |
 | 7 | Table | complejo | reject CE / keep framework |
-| 8 | Filter bar | shared | F55 |
+| 8 | Filter bar | shared | **reject CE** — composición `NativeInput` + `NativeChip` (+ botones) |
 | 9 | Confirm dialog | overlaps modal | reject (use `base-modal`) |
 | 10 | Tenant switch | chrome | reject (app shell) |
 
@@ -29,9 +29,16 @@ DoD: CE + register + wrappers Angular/React + Arq + stories catalog + ownership.
 | `base-progress` | Native* / ArqNative* | catalog.stories |
 | `base-chip` | Native* / ArqNative* | catalog.stories |
 
-## Residual → F55
+## Oleada 2 (completada F55-A1)
 
-Select, Icon, Pagination, Filter bar — planes
-[F55-A1](../plans/rounds/plans-55-fifty-five-round/1750000120000-f55-lit-wave-select-icon-pagination.md) /
-[F55-A2](../plans/rounds/plans-55-fifty-five-round/1750000121000-f55-lit-wave-filter-bar-residual.md).
-Re-evaluar licencia si aparece repo externo con Code Connect / Storybook export.
+| CE | Wrappers | Stories |
+|----|----------|---------|
+| `base-select` | Native* / ArqNative* | catalog.stories |
+| `base-icon` | Native* / ArqNative* | catalog.stories |
+| `base-pagination` | Native* / ArqNative* | catalog.stories |
+
+## Residual → F56
+
+Vacío para átomos P0. Filter bar: **no CE** — patrón de composición
+documentado arriba (F55-A2). Remove de primitivos `@deprecated` framework-only
+cuando el gate `check:deprecated` lo permita.

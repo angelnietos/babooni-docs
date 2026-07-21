@@ -14,18 +14,19 @@ Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `traslad
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| [plans-55-fifty-five-round](./rounds/plans-55-fifty-five-round/) | listo para ejecutar | Carry F54: Lit 2, Chromatic, coverage BE + Jest workspace, parity, Code Connect |
+| [plans-56](./rounds/plans-56-fifty-six-round/) | listo para ejecutar | Apps arquetipos build/visual, Jest BE, MockServer FE-only |
 
 ## Siguiente (preparada)
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| — | — | F56: remove primitivos `@deprecated` (F54-A3) + residual F55 |
+| — | — | F57: carry Chromatic / Code Connect / remove `@deprecated` si F56-D1 no cierra |
 
 ## Rondas completadas (archivo)
 
 | Ronda | Tema |
 |-------|------|
+| [plans-55](./rounds/plans-55-fifty-five-round/) | Carry F54: Lit 2, a11y, coverage BE strict, Jest workspace, parity strict; Chromatic/Code Connect → F56 |
 | [plans-54](./rounds/plans-54-fifty-four-round/) | Migración native wrappers, oleadas Lit, tokens, SB CI, parity, gate strict |
 | [plans-53](./rounds/plans-53-fifty-three-round/) | Native-ui SoT + freeze + wrappers/SB (cerrado en paralelo con F54) |
 | [plans-52](./rounds/plans-52-fifty-two-round/) | Publish workflow + workspace-deps strict + storybook + coverage soft + peers mobile |

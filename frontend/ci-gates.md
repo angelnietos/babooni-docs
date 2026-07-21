@@ -18,9 +18,9 @@ checks in sequence.
 | Boundaries smoke | `pnpm lint:boundaries` | module-boundary violations on all shell/feature/ui |
 | Slim barrel | `pnpm check:slim-barrel` | domain stores imported from `@base/angular` / `@base/react` in apps |
 | Documents parity | `pnpm check:documents-route-parity` | doc-gen routes diverge from josanz-erp (needs `JOSANZ_ERP_ROOT`) |
-| Soft coverage BE (F52-B2 / F55-C1) | `pnpm test:cov:check` en job `quality` (`continue-on-error` + artifact) | Below threshold — **warn** only; strict fail deferred |
-| Jest workspace coverage (F55-C3) | `pnpm test:coverage:affected` + `test:coverage:merge` → `coverage/global/` | Soft / nightly primero; no umbral workspace fail en F55 |
-| Arquetipos parity (F54-B4) | `pnpm check:arquetipos-parity` | Drift rutas/dominios/UI entre stacks plantilla |
+| Coverage BE strict (F55-C1) | `pnpm test:cov:check` en job `quality` (**fail**) | Below domain threshold (audit/settings/tenants) |
+| Jest workspace coverage (F55-C3) | `check:jest-preset` + `test:coverage:affected` + merge → `coverage/global/` | Soft (`continue-on-error`); no umbral workspace fail |
+| Arquetipos parity strict (F55-C2) | `pnpm check:arquetipos-parity -- --strict` | Drift rutas/dominios/UI entre stacks plantilla |
 
 ### F12-NM — Base Prisma nested `node_modules` (resolved)
 

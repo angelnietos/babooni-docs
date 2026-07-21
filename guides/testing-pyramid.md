@@ -127,9 +127,10 @@ Si `nx test` cuelga: [nx-daemon.md](../runbooks/nx-daemon.md) o jest directo.
    en el plan / este guide (crypto `audit-hash`, Nest `audit.extension`, entity,
    Prisma repos → int-specs).
 
-Gate CI (F52-B2): **soft** en job `quality` (`continue-on-error` + artifact
-`base-backend-coverage`). Strict (fail job) diferido tras N PRs estables —
-dueño: maintainers backend / siguiente ronda si el soft no falla en main.
+Gate CI (F55-C1): **strict** en job `quality` — `pnpm test:cov:check` falla el
+job si baja el umbral (audit/settings/tenants). Artifact `base-backend-coverage`
+sigue subiéndo. Workspace coverage merge (`test:coverage:affected` + merge) es
+**soft** (`continue-on-error`) — ver F55-C3 / [jest-coverage.md](../runbooks/jest-coverage.md).
 
 ---
 

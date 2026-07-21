@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -19,5 +19,11 @@ entre stacks Full (mismo flujo canario: auth → clients).
 
 ## Criterios de aceptación
 
-- [ ] Spec soft en CI **o** defer justificado (“native-ui suficiente”).
-- [ ] Misma secuencia documentada en parity.md.
+- [x] Spec soft en CI **o** defer justificado (“native-ui suficiente”).
+- [x] Misma secuencia documentada en parity.md.
+
+## Resultado
+
+Misma secuencia smoke documentada en [parity.md](../../../arquetipos/parity.md).
+`angular-single-e2e` + `react-single-e2e` `smoke.spec.ts` ya comparten
+login → clients/users/audit.

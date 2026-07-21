@@ -46,8 +46,10 @@ Gate: `node tools/scripts/check-ui-ownership.mjs` (F53+: soft native-first).
 - Stories en el paquete **dueño** del componente.
 - Inferencia: `@nx/storybook/plugin` en `nx.json`; puertos/styles/output en
   `project.json` por lib.
-- **CI visual / Chromatic:** defer F55 — sin token Chromatic; `build-storybook`
-  de base UI en CI basta como señal de rotura de stories (F54-B1).
+- **CI visual / Chromatic (F55-B1):** **defer F56** — sin `CHROMATIC_PROJECT_TOKEN`.
+  Estrategia elegida: Playwright screenshots sobre Storybook static cuando haya
+  presupuesto; mientras, `build-storybook` de `base-native-ui` (+ angular/react-ui)
+  en CI es la señal de rotura de stories. Loki no adoptado (mantenimiento baselines).
 
 ```bash
 pnpm nx storybook base-native-ui

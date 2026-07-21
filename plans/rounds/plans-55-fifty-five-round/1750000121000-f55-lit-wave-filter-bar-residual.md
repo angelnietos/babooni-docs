@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -17,5 +17,10 @@ con alternativa composición Native*). Limpiar residual del inventario para F56.
 
 ## Criterios de aceptación
 
-- [ ] Filter bar CE **o** reject documentado + patrón de composición.
-- [ ] Inventario residual actualizado.
+- [x] Filter bar CE **o** reject documentado + patrón de composición.
+- [x] Inventario residual actualizado.
+
+## Resultado
+
+Filter bar **REJECT** como CE: componer `NativeInput` + `NativeChip`. Inventario
+residual vacío para P0.

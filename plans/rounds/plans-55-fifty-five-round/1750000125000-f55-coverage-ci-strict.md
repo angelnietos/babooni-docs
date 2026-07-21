@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -18,5 +18,10 @@ Carry F52-B2 / F53-D1 / F54-D2: el job `pnpm test:cov:check` sigue
 
 ## Criterios de aceptación
 
-- [ ] Strict activo **o** defer explícito con conteo/motivo.
-- [ ] Sin bajar umbrales para “pasar”.
+- [x] Strict activo **o** defer explícito con conteo/motivo.
+- [x] Sin bajar umbrales para “pasar”.
+
+## Resultado
+
+Eliminado `continue-on-error` del job quality en `ci.yml`. `pnpm test:cov:check`
+verde (~96% statements).

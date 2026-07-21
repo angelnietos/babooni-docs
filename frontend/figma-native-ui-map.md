@@ -1,8 +1,8 @@
-# Figma ↔ `@base/native-ui` (F54-D1)
+# Figma ↔ `@base/native-ui` (F54-D1 / F55-D1)
 
-**Estado:** matriz documentada sin Code Connect activo (sin token Figma MCP /
-Code Connect en CI). Regla: **Figma → Lit CE primero**; no generar wrappers
-Angular/React saltándose `@base/native-ui`.
+**Estado:** matriz documentada. **Code Connect piloto defer → F56** (sin token
+Figma MCP / Code Connect en CI). Regla: **Figma → Lit CE primero**; no generar
+wrappers Angular/React saltándose `@base/native-ui`.
 
 | Figma (nombre sugerido) | CE tag | Wrapper Angular | Wrapper React |
 |-------------------------|--------|-----------------|---------------|
@@ -17,5 +17,8 @@ Angular/React saltándose `@base/native-ui`.
 | Divider | `base-divider` | `NativeDividerComponent` | `NativeDivider` |
 | Progress | `base-progress` | `NativeProgressComponent` | `NativeProgress` |
 | Chip | `base-chip` | `NativeChipComponent` | `NativeChip` |
+| Select | `base-select` | `NativeSelectComponent` | `NativeSelect` |
+| Icon | `base-icon` | `NativeIconComponent` | `NativeIcon` |
+| Pagination | `base-pagination` | `NativePaginationComponent` | `NativePagination` |
 
-Cuando haya acceso Figma: piloto Code Connect en button/input/alert y ampliar.
+Piloto Code Connect (button/input/alert) cuando haya acceso Figma.

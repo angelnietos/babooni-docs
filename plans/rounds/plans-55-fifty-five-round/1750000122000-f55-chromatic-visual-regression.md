@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+defer F56
 
 ## Objetivo
 
@@ -26,5 +26,11 @@ falta de token. F55 elige e integra **una** estrategia visual.
 
 ## Criterios de aceptación
 
-- [ ] Estrategia integrada en CI (PR o nightly) **o** defer F56 con motivo.
+- [x] Estrategia integrada en CI (PR o nightly) **o** defer F56 con motivo.
 - [ ] Al menos un baseline/smoke visual reproducible localmente.
+
+## Resultado
+
+Defer Chromatic: no hay `CHROMATIC_PROJECT_TOKEN`. Estrategia elegida =
+Playwright Storybook screenshots en F56. `build-storybook` sigue como señal CI
+(documentado en [design-system.md](../../../frontend/design-system.md)).
