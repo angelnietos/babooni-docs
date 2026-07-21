@@ -58,7 +58,7 @@ en progreso
 - [x] `pnpm install` (root) no falla por `@base/ionic-*` 404.
 - [x] `check-lib-layout` sin warn de dashboard mobile incompleto.
 - [x] Cobertura audit/settings/tenants documentada + script/gate.
-- [ ] Typecheck verde en libs CRM objetivo (lista B1).
+- [x] Typecheck verde en libs CRM objetivo (lista B1).
 - [ ] Oleada canario npm: `.npmrc.example` + dry-run pack/publish + guía.
 - [ ] Hub + plans: F51 activa o cerrada; F50 en archivo; **F52** enlazada como siguiente.
 - [ ] `pnpm check:deprecated` + `pnpm check:exports-paths` pasan.
