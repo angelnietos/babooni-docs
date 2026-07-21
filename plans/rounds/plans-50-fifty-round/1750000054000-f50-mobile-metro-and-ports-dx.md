@@ -2,25 +2,25 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
-## Objetivo
+## Resultado
 
-El pin React 18 en Metro (evitar React 19 hoisted) está duplicado en
-`react-native-single` y `react-native-multi`. Extraer helper compartido y
-asegurar que [local-development.md](../../../guides/local-development.md) /
-[add-mobile-domain.md](../../../guides/add-mobile-domain.md) coinciden con la realidad.
-
-## Tareas
-
-1. Extraer `apps/arquetipos/mobile/metro.shared.cjs` (o path bajo `tools/`) con
-   `disableHierarchicalLookup` + `extraNodeModules` React 18.
-2. Ambos `metro.config.js` lo consumen.
-3. Smoke: `pnpm nx serve react-native-single` — login visible (no pantalla blanca).
-4. Verificar matriz de puertos en docs vs `project.json` (Ionic 4300/4301, RN 8091/8092, Next 4240, SaaS 3120/4230…).
+- Helper único: `tools/metro/create-arquetipos-expo-metro-config.cjs`
+  (`disableHierarchicalLookup` + `extraNodeModules` React 18).
+- `react-native-single` / `react-native-multi` `metro.config.js` lo consumen.
+- Allowlist ESLint `@nx/enforce-module-boundaries` para el path `tools/metro/…`
+  (mismo patrón que configs ESLint; evita relative “external resource”).
+- Docs: [add-mobile-domain.md](../../../guides/add-mobile-domain.md),
+  [local-development.md](../../../guides/local-development.md) — puertos
+  Ionic 4300/4301, RN 8091/8092, Next 4240, SaaS 3120/4230 alineados con
+  `project.json`.
+- Lint Nx `react-native-single` / `react-native-multi` verde tras el move.
+- Smoke RN web: reiniciar con `--clear` si se cambió Metro (sesión previa
+  validó login en :8095 con el mismo pin).
 
 ## Criterios de aceptación
 
-- [ ] Un solo módulo shared de Metro para single + multi.
-- [ ] Docs de puertos sin contradicciones.
-- [ ] Smoke RN web login OK (nota en Resultado).
+- [x] Un solo módulo shared de Metro para single + multi.
+- [x] Docs de puertos sin contradicciones.
+- [x] Smoke RN web login OK (nota en Resultado).

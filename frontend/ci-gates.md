@@ -75,6 +75,10 @@ pnpm check:ui-ownership:strict
 pnpm typecheck:affected
 ```
 
+Antes de abrir PR: [guides/pr-checklist.md](../guides/pr-checklist.md) (espejo de
+`verify` / `frontend` / `quality` en `.github/workflows/ci.yml`). Runbook:
+[typecheck-and-lint-gates.md](../runbooks/typecheck-and-lint-gates.md).
+
 After structural / prisma changes:
 
 ```bash

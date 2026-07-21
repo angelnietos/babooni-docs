@@ -2,6 +2,10 @@
 
 Cuándo usarla: antes de abrir o pedir review de un PR en este monorepo.
 
+Mapa CI ↔ local: [frontend/ci-gates.md](../frontend/ci-gates.md) ·
+[runbooks/typecheck-and-lint-gates.md](../runbooks/typecheck-and-lint-gates.md) ·
+`.github/workflows/ci.yml`.
+
 ## Código
 
 - [ ] Cambio en **lib** correcta (`@base` vs producto vs SaaS) — sin cruzar capas npm
@@ -9,17 +13,33 @@ Cuándo usarla: antes de abrir o pedir review de un PR en este monorepo.
 - [ ] UI: re-export vs wrapper evaluado ([ui-re-export-vs-wrapper.md](./ui-re-export-vs-wrapper.md))
 - [ ] Handlers sin Prisma; tests unit de handlers nuevos ([testing-pyramid.md](./testing-pyramid.md))
 
-## Verificación local
+## Verificación local (espejo CI)
+
+Mínimo antes de pedir review:
 
 ```bash
-pnpm verify:affected          # lint + typecheck + test
-pnpm check:lib-layout
-pnpm check:frontend-conventions   # si FE
-pnpm check:ui-ownership           # si UI
-pnpm check:domain-conventions     # si backend hex
-pnpm check:exports-paths          # si exports/paths FE
+pnpm verify:affected          # lint + typecheck + test (job verify / frontend)
+```
+
+Gates que CI corre además (alinear con el alcance del PR):
+
+```bash
+pnpm check:schema-parity              # Prisma / schema
+pnpm check:domain-conventions:strict  # backend hex
+pnpm check:frontend-conventions       # FE
+pnpm check:lib-layout:strict
+pnpm check:legacy-paths
+pnpm check:node-modules
+pnpm check:lint-coverage
+pnpm check:slim-barrel
+pnpm check:tsconfig-paths && pnpm check:exports-paths
+pnpm check:workspace-deps:strict
+pnpm check:ui-ownership:strict        # si UI / features
 pnpm check:deprecated
 ```
+
+En **push a `main`**, CI añade `pnpm typecheck:all` (red de seguridad F16-TC).
+En PRs basta `verify:affected` + los `check:*` del job.
 
 Si Nx cuelga: [nx-daemon.md](../runbooks/nx-daemon.md) o `tsc` / jest directo.
 
@@ -43,3 +63,5 @@ Si Nx cuelga: [nx-daemon.md](../runbooks/nx-daemon.md) o `tsc` / jest directo.
 
 - [docs/README.md](../README.md) — sección Verificación
 - [CONTRIBUTING.md](../../CONTRIBUTING.md)
+- [frontend/ci-gates.md](../frontend/ci-gates.md)
+- [runbooks/typecheck-and-lint-gates.md](../runbooks/typecheck-and-lint-gates.md)

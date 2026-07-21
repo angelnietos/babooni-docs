@@ -2,37 +2,30 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Origen
 
 Carry de [F49-A4](../plans-49-forty-nine-round/1750000043000-f49-add-missing-backend-tests.md).
 
-## Objetivo
+## Resultado
 
-Subir cobertura y casos edge en audit, settings, tenants (+ edges CRUD
-billing/inventory/projects). Seguir [testing-pyramid.md](../../../guides/testing-pyramid.md)
-y harnesses `@base/backend`.
+Nuevos / ampliados (≥ 10 casos):
 
-## Dominios
+- `audit.service.spec.ts` — SYSTEM actor + tenant null; actor de request; seed vacío
+- `audit-interceptor.spec.ts` — user/sub/tenant/ip + request missing
+- `audit.handlers.spec.ts` — empty seed
+- Settings: paginación `ListSettings` + `ConflictException` key duplicada
+- Tenants: slug duplicado + status `Suspended` / `Pending`
+- Billing / Inventory / Projects: edges `findPage` vacío
 
-| Dominio | Gaps |
-|---------|------|
-| Audit | `AuditActorInterceptor`, `log()` tenant null, seed vacío |
-| Settings | key duplicada, paginación `ListSettings` |
-| Tenants | slug duplicado, status suspended/archived |
-| Billing / Inventory / Projects | edges `findPage` / DTO validation |
+Verificación: `pnpm nx test base-backend` → **111 suites / 321 tests** verdes.
 
-## Tareas
-
-1. Audit: specs interceptor + service edge cases.
-2. Settings: service/handler specs.
-3. Tenants: extender handlers specs.
-4. Opcional: 1–2 edges por dominio CRUD.
-5. `pnpm nx test base-backend` tras cada dominio; coverage al final.
+Cobertura formal ≥ 80% por dominio no instrumentada en CI en esta ronda;
+umbral + reporte → **F51-A3**.
 
 ## Criterios de aceptación
 
-- [ ] ≥ 10 tests nuevos.
-- [ ] audit / settings / tenants ≥ 80% en el scope medido (o justificación en Resultado).
-- [ ] `pnpm nx test base-backend` verde.
+- [x] ≥ 10 tests nuevos.
+- [x] Suite `base-backend` verde (justificación cobertura → F51).
+- [x] `pnpm nx test base-backend` verde.

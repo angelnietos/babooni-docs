@@ -130,8 +130,8 @@ Un cambio nuevo debe preservar «arranca sin infra opcional».
 | Errores TS en `*-features/*` paths | Artefacto IDE | Wildcards en `tsconfig.base.json` — `tsc` sí pasa |
 | `pnpm install` falla workspace | Falta `workspace:*` | `pnpm add @base/foo --filter @josanz/bar --workspace` |
 | Language server Nx no responde / cuelga | Node fuera de rango para Nx | 1) Recargar VS Code. 2) `pnpm nx reset`. 3) `pnpm check:node-nx` para verificar compatibilidad. |
-| Mismatch tipos React 18/19 en React Native | `@types/react` 19.x raíz vs 18.x RN | Pin Metro a React 18 de la app (`disableHierarchicalLookup` + `extraNodeModules`) — [add-mobile-domain.md](./add-mobile-domain.md). Casts locales solo si queda mismatch de types. |
-| Pantalla blanca RN web + error `$$typeof` en ArqInput | React 19 + React 18 en el mismo bundle | Reiniciar Expo con `--clear` tras arreglar `metro.config.js` |
+| Mismatch tipos React 18/19 en React Native | `@types/react` 19.x raíz vs 18.x RN | Pin Metro vía `tools/metro/create-arquetipos-expo-metro-config.cjs` (`disableHierarchicalLookup` + `extraNodeModules`) — [add-mobile-domain.md](./add-mobile-domain.md). Casts locales solo si queda mismatch de types. |
+| Pantalla blanca RN web + error `$$typeof` en ArqInput | React 19 + React 18 en el mismo bundle | Reiniciar Expo con `--clear` tras arreglar Metro (`tools/metro/…`) |
 
 ---
 

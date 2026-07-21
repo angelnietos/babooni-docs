@@ -2,42 +2,25 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Origen
 
 Carry de [F49-A3](../plans-49-forty-nine-round/1750000042000-f49-frontend-typecheck-coverage.md).
 
-## Objetivo
+## Resultado
 
-Llevar a verde `pnpm nx typecheck` en libs base FE y apps principales
-(Angular, React, Next, mobile donde aplique, Josanz, SaaS canarios).
-
-## Proyectos objetivo
-
-### Libs base
-- `@base/angular`, `@base/angular-api`, `@base/angular-ui`, `@base/angular-store`
-- `@base/react`, `@base/react-api`, `@base/react-ui`, `@base/react-store`
-- `@base/native-ui`, `@base/shared-store`
-- Next / mobile libs presentes en el graph
-
-### Apps
-- Plantillas arquetipos Angular / React / Next
-- `josanz` SPA
-- `verifactu-platform`, `document-generator`
-- Mobile: `react-native-single`, `ionic-single` (typecheck target si existe)
-
-## Tareas
-
-1. Inventario: `pnpm nx show projects --withTarget typecheck` filtrado FE.
-2. Batch 1: libs `@base/*` FE.
-3. Batch 2: apps arquetipos + josanz.
-4. Batch 3: SaaS + mobile.
-5. Tras cada batch: `pnpm check:exports-paths`.
-6. Registrar fallos preexistentes vs introducidos (no esconder con `skip`).
+- Libs base FE verdes: `base-angular`, `base-angular-api|ui|store`, `base-react`,
+  `base-react-api|ui|store`, `base-native-ui`, `base-shared-store`.
+- Apps verdes: `angular-single`, `react-single`, `next-single`, `josanz`,
+  `document-generator`, `react-native-single`, `ionic-single`,
+  **`verifactu-platform`** (fix: `tsconfig.spec.json` → `moduleResolution: "bundler"` /
+  `module: "ES2022"`; el `node10` previo rompía `@angular/common/http` y
+  `rxjs-interop`).
+- `pnpm check:exports-paths` OK (365 packages, 0 errors).
 
 ## Criterios de aceptación
 
-- [ ] Typecheck verde en la lista objetivo (o exclusiones documentadas en el Resultado).
-- [ ] `pnpm check:exports-paths` pasa.
-- [ ] Cero `TS2307` por barrels rotos en esos proyectos.
+- [x] Typecheck verde en la lista objetivo.
+- [x] `pnpm check:exports-paths` pasa.
+- [x] Cero `TS2307` por barrels rotos en esos proyectos.

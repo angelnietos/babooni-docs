@@ -49,10 +49,23 @@ El monorepo hoist **React 19** en la raíz; Expo RN necesita **React 18**. Sin p
 en Metro, `ArqInput`/`ArqButton` fallan con *"Objects are not valid as a React child"*
 (React duplicado).
 
-En `apps/arquetipos/mobile/react-native-*/metro.config.js`:
+Config compartida: `tools/metro/create-arquetipos-expo-metro-config.cjs`
+(allowlist en `@nx/enforce-module-boundaries`, igual que configs ESLint).
+Cada app:
+
+```js
+// apps/arquetipos/mobile/react-native-{single,multi}/metro.config.js
+const {
+  createArquetiposExpoMetroConfig,
+} = require('../../../../tools/metro/create-arquetipos-expo-metro-config.cjs');
+module.exports = createArquetiposExpoMetroConfig(__dirname);
+```
+
+El helper fija:
 
 - `disableHierarchicalLookup: true`
-- `extraNodeModules` → `react`, `react-dom`, `react-native`, `react-native-web` desde `node_modules` de la **app**
+- `extraNodeModules` → `react`, `react-dom`, `react-native`, `react-native-web`
+  (y peers) desde `node_modules` de la **app**
 
 Tras cambiar Metro: reiniciar Expo con `--clear`.
 

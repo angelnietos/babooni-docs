@@ -79,7 +79,11 @@ Barrido F39-D3 (2026-07-19): producción en `libs/base/frontend/**` y `libs/arqu
 
 Workflow: `.github/workflows/ci.yml` (jobs `verify` + `frontend`).
 
+Checklist humano alineado con esos gates: [guides/pr-checklist.md](../guides/pr-checklist.md).
+
 ## Ver también
 
 - [nx-daemon.md](./nx-daemon.md) — flakes del daemon
 - [CONTRIBUTING.md](../../CONTRIBUTING.md) — `pnpm verify:affected`
+- [guides/pr-checklist.md](../guides/pr-checklist.md) — PR ↔ CI
+- [frontend/ci-gates.md](../frontend/ci-gates.md) — tabla de gates FE
