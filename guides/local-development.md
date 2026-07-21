@@ -99,6 +99,7 @@ Un cambio nuevo debe preservar «arranca sin infra opcional».
 | Errores TS en `*-features/*` paths | Artefacto IDE | Wildcards en `tsconfig.base.json` — `tsc` sí pasa |
 | `pnpm install` falla workspace | Falta `workspace:*` | `pnpm add @base/foo --filter @josanz/bar --workspace` |
 | Language server Nx no responde / cuelga | Node fuera de rango para Nx | 1) Recargar VS Code. 2) `pnpm nx reset`. 3) `pnpm check:node-nx` para verificar compatibilidad. |
+| Mismatch tipos React 18/19 en React Native | `@types/react` 19.x proyecto vs 18.x RN interno | Cast explícito localizado (`as any`) en callbacks de render children — ver `libs/base/frontend/mobile/rn/ui/src/lib/ArqTabs.tsx`. |
 
 ---
 

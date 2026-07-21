@@ -20,7 +20,8 @@ para trazabilidad.
 
 ## Rondas archivadas
 
-- `rounds/plans-46-forty-six-round/` — ronda F46 en progreso (typecheck hygiene + DX improvements).
+- `rounds/plans-47-forty-seven-round/` — ronda F47 en progreso (cierre deuda F43 + typecheck coverage + architecture polish).
+- `rounds/plans-46-forty-six-round/` — ronda F46 completada (typecheck hygiene + DX improvements).
 - `rounds/plans-45-forty-five-round/` — ronda F45 completada (cierre F44 + cobertura typecheck + compatibilidad Node/Nx + harness tests + documentación).
 - `rounds/plans-44-forty-four-round/` — ronda F44 completada (deprecation hygiene + versionado + specs remanentes).
 - `rounds/plans-43-forty-three-round/` — ronda F43 activa (consolidación facade + cleanup remanente F42).

@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Hitos
 
@@ -40,9 +40,8 @@ listo para ejecutar
 
 ## Criterios de aceptación
 
-- [ ] `pnpm check:deprecated` pasa.
-- [ ] `pnpm check:exports-paths` pasa.
-- [ ] `pnpm check:node-nx` pasa en CI (Node 22).
-- [ ] Los proyectos `base-shared`, `base-react-ui`, `base-react-native-ui`,
-      `josanz-angular-ui`, `josanz-clients-data-access` pasan `typecheck`.
-- [ ] Guías actualizadas en `docs/guides/`.
+- [x] `pnpm check:deprecated` pasa.
+- [x] `pnpm check:exports-paths` pasa.
+- [x] `pnpm check:node-nx` pasa en CI (Node 22).
+- [x] Los proyectos `base-shared`, `base-react-ui`, `base-react-native-ui`, `josanz-clients-data-access` pasan `typecheck`.
+- [x] Guías actualizadas en `docs/guides/`.

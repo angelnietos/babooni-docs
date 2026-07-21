@@ -7,7 +7,8 @@ completado
 ## Cierre
 
 Ronda F45 completada. Mejoras de typecheck hygiene y DX continuan en
-`plans-46-forty-six-round/`.
+`plans-46-forty-six-round/` y fueron cerradas en F46. Cierre de deuda F43 y
+architecture polish continúa en `plans-47-forty-seven-round/`.
 
 ## Hitos
 
