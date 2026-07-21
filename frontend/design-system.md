@@ -34,17 +34,20 @@ Gate: `node tools/scripts/check-ui-ownership.mjs` (F53+: soft native-first).
 
 ## Storybook
 
-| Proyecto | Serve (objetivo) | Build | Puerto (ref.) |
-|----------|------------------|-------|----------------|
-| `base-native-ui` | sí (`nx storybook base-native-ui`, :6007) | sí (CI) | 6007 |
-| `base-angular-ui` | sí (F53-B1) | sí (CI) | ~4402 |
-| `base-react-ui` | sí (F53-B1) | sí (CI) | ~4403 |
-| `josanz-angular-ui` | sí | sí | 4401 |
+| Proyecto | Serve | Build | Puerto |
+|----------|-------|-------|--------|
+| `base-native-ui` | `nx storybook base-native-ui` | sí (CI) | 6007 |
+| `base-angular-ui` | `nx storybook base-angular-ui` | sí (CI) | 4402 |
+| `base-react-ui` | `nx storybook base-react-ui` | sí (CI) | 4403 |
+| `josanz-angular-ui` | `nx storybook josanz-angular-ui` | sí | 4401 |
+| `arquetipos-angular-ui` | `nx storybook arquetipos-angular-ui` | sí | 4404 |
+| `arquetipos-react-ui` | `nx storybook arquetipos-react-ui` | sí | 4405 |
 
 - Stories en el paquete **dueño** del componente.
-- Plantillas Arquetipos: targets Nx o deprecación explícita (F53-D2).
+- Inferencia: `@nx/storybook/plugin` en `nx.json`; puertos/styles/output en
+  `project.json` por lib.
 - **CI visual / Chromatic:** defer F55 — sin token Chromatic; `build-storybook`
-  `base-native-ui` en CI basta como señal de rotura de stories (F54-B1).
+  de base UI en CI basta como señal de rotura de stories (F54-B1).
 
 ```bash
 pnpm nx storybook base-native-ui
@@ -52,6 +55,8 @@ pnpm nx build-storybook base-native-ui
 pnpm nx storybook base-angular-ui
 pnpm nx storybook base-react-ui
 pnpm nx storybook josanz-angular-ui
+pnpm nx storybook arquetipos-angular-ui
+pnpm nx storybook arquetipos-react-ui
 ```
 
 Tokens compartidos: `@base/ui-tokens` (+ `./css`, `./rn`). A11y:
