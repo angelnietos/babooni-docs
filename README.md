@@ -259,8 +259,9 @@ pnpm check:legacy-paths
 pnpm check:migration-encoding
 ```
 
-Última ronda cerrada: **[F63](./plans/rounds/plans-63-sixty-three-round/)**.
-Ronda activa: **[F64](./plans/rounds/plans-64-sixty-four-round/)** — cierre F63 (portal, mobile e2e, brand life) + Storybook/Chromatic/validación + CI ratchet.
+Última ronda cerrada: **[F65](./plans/rounds/plans-65-sixty-five-round/)**.
+Ronda activa: **[F66](./plans/rounds/plans-66-sixty-six-round/)** — features SoC +
+entity views read/write + carries (Chromatic / Zod / ESLint store).
 Índice: [plans/README.md](./plans/README.md).
 
 Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md).  
@@ -408,5 +409,5 @@ Si un plan histórico contradice esta biblia, **prevalece la biblia**.
 <p align="center">
   <img src="./assets/arquetipos-mark.svg" width="36" alt="" />
   <br/>
-  <sub>Mantén este índice al añadir runbooks o ADRs · F64 docs polish</sub>
+  <sub>Mantén este índice al añadir runbooks o ADRs · F66 docs polish</sub>
 </p>

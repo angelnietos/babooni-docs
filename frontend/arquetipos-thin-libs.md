@@ -103,7 +103,7 @@ método, y elige implementación con flag/token.
 | Override class | `libs/arquetipos/.../clients/data-access/src/arquetipos-clients.service.ts` | `extends ClientsService`, `override sumar` → `a+b+1` |
 | DI switch | `provideClientsDataAccess()` | Si mode=`override`, `{ provide: ClientsService, useClass: ArquetiposClientsService }` |
 | Flag | `ARQ_CLIENTS_DATA_ACCESS` / `NG_APP_…` / `VITE_…` | `'base'` (default) \| `'override'` |
-| Store extra | same package `clientsStore` | En override, prefija nombres con `[ARQ]` |
+| Load extra | `ArquetiposClientsService.load` | En override, prefija nombres con `[ARQ]` |
 | UI hint | features panel | Badge `override · sumar(2,3)=6` solo en override |
 
 **Pasos para otro método:**

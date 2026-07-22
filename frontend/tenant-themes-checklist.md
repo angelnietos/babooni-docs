@@ -69,16 +69,30 @@ vivo sigue al **tenant**, no al swatch de atmósfera.
 
 ## Verify by eye
 
-1. Abrir **angular-multi** / **react-multi** / **ionic-multi** (`:4301`).
+1. Abrir **angular-multi** (:4203) / **react-multi** / **ionic-multi** (`:4301`) /
+   **next-multi** (:4241).
 2. Login demo: `admin@demo.com` / `admin`.
-3. Ajustes → **Identidad tenant** (o switcher del topbar).
-4. Confirmar **sin reload**:
-   - nav activo (fondo + barra lateral)
-   - chip Admin / CTA primary
+3. Topbar **Tenant** listbox (no OS `<select>` en SPA/Next) → abrir y ver
+   nova / helix / orbit / meridian / lumen.
+4. Confirmar **sin reload** (&lt;2s distinguibles):
+   - nav activo (fondo + barra lateral) — Orbit = cobre
+   - chip Admin / CTA primary — **Helix = coral** (`--arq-cta` / `--color-cta`)
    - canvas / `--arq-app-canvas`
-   - badge «Activo» en la card del tenant
-5. Cambiar atmósfera Connect/Studio: radios cambian; **marca tenant no**.
+   - badge «Activo» en la card del tenant (Settings)
+5. Cambiar atmósfera Connect/Studio **con tenant**: radios + peso tipográfico +
+   densidad de nav/cards cambian; **marca tenant (colores) no**.
+   - Connect → nav/cards más compactos y **bold**
+   - Studio → radios vivos + tracking editorial
+   - Switch → radios generosos + peso medio
 6. Logout → login: hero del tenant.
+7. Overlay: abrir Tenant bajo shell con `backdrop-filter` — panel no clipado.
+
+Soft gate opcional (Node):
+
+```bash
+node -e "const {setArqDemoTenant,getArqDemoTenantMeta}=require('./libs/base/shared/src/lib/demo/arq-demo-tenants.ts')"
+# Prefer manual + e2e: next-multi / ionic assert data-arq-tenant
+```
 
 RN: cards de tenant en `SettingsFeature`; tokens vía `@base/ui-tokens/rn` +
 `apps/.../react-native-multi` (nivel token).

@@ -17,9 +17,17 @@ Cuándo usarla: tokens, Storybook, ownership de componentes, handoff desde Figma
 
 Estrategia operativa: [ui-strategy.md](./ui-strategy.md) (incluye **freeze F53+**).
 
-Ronda activa: [F64](../plans/rounds/plans-64-sixty-four-round/) — cierre F63
-(portal verify, mobile e2e, brand life) + Storybook/Chromatic/validación + CI.
-F62 cerró temas/`base-select`/native-first; F63 dual shell Ionic + cascade tenant.
+Ronda activa: [F66](../plans/rounds/plans-66-sixty-six-round/) — features SoC +
+entity views + carries (Chromatic / Zod / ESLint store). F65 cerró confirm+toast
+multi-stack, facade clients y ADR 0012. F64 portal/mobile e2e; F62 temas/
+`base-select`; F63 dual shell Ionic.
+
+### Overlays → portal (F63 / F64-A1)
+
+Product overlays that must escape shell clipping (`backdrop-filter`, `transform`,
+`overflow` on stage/topbar) **portal to `document.body`**. Canonical example:
+`<base-select>` listbox (`data-base-select-portal`). Do not re-root panels inside
+blurred chrome.
 
 **CSS compartido:** arquitectura [7–1](./ui-styles-7-1.md) en `@base/ui-styles`
 (`main.scss` + abstracts/base/components/layout/pages/themes/vendors).
@@ -118,9 +126,10 @@ Gate: `node tools/checks/check-ui-ownership.mjs` (F53+: soft native-first).
 - Stories en el paquete **dueño** del componente — **ver `base-native-ui` primero**.
 - Inferencia: `@nx/storybook/plugin` en `nx.json`; puertos/styles/output en
   `project.json` por lib.
-- **CI visual / Chromatic (F60-E2):** sin `CHROMATIC_PROJECT_TOKEN` →
+- **CI visual / Chromatic (F66-B1):** sin `CHROMATIC_PROJECT_TOKEN` →
   `build-storybook` de `base-native-ui` (+ angular/react-ui) en CI es la señal
-  de rotura; Chromatic / Code Connect defer F61 si falta acceso.
+  de rotura; Chromatic / Code Connect siguen en carry F66 (o defer F67).
+  Arquetipos SB (`arquetipos-*-ui`) ya tiene targets Nx; adapters brand only.
 
 ```bash
 pnpm nx storybook base-native-ui
@@ -134,7 +143,13 @@ pnpm nx storybook arquetipos-react-ui
 
 Tokens compartidos: `@base/ui-tokens` (+ `./css`, `./rn`). A11y:
 [native-ui-a11y-matrix.md](./native-ui-a11y-matrix.md). Figma:
-[figma-native-ui-map.md](./figma-native-ui-map.md).
+[figma-native-ui-map.md](./figma-native-ui-map.md). Deprecated residual:
+[deprecated-atoms-residual.md](./deprecated-atoms-residual.md). Validación
+isomórfica: [ADR 0012](../adr/adr-0012-isomorphic-validation.md) +
+[isomorphic-validation-defer.md](./isomorphic-validation-defer.md) (Zod → F66-B2).
+Estado / SoC facade: [state-soc-facade.md](./state-soc-facade.md).
+Features SoC + layout: [features-layout-soc.md](./features-layout-soc.md).
+Entity views read/write: [entity-view-abstractions.md](./entity-view-abstractions.md).
 
 ## Figma / handoff
 
@@ -165,7 +180,9 @@ pnpm nx typecheck josanz-angular-ui
 
 - [josanz-product-exceptions.md](./josanz-product-exceptions.md)
 - [ci-gates.md](./ci-gates.md)
-- Planes [F64](../plans/rounds/plans-64-sixty-four-round/) (activa) ·
+- Planes [F66](../plans/rounds/plans-66-sixty-six-round/) (activa) ·
+  [F65](../plans/rounds/plans-65-sixty-five-round/) ·
+  [F64](../plans/rounds/plans-64-sixty-four-round/) ·
   [F63](../plans/rounds/plans-63-sixty-three-round/) /
   [F62](../plans/rounds/plans-62-sixty-two-round/) /
   [F60](../plans/rounds/plans-60-sixty-round/)

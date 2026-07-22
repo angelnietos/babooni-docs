@@ -12,15 +12,16 @@
 Canary domain: **clients**. Both stacks consume `ClientDto` / `Paged<ClientDto>`
 from `@base/shared`.
 
-| Case | Angular `ClientsService` | React `clientsStore` |
-|------|--------------------------|----------------------|
-| Empty list | `data: []` → `items()=[]`, `error=null` | `load` fulfilled `[]` → `data=[]` |
-| Loading | `_loading` true until settle | `load.pending` → `loading=true` |
-| 401 / Unauthorized | clears items; `Sesión expirada o no autorizada.` | clears `data`; error contains `401` |
-| Other HTTP fail | clears items; generic ES message | clears `data`; English status message |
+| Case | Angular `ClientsFacade` / `ClientsService` | React `useClientsFacade` |
+|------|--------------------------------------------|--------------------------|
+| Empty list | `data: []` → `items()=[]`, `error=null` | query `data: []` |
+| Loading | `_loading` true until settle | `isLoading` / `isFetching` |
+| 401 / Unauthorized | clears items; `Sesión expirada o no autorizada.` | error surfaced via facade |
+| Other HTTP fail | clears items; generic ES message | error surfaced via facade |
 
-**Fixed divergence:** React `createFeatureStore` used to keep stale `data` on
-`load.rejected`; Angular always cleared. Both now clear on load failure.
+**History:** React RTK `clientsStore` and Angular NgRx `clientsStore` were removed
+(clients piloto uses facades only). Load-failure clearing remains on
+`EntityListStore` / react-query.
 
 Specs:
 

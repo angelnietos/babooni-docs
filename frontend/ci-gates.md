@@ -28,14 +28,15 @@ checks in sequence.
 | Slim barrel | `pnpm check:slim-barrel` | domain stores imported from `@base/angular` / `@base/react` in apps |
 | Documents parity | `pnpm check:documents-route-parity` | doc-gen routes diverge from josanz-erp (needs `JOSANZ_ERP_ROOT`) |
 | Coverage BE strict (F55-C1) | `pnpm test:cov:check` en job `quality` (**fail**) | Below domain threshold (audit/settings/tenants) |
-| Jest workspace coverage (F55-C3) | `check:jest-preset` + `test:coverage:affected` + merge → `coverage/global/` | Soft (`continue-on-error`); no umbral workspace fail |
-| Arquetipos parity strict (F55-C2) | `pnpm check:arquetipos-parity -- --strict` | Drift rutas/dominios/UI entre stacks plantilla |
+| Jest workspace coverage (F55-C3) | `test:coverage:affected` + merge → `coverage/global/` | Soft (`continue-on-error`); no umbral workspace fail |
+| Jest preset adoption (**F64-D2** strict) | `pnpm check:jest-preset` | Fail if adoption &lt; 100% (canario libs) |
+| Arquetipos parity strict (F55-C2) | `pnpm check:arquetipos-parity -- --strict` | Drift rutas/dominios/UI entre stacks plantilla (incl. mobile routes) |
 | Arquetipos FE build smoke (F56-A1 / F57-C1) | `pnpm arq:fe:build:smoke` (soft CI) | Angular/React single fail to bundle |
 | Coverage truth (**F58-A1** strict) | `pnpm check:coverage-truth:strict` | Missing coverage-final / coverage/root / unallowlisted broad collect |
 | Coverage thresholds (F58-A2) | `pnpm check:coverage-thresholds` | Soft local opt-in; no fail PR |
 | MockServer (F56-C1 / F58-D1) | `pnpm mockserver` / `mockserver:smoke` / `mockserver:e2e:soft` | (dev only; not a PR fail gate) |
 | E2E arquetipos (F58-D2) | `pnpm arq:fe:e2e:smoke` / job `e2e-web` | main: single+multi Angular/React; mf-host soft |
-| Chromatic / visual (F58-B1) | — | **Defer F59** (sin `CHROMATIC_PROJECT_TOKEN`) |
+| Chromatic / visual (F66-B1) | — | Carry F66 (sin `CHROMATIC_PROJECT_TOKEN` → soft / defer F67) |
 | Scaffolds smoke (F57-E1 / F58-C2) | `pnpm scaffolds:smoke` | CLI/dry-run crash (incl. SaaS Angular) |
 
 Script paths live under `tools/{checks,dx,jest,scaffolds,…}` — see
@@ -85,8 +86,10 @@ If `typecheck:affected` times out locally after a large diff vs stale
 - Cross-layer UI imports are forbidden by `check:ui-ownership`; product UI must
   come from `@josanz/angular-ui` / `@saas/shared-ui` / `@base/angular-ui`, never
   from another product layer.
-- Apps must import `clientsStore|usersStore|auditStore|authStore` from
+- Apps must import `usersStore|auditStore|authStore` from
   `*-data-access` packages, not from `@base/angular` / `@base/react` barrels.
+  Clients list CRUD uses facades (`ClientsFacade` / `useClientsFacade`), not a
+  dual RTK/NgRx store.
 
 ## Local verification
 

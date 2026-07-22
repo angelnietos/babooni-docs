@@ -35,7 +35,7 @@ pnpm check:arquetipos-parity               # soft local
 |-------|--------|-----------|
 | Full | Angular / React SPA | 4 capas + UI native + rutas |
 | Core | Next | Subset |
-| Core (mobile) | Ionic / RN | Mismas rutas canónicas `TEMPLATE_NAV`; Ionic desktop = shell SPA; viewport móvil = `@base/mobile-chrome` / `ArqMobileShell` |
+| Core (mobile) | Ionic / RN | Mismas rutas canónicas `TEMPLATE_NAV` (+ `roles`, `settings`, `native-ui` en `parity.manifest.yaml`); Ionic desktop = shell SPA; viewport móvil = `@base/mobile-chrome` / `ArqMobileShell`. Gate: `check-arquetipos-parity` escanea shells Ionic. |
 | Token | RN (histórico) | Sustituido por Core (mobile) en F63-C1 |
 
 ## Visual / layout smoke (F55-B2 / F56-A2 / F58-D2)

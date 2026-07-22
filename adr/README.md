@@ -34,9 +34,7 @@ changes can be evaluated against the original rationale.
 | [0009](adr-0009-cqrs-nest.md) | Nest CQRS in hexagonal kernel | Commands/Queries only; facades dispatch; AI-gateable writes |
 | [0010](adr-0010-native-ui-lit-sot.md) | Lit native-ui SoT | `@base/native-ui` = cross-framework SoT; freeze framework-only primitives in base; wrappers + RN tokens |
 | [0011](adr-0011-storybook-native-ui-first.md) | Storybook native-first | SB serve+build on native-ui; serve on base Angular/React UI; ownership by package |
-
-**Planificado (F59-A1):** ADR validación isomórfica FE↔BE — ver
-[plans-59](../plans/rounds/plans-59-fifty-nine-round/1750000160000-f59-isomorphic-validation-strategy.md).
+| [0012](adr-0012-isomorphic-validation.md) | Isomorphic validation FE↔BE | class-validator SoT + shared predicates; Zod kit deferred |
 
 ## How to use these
 

@@ -42,6 +42,14 @@ required_routes:
   - clients
   - users
   - audit
+  - roles
+  - settings
+  - native-ui
+mobile_route_scan_roots:
+  - apps/arquetipos/mobile/ionic-multi/src
+  - apps/arquetipos/mobile/ionic-single/src
+  - libs/base/frontend/mobile/ionic/auth/shell/src
+  - libs/base/frontend/mobile/ionic/auth/features/src
 parity_rules:
   - { id: arch-four-layers, type: architecture }
   - { id: ui-native-only, type: ui-import }

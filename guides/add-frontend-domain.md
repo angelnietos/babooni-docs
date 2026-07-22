@@ -56,8 +56,14 @@ Revisa paths generados; ajusta nombres de rutas y DTOs.
 ### 2. Manual — checklist
 
 1. **api** — tipos en `@josanz/shared` o re-export `@base/shared`.
-2. **data-access** — servicio HTTP + store (NgRx). Usa `@base/angular-api` `ApiClient`.
-3. **features** — `layout/` (chrome), `pages/` (rutas), `components/` (smart, solo compone UI).
+2. **data-access** — **facade/port** (`ClientsFacade` / `useClientsFacade`) +
+   HTTP. Canónico: Angular `EntityListStore`; React **react-query**. Features
+   no importan NgRx `Store` / RTK `useAppDispatch` para list CRUD —
+   [state-soc-facade.md](../frontend/state-soc-facade.md).
+3. **features** — `layout/` (chrome), `pages/` (rutas thin), `components/` (UI),
+   más `services/` (Angular/Ionic) o `hooks/` (React) para orquestación —
+   [features-layout-soc.md](../frontend/features-layout-soc.md). Formularios /
+   detalle: [entity-view-abstractions.md](../frontend/entity-view-abstractions.md).
 4. **shell** — `{domain}ShellRoutes` con `loadChildren` → `@josanz/{domain}-features`.
 5. **tsconfig.base.json** — paths `@josanz/{domain}-*`.
 6. **package.json** en cada lib — `workspace:*` deps.

@@ -38,6 +38,16 @@ pnpm nx serve react-native-single   # Expo --web
 Paths: `libs/base/frontend/mobile/rn/` y `libs/arquetipos/frontend/mobile/rn/`.
 Detalle de paths: [arquetipos-thin-libs.md](../frontend/arquetipos-thin-libs.md).
 
+## Data-access facade (F65-D1) + panel SoC (F66-A1)
+
+Ionic / RN clients features consumen un **puerto** en data-access
+(`IonicClientsFacade`, `useClientsFacade`) — no arrays demo mutables ni list
+state ad-hoc en la página. Guía: [state-soc-facade.md](../frontend/state-soc-facade.md).
+
+Features: `layout/` · `pages/` · `components/` (+ `services/` / `hooks/` para
+orquestación) — [features-layout-soc.md](../frontend/features-layout-soc.md).
+Vistas read/write: [entity-view-abstractions.md](../frontend/entity-view-abstractions.md).
+
 ## Auth demo
 
 `AuthApp` (`@base/react-native-auth-features`) monta login + slots `clients` / `users`:
