@@ -36,6 +36,10 @@ en `jest.shared.cjs`.
 `nx run-many -t test -p tag:runtime:backend -- --coverage` (+ merge opcional).
 No sustituye ni baja `pnpm test:cov:check` (dominios audit/settings/tenants).
 
+**Verdad del informe (F57-A1/A2):** plan activo para validar que cada app/lib con
+tests emite `coverage/<projectRoot>/` coherente y que el merge no miente —
+[F57-A1](../plans/rounds/plans-57-fifty-seven-round/1750000140000-f57-coverage-report-truth.md).
+
 
 ## Apps vs libs
 

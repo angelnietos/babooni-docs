@@ -17,7 +17,7 @@ buscar en un flat `tools/scripts/` (eliminado).
 | `jest/` | Preset Jest + coverage merge | `pnpm check:jest-preset`, `pnpm test:coverage:merge` |
 | `typecheck/` | Plugin Nx + walkers legacy | `pnpm typecheck:all`, `pnpm typecheck:all:legacy` |
 | `lib/` | Helpers compartidos (`run-tsc`, imports) | usado por el plugin typecheck |
-| `scaffolds/` | Generadores dominio / app / cliente | ver [guides/scaffold-arquetipos.md](../guides/scaffold-arquetipos.md) |
+| `scaffolds/` | Generadores dominio / app / cliente | ver [guides/scaffold-arquetipos.md](../guides/scaffold-arquetipos.md) · [scaffolds README](../../tools/scaffolds/README.md) · plan [F57-B1](../plans/rounds/plans-57-fifty-seven-round/1750000142000-f57-scaffolds-unified-cli.md) |
 | `seeds/` | Seeds demo + Keycloak CI | `pnpm josanz:seed-demo`, `pnpm keycloak:seed` |
 | `smoke/` | Smokes backend / SaaS / doc-gen | `pnpm test:smoke:backend`, `pnpm saas:verifactu:smoke` |
 | `migrate/` | Codemods / pilots one-off | `pnpm pilot:remove-paths:list` |

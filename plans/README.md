@@ -17,13 +17,13 @@ Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `traslad
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| — | — | (ninguna; F56 cerrada) |
+| [plans-57](./rounds/plans-57-fifty-seven-round/) | listo para ejecutar | Coverage truth + scaffolds unificados + carry F56 |
 
 ## Siguiente (preparada)
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| — | — | F57: Chromatic / Code Connect / remove `@deprecated` + fix TS6059 react features tsc |
+| — | — | F58: carries F57 (Chromatic/Code Connect/deprecated si defer; umbrales coverage globales) |
 
 ## Rondas completadas (archivo)
 

@@ -4,8 +4,8 @@
 
 completado
 
-> Cerrada 2026-07-22. Carry → **F57**: Chromatic/Code Connect/remove deprecated;
-> fix TS6059 `@nx/js:tsc` en `arquetipos-react-*-features` (rootDir).
+> Cerrada 2026-07-22. Carry → **[F57](../plans-57-fifty-seven-round/)**: Chromatic/Code Connect/remove deprecated;
+> fix TS6059 `@nx/js:tsc` en `arquetipos-react-*-features` (rootDir); coverage truth; scaffolds.
 
 ## Hitos
 

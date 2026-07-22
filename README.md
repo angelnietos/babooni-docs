@@ -167,7 +167,7 @@ Rutas legacy (libs) F5–F7: [legacy-paths.md](./legacy-paths.md).
 | [kafka-redis-outage.md](./runbooks/kafka-redis-outage.md) | Modo degradado |
 | [pnpm-layout.md](./runbooks/pnpm-layout.md) | Workspaces |
 | [nx-daemon.md](./runbooks/nx-daemon.md) | Daemon hang / `NX_DAEMON=false` |
-| [jest-coverage.md](./runbooks/jest-coverage.md) | Preset Jest, coverage por proyecto + merge global |
+| [jest-coverage.md](./runbooks/jest-coverage.md) | Preset Jest, coverage por proyecto + merge global · **F57-A1** truth |
 | [mockserver.md](./runbooks/mockserver.md) | FE plantilla sin Nest/Keycloak (`pnpm mockserver`) |
 | [tools-layout.md](./runbooks/tools-layout.md) | Dónde vive cada utilidad bajo `tools/` |
 
@@ -205,7 +205,8 @@ pnpm check:legacy-paths
 pnpm check:migration-encoding
 ```
 
-Última ronda cerrada: **[F56](./plans/rounds/plans-56-fifty-six-round/)** (build/visual apps, MockServer FE-only, Jest BE; carry Chromatic/Code Connect/TS6059 → F57). Índice: [plans/README.md](./plans/README.md).
+Última ronda cerrada: **[F56](./plans/rounds/plans-56-fifty-six-round/)**.  
+Ronda activa: **[F57](./plans/rounds/plans-57-fifty-seven-round/)** — coverage truth por proyecto, scaffolds unificados, TS6059 React, carry Chromatic/Code Connect. Índice: [plans/README.md](./plans/README.md).
 
 Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md) — unit → integration (Postgres) → e2e Playwright. Operativa Jest/coverage: [runbooks/jest-coverage.md](./runbooks/jest-coverage.md).
 
