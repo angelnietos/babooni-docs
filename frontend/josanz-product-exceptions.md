@@ -1,4 +1,13 @@
-# Josanz — excepciones de estructura (producto)
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Josanz — excepciones de estructura (producto)</h1>
+
+<p align="center">
+  <img alt="frontend" src="https://img.shields.io/badge/frontend-0f766e?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 **ID plan:** F7-S5 (F7-S5.ui, F7-S5.audit, F7-S5.users)  
 **Ámbito:** `libs/clientes/josanz/`

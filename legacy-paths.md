@@ -1,4 +1,13 @@
-# Legacy path mapping
+<p align="center">
+  <img src="./assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Legacy path mapping</h1>
+
+<p align="center">
+  <img alt="arquetipos" src="https://img.shields.io/badge/arquetipos-0f766e?style=flat-square" />
+  <a href="./README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 Historical docs and early plans refer to folders that were **renamed**. Use this
 table when reading first-round plans or old branches.

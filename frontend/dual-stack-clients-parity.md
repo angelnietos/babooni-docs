@@ -1,4 +1,13 @@
-# Dual-stack clients parity (F38-H7)
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Dual-stack clients parity (F38-H7)</h1>
+
+<p align="center">
+  <img alt="frontend" src="https://img.shields.io/badge/frontend-0f766e?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 Canary domain: **clients**. Both stacks consume `ClientDto` / `Paged<ClientDto>`
 from `@base/shared`.

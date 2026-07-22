@@ -1,4 +1,13 @@
-# Estrategia UI — Lit native-ui + wrappers por framework
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Estrategia UI — Lit native-ui + wrappers por framework</h1>
+
+<p align="center">
+  <img alt="frontend" src="https://img.shields.io/badge/frontend-0f766e?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 Cuándo usarla: debates “¿componentes nativos compartidos o solo Angular Material
 / shadcn por stack?”, Storybook, o al añadir un primitivo nuevo.

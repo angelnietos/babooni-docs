@@ -1,4 +1,13 @@
-# Paridad arquetipos (F54-B4)
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Paridad arquetipos (F54-B4)</h1>
+
+<p align="center">
+  <img alt="arquetipos" src="https://img.shields.io/badge/arquetipos-0f766e?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 Las plantillas `apps/arquetipos/**` + libs `@arquetipos/*` deben ser **lo más
 parecidas posible** en tres ejes:

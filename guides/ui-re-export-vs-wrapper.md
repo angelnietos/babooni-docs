@@ -1,4 +1,13 @@
-# UI: re-export vs wrapper
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">UI: re-export vs wrapper</h1>
+
+<p align="center">
+  <img alt="guide" src="https://img.shields.io/badge/guide-14b8a6?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 Cuándo usarla: al exponer un componente de `@base/*-ui` en una capa de producto
 (`@josanz/angular-ui`, `@arquetipos/*-ui`, `@saas/shared-ui`).

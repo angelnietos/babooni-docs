@@ -1,4 +1,13 @@
-# F50-C2 — Alinear gates CI con la biblia (PR checklist)
+<p align="center">
+  <img src="../../../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">F50-C2 — Alinear gates CI con la biblia (PR checklist)</h1>
+
+<p align="center">
+  <img alt="arquetipos" src="https://img.shields.io/badge/arquetipos-0f766e?style=flat-square" />
+  <a href="../../../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 ## Estado
 

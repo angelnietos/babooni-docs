@@ -1,4 +1,13 @@
-# Arquetipos backend — monolito, gateway, microservicio
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Arquetipos backend — monolito, gateway, microservicio</h1>
+
+<p align="center">
+  <img alt="arquetipos" src="https://img.shields.io/badge/arquetipos-0f766e?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 Cuándo usarla: elegir forma de despliegue API al copiar plantilla.
 

@@ -1,4 +1,13 @@
-# Arquitectura — mapa mental
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Arquitectura — mapa mental</h1>
+
+<p align="center">
+  <img alt="architecture" src="https://img.shields.io/badge/architecture-0f766e?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 Documento de referencia para entender **de dónde viene cada pieza** y **por qué**
 está organizada así. Si acabas de llegar:

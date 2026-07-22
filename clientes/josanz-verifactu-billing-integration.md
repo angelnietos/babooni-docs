@@ -1,4 +1,13 @@
-# Josanz billing ↔ Verifactu CRM (F7-B4.4b)
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Josanz billing ↔ Verifactu CRM (F7-B4.4b)</h1>
+
+<p align="center">
+  <img alt="arquetipos" src="https://img.shields.io/badge/arquetipos-0f766e?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 Integración técnica entre `josanz-api` y el stack SaaS Verifactu (`verifactu-crm-api` + `verifactu-worker`).
 

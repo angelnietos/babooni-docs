@@ -1,4 +1,18 @@
-# Backend — índice
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="64" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Backend</h1>
+
+<p align="center">
+  NestJS · hexagonal · CQRS · apps vs libs
+</p>
+
+<p align="center">
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+  <a href="./why-nest.md"><img alt="Why Nest" src="https://img.shields.io/badge/why-Nest-E0234E?style=flat-square" /></a>
+  <a href="./backend-domain-convention.md"><img alt="Convention" src="https://img.shields.io/badge/convention-domains-14b8a6?style=flat-square" /></a>
+</p>
 
 Cómo funciona el backend del motor: NestJS, hexagonal, CQRS, apps vs libs, y
 **por qué Nest y no Express**.

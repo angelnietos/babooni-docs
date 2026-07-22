@@ -1,4 +1,13 @@
-# Lifecycle de un dominio — de la idea al request en producción
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Lifecycle de un dominio — de la idea al request en producción</h1>
+
+<p align="center">
+  <img alt="architecture" src="https://img.shields.io/badge/architecture-0f766e?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 Cuándo usarla: para ver **todo el camino** de un dominio (ej. `clients`) sin
 perderte entre carpetas. Ideal en L2 del [learning-path.md](./learning-path.md).

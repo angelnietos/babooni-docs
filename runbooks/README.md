@@ -1,4 +1,17 @@
-# Runbooks — operación en producción
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="64" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Runbooks</h1>
+
+<p align="center">
+  Operación en producción · checklists operativos
+</p>
+
+<p align="center">
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+  <a href="../guides/local-development.md"><img alt="Local" src="https://img.shields.io/badge/dev-local-14b8a6?style=flat-square" /></a>
+</p>
 
 Procedimientos operativos para Josanz, plantillas Arquetipos y SaaS Verifactu. Cada runbook es un checklist; actualízalo cuando cambie la plataforma.
 

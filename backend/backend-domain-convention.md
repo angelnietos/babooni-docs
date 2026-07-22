@@ -1,4 +1,14 @@
-# Backend — convención de dominio
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Backend — convención de dominio</h1>
+
+<p align="center">
+  <img alt="backend" src="https://img.shields.io/badge/backend-0f766e?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
+
 
 **ID plan:** F7-S6 (`F7-S6.backend-convention`)
 

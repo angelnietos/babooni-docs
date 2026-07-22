@@ -1,4 +1,13 @@
-# Runbook — Demo Verifactu end-to-end (F13-E2E)
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Runbook — Demo Verifactu end-to-end (F13-E2E)</h1>
+
+<p align="center">
+  <img alt="runbook" src="https://img.shields.io/badge/runbook-0f766e?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 Reproducible demo of **CRM API `:3120` + platform `:4230` + worker `:3130`** with a completed BullMQ queue.
 

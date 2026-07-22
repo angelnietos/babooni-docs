@@ -1,4 +1,18 @@
-# Guías prácticas — recetas por tarea
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="64" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Guías prácticas</h1>
+
+<p align="center">
+  Recetas por tarea · <b>qué hacer</b> · <b>dónde ponerlo</b> · <b>por qué</b>
+</p>
+
+<p align="center">
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+  <a href="../architecture/overview.md"><img alt="Overview" src="https://img.shields.io/badge/contexto-overview-14b8a6?style=flat-square" /></a>
+  <a href="../CONTRIBUTING-DOCS.md"><img alt="Style" src="https://img.shields.io/badge/style-CONTRIBUTING--DOCS-0d5f59?style=flat-square" /></a>
+</p>
 
 Cada guía responde: **qué hacer**, **dónde ponerlo** y **por qué**. Lee [architecture/overview.md](../architecture/overview.md) si necesitas contexto previo.
 

@@ -1,4 +1,26 @@
-# Documentación — biblia del monorepo
+<p align="center">
+  <img src="./assets/arquetipos-mark.svg" width="96" alt="Arquetipos mark" />
+</p>
+
+<h1 align="center">Documentación — biblia del monorepo</h1>
+
+<p align="center">
+  <b>Motor de empresa</b> · kernel <code>@base/*</code> · productos · plantillas
+</p>
+
+<p align="center">
+  <a href="./getting-started.md"><img alt="Getting started" src="https://img.shields.io/badge/start-getting%20started-0f766e?style=for-the-badge" /></a>
+  <a href="./architecture/overview.md"><img alt="Architecture" src="https://img.shields.io/badge/map-architecture-14b8a6?style=for-the-badge" /></a>
+  <a href="./guides/README.md"><img alt="Guides" src="https://img.shields.io/badge/recipes-guides-0d5f59?style=for-the-badge" /></a>
+</p>
+
+<p align="center">
+  <img alt="Nx" src="https://img.shields.io/badge/Nx-23-143055?logo=nx&logoColor=white" />
+  <img alt="pnpm" src="https://img.shields.io/badge/pnpm-workspaces-F69220?logo=pnpm&logoColor=white" />
+  <img alt="NestJS" src="https://img.shields.io/badge/NestJS-11-E0234E?logo=nestjs&logoColor=white" />
+  <img alt="Angular" src="https://img.shields.io/badge/Angular-21-DD0031?logo=angular&logoColor=white" />
+  <img alt="React" src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black" />
+</p>
 
 > **Empieza aquí.** Este índice orienta a cualquier desarrollador (o agente IA) sobre qué es el repo, por qué está organizado así, cómo hacer cambios y dónde profundizar.
 
@@ -6,7 +28,9 @@ Este monorepo es el **motor de empresa**: kernel `@base/*` + productos (`@josanz
 
 ---
 
-## Lectura obligatoria (orden sugerido)
+<h2 align="center">Lectura obligatoria</h2>
+
+<p align="center"><i>Orden sugerido · ~2 h para el mapa mental completo</i></p>
 
 | # | Documento | Tiempo | Qué aprendes |
 |---|-----------|--------|--------------|
@@ -26,7 +50,10 @@ Deep dives: [domain-lifecycle](./architecture/domain-lifecycle.md),
 
 Después: [AGENTS.md](../AGENTS.md) y [SERVICES.md](../SERVICES.md).
 
-## Cómo leer esta biblia
+<details>
+<summary><b>Cómo leer esta biblia por día</b></summary>
+
+<br/>
 
 | Nivel | Cuándo | Documentos |
 |-------|--------|-----------|
@@ -35,13 +62,15 @@ Después: [AGENTS.md](../AGENTS.md) y [SERVICES.md](../SERVICES.md).
 | **Primera feature** | Voy a cambiar un dominio | [domain-lifecycle](./architecture/domain-lifecycle.md) + deep dive FE o BE |
 | **Tarea específica** | Voy a hacer X | Guía en [guides/](./guides/) |
 
-Si un plan histórico contradice esta biblia, **prevalece la biblia**. Los planes activos están en [docs/plans/](./plans/).
+Si un plan histórico contradice esta biblia, **prevalece la biblia**. Los planes activos viven en [docs/plans/](./plans/).
+
+</details>
 
 ---
 
-## Qué es este repositorio
+<h2 align="center">Qué es este repositorio</h2>
 
-Monorepo **Nx + pnpm** que entrega:
+<p align="center">Monorepo <b>Nx + pnpm</b> que entrega cuatro capas npm:</p>
 
 | Capa npm | Rol | Ejemplo |
 |----------|-----|---------|
@@ -50,7 +79,10 @@ Monorepo **Nx + pnpm** que entrega:
 | `@josanz/*` | Producto cliente Josanz | ERP completo |
 | `@saas/*` | Productos SaaS | Verifactu CRM, worker |
 
-**Regla de oro:** las **libs** contienen dominio reutilizable; las **apps** componen módulos, eligen monolito vs microservicio y fijan la base de datos del despliegue.
+<p align="center">
+  <b>Regla de oro:</b> las <b>libs</b> contienen dominio reutilizable;<br/>
+  las <b>apps</b> componen módulos y fijan el despliegue.
+</p>
 
 ```mermaid
 flowchart LR
@@ -62,7 +94,7 @@ flowchart LR
 
 ---
 
-## Mapa del repositorio
+<h2 align="center">Mapa del repositorio</h2>
 
 ```
 apps/
@@ -91,7 +123,9 @@ Rutas legacy (libs) F5–F7: [legacy-paths.md](./legacy-paths.md).
 
 ---
 
-## Guías por tarea («cómo hago…»)
+<h2 align="center">Guías por tarea</h2>
+
+<p align="center"><i>«¿Cómo hago…?»</i></p>
 
 | Tarea | Guía |
 |-------|------|
@@ -110,15 +144,18 @@ Rutas legacy (libs) F5–F7: [legacy-paths.md](./legacy-paths.md).
 | Module Federation | [guides/module-federation-dev.md](./guides/module-federation-dev.md) |
 | Keycloak | [guides/keycloak-setup.md](./guides/keycloak-setup.md) |
 | Checklist PR | [guides/pr-checklist.md](./guides/pr-checklist.md) |
-| Publicar / versionar libs npm | [guides/npm-publish-and-versioning.md](./guides/npm-publish-and-versioning.md) (canario + workflow F52-A1) |
+| Publicar / versionar libs npm | [guides/npm-publish-and-versioning.md](./guides/npm-publish-and-versioning.md) |
 
 Índice completo: [guides/README.md](./guides/README.md). Estilo docs: [CONTRIBUTING-DOCS.md](./CONTRIBUTING-DOCS.md).
 
 ---
 
-## Referencia por área
+<h2 align="center">Referencia por área</h2>
 
-### Backend
+<details open>
+<summary><b>Backend</b></summary>
+
+<br/>
 
 | Doc | Contenido |
 |-----|-----------|
@@ -129,7 +166,12 @@ Rutas legacy (libs) F5–F7: [legacy-paths.md](./legacy-paths.md).
 | [adr-0002](./adr/adr-0002-prisma-multi-single-tenancy.md) | single vs multi tenant |
 | [adr-0009](./adr/adr-0009-cqrs-nest.md) | CQRS Nest en el kernel |
 
-### Frontend
+</details>
+
+<details open>
+<summary><b>Frontend</b></summary>
+
+<br/>
 
 | Doc | Contenido |
 |-----|-----------|
@@ -146,7 +188,12 @@ Rutas legacy (libs) F5–F7: [legacy-paths.md](./legacy-paths.md).
 | [workspace-packages.md](./frontend/workspace-packages.md) | Paquetes y paths |
 | [testing-pyramid.md](./guides/testing-pyramid.md) | Unit / int / e2e |
 
-### Clientes y SaaS
+</details>
+
+<details>
+<summary><b>Clientes y SaaS</b></summary>
+
+<br/>
 
 | Doc | Contenido |
 |-----|-----------|
@@ -156,7 +203,12 @@ Rutas legacy (libs) F5–F7: [legacy-paths.md](./legacy-paths.md).
 | [productos-saas-extends-base.md](./productos-saas/productos-saas-extends-base.md) | SaaS sobre kernel |
 | [apps/productos-saas/README.md](../apps/productos-saas/README.md) | Mapa apps SaaS |
 
-### Operaciones
+</details>
+
+<details>
+<summary><b>Operaciones</b></summary>
+
+<br/>
 
 | Doc | Contenido |
 |-----|-----------|
@@ -167,19 +219,19 @@ Rutas legacy (libs) F5–F7: [legacy-paths.md](./legacy-paths.md).
 | [kafka-redis-outage.md](./runbooks/kafka-redis-outage.md) | Modo degradado |
 | [pnpm-layout.md](./runbooks/pnpm-layout.md) | Workspaces |
 | [nx-daemon.md](./runbooks/nx-daemon.md) | Daemon hang / `NX_DAEMON=false` |
-| [jest-coverage.md](./runbooks/jest-coverage.md) | Preset Jest, coverage por proyecto + merge · F57 truth · **F58-A1** strict |
-| [mockserver.md](./runbooks/mockserver.md) | FE plantilla sin Nest/Keycloak (`pnpm mockserver`) |
+| [jest-coverage.md](./runbooks/jest-coverage.md) | Preset Jest, coverage |
+| [mockserver.md](./runbooks/mockserver.md) | FE plantilla sin Nest/Keycloak |
 | [tools-layout.md](./runbooks/tools-layout.md) | Dónde vive cada utilidad bajo `tools/` |
 
-### Decisiones de arquitectura (ADRs)
+</details>
 
-Índice completo: [adr/README.md](./adr/README.md).
+<p align="center">Decisiones irreversibles → <a href="./adr/README.md"><b>ADRs</b></a></p>
 
 ---
 
-## Verificación
+<h2 align="center">Verificación</h2>
 
-Ejecuta antes de abrir PR. Prefer Nx affected (`defaultBase: main` en `nx.json`).
+<p align="center">Ejecuta antes de abrir PR. Prefer Nx affected (<code>defaultBase: main</code>).</p>
 
 ```bash
 # Gate local — solo proyectos affected
@@ -205,17 +257,18 @@ pnpm check:legacy-paths
 pnpm check:migration-encoding
 ```
 
-Última ronda cerrada: **[F62](./plans/rounds/plans-62-sixty-two-round/)** (temas
-tenant, select listbox, shell/nav, features native-first, RN tokens; carries → F63).  
-Ronda activa: **[F63](./plans/rounds/plans-63-sixty-three-round/)** — portal
-overlays, tenant UX, checkbox nativo, CRUD density, brand life, Storybook/Chromatic/
-validación. Índice: [plans/README.md](./plans/README.md).
+Última ronda cerrada: **[F62](./plans/rounds/plans-62-sixty-two-round/)**.  
+Ronda activa: **[F63](./plans/rounds/plans-63-sixty-three-round/)** — portal overlays, tenant UX, checkbox nativo, CRUD density, brand life.  
+Índice: [plans/README.md](./plans/README.md).
 
-Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md) — unit → integration (Postgres) → e2e Playwright. Operativa Jest/coverage: [runbooks/jest-coverage.md](./runbooks/jest-coverage.md).
+Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md).  
+Operativa Jest/coverage: [runbooks/jest-coverage.md](./runbooks/jest-coverage.md).
 
 ---
 
-## Cosas que sorprenden (léelo antes de depurar)
+<h2 align="center">Cosas que sorprenden</h2>
+
+<p align="center"><i>Léelo antes de depurar</i></p>
 
 | Tema | Qué pasa | Qué hacer |
 |------|----------|-----------|
@@ -223,13 +276,16 @@ Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md) —
 | **Dual Prisma schema** | `single` vs `multi` deben estar en paridad | `pnpm check:schema-parity` |
 | **Paths wildcard IDE** | Errores fantasma en `*-features/*` | Ignorar si `tsc` pasa |
 | **Keycloak** | Backend no emite JWT; valida JWKS | Realm `josanz` vs `arquetipos` — [keycloak-setup.md](./guides/keycloak-setup.md) |
-| **Infra opcional** | Sin Redis/Kafka el proceso arranca | No exijas Redis para boot local |
+| **Infra opcional** | Sin Redis/Kafka el backend arranca | No exijas Redis para boot local |
 | **Capas ESLint** | `@josanz` no importa `@arquetipos` | `layer:*` tags |
 | **RN web blanco** | React 19 raíz + React 18 Expo | Metro pin — [add-mobile-domain.md](./guides/add-mobile-domain.md) |
 
 ---
 
-## Planes históricos vs biblia operativa
+<details>
+<summary><b>Planes históricos vs biblia operativa</b></summary>
+
+<br/>
 
 | Ubicación | Estado |
 |-----------|--------|
@@ -240,18 +296,24 @@ Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md) —
 
 Si un plan histórico contradice esta biblia, **prevalece la biblia**.
 
+</details>
+
 ---
 
-## Rutas de lectura por rol
+<h2 align="center">Rutas de lectura por rol</h2>
 
-### Desarrollador nuevo (día 1)
+<details>
+<summary><b>Desarrollador nuevo (día 1)</b></summary>
 
 1. [getting-started.md](./getting-started.md)
 2. [architecture/learning-path.md](./architecture/learning-path.md)
 3. [architecture/overview.md](./architecture/overview.md) (§0 motor)
 4. [guides/local-development.md](./guides/local-development.md)
 
-### Visión / producto / IA
+</details>
+
+<details>
+<summary><b>Visión / producto / IA</b></summary>
 
 1. [architecture/platform-vision.md](./architecture/platform-vision.md)
 2. [architecture/future-vision.md](./architecture/future-vision.md)
@@ -260,7 +322,10 @@ Si un plan histórico contradice esta biblia, **prevalece la biblia**.
 5. [guides/ai-cqrs-policy.md](./guides/ai-cqrs-policy.md)
 6. ADR [0009](./adr/adr-0009-cqrs-nest.md)
 
-### Backend
+</details>
+
+<details>
+<summary><b>Backend</b></summary>
 
 1. [backend/why-nest.md](./backend/why-nest.md) + [backend/how-it-works.md](./backend/how-it-works.md)
 2. [architecture/backend-deep-dive.md](./architecture/backend-deep-dive.md)
@@ -269,7 +334,10 @@ Si un plan histórico contradice esta biblia, **prevalece la biblia**.
 5. [guides/add-backend-domain.md](./guides/add-backend-domain.md)
 6. [testing-pyramid.md](./guides/testing-pyramid.md) + ADRs 0001, 0002, 0009
 
-### Frontend / Design
+</details>
+
+<details>
+<summary><b>Frontend / Design</b></summary>
 
 1. [frontend/how-it-works.md](./frontend/how-it-works.md) + [frontend/ui-strategy.md](./frontend/ui-strategy.md)
 2. [architecture/frontend-deep-dive.md](./architecture/frontend-deep-dive.md)
@@ -277,48 +345,66 @@ Si un plan histórico contradice esta biblia, **prevalece la biblia**.
 4. [frontend/design-system.md](./frontend/design-system.md) + [ui-re-export-vs-wrapper.md](./guides/ui-re-export-vs-wrapper.md)
 5. [guides/add-frontend-domain.md](./guides/add-frontend-domain.md)
 
-### Plantillas Arquetipos
+</details>
+
+<details>
+<summary><b>Plantillas · Mobile / Next / MF · QA · DevOps · Producto nuevo</b></summary>
+
+<br/>
+
+**Plantillas Arquetipos**
 
 1. [arquetipos/README.md](./arquetipos/README.md)
 2. [arquetipos/catalog.md](./arquetipos/catalog.md)
 3. [arquetipos/how-to-use.md](./arquetipos/how-to-use.md)
 
-### Mobile / Next / MF
+**Mobile / Next / MF**
 
 1. ADR [0008](./adr/adr-0008-platform-scope-vs-mvp-client.md)
 2. [add-mobile-domain.md](./guides/add-mobile-domain.md) / [add-next-domain.md](./guides/add-next-domain.md) / [module-federation-dev.md](./guides/module-federation-dev.md)
 
-### QA
+**QA**
 
 1. [testing-pyramid.md](./guides/testing-pyramid.md)
 2. [runbooks/jest-coverage.md](./runbooks/jest-coverage.md)
 3. [pr-checklist.md](./guides/pr-checklist.md)
 4. [frontend/ci-gates.md](./frontend/ci-gates.md)
 
-### DevOps / SRE
+**DevOps / SRE**
 
 1. [runbooks/README.md](./runbooks/README.md)
 2. [database-migrations.md](./runbooks/database-migrations.md)
 3. [deploy.md](./runbooks/deploy.md)
 4. [observability.md](./runbooks/observability.md)
 
-### Producto nuevo
+**Producto nuevo**
 
 1. [new-product-e2e-walkthrough.md](./guides/new-product-e2e-walkthrough.md)
 2. [nuevo-cliente-checklist.md](./clientes/nuevo-cliente-checklist.md)
 
+</details>
+
 ---
 
-## Enlaces externos al repo
+<h2 align="center">Enlaces del repo</h2>
 
-- [CONTRIBUTING.md](../CONTRIBUTING.md) — contribuir código
-- [CONTRIBUTING-DOCS.md](./CONTRIBUTING-DOCS.md) — contribuir documentación
-- [Agent config sync](../.opencode/README.md) — Cursor / Copilot / OpenCode / Kilo
-- [AGENTS.md](../AGENTS.md) — reglas monorepo para agentes
-- [SERVICES.md](../SERVICES.md) — catálogo dominios
-- [.github/workflows/ci.yml](../.github/workflows/ci.yml) — pipeline CI
+<p align="center">
+  <a href="../CONTRIBUTING.md">CONTRIBUTING</a> ·
+  <a href="./CONTRIBUTING-DOCS.md">CONTRIBUTING-DOCS</a> ·
+  <a href="../.opencode/README.md">Agent sync</a> ·
+  <a href="../AGENTS.md">AGENTS</a> ·
+  <a href="../SERVICES.md">SERVICES</a> ·
+  <a href="../.github/workflows/ci.yml">CI</a>
+</p>
 
-Diagrama interactivo: abre el Canvas **arquetipos-platform-bible** en Cursor (panel Canvas junto al chat).
+<p align="center">
+  <sub>Diagrama interactivo: Canvas <b>arquetipos-platform-bible</b> en Cursor</sub>
+</p>
 
-*Última ampliación biblia: layout `tools/` + MockServer (F56) + Jest coverage (F55).
-Mantén este índice al añadir runbooks o ADRs.*
+---
+
+<p align="center">
+  <img src="./assets/arquetipos-mark.svg" width="36" alt="" />
+  <br/>
+  <sub>Mantén este índice al añadir runbooks o ADRs · F63 docs polish</sub>
+</p>

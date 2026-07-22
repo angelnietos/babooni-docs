@@ -1,8 +1,18 @@
-# F41-F2 — Deduplicar fetch/query en React
+<p align="center">
+  <img src="../../../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">F41-F2 ï¿½ Deduplicar fetch/query en React</h1>
+
+<p align="center">
+  <img alt="arquetipos" src="https://img.shields.io/badge/arquetipos-0f766e?style=flat-square" />
+  <a href="../../../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
+
 
 **Prioridad:** Media  
 **Estado:** Completado
-**Dependencias:** F41-F1 (la fuente elegida define dónde vive el helper)
+**Dependencias:** F41-F1 (la fuente elegida define dï¿½nde vive el helper)
 
 ## Contexto
 
@@ -15,7 +25,7 @@ Los hooks de listado React son copia literal (solo cambian path + tipo):
 - `react/platform/kernel/lib/inventory/use-inventory.ts`
 - `react/platform/kernel/lib/billing/use-billing.ts`
 
-Patrón repetido:
+Patrï¿½n repetido:
 
 ```typescript
 async function fetchX(): Promise<XDto[]> {
@@ -26,14 +36,14 @@ async function fetchX(): Promise<XDto[]> {
 export function useX() { return useQuery({ queryKey: ['x'], queryFn: fetchX }); }
 ```
 
-Además, el parseo `Array.isArray(json) ? json : json.data` y el POST/DELETE con
-`authorizedFetch` están duplicados entre `create-entity-list-store.ts` y los
+Ademï¿½s, el parseo `Array.isArray(json) ? json : json.data` y el POST/DELETE con
+`authorizedFetch` estï¿½n duplicados entre `create-entity-list-store.ts` y los
 stores de dominio (`users.store.ts`, `roles.store.ts`).
 
 ## Objetivo
 
 Extraer helpers compartidos para el hook de listado y para el request JSON, de
-modo que cada dominio quede en 1-2 líneas.
+modo que cada dominio quede en 1-2 lï¿½neas.
 
 ## Tareas
 
@@ -47,14 +57,14 @@ modo que cada dominio quede en 1-2 líneas.
 - [x] Eliminar el fetch/parseo inline duplicado.
 - [x] Tests verdes en libs React tocadas.
 
-## Criterio de aceptación
+## Criterio de aceptaciï¿½n
 
 - Cero copias del bloque `fetchX + useQuery`.
-- `parseListJson`/`jsonRequest` en un único lugar.
+- `parseListJson`/`jsonRequest` en un ï¿½nico lugar.
 - Typecheck + lint + tests verdes.
 
 ## Notas / riesgos
 
 - `authorizedFetch` viene de `@base/react-auth-data-access`; mantener esa
   dependencia en el helper compartido, no en cada dominio.
-- Respetar los `queryKey` existentes para no invalidar cachés de features.
+- Respetar los `queryKey` existentes para no invalidar cachï¿½s de features.

@@ -1,4 +1,13 @@
-# CI gates (F11 + F12)
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">CI gates (F11 + F12)</h1>
+
+<p align="center">
+  <img alt="frontend" src="https://img.shields.io/badge/frontend-0f766e?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 Unified hygiene + governance gates enforced in CI (`verify`, `frontend`, and
 `quality` jobs in `.github/workflows/ci.yml`). The canonical local entry point

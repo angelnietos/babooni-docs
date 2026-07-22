@@ -1,4 +1,13 @@
-# F44-A2 — Política de deprecación y versionado
+<p align="center">
+  <img src="../../../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">F44-A2 — Política de deprecación y versionado</h1>
+
+<p align="center">
+  <img alt="arquetipos" src="https://img.shields.io/badge/arquetipos-0f766e?style=flat-square" />
+  <a href="../../../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 ## Estado
 

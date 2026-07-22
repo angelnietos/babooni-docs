@@ -1,4 +1,17 @@
-# Planes
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Planes</h1>
+
+<p align="center">
+  Trabajo en curso · <b>no son la biblia operativa</b>
+</p>
+
+<p align="center">
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+  <a href="./rounds/plans-63-sixty-three-round/"><img alt="F63" src="https://img.shields.io/badge/active-F63-14b8a6?style=flat-square" /></a>
+</p>
 
 Planes de trabajo del monorepo. **No son la biblia operativa** — si contradicen
 `docs/README.md` / `architecture/` / `guides/`, gana la biblia.

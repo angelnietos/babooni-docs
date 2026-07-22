@@ -1,6 +1,17 @@
-# Primer día — arranque local
+<p align="center">
+  <img src="./assets/arquetipos-mark.svg" width="64" alt="Arquetipos" />
+</p>
 
-Guía para un desarrollador nuevo. Tiempo estimado: **30–45 minutos** hasta ver Josanz funcionando en local.
+<h1 align="center">Primer día — arranque local</h1>
+
+<p align="center">
+  Guía para un desarrollador nuevo · <b>30–45 min</b> hasta ver Josanz en local
+</p>
+
+<p align="center">
+  <a href="./README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+  <a href="./architecture/overview.md"><img alt="Overview" src="https://img.shields.io/badge/orientación-overview-14b8a6?style=flat-square" /></a>
+</p>
 
 > Si solo quieres orientarte sin levantar nada, lee primero [architecture/overview.md](./architecture/overview.md).
 

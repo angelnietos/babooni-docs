@@ -1,4 +1,13 @@
-# Catálogo de apps Arquetipos
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Catálogo de apps Arquetipos</h1>
+
+<p align="center">
+  <img alt="arquetipos" src="https://img.shields.io/badge/arquetipos-0f766e?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 Inventario de proyectos Nx bajo `apps/arquetipos/`. Puertos: confirmar siempre en
 `project.json` / [local-development](../guides/local-development.md).

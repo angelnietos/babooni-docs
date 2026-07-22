@@ -1,4 +1,14 @@
-# F41-B3 — Helpers de wiring de módulos (repos + contribución AI)
+<p align="center">
+  <img src="../../../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">F41-B3 ï¿½ Helpers de wiring de mï¿½dulos (repos + contribuciï¿½n AI)</h1>
+
+<p align="center">
+  <img alt="arquetipos" src="https://img.shields.io/badge/arquetipos-0f766e?style=flat-square" />
+  <a href="../../../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
+
 
 **Prioridad:** Alta  
 **Estado:** Completado
@@ -9,14 +19,14 @@
 Los 9 `*.module.ts` repiten wiring con **tres formas distintas** de registrar el
 mismo repositorio Prisma:
 
-1. `clients`/`users`/`settings`: `providePrismaRepository(TOKEN, Class)` (canónico).
+1. `clients`/`users`/`settings`: `providePrismaRepository(TOKEN, Class)` (canï¿½nico).
 2. `billing`/`inventory`/`projects`: registran la clase **y** un
    `{ provide: TOKEN, useExisting: Class }` a mano.
 3. `roles`/`tenants`/`audit`: `useFactory` inline con
-   `new TenantlessPrismaRepository(...) as unknown as XRepository` — factories
-   casi idénticas entre roles y tenants.
+   `new TenantlessPrismaRepository(...) as unknown as XRepository` ï¿½ factories
+   casi idï¿½nticas entre roles y tenants.
 
-Además, los 9 repiten la contribución AI:
+Ademï¿½s, los 9 repiten la contribuciï¿½n AI:
 
 ```typescript
 { provide: AI_QUERY_CONTRIBUTION, multi: true,
@@ -25,8 +35,8 @@ Además, los 9 repiten la contribución AI:
 
 ## Objetivo
 
-Un único helper de registro de repositorio (tenant y tenantless) y un helper de
-contribución AI, eliminando las factories inline, el doble registro y el
+Un ï¿½nico helper de registro de repositorio (tenant y tenantless) y un helper de
+contribuciï¿½n AI, eliminando las factories inline, el doble registro y el
 `as unknown as`.
 
 ## Tareas
@@ -40,15 +50,15 @@ contribución AI, eliminando las factories inline, el doble registro y el
 - [x] Crear `shared/cqrs/provide-ai-queries.ts` con
       `provideAiQueries(prefix, { list, get })` que devuelva el `Provider`
       `AI_QUERY_CONTRIBUTION` multi.
-- [x] Migrar los 9 módulos a los helpers.
-- [x] `pnpm nx test base-backend` verde (incluye tests de contribución AI).
+- [x] Migrar los 9 mï¿½dulos a los helpers.
+- [x] `pnpm nx test base-backend` verde (incluye tests de contribuciï¿½n AI).
 
-## Criterio de aceptación
+## Criterio de aceptaciï¿½n
 
 - Una sola forma de registrar repositorios (tenant y tenantless) en todos los
   dominios base.
-- Cero `as unknown as XRepository` en módulos.
-- La contribución AI se declara con un helper, no copy-paste.
+- Cero `as unknown as XRepository` en mï¿½dulos.
+- La contribuciï¿½n AI se declara con un helper, no copy-paste.
 - Typecheck + lint + tests verdes en `base-backend`.
 
 ## Notas / riesgos

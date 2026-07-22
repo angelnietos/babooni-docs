@@ -1,4 +1,14 @@
-# F41-B6 — Limpieza de mappers, casts e imports
+<p align="center">
+  <img src="../../../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">F41-B6 ï¿½ Limpieza de mappers, casts e imports</h1>
+
+<p align="center">
+  <img alt="arquetipos" src="https://img.shields.io/badge/arquetipos-0f766e?style=flat-square" />
+  <a href="../../../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
+
 
 **Prioridad:** Media  
 **Estado:** Completado
@@ -17,12 +27,12 @@ Tres focos de ruido de bajo riesgo:
    ```
    Y los `toXxxDto` de `billing`/`inventory`/`setting` son mapeos 1:1.
 
-2. **Casts `as never` en producción** en repos thin:
+2. **Casts `as never` en producciï¿½n** en repos thin:
    - `billing.prisma.repository.ts:19` ? `prisma.billing as never`
    - `inventory.prisma.repository.ts:20` ? `prisma.inventory as never`
    - `projects.prisma.repository.ts:19` ? `prisma.project as never`
 
-   Conviven con el patrón correcto `prisma.setting as PrismaDelegate`.
+   Conviven con el patrï¿½n correcto `prisma.setting as PrismaDelegate`.
 
 3. **Import `PRISMA_SERVICE`/`InjectedPrismaClient` inconsistente:** unos
    dominios importan de `prisma.tokens`, otros de `prisma.module` (ambos
@@ -30,33 +40,33 @@ Tres focos de ruido de bajo riesgo:
 
 ## Objetivo
 
-Normalizar mappers, casts e imports a una sola convención.
+Normalizar mappers, casts e imports a una sola convenciï¿½n.
 
 ## Tareas
 
 - [x] Crear util `shared/domain/pick-defined.ts` con
       `pickDefined(data, keys)` y reescribir todos los `toXxxUpdate` como una
-      línea: `pickDefined(data, ['status', 'amount'])`.
+      lï¿½nea: `pickDefined(data, ['status', 'amount'])`.
 - [x] Para los DTO 1:1 (`billing`, `inventory`, `setting`) valorar un
       `identityDto` cuando row y DTO coinciden en forma (documentar el criterio;
-      no forzar donde haya normalización real como `users`/`clients`).
+      no forzar donde haya normalizaciï¿½n real como `users`/`clients`).
 - [x] Reemplazar `prisma.x as never` por `prisma.x as PrismaDelegate` en los 3
       repos thin.
-- [x] Fijar convención de imports: tokens siempre desde `prisma.tokens`;
-      `PrismaModule` solo cuando se importa el módulo Nest. Migrar los ~10
+- [x] Fijar convenciï¿½n de imports: tokens siempre desde `prisma.tokens`;
+      `PrismaModule` solo cuando se importa el mï¿½dulo Nest. Migrar los ~10
       archivos divergentes.
 - [x] `pnpm nx test base-backend` verde.
 
-## Criterio de aceptación
+## Criterio de aceptaciï¿½n
 
-- Cero `as never` en repositorios de producción.
-- `toXxxUpdate` no repite el patrón de spread condicional a mano.
+- Cero `as never` en repositorios de producciï¿½n.
+- `toXxxUpdate` no repite el patrï¿½n de spread condicional a mano.
 - Import de tokens Prisma consistente en todos los dominios base.
 - Typecheck + lint + tests verdes en `base-backend`.
 
 ## Notas / riesgos
 
 - `pickDefined` debe preservar el tipado (`Partial<TDto>` ? objeto con solo las
-  claves definidas); usar genéricos con `keyof`.
-- El `identityDto` solo aplica si NO hay transformación (fechas a ISO, defaults de
-  tenant, etc.). En caso de duda, dejar el mapper explícito.
+  claves definidas); usar genï¿½ricos con `keyof`.
+- El `identityDto` solo aplica si NO hay transformaciï¿½n (fechas a ISO, defaults de
+  tenant, etc.). En caso de duda, dejar el mapper explï¿½cito.

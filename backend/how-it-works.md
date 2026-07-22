@@ -1,4 +1,13 @@
-# Backend — cómo funciona todo
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Backend — cómo funciona todo</h1>
+
+<p align="center">
+  <img alt="backend" src="https://img.shields.io/badge/backend-0f766e?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 Cuándo usarla: entender el camino de una petición y el rol de cada pieza Nest
 en este monorepo (no solo “teoría hexagonal”).

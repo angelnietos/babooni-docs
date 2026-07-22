@@ -1,4 +1,13 @@
-# Scaffold Arquetipos (dominio + app)
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Scaffold Arquetipos (dominio + app)</h1>
+
+<p align="center">
+  <img alt="guide" src="https://img.shields.io/badge/guide-14b8a6?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 Utilidades para generar plantillas thin sobre `@base/*` y clonar apps de referencia.
 

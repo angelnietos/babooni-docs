@@ -1,6 +1,18 @@
-# Frontend — índice
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="64" alt="Arquetipos" />
+</p>
 
-Capas, stacks (Angular / React / Next / mobile), UI nativa (Lit) y paridad.
+<h1 align="center">Frontend</h1>
+
+<p align="center">
+  Capas · Angular / React / Next / mobile · UI nativa (Lit) · paridad
+</p>
+
+<p align="center">
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+  <a href="./ui-strategy.md"><img alt="UI strategy" src="https://img.shields.io/badge/UI-Lit%20SoT-14b8a6?style=flat-square" /></a>
+  <a href="./design-system.md"><img alt="Design system" src="https://img.shields.io/badge/design-system-0d5f59?style=flat-square" /></a>
+</p>
 
 ## Lectura recomendada
 

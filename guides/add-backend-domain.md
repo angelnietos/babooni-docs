@@ -1,4 +1,14 @@
-# Añadir un dominio backend
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Añadir un dominio backend</h1>
+
+<p align="center">
+  <img alt="guide" src="https://img.shields.io/badge/guide-14b8a6?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
+
 
 Receta para exponer un nuevo bounded context vía NestJS. El slug debe alinearse con frontend y HTTP.
 

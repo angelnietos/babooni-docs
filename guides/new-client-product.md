@@ -1,4 +1,13 @@
-# Nuevo producto cliente
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Nuevo producto cliente</h1>
+
+<p align="center">
+  <img alt="guide" src="https://img.shields.io/badge/guide-14b8a6?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 Resumen ejecutivo. Checklist completo: [clientes/nuevo-cliente-checklist.md](../clientes/nuevo-cliente-checklist.md).
 

@@ -1,4 +1,13 @@
-# Inventario UI externo → Lit (F53-A3 / F54-A2 / F55-A1)
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Inventario UI externo → Lit (F53-A3 / F54-A2 / F55-A1)</h1>
+
+<p align="center">
+  <img alt="frontend" src="https://img.shields.io/badge/frontend-0f766e?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 Snapshot 2026-07-22. No hay catálogo externo con licencia/credenciales en el
 workspace; la priorización usa **gaps** del design system interno

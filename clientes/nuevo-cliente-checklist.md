@@ -1,4 +1,13 @@
-# Nuevo cliente — checklist de producto
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Nuevo cliente — checklist de producto</h1>
+
+<p align="center">
+  <img alt="arquetipos" src="https://img.shields.io/badge/arquetipos-0f766e?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 **ID plan:** F7-A1 (`F7-A1.cliente-template`)  
 **Referencia:** Josanz (`libs/clientes/josanz/`, `apps/clientes/josanz/`)

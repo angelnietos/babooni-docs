@@ -1,4 +1,13 @@
-# Ronda F48 — Typecheck hygiene + barrel validation + any-cast cleanup
+<p align="center">
+  <img src="../../../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Ronda F48 — Typecheck hygiene + barrel validation + any-cast cleanup</h1>
+
+<p align="center">
+  <img alt="arquetipos" src="https://img.shields.io/badge/arquetipos-0f766e?style=flat-square" />
+  <a href="../../../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 ## Estado
 

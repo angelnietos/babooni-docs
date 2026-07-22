@@ -1,4 +1,13 @@
-# UI styles — arquitectura 7–1 (`@base/ui-styles`)
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">UI styles — arquitectura 7–1 (`@base/ui-styles`)</h1>
+
+<p align="center">
+  <img alt="frontend" src="https://img.shields.io/badge/frontend-0f766e?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 Cuándo usarla: estilos compartidos entre stacks arquetipos DOM para **paridad
 visual**. Josanz ya tenía 7–1 en `@josanz/angular-ui`; F60 añade la capa base

@@ -1,4 +1,13 @@
-# Plans — cuadragésima segunda ronda (F42: cierre de deuda remanente F41)
+<p align="center">
+  <img src="../../../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Plans — cuadragésima segunda ronda (F42: cierre de deuda remanente F41)</h1>
+
+<p align="center">
+  <img alt="arquetipos" src="https://img.shields.io/badge/arquetipos-0f766e?style=flat-square" />
+  <a href="../../../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 **Creado:** 2026-07-20  
 **Estado:** F42-B1 completado en F43-A1; F42-B2/B3/F1/B4 pendientes para F43  

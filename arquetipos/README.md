@@ -1,4 +1,18 @@
-# Arquetipos — plantillas del motor
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="64" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Arquetipos — plantillas</h1>
+
+<p align="center">
+  Modelos vivos bajo <code>apps/arquetipos/</code> · no son productos de cliente
+</p>
+
+<p align="center">
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+  <a href="./catalog.md"><img alt="Catalog" src="https://img.shields.io/badge/apps-catalog-14b8a6?style=flat-square" /></a>
+  <a href="./how-to-use.md"><img alt="How to use" src="https://img.shields.io/badge/how-to-use-0d5f59?style=flat-square" /></a>
+</p>
 
 Cuándo usarla: vas a **crear un producto nuevo** o a **elegir stack** y necesitas
 un modelo vivo bajo `apps/arquetipos/`.

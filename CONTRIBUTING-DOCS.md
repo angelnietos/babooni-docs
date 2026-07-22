@@ -44,13 +44,42 @@ pnpm nx typecheck <project>
 
 ## Reglas de formato
 
-1. **H1 único** = título del documento.
+1. **H1 único** = título del documento (o un `<h1 align="center">` en hubs).
 2. Primeras 2–3 líneas = *cuándo usarlo* (descubrimiento rápido).
 3. Mapas y decisiones → **tablas**; procedimientos → **listas numeradas**.
 4. Mermaid solo para flujos (capas, apps↔libs, pirámide de tests). Sin colores custom.
 5. Links **relativos** (`./`, `../`). Nunca paths absolutos de máquina (`/Users/…`).
 6. Cada guía nueva: bloque final **Verificación** con comandos `pnpm` / `nx`.
 7. Al añadir un doc: actualizar el índice del área (`guides/README.md`, etc.) **y** el hub [`README.md`](./README.md) si es P0/P1.
+
+### HTML embebido (GitHub Markdown)
+
+Los hubs (`docs/README.md`, índices de área, README raíz) pueden usar HTML ligero que GitHub permite:
+
+```html
+<p align="center">
+  <img src="./assets/arquetipos-mark.svg" width="88" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Título</h1>
+
+<p align="center">
+  <b>Subtítulo</b>
+</p>
+
+<p align="center">
+  <a href="..."><img alt="…" src="https://img.shields.io/badge/…" /></a>
+</p>
+
+<details>
+<summary><b>Sección colapsable</b></summary>
+
+Contenido…
+
+</details>
+```
+
+**No abuses:** guías operativas y ADRs siguen en Markdown limpio. El HTML es para **portadas e índices**, no para procedimientos largos. Mark canónico: [`docs/assets/arquetipos-mark.svg`](./assets/arquetipos-mark.svg).
 
 ## ADRs
 

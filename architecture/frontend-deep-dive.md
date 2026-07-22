@@ -1,4 +1,13 @@
-# Frontend — deep dive (4 capas)
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Frontend — deep dive (4 capas)</h1>
+
+<p align="center">
+  <img alt="architecture" src="https://img.shields.io/badge/architecture-0f766e?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 Cuándo usarla: antes de crear pantallas o libs `*-api|data-access|features|shell|ui`.
 ADR: [0006](../adr/adr-0006-frontend-layering.md).

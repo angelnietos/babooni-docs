@@ -1,4 +1,14 @@
-# Extender un dominio kernel (`@base/*`)
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Extender un dominio kernel (`@base/*`)</h1>
+
+<p align="center">
+  <img alt="guide" src="https://img.shields.io/badge/guide-14b8a6?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
+
 
 Cuando el cambio beneficia a **todos** los productos (Josanz, plantillas, futuros clientes), va en el kernel — no en `@josanz/*`.
 

@@ -1,4 +1,13 @@
-# ADR 0007: HTTP trace context baseline
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">ADR 0007: HTTP trace context baseline</h1>
+
+<p align="center">
+  <img alt="ADR" src="https://img.shields.io/badge/ADR-0d5f59?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 - Status: accepted
 - Date: 2026-07-12

@@ -1,4 +1,13 @@
-# Visión de plataforma — motor, IA por dominio y SaaS
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Visión de plataforma — motor, IA por dominio y SaaS</h1>
+
+<p align="center">
+  <img alt="architecture" src="https://img.shields.io/badge/architecture-0f766e?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 Cuándo leerla: para entender **hacia dónde va** este monorepo más allá del ERP
 actual, y cómo la biblia + CQRS permiten que humanos e IA construyan rápido y bien.

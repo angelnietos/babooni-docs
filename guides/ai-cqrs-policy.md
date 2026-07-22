@@ -1,4 +1,13 @@
-# AI access policy over CQRS
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">AI access policy over CQRS</h1>
+
+<p align="center">
+  <img alt="guide" src="https://img.shields.io/badge/guide-14b8a6?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 > Applicability: `@base/backend` hexagonal kernel (F33). Companion to
 > [adr-0009-cqrs-nest.md](../adr/adr-0009-cqrs-nest.md).

@@ -1,4 +1,16 @@
-# Architecture Decision Records (ADRs)
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="64" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Architecture Decision Records</h1>
+
+<p align="center">
+  Decisiones irreversibles · formato <a href="https://adr.github.io/madr/">MADR</a>
+</p>
+
+<p align="center">
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 Decision logs for the `arquetipos` platform, in [MADR](https://adr.github.io/madr/)
 format. Each record captures **context, decision, and consequences** so future

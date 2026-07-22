@@ -1,4 +1,13 @@
-# Guía de decisión de frameworks
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Guía de decisión de frameworks</h1>
+
+<p align="center">
+  <img alt="architecture" src="https://img.shields.io/badge/architecture-0f766e?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 Cuándo usarla: kickoff de producto, reunión de stack, o para **no repetir** el
 debate React vs Next vs Angular vs RN / Nest vs Express.

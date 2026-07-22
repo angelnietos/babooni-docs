@@ -1,4 +1,13 @@
-# Tenant themes checklist (F62-A1)
+<p align="center">
+  <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
+
+<h1 align="center">Tenant themes checklist (F62-A1)</h1>
+
+<p align="center">
+  <img alt="frontend" src="https://img.shields.io/badge/frontend-0f766e?style=flat-square" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+</p>
 
 Cascade: `html[data-arq-tenant]` → CSS vars in `@base/ui-styles` `themes/_tenants.scss`
 (+ mirrored arquetipos-theme / app styles) → Native CE + BEM pages + shell.
