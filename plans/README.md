@@ -17,18 +17,19 @@ Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `traslad
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| [plans-62](./rounds/plans-62-sixty-two-round/) | listo para ejecutar | Temas, select, átomos native-ui, shell/nav, RN tokens, features native-first, Storybook/Chromatic/docs + carries F60 |
+| [plans-63](./rounds/plans-63-sixty-three-round/) | listo para ejecutar | Select portal, tenant UX, checkbox nativo, CRUD density, brand life, carries Storybook/Chromatic/validación |
 
 ## Siguiente (preparada)
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| — | — | F63: carries F62 si defer (validación / Chromatic) |
+| — | — | F64: carries F63 si defer |
 
 ## Rondas completadas (archivo)
 
 | Ronda | Tema |
 |-------|------|
+| [plans-62](./rounds/plans-62-sixty-two-round/) | Temas, select, shell, features native-first, RN tokens; carries → F63 |
 | [plans-60](./rounds/plans-60-sixty-round/) | 7–1 ui-styles, login/clients nativos DOM; temas/select/features → F62 |
 | [plans-59](./rounds/plans-59-fifty-nine-round/) | E2E Next·Ionic·RN (C1); validación isomórfica + visual tooling → F60 |
 | [plans-58](./rounds/plans-58-fifty-eight-round/) | Coverage strict, e2e arquetipos all, purge `scope:*`, mock soft; Chromatic/Code Connect/deprecated → F59 |

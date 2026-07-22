@@ -34,9 +34,9 @@ stacks:
   next-single:
     parity_level: core
   ionic-single:
-    parity_level: mobile
+    parity_level: core
   rn-single:
-    parity_level: token
+    parity_level: core
 required_routes:
   - auth
   - clients

@@ -205,12 +205,11 @@ pnpm check:legacy-paths
 pnpm check:migration-encoding
 ```
 
-Última ronda cerrada: **[F60](./plans/rounds/plans-60-sixty-round/)** (7–1
-ui-styles, login/clients nativos DOM; temas/select/features → F62).  
-Ronda activa: **[F62](./plans/rounds/plans-62-sixty-two-round/)** — temas
-tenant, átomos native-ui, shell/nav, RN tokens, Select listbox, features
-native-first, Storybook/Chromatic/docs (+ carries validación). Índice:
-[plans/README.md](./plans/README.md).
+Última ronda cerrada: **[F62](./plans/rounds/plans-62-sixty-two-round/)** (temas
+tenant, select listbox, shell/nav, features native-first, RN tokens; carries → F63).  
+Ronda activa: **[F63](./plans/rounds/plans-63-sixty-three-round/)** — portal
+overlays, tenant UX, checkbox nativo, CRUD density, brand life, Storybook/Chromatic/
+validación. Índice: [plans/README.md](./plans/README.md).
 
 Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md) — unit → integration (Postgres) → e2e Playwright. Operativa Jest/coverage: [runbooks/jest-coverage.md](./runbooks/jest-coverage.md).
 
@@ -255,10 +254,11 @@ Si un plan histórico contradice esta biblia, **prevalece la biblia**.
 ### Visión / producto / IA
 
 1. [architecture/platform-vision.md](./architecture/platform-vision.md)
-2. [architecture/framework-decision-guide.md](./architecture/framework-decision-guide.md)
-3. [arquetipos/how-to-use.md](./arquetipos/how-to-use.md)
-4. [guides/ai-cqrs-policy.md](./guides/ai-cqrs-policy.md)
-5. ADR [0009](./adr/adr-0009-cqrs-nest.md)
+2. [architecture/future-vision.md](./architecture/future-vision.md)
+3. [architecture/framework-decision-guide.md](./architecture/framework-decision-guide.md)
+4. [arquetipos/how-to-use.md](./arquetipos/how-to-use.md)
+5. [guides/ai-cqrs-policy.md](./guides/ai-cqrs-policy.md)
+6. ADR [0009](./adr/adr-0009-cqrs-nest.md)
 
 ### Backend
 

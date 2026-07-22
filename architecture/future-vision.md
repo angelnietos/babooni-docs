@@ -1,177 +1,236 @@
-# Visión de futuro — hacia dónde va el motor en 2–5 años
+# Visión de futuro — la planta de productos empresariales
 
-Cuándo leerla: cuando necesitas entender **la apuesta a largo plazo** del motor, los
-riesgos estratégicos y por qué se prioriza (o no) cada Fase más allá de F62.
+Cuándo leerla: cuando necesitas la **apuesta a 2–5 años**, el moat, los riesgos y
+por qué cada ronda (más allá de F63) importa o no.
 
-Completa (no sustituye) [platform-vision.md](./platform-vision.md), que cubre fases
-A–D y el salto a SaaS por dominios. Aquí respondemos: *¿qué pasa después?* y
-*¿cuál es el moat?*
+No sustituye [platform-vision.md](./platform-vision.md) (fases A–D: motor →
+especialistas IA → SaaS). Este documento responde: *¿qué somos al final?* y
+*¿cómo ganamos?*
 
 ---
 
-## 1. El horizonte en una frase
+## 1. La imagen que debe quedarse
 
-> Este monorepo deja de ser un ERP y se convierte en una **planta de productos
-> empresariales**: dominios kernel estables + especialistas IA por bounded context +
-> despliegue multi-tenant/multi-producto sobre una única base de código
-> auditable. El negocio deja de vender horas y pasa a vender **productos y modelos
-> especialistas** con TTM medido en días, no meses.
+Hoy el monorepo parece “un ERP + plantillas + un SaaS”. Eso es el **scaffolding**.
+
+En 2–5 años es una **planta**:
+
+| Hoy se ve como | Mañana es |
+|----------------|-----------|
+| Código de Josanz / Verifactu / Arquetipos | **Líneas de producto** sobre un kernel único |
+| Docs y gates CI | **Sistema operativo de ingeniería** (humanos + agentes) |
+| CQRS + AI query gate | **Fábrica de especialistas** por bounded context |
+| Angular / React / Next / Ionic / RN | **Una semántica, N superficies** (mismo dominio, mismo contrato) |
+| Semanas de feature work | **Días** de composición + branding |
 
 ```mermaid
-flowchart LR
-  subgraph today ["Hoy (monorepo)"]
-    kernel["@base/* kernel"]
-    j["Josanz ERP"]
-    a["Arquetipos"]
-    s["Verifactu"]
+flowchart TB
+  subgraph plant ["Planta 2–5 años"]
+    kernel["Kernel @base\ncontratos + hex + UI SoT"]
+    recipes["Recetas + gates + biblia"]
+    lines["Líneas de producto\nERP · SaaS · plantillas · mobile"]
+    ai["Especialistas IA\npor dominio"]
+    market["Ecosistema\nSDK · registry · partners"]
   end
-  subgraph future ["2–5 años"]
-    platform["Plataforma de productos"]
-    verticals["Verticales empaquetadas"]
-    specialists["Especialistas IA por dominio"]
-    network["Marketplace / ecosistema"]
-  end
-  kernel --> platform --> verticals
-  platform --> specialists --> network
-  j --> verticals
-  s --> verticals
+  recipes --> kernel
+  kernel --> lines
+  kernel --> ai
+  lines --> market
+  ai --> market
 ```
 
----
+**Una frase:**
 
-## 2. La hipótesis central (y por qué es defendible)
-
-**Hipótesis:** la arquitectura correcta (hexagonal + CQRS + capas cerradas FE +
-biblia viva) + gates CI automáticos = **el costo de generar un nuevo dominio de
-negocio se desploma** — primero para humanos, luego para agentes, luego para
-modelos especialistas.
-
-Esto no es optimismo: el repo ya es **económicamente defensible** si:
-
-1. Un equipo construye un nuevo dominio en **1 semana** (vs. 1–3 meses en un ERP
-   tradicional).
-2. La IA puede iterar sobre dominios conocidos sin romper el kernel.
-3. El multi-tenant está resuelto en Prisma (`single` vs `multi`) desde día cero.
-4. La biblia + gates elimina la deuda por “¿dónde va esto?”.
-
-**Moat:** no vendemos código, vendemos **semántica + seguridad + multi-tenant +
-prompts de dominio**. Esos cuatro bloques tardan 2–5 años en replicarlos bien.
+> Dejamos de vender proyectos a medida. Vendemos **productos, verticales y
+> modelos de dominio** fabricados sobre una base auditable que humanos y agentes
+> saben extender sin romper el motor.
 
 ---
 
-## 3. Fases del horizonte (más allá de platform-vision)
+## 2. Hipótesis central (el porqué económico)
 
-Donde `platform-vision.md` cubre Fases A–D (ahora → SaaS por dominios), este
-documento describe **Fase E+**.
+**Hipótesis:** si los contratos (DTOs, CQRS, capas FE, layout de libs, ownership
+UI) son **rígidos y comprobables**, el coste marginal de un dominio nuevo cae
+órdenes de magnitud — primero para el equipo, luego para agentes, luego para
+clientes que solo componen.
 
-| Fase | Horizonte | Objetivo | Activo clave |
-|------|-----------|----------|--------------|
-| **E** | 6–18 meses | Dominios kernel 100% cubiertos + AI eval suite rutinaria | `@base/*` + especialistas pilot |
-| **F** | 12–30 meses | Multi-producto real: Josanz + 1 cliente nuevo sin reescribir kernel | `@acme/*` thin sobre `@base/*` |
-| **G** | 24–48 meses | SaaS B2B ejecutable: pricing por dominio, tenant aislado, onboarding en horas | Platform license + Domain AI |
-| **H** | 36–60 meses | Ecosistema: terceros crean dominios sobre `@base` + marketplace de especialistas | Registry público + SDK dominio |
+Eso solo es verdad si se mantienen cuatro pilares:
 
-### Fase E — Dominios kernel cerrados + IA confiable (6–18 meses)
+1. **Semántica única** — un `Client`, un `Permission`, un outbox; no cinco clones.
+2. **Superficies gemelas** — web SPA, Next, Ionic desktop y móvil/RN exponen la
+   **misma IA de producto** (`TEMPLATE_NAV` y dominios canónicos); el chrome puede
+   adaptarse (shell SPA vs `@base/mobile-chrome`), el dominio no.
+3. **Fail-closed** — authz, multi-tenant Prisma, IA que dice “no sé”.
+4. **Biblia ejecutable** — lo que no pasa el gate no entra a `main`.
 
-Hoy faltan dominios kernel (`inventory`, `billing` completo, `staff`, …). Terminar
-esa oleada y **congelar contratos estables** (DTOs, CQRS buses) es requisito previo.
+**Moat (lo que tarda años en copiar):**
+
+| Capa del moat | Qué es en la práctica |
+|---------------|------------------------|
+| Semántica | Dominios hex + DTOs + permisos + eventos |
+| Seguridad | Tenancy, Keycloak, cifrado, audit trail |
+| Tiempo-a-mercado | Scaffold + arquetipos + gates + agentes |
+| Especialistas | Modelos/RAG atados a queries CQRS reales, no chat genérico |
+
+No competimos siendo “otro ERP open source”. Competimos siendo la **planta que
+fabrica ERPs y SaaS correctos más rápido que el mercado**.
+
+---
+
+## 3. Norte de producto (qué se siente usar esto)
+
+### Para un cliente final
+
+- Un producto (Josanz, Verifactu, el siguiente) **coherente en todas las
+  pantallas**: desktop, tablet, móvil.
+- Datos multi-tenant seguros; cambios trazables.
+- Asistentes que **leen y actúan solo** sobre el dominio que conocen.
+
+### Para un product team interno
+
+- Nuevo cliente `@acme/*`: thin wrappers, branding, composición en `apps/` —
+  **sin fork del kernel**.
+- Nuevo dominio: checklist + scaffold + typecheck/test — **días**, no un
+  quarter.
+
+### Para un agente / modelo
+
+- Un sitio correcto para cada archivo (layout + boundaries).
+- Contratos estables para razonar (`clients.FindMany`, no SQL libre).
+- Eval suite que castiga alucinaciones.
+
+### Para un partner (Fase H)
+
+- SDK de dominio + registry: construyen encima de `@base` sin tocar el corazón.
+
+---
+
+## 4. Fases E–H (después de platform-vision A–D)
+
+| Fase | Horizonte | Éxito medible |
+|------|-----------|---------------|
+| **E** | 6–18 m | Kernel “cerrado” + especialistas con eval; UI/runtime parity canónica |
+| **F** | 12–30 m | Segundo producto cliente en prod sin reescribir `@base` |
+| **G** | 24–48 m | Revenue: license + Domain AI + vertical pack; TTM dominio &lt; 1 semana |
+| **H** | 36–60 m | SDK + marketplace; terceros publican dominios/especialistas |
+
+### Fase E — Motor maduro (cuello de botella)
+
+Sin E no hay F/G/H creíbles.
+
+Prioridades:
+
+- Completar y **congelar** dominios kernel (contratos semver-ready).
+- Paridad de **producto** entre runtimes (ya iniciada F60–F63: native-ui,
+  `ui-styles`, shell dual Ionic, `TEMPLATE_NAV` en mobile).
+- AI: ≥2 queries registradas por dominio crítico + eval mínima rutinaria.
+- Publicación interna/controlada de `@base/*` (ver guía npm / F51–F52).
 
 Criterios de salida:
-- [ ] 100% dominios kernel cubiertos.
-- [ ] `@base/*` publicable con semver (F51–F52).
-- [ ] Cada dominio tiene ≥2 queries AI registradas + eval suite mínima.
-- [ ] `check:exports-paths` verde en CI permanente.
 
-### Fase F — Multi-producto real (12–30 meses)
+- [ ] Dominios kernel objetivo cubiertos o explícitamente deferidos con ADR.
+- [ ] Canario arquetipos: mismas features en Angular/React (+ Ionic/RN core).
+- [ ] `@base/*` versionable; changelog de contratos.
+- [ ] Eval AI en CI soft → strict para dominios piloto.
 
-La prueba de fuego: agregar un **segundo cliente** (p. ej. `@acme/*`) sin tocar
-`@base/*`, `@josanz/*`, ni `@arquetipos/*`. Solo thin wrappers y branding.
+### Fase F — Prueba multi-producto
 
-Cuando F es real, el monorepo deja de ser “el ERP de Josanz con saas al lado” y se
-convierte en **una plataforma con dos productos en producción**.
+Un segundo cliente (`@acme/*` o similar) en producción:
 
-### Fase G — SaaS B2B (24–48 meses)
+- Solo importa `@base/*` (+ selectivo producto si aplica).
+- Cero fork de Josanz; branding y reglas en wrappers.
+- Misma planta de features; distinta marca y policies.
 
-Modelo de revenue:
-1. **Platform license** — self-host o managed, acceso a `@base/*`.
-2. **Domain AI add-on** — `/api/ai/query` por dominio, pricing por tenant.
-3. **Vertical pack** — eventos, flota, servicios; dominio + modelo + plantilla FE.
+Cuando F es real, el monorepo **deja de ser “el ERP de Josanz”** y pasa a ser
+**plataforma con N productos**.
 
-El KPI que importa: *Tiempo desde “necesito un dominio X” hasta “está en producción
-multi-tenant”* → objetivo < 1 semana con plataforma, > 3 meses sin ella.
+### Fase G — Negocio SaaS B2B
 
-### Fase H — Ecosistema / marketplace (36–60 meses)
+Tres motores de ingreso (combinables):
 
-Si F y G funcionan:
-- Publicar un **SDK de dominio** (`@base/sdk-domain`) para que terceros construyan
-  dominios custom sobre el kernel sin tocar `libs/`.
-- **Registry público** de especialistas IA: la comunidad entrena modelos sobre
-  `clients.*`, `billing.*`, etc., y los publica.
-- La empresa pasa de vender licencias a vender **infraestructura de dominio
-  empresarial** (similar a cómo AWS vende infra, Shopify vende comercio).
+1. **Platform license** — self-host o managed del kernel + ops.
+2. **Domain AI** — especialistas por dominio, metering por tenant.
+3. **Vertical pack** — dominio + FE + modelo (eventos, flota, facturación…).
 
-Riesgo: si no se alcanza masa crítica de dominios kernel en Fase E, el marketplace
-no despega. Por eso Fase E es el cuello de botella.
+KPI norte: *días desde “necesito dominio X” hasta multi-tenant en prod*.
 
----
+### Fase H — Ecosistema
 
-## 4. Principios que escalan (no se negocian en Fase E+)
+- `@base/sdk-domain` + plantilla de dominio certificada.
+- Registry de especialistas (versión atada a contrato CQRS).
+- Partners fabrican verticales; la empresa opera la planta y el trust layer.
 
-1. **Kernel > feature** — nadie toca `@base/*` sin ADR + consenso platform.
-2. **Contrato antes que modelo** — DTOs y CQRS buses son la API pública; el modelo
-   IA se adapta a ellos, no al revés.
-3. **Multi-tenant por defecto** — ningún dominio nuevo se diseña single-tenant sin
-   justificación explícita.
-4. **Fail-closed IA** — si el especialista no sabe, dice “no sé”, no inventa.
-5. **Biblia > moda** — frameworks vienen y van; la arquitectura hexagonal + capas
-   cerradas es posture agnóstico.
-6. **Open-core con núcleo productivo** — kernel abierto a inspección, especialistas y
-   verticales como producto sellable.
+Riesgo: H sin masa crítica en E = marketplace vacío. **E primero.**
 
 ---
 
-## 5. Riesgos estratégicos y mitigaciones
+## 5. Principios no negociables (E+)
 
-| Riesgo | Probabilidad | Impacto | Mitigación |
-|--------|--------------|---------|------------|
-| Buscar revenue SaaS antes de cerrar kernel | Alta | Alto | Fase E primero; G empieza solo con 1 vertical sellable |
-| Especialistas IA son caros o impredecibles | Media | Alto | Fail-closed + eval suite + allow-list commands |
-| Complejidad multi-producto degrada DX | Media | Alto | Linter boundaries + `check:lib-layout` siempre verde |
-| Mercado prefiere soluciones existentes | Baja | Crítico | Moat = semántica + seguridad + tiempo-a-mercado |
-| Equipo crece y la biblia se deja de leer | Media | Alto | Gates CI son la biblia ejecutable; docs son complemento |
-
----
-
-## 6. Señales de avance (checklist del futuro)
-
-- [ ] Josanz y al menos un segundo producto comparten `@base/*` sin forks.
-- [ ] Nuevo dominio kernel: 1 semana desde “lo necesito” hasta producción.
-- [ ] Especialista IA pilot responde consultas complejas sin alucinar.
-- [ ] `@base/*` tiene semver, changelog y consumidores externos.
-- [ ] 3+ dominios kernel con AI eval suite rutinaria.
-- [ ] Pricing por dominio/tentant definido y al menos un cliente SaaS.
-- [ ] SDK dominio publicado y documentado para terceros.
-
-Cuando tengas 4 o más checks verdes, el moat es real.
+1. **Kernel > feature** — cambios en `@base/*` con ADR y coste consciente.
+2. **Contrato antes que modelo** — la IA se adapta al bus; el bus no se tuerce
+   por el prompt.
+3. **Una semántica, N skins** — paridad de features entre runtimes; chrome
+   responsive/móvil compartido donde aplica; sin “otra app” disfrazada.
+4. **Multi-tenant por defecto** — single-tenant solo con justificación.
+5. **Fail-closed** — authz, tenancy, IA.
+6. **Gates = biblia ejecutable** — docs explican; CI impone.
+7. **Open-core sano** — kernel inspeccionable; verticales y especialistas como
+   producto.
 
 ---
 
-## 7. Filosofía operativa
+## 6. Riesgos y mitigaciones
 
-> El código es commodity. La **arquitectura** + la **documentación viva** + los
-> **contracts estables** son lo que hace que una empresa pueda construir software
-> empresarial a velocidad alta sin hundirse en deuda técnica.
+| Riesgo | Mitigación |
+|--------|------------|
+| Monetizar SaaS antes de cerrar kernel | E obligatorio; G solo con 1 vertical sellable |
+| IA cara / alucinógena | Fail-closed + eval + allow-list de commands |
+| N productos → DX insoportable | Boundaries Nx/ESLint + `check:lib-layout` + arquetipos |
+| Cada runtime es un producto distinto | Paridad canónica (manifest + e2e smoke) F54–F63 |
+| Biblia abandonada al crecer el equipo | Gates como fuente de verdad; docs como narrativa |
+| Mercado “ya tiene ERP” | Competir en TTM + semántica + especialistas, no en features genéricas |
 
-Si en 5 años el repo es solo código, fracasamos. Si en 5 años el repo es una
-**planta** que produce productos y modelos especialistas, ganamos.
+---
+
+## 7. Señales de que el moat es real
+
+Marca cuando sea verdad en producción, no en slides:
+
+- [ ] ≥2 productos cliente comparten `@base/*` sin forks.
+- [ ] Dominio kernel nuevo: ≤ 1 semana a prod multi-tenant.
+- [ ] Especialista piloto supera eval (cero alucinación en suite).
+- [ ] `@base/*` con semver y consumidores fuera del monorepo (o path claro).
+- [ ] 3+ dominios con AI eval en pipeline.
+- [ ] Pricing por dominio/tenant y ≥1 cliente SaaS de pago.
+- [ ] SDK dominio usable por un equipo externo en un spike de 2 días.
+- [ ] Arquetipos: misma matriz de features en web + mobile (core).
+
+**Regla práctica:** ≥4 checks verdes → la planta ya genera ventaja competitiva
+medible.
+
+---
+
+## 8. Filosofía operativa
+
+> El código es commodity. La **arquitectura**, los **contratos**, la **biblia
+> ejecutable** y los **especialistas atados a dominio** son el activo.
+
+Si en cinco años esto es “mucho código mantenido a pulso”, fracasamos.
+
+Si en cinco años es una **planta** que produce productos, verticales y modelos
+especialistas con TTM de días — y los runtimes son superficies del mismo
+producto, no islas — ganamos.
 
 ---
 
 ## Enlaces
 
-- [platform-vision.md](./platform-vision.md) — Fases A–D (ahora → SaaS dominios)
-- [overview.md](./overview.md) — mapa mental + lifecycle de dominio
-- [domain-lifecycle.md](./domain-lifecycle.md) — punta a punta
-- [guides/ai-cqrs-policy.md](../guides/ai-cqrs-policy.md) — gate AI técnico
-- [guides/npm-publish-and-versioning.md](../guides/npm-publish-and-versioning.md) — F51–F52 kernel publicable
-- [docs/README.md](../README.md) — hub biblia
+| Documento | Rol |
+|-----------|-----|
+| [platform-vision.md](./platform-vision.md) | Fases A–D (ahora → SaaS) |
+| [overview.md](./overview.md) | Mapa mental del monorepo |
+| [domain-lifecycle.md](./domain-lifecycle.md) | Ciclo de un dominio |
+| [../arquetipos/parity.md](../arquetipos/parity.md) | Paridad multi-runtime |
+| [../guides/ai-cqrs-policy.md](../guides/ai-cqrs-policy.md) | Gate AI |
+| [../guides/npm-publish-and-versioning.md](../guides/npm-publish-and-versioning.md) | Kernel publicable |
+| [../README.md](../README.md) | Hub de la biblia |

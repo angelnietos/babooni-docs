@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+defer F63
 
 ## Objetivo
 

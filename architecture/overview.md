@@ -9,6 +9,7 @@ está organizada así. Si acabas de llegar:
 4. Deep dives cuando toques código  
 
 Visión de negocio / IA por dominio: [platform-vision.md](./platform-vision.md).  
+Horizonte 2–5 años (planta de productos): [future-vision.md](./future-vision.md).  
 Decisión de frameworks: [framework-decision-guide.md](./framework-decision-guide.md).  
 Plantillas: [../arquetipos/README.md](../arquetipos/README.md).
 

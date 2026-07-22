@@ -26,8 +26,8 @@ pnpm check:arquetipos-parity               # soft local
 |-------|--------|-----------|
 | Full | Angular / React SPA | 4 capas + UI native + rutas |
 | Core | Next | Subset |
-| Mobile | Ionic | CE / native en hosts DOM |
-| Token | RN | API/tokens alineados (`@base/ui-tokens`); **no** Lit |
+| Core (mobile) | Ionic / RN | Mismas rutas canónicas `TEMPLATE_NAV`; Ionic desktop = shell SPA; viewport móvil = `@base/mobile-chrome` / `ArqMobileShell` |
+| Token | RN (histórico) | Sustituido por Core (mobile) en F63-C1 |
 
 ## Visual / layout smoke (F55-B2 / F56-A2 / F58-D2)
 

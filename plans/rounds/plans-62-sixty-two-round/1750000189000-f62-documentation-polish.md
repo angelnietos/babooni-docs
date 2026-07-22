@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado (handoff hubs → F63)
 
 ## Objetivo
 

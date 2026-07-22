@@ -2,7 +2,12 @@
 
 ## Estado
 
-listo para ejecutar
+completado (portal body en cierre F62; hardening continuo F63-A1)
+
+## Notas
+
+Panel listbox debe portarse a `document.body`. `position:fixed` dentro del
+shadow del host falla si un ancestro tiene `backdrop-filter` (shell stage/topbar).
 
 ## Objetivo
 
