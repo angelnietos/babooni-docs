@@ -259,8 +259,8 @@ pnpm check:legacy-paths
 pnpm check:migration-encoding
 ```
 
-Última ronda cerrada: **[F62](./plans/rounds/plans-62-sixty-two-round/)**.  
-Ronda activa: **[F63](./plans/rounds/plans-63-sixty-three-round/)** — portal overlays, tenant UX, checkbox nativo, CRUD density, brand life.  
+Última ronda cerrada: **[F63](./plans/rounds/plans-63-sixty-three-round/)**.
+Ronda activa: **[F64](./plans/rounds/plans-64-sixty-four-round/)** — cierre F63 (portal, mobile e2e, brand life) + Storybook/Chromatic/validación + CI ratchet.
 Índice: [plans/README.md](./plans/README.md).
 
 Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md).  
@@ -408,5 +408,5 @@ Si un plan histórico contradice esta biblia, **prevalece la biblia**.
 <p align="center">
   <img src="./assets/arquetipos-mark.svg" width="36" alt="" />
   <br/>
-  <sub>Mantén este índice al añadir runbooks o ADRs · F63 docs polish</sub>
+  <sub>Mantén este índice al añadir runbooks o ADRs · F64 docs polish</sub>
 </p>

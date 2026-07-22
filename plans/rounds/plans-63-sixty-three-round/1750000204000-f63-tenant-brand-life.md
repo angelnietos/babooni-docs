@@ -11,7 +11,7 @@
 
 ## Estado
 
-listo para ejecutar
+parcial (cascade Ionic/web) → [F64-A3](../plans-64-sixty-four-round/1750000212000-f64-tenant-brand-life-closeout.md)
 
 ## Objetivo
 

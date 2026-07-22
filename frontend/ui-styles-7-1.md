@@ -38,8 +38,8 @@ de la feature, o ruta relativa desde SCSS/CSS de Angular/Ionic.
 Cascade tenant vs atmósfera (no invertir):
 [tenant-themes-checklist.md](./tenant-themes-checklist.md).
 
-Ronda activa de polish visual: [F62](../plans/rounds/plans-62-sixty-two-round/) ·
-[F63](../plans/rounds/plans-63-sixty-three-round/).
+Ronda activa de polish visual: [F64](../plans/rounds/plans-64-sixty-four-round/) ·
+archivo [F63](../plans/rounds/plans-63-sixty-three-round/) · [F62](../plans/rounds/plans-62-sixty-two-round/).
 
 ## Relación con otras capas UI
 

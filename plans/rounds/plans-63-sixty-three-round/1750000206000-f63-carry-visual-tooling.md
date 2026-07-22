@@ -11,7 +11,7 @@
 
 ## Estado
 
-listo para ejecutar
+defer F64 — [F64-C2](../plans-64-sixty-four-round/1750000217000-f64-carry-visual-tooling.md)
 
 ## Objetivo
 
@@ -19,11 +19,11 @@ Retomar [F62-D2](../plans-62-sixty-two-round/1750000187000-f62-carry-visual-tool
 
 ## Entregables
 
-Ver F62-D2. Priorizar gate Storybook/Chromatic soft→strict solo si D3 avanza.
+Ver F62-D2. Priorizar gate Storybook/Chromatic soft→strict solo si C1 F64 avanza.
 
 ## Criterios de aceptación
 
-- [ ] Cada B1/B2/B3 del plan origen: hecho **o** defer F64 con motivo.
+- [x] Defer F64: sin token Chromatic / capacidad Figma en F63; Storybook SoT aún open.
 
 ## Depende de
 

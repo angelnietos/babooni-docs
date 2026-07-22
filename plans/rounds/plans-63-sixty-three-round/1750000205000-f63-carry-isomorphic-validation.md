@@ -11,7 +11,7 @@
 
 ## Estado
 
-listo para ejecutar
+defer F64 — [F64-D1](../plans-64-sixty-four-round/1750000218000-f64-carry-isomorphic-validation.md)
 
 ## Objetivo
 
@@ -20,11 +20,11 @@ validación compartida front/back sin duplicar reglas.
 
 ## Entregables
 
-Ver plan F62-D1 (alcance intacto). Actualizar estado allí a `trasladado → F63-D1`.
+Ver plan F62-D1 (alcance intacto).
 
 ## Criterios de aceptación
 
-- [ ] Hecho **o** defer F64 con motivo explícito.
+- [x] Defer F64 con motivo: presupuesto F63 priorizó mobile/tenant; kit validation aún sin aterrizar.
 
 ## Depende de
 

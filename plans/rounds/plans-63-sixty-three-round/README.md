@@ -11,68 +11,40 @@
 
 ## Estado
 
-listo para ejecutar
+cerrada (carry → [F64](../plans-64-sixty-four-round/))
 
-> Abierta 2026-07-22. Eje: **overlays nativos fiables** (select/tenant), carries
-> F62 (validación isomórfica, Chromatic/Code Connect, Storybook), y polish UI
-> que F62 dejó a medias (checkbox nativo, grid permisos, CTA Helix coral).
+> Cerrada 2026-07-22. Entregado parcial: dual shell Ionic, Settings/RBAC mobile,
+> cascade tenant > atmósfera (inline CSS + checklist). Verify portal, e2e mobile,
+> checkbox/CRUD, carries D1/D2/D3 y brand life residual → **F64**.
 
 ## Contexto
 
-F62 cerró el look DOM (temas, shell, features native-first, `/native-ui`). Quedan:
-
-| Problema | Plan F63 |
-|----------|----------|
-| `base-select` panel invisible bajo `backdrop-filter` / overflow shell | A1 |
-| Tenant switcher UX (label clip, focus, teclado) | A2 |
-| Checkboxes/radios nativos vs inputs OS en roles/settings | B1 |
-| Grid permisos / densidades CRUD | B2 |
-| Helix coral CTA + contraste tenant “vida” | B3 |
-| Validación isomórfica (F62-D1) | D1 |
-| Chromatic / Code Connect / deprecated (F62-D2) | D2 |
-| Storybook SoT + adapters (F62-D3) | D3 |
-| Feature parity mobile (shell dual + TEMPLATE_NAV) | C1 |
-
-**Contrato:** overlays de producto (`base-select`, futuros menus/popovers) **siempre**
-escapan el containing block del shell (portal a `body` o estrategia equivalente).
-
-Ionic/RN deben exponer las **mismas features** que el SPA (`TEMPLATE_NAV`); Ionic
-desktop = `lib-app-shell`; móvil = `@base/mobile-chrome` / `ArqMobileShell`.
+F62 cerró el look DOM. F63 abrió overlays + mobile parity + carries; el trabajo
+mobile/tenant aterrizó en rama, pero ACs de verify/tooling quedaron abiertos.
 
 ## Hitos
 
 | ID | Plan | Estado |
 |----|------|--------|
-| F63-A1 | [Select/overlays portal hardening](1750000200000-f63-select-portal-hardening.md) | en progreso |
-| F63-A2 | [Tenant switcher UX](1750000201000-f63-tenant-switcher-ux.md) | listo |
-| F63-B1 | [Native checkbox / radio atoms](1750000202000-f63-native-checkbox-radio.md) | listo |
-| F63-B2 | [CRUD permissions grid + density](1750000203000-f63-crud-permissions-density.md) | listo |
-| F63-B3 | [Tenant brand life (Helix coral + contrast)](1750000204000-f63-tenant-brand-life.md) | listo |
-| F63-D1 | [Carry: validación isomórfica](1750000205000-f63-carry-isomorphic-validation.md) | listo |
-| F63-D2 | [Carry: Chromatic / Code Connect / deprecated](1750000206000-f63-carry-visual-tooling.md) | listo |
-| F63-D3 | [Carry: Storybook SoT + adapters](1750000207000-f63-carry-storybook-atoms.md) | listo |
-| F63-E1 | [Docs polish + hub F63](1750000208000-f63-documentation-polish.md) | listo |
-| F63-C1 | [Mobile feature parity + dual shell](1750000209000-f63-mobile-feature-shell-parity.md) | en progreso |
+| F63-A1 | [Select/overlays portal hardening](1750000200000-f63-select-portal-hardening.md) | parcial → [F64-A1](../plans-64-sixty-four-round/1750000210000-f64-select-portal-verify.md) |
+| F63-A2 | [Tenant switcher UX](1750000201000-f63-tenant-switcher-ux.md) | parcial (absorbido A1/A3 F64) |
+| F63-B1 | [Native checkbox / radio atoms](1750000202000-f63-native-checkbox-radio.md) | trasladado → [F64-B3](../plans-64-sixty-four-round/1750000215000-f64-native-checkbox-crud-density.md) |
+| F63-B2 | [CRUD permissions grid + density](1750000203000-f63-crud-permissions-density.md) | trasladado → F64-B3 |
+| F63-B3 | [Tenant brand life](1750000204000-f63-tenant-brand-life.md) | parcial (Ionic cascade) → [F64-A3](../plans-64-sixty-four-round/1750000212000-f64-tenant-brand-life-closeout.md) |
+| F63-D1 | [Carry: validación isomórfica](1750000205000-f63-carry-isomorphic-validation.md) | defer → [F64-D1](../plans-64-sixty-four-round/1750000218000-f64-carry-isomorphic-validation.md) |
+| F63-D2 | [Carry: Chromatic / Code Connect / deprecated](1750000206000-f63-carry-visual-tooling.md) | defer → [F64-C2](../plans-64-sixty-four-round/1750000217000-f64-carry-visual-tooling.md) |
+| F63-D3 | [Carry: Storybook SoT + adapters](1750000207000-f63-carry-storybook-atoms.md) | defer → [F64-C1](../plans-64-sixty-four-round/1750000216000-f64-carry-storybook-sot.md) |
+| F63-E1 | [Docs polish + hub F63](1750000208000-f63-documentation-polish.md) | hecho (hubs F63; cierre → F64-E1) |
+| F63-C1 | [Mobile feature parity + dual shell](1750000209000-f63-mobile-feature-shell-parity.md) | parcial → [F64-B1](../plans-64-sixty-four-round/1750000213000-f64-mobile-e2e-parity.md) |
 
-## Orden sugerido
+## Notas de cierre
 
-1. **A1** — select portal (bloquea percepción tenant switcher).
-2. **A2** — UX switcher.
-3. **B1 → B2 → B3** — polish features / marca.
-4. **D3 → D2** — Storybook luego Chromatic.
-5. **D1** — validación (paralelo).
-6. **E1** — cierre docs.
+- Contrato overlays (portal body) y tenant > atmósfera quedan en biblia
+  ([tenant-themes-checklist.md](../../../frontend/tenant-themes-checklist.md)).
+- Ionic desktop = `lib-app-shell`; móvil = `@base/mobile-chrome` — hecho en C1.
+- Carries D* no se dejan “listo eterno”: F64 exige hecho o defer F65 con motivo.
 
-## Criterios de aceptación (ronda)
-
-- [ ] Tenant switcher abre listbox visible con todas las orgs; cambia tema al elegir.
-- [ ] Ningún overlay de native-ui queda clipado por shell `backdrop-filter`.
-- [ ] Roles/settings usan checkbox/radio nativos (no OS planos) en camino feliz.
-- [ ] Helix muestra coral en CTA de forma obvia.
-- [ ] D1/D2/D3: hecho **o** defer F64 con motivo.
-- [ ] Hubs → F63 activa; F62 cerrada.
-
-## Fuera de alcance
+## Fuera de alcance (sigue fuera)
 
 - Rediseño total Josanz/SaaS.
 - Sustituir Tailwind en todo el monorepo.

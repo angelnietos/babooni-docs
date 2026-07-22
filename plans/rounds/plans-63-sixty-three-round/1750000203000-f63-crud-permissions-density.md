@@ -11,7 +11,7 @@
 
 ## Estado
 
-listo para ejecutar
+trasladado → [F64-B3](../plans-64-sixty-four-round/1750000215000-f64-native-checkbox-crud-density.md)
 
 ## Objetivo
 

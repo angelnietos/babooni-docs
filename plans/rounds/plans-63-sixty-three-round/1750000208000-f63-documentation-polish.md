@@ -11,24 +11,26 @@
 
 ## Estado
 
-listo para ejecutar
+listo para ejecutar (cierre hubs al abrir F64 — ver [F64-E1](../plans-64-sixty-four-round/1750000220000-f64-documentation-polish.md))
 
 ## Objetivo
 
 Hubs y biblia apuntan a F63; F62 cerrada con carry explícito; checklist visual
 (select portal, 5 tenants, no `<select>` OS).
 
+**Cierre 2026-07-22:** hubs pasaron a F64; esta tarjeta queda archivada.
+
 ## Entregables
 
-1. `docs/plans/README.md`, `docs/README.md` → F63 activa.
+1. `docs/plans/README.md`, `docs/README.md` → F63 activa (hecho; supersedido por F64).
 2. Nota overlay/portal en design-system / ui-styles.
 3. Checklist captura 5 tenants + tenant switcher abierto.
 4. Enlaces F62 → F63 sin rotos.
 
 ## Criterios de aceptación
 
-- [ ] `rg "Ronda activa" docs/plans` → F63.
-- [ ] F62 README = cerrada.
+- [x] Hub F63 publicado; handoff → F64-E1.
+- [x] F62 README = cerrada.
 
 ## Depende de
 

@@ -11,7 +11,7 @@
 
 ## Estado
 
-en progreso (portal implementado; verificar manual + stories)
+trasladado → F64-A1 (portal implementado; verify pendiente)
 
 ## Objetivo
 
@@ -19,6 +19,8 @@ Garantizar que `base-select` (y el patrón de overlay) sea visible y usable dent
 del shell arquetipos. F62-A2 usó `position: fixed` en shadow DOM; ancestros con
 `backdrop-filter` / `filter` / `transform` crean containing block y el panel
 queda fuera de pantalla (chevron gira, lista no aparece).
+
+Carry verify: [F64-A1](../plans-64-sixty-four-round/1750000210000-f64-select-portal-verify.md).
 
 ## Entregables
 

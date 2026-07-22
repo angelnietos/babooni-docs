@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
-  <a href="./rounds/plans-63-sixty-three-round/"><img alt="F63" src="https://img.shields.io/badge/active-F63-14b8a6?style=flat-square" /></a>
+  <a href="./rounds/plans-64-sixty-four-round/"><img alt="F64" src="https://img.shields.io/badge/active-F64-14b8a6?style=flat-square" /></a>
 </p>
 
 Planes de trabajo del monorepo. **No son la biblia operativa** — si contradicen
@@ -30,18 +30,19 @@ Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `traslad
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| [plans-63](./rounds/plans-63-sixty-three-round/) | listo para ejecutar | Select portal, tenant UX, checkbox nativo, CRUD density, brand life, carries Storybook/Chromatic/validación |
+| [plans-64](./rounds/plans-64-sixty-four-round/) | listo para ejecutar | Cierre F63: portal verify, Next listbox, mobile e2e, tokens, Storybook/Chromatic/validación, CI ratchet |
 
 ## Siguiente (preparada)
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| — | — | F64: carries F63 si defer |
+| — | — | F65: carries F64 si defer (validación / Chromatic) |
 
 ## Rondas completadas (archivo)
 
 | Ronda | Tema |
 |-------|------|
+| [plans-63](./rounds/plans-63-sixty-three-round/) | Overlay/mobile parcial; carries → F64 |
 | [plans-62](./rounds/plans-62-sixty-two-round/) | Temas, select, shell, features native-first, RN tokens; carries → F63 |
 | [plans-60](./rounds/plans-60-sixty-round/) | 7–1 ui-styles, login/clients nativos DOM; temas/select/features → F62 |
 | [plans-59](./rounds/plans-59-fifty-nine-round/) | E2E Next·Ionic·RN (C1); validación isomórfica + visual tooling → F60 |

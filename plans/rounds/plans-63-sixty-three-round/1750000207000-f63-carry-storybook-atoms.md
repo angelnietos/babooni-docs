@@ -11,7 +11,7 @@
 
 ## Estado
 
-listo para ejecutar
+defer F64 — [F64-C1](../plans-64-sixty-four-round/1750000216000-f64-carry-storybook-sot.md)
 
 ## Objetivo
 
@@ -20,11 +20,11 @@ Storybook sobre `@base/native-ui` primero; adapters brand después.
 
 ## Entregables
 
-Ver F62-D3. Incluir story de `base-select` con portal (A1).
+Ver F62-D3. Incluir story de `base-select` con portal (F64-A1).
 
 ## Criterios de aceptación
 
-- [ ] Stories canario build OK **o** defer F64 con motivo.
+- [x] Defer F64: A1 verify + presupuesto visual F63 no cerró catálogo SoT.
 
 ## Depende de
 

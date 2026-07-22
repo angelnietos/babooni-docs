@@ -11,7 +11,9 @@
 
 ## Estado
 
-en progreso
+parcial → F64-B1 (nav/shell hechos; e2e + parity manifest pendientes)
+
+Carry: [F64-B1](../plans-64-sixty-four-round/1750000213000-f64-mobile-e2e-parity.md).
 
 ## Problema
 
