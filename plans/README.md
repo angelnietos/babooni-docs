@@ -17,13 +17,13 @@ Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `traslad
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| — | — | (ninguna; F57 cerrada) |
+| [plans-58](./rounds/plans-58-fifty-eight-round/) | listo para ejecutar | Coverage strict, visual/Figma, purge `scope:*`, mock e2e |
 
 ## Siguiente (preparada)
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| — | — | F58: Chromatic / Code Connect / deprecated + coverage-truth strict |
+| — | — | F59: carries F58 (Chromatic/Code Connect/deprecated si defer) |
 
 ## Rondas completadas (archivo)
 
