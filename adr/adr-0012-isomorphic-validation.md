@@ -30,8 +30,9 @@ while debating Zod vs class-validator as a second SoT.
    `Validators`, React messages) call these predicates — they do not own rules.
 3. **Async rules** (unique email, …): **ports** on the backend + stable error
    codes for the FE. Not isomorphic.
-4. **Zod / Standard Schema kit:** deferred to **F66+** if we need one schema
-   language for non-Nest consumers; until then, no second library in app deps.
+4. **Zod / Standard Schema kit:** carry **[F66-B2](../plans/rounds/plans-66-sixty-six-round/1750000233000-f66-carry-zod-kit.md)**
+   if we need one schema language for non-Nest consumers; until then, no second
+   library in app deps.
 
 ## Consequences
 

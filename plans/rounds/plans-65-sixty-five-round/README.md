@@ -74,4 +74,5 @@ en cinco stacks.
 - Josanz/SaaS product UX (salvo consumo indirecto de `@base/*`).
 - Lit en React Native o Next App Router.
 - Rediseño total de shells.
-- Check ESLint features↔store (warn→strict) — F66.
+- Check ESLint features↔store (warn→strict) — [F66-B3](../plans-66-sixty-six-round/1750000234000-f66-eslint-features-store-ratchet.md).
+- Siguiente ronda: [F66](../plans-66-sixty-six-round/) (SoC features + entity views + carries).
