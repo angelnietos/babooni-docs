@@ -64,7 +64,7 @@ E2e: `ionic-multi-e2e` (desktop + narrow). Harden continuo → [F69-A1](../plans
 - Meter HTTP o validación de dominio en el shell.
 - Regenerar dual-CSS naive (`@charset` / `@keyframes` / `var()` duplicados).
 
-## Estado (F69)
+## Estado (F70)
 
 | Pieza | Ubicación / estado |
 |-------|--------------------|
@@ -73,4 +73,4 @@ E2e: `ionic-multi-e2e` (desktop + narrow). Harden continuo → [F69-A1](../plans
 | Angular shell | `@base/angular-ui` → `FeatureShellComponent` — cards/table/**board**/auto/custom |
 | React shell | `@base/react-shared` → `FeatureShell` — idem |
 | Native board | `@base/native-ui` → `<base-board>` / `<base-board-lane>`; wrappers `NativeBoard` / `ArqNativeBoard` |
-| Ionic | `@base/ionic-ui` → `ArqIonFeatureShell` (F68-A3); users/roles migrados a shell (F69-A2); audit pendiente F70 |
+| Ionic | `@base/ionic-ui` → `ArqIonFeatureShell` (F68-A3); users/roles/audit migrados a shell (F69-A2 + F70-A2) |

@@ -11,11 +11,11 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
-> Apertura 2026-07-23. Eje: **board piloto** dominio (A3 F69); **Ionic
-> FeatureShell** rollout audit; **Chromatic / deprecated** migration (B1 F69);
-> **Zod kit** opcional (B2 F69); **docs** al día.
+> Apertura 2026-07-23. Eje: **board piloto** dominio (A1); **Ionic
+> FeatureShell** rollout audit (A2); **Chromatic / deprecated** migration (B1);
+> **Zod kit** opcional (B2); **docs** al día (C1).
 
 ## Contexto
 
@@ -41,18 +41,18 @@ F69 cerró `presentation:auto` harden + e2e, migró Ionic users/roles a
 
 | ID | Plan | Estado |
 |----|------|--------|
-| F70-A1 | [Board domain pilot](1750000270000-f70-board-domain-pilot.md) | listo para ejecutar |
-| F70-A2 | [Ionic FeatureShell rollout: audit](1750000271000-f70-ionic-feature-shell-audit.md) | listo para ejecutar |
-| F70-B1 | [Carry: Chromatic / deprecated](1750000273000-f70-carry-chromatic-deprecated.md) | listo para ejecutar |
-| F70-B2 | [Carry: Zod kit](1750000274000-f70-carry-zod-kit.md) | listo para ejecutar |
-| F70-C1 | [Docs polish + hub F70](1750000276000-f70-documentation-polish.md) | listo para ejecutar |
+| F70-A1 | [Board domain pilot](1750000270000-f70-board-domain-pilot.md) | completado |
+| F70-A2 | [Ionic FeatureShell rollout: audit](1750000271000-f70-ionic-feature-shell-audit.md) | completado |
+| F70-B1 | [Carry: Chromatic / deprecated](1750000273000-f70-carry-chromatic-deprecated.md) | completado (defer F71) |
+| F70-B2 | [Carry: Zod kit](1750000274000-f70-carry-zod-kit.md) | completado (defer F71) |
+| F70-C1 | [Docs polish + hub F70](1750000276000-f70-documentation-polish.md) | completado |
 
 ## Criterios de aceptación (ronda)
 
-- [ ] A1: piloto dominio con `presentation="board"` **o** defer F71 (owner + blocker).
-- [ ] A2: audit monta `ArqIonFeatureShell` y sin `MobileXPage`/`DesktopXPage`.
-- [ ] B1–B2: hecho **o** defer F71 con owner/blocker.
-- [ ] C1: hubs / residual notes actualizados.
+- [x] A1: piloto dominio (`/tasks`) con `presentation="board"` + NativeBoard lanes.
+- [x] A2: audit monta `ArqIonFeatureShell` y sin `MobileXPage`/`DesktopXPage`.
+- [x] B1–B2: defer F71 con owner + blocker explícito (no silencios).
+- [x] C1: hubs / residual notes actualizados.
 
 ## Fuera de alcance
 
@@ -63,6 +63,6 @@ F69 cerró `presentation:auto` harden + e2e, migró Ionic users/roles a
 ## Predecesora / siguiente
 
 - Cerrada: [F69](../plans-69-sixty-nine-round/)
-- Siguiente: TBD
+- Siguiente: F71
 - Residual visual: [deprecated-atoms-residual.md](../../../frontend/deprecated-atoms-residual.md)
 - Residual validación: [isomorphic-validation-defer.md](../../../frontend/isomorphic-validation-defer.md)
