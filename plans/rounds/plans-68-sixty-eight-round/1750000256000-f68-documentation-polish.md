@@ -11,7 +11,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -23,7 +23,7 @@ design-system / ci-gates / plans README / frontend index / agent mirrors
 
 - [x] Badge / tabla ronda activa = F68 (pass de apertura).
 - [x] F67 marcada cerrada en hubs.
-- [ ] Tras cerrar A*/B*: guías actualizadas; residual Chromatic/Zod → hecho o
+- [x] Tras cerrar A*/B*: guías actualizadas; residual Chromatic/Zod → hecho o
       F69; agent task→guide al día.
 
 ## Nota

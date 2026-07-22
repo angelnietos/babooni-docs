@@ -23,7 +23,7 @@ src/styles/
 ├── base/        # reset, tipografía
 ├── components/  # helpers de host / CE
 ├── layout/      # shell / canvas
-├── pages/       # composiciones canario (auth, clients; F62: users/roles/…)
+├── pages/       # composiciones canario (auth-login, feature-list, crud-page, …)
 ├── themes/      # platform + tenants.css + arq-atmosphere-overrides.css
 ├── vendors/     # terceros
 └── main.scss
@@ -38,8 +38,8 @@ de la feature, o ruta relativa desde SCSS/CSS de Angular/Ionic.
 Cascade tenant vs atmósfera (no invertir):
 [tenant-themes-checklist.md](./tenant-themes-checklist.md).
 
-Ronda activa de polish visual: [F68](../plans/rounds/plans-68-sixty-eight-round/) ·
-archivo [F67](../plans/rounds/plans-67-sixty-seven-round/) · [F66](../plans/rounds/plans-66-sixty-six-round/).
+Ronda activa de polish visual: [F69](../plans/rounds/plans-69-sixty-nine-round/) ·
+archivo [F68](../plans/rounds/plans-68-sixty-eight-round/) · [F67](../plans/rounds/plans-67-sixty-seven-round/).
 
 ## Relación con otras capas UI
 
@@ -50,7 +50,9 @@ archivo [F67](../plans/rounds/plans-67-sixty-seven-round/) · [F66](../plans/rou
 | `@base/native-ui` | Lit CE SoT; compositions CSS → alias a `ui-styles` |
 
 Apps Angular cargan `main.scss` en `project.json` `styles`. Features pueden
-importar solo una página (`pages/auth-login.css`).
+importar solo una página (`pages/auth-login.css`, `pages/feature-list.css`).
+Alias `pages/clients-list.css` = thin re-export de `feature-list` (F68-A2;
+preferir `feature-list` en código nuevo).
 
 ## Verificación
 

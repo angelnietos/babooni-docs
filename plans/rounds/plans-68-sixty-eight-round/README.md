@@ -11,7 +11,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 > Apertura 2026-07-22. Eje: **Native board CE** + FeatureShell `board`;
 > **retirar alias** `arq-clients*` / dual CSS cuando consumers=0; **Ionic**
@@ -45,23 +45,23 @@ clients slot, y ratchet features↔store. Quedó deferido:
 
 | ID | Plan | Estado |
 |----|------|--------|
-| F68-A1 | [Native board CE + FeatureShell board](1750000250000-f68-feature-shell-board.md) | listo para ejecutar |
-| F68-A2 | [Retire arq-clients* alias / dual CSS](1750000251000-f68-retire-arq-clients-alias.md) | listo para ejecutar |
-| F68-A3 | [Ionic FeatureShell thin wrapper](1750000252000-f68-ionic-feature-shell-wrapper.md) | listo para ejecutar |
-| F68-B1 | [Carry: Chromatic / deprecated](1750000253000-f68-carry-chromatic-deprecated.md) | listo para ejecutar |
-| F68-B2 | [Carry: Zod kit](1750000254000-f68-carry-zod-kit.md) | listo para ejecutar |
-| F68-B3 | [Entity-view deepen](1750000255000-f68-entity-view-deepen.md) | listo para ejecutar |
-| F68-C1 | [Docs polish + hub F68](1750000256000-f68-documentation-polish.md) | listo para ejecutar |
+| F68-A1 | [Native board CE + FeatureShell board](1750000250000-f68-feature-shell-board.md) | completado |
+| F68-A2 | [Retire arq-clients* alias / dual CSS](1750000251000-f68-retire-arq-clients-alias.md) | completado |
+| F68-A3 | [Ionic FeatureShell thin wrapper](1750000252000-f68-ionic-feature-shell-wrapper.md) | completado |
+| F68-B1 | [Carry: Chromatic / deprecated](1750000253000-f68-carry-chromatic-deprecated.md) | completado (defer F69) |
+| F68-B2 | [Carry: Zod kit](1750000254000-f68-carry-zod-kit.md) | completado (defer F69) |
+| F68-B3 | [Entity-view deepen](1750000255000-f68-entity-view-deepen.md) | completado |
+| F68-C1 | [Docs polish + hub F68](1750000256000-f68-documentation-polish.md) | completado |
 
 ## Criterios de aceptación (ronda)
 
-- [ ] A1: Native board CE + `presentation: 'board'` **o** defer F69
+- [x] A1: Native board CE + `presentation: 'board'` **o** defer F69
       (owner + blocker).
-- [ ] A2: alias `arq-clients*` / dual CSS retirados cuando consumers=0 **o**
+- [x] A2: alias `arq-clients*` / dual CSS retirados cuando consumers=0 **o**
       inventario residual + defer.
-- [ ] A3: Ionic thin wrapper **o** CSS-only justificado en guía.
-- [ ] B1–B3: hecho **o** defer F69 con owner/blocker.
-- [ ] C1: hubs / residual notes / agent mirrors al día.
+- [x] A3: Ionic thin wrapper **o** CSS-only justificado en guía.
+- [x] B1–B3: hecho **o** defer F69 con owner/blocker.
+- [x] C1: hubs / residual notes / agent mirrors al día.
 
 ## Fuera de alcance
 

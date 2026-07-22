@@ -36,7 +36,7 @@ checks in sequence.
 | Coverage thresholds (F58-A2) | `pnpm check:coverage-thresholds` | Soft local opt-in; no fail PR |
 | MockServer (F56-C1 / F58-D1) | `pnpm mockserver` / `mockserver:smoke` / `mockserver:e2e:soft` | (dev only; not a PR fail gate) |
 | E2E arquetipos (F58-D2) | `pnpm arq:fe:e2e:smoke` / job `e2e-web` | main: single+multi Angular/React; mf-host soft |
-| Chromatic / visual (F68-B1) | — | Carry F68 (sin `CHROMATIC_PROJECT_TOKEN` → soft / defer F69) |
+| Chromatic / visual (F69-B1) | — | Target F69 (sin `CHROMATIC_PROJECT_TOKEN`) |
 | Scaffolds smoke (F57-E1 / F58-C2) | `pnpm scaffolds:smoke` | CLI/dry-run crash (incl. SaaS Angular) |
 
 Script paths live under `tools/{checks,dx,jest,scaffolds,…}` — see

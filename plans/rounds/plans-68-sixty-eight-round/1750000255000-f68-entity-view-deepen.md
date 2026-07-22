@@ -11,7 +11,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -31,9 +31,9 @@ Profundizar el rollout de [F67-A3](../plans-67-sixty-seven-round/1750000242000-f
 
 ## Criterios de aceptación
 
-- [ ] Users form cableado en ≥1 stack page (no solo hook/config orphan).
-- [ ] Audit: hecho **o** N/A con motivo.
-- [ ] Matriz dominio × stack al día.
+- [x] Users form cableado en ≥1 stack page (no solo hook/config orphan).
+- [x] Audit: hecho **o** N/A con motivo.
+- [x] Matriz dominio × stack al día.
 
 ## Verificación
 

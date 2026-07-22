@@ -7,15 +7,15 @@
 <p align="center">
   <img alt="frontend" src="https://img.shields.io/badge/frontend-0f766e?style=flat-square" />
   <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
-  <a href="../plans/rounds/plans-66-sixty-six-round/1750000237000-f66-generic-feature-shell.md"><img alt="F66-A3" src="https://img.shields.io/badge/F66--A3-14b8a6?style=flat-square" /></a>
+  <a href="../plans/rounds/plans-68-sixty-eight-round/"><img alt="F68" src="https://img.shields.io/badge/F68-14b8a6?style=flat-square" /></a>
 </p>
 
-Contrato objetivo (F66-A3): **un chrome de feature reutilizable** para list CRUD
+Contrato objetivo (F66-A3 + F68): **un chrome de feature reutilizable** para list CRUD
 (y pantallas similares). Clients / users / roles / audit son **consumidores**,
 no dueños del layout.
 
-CSS SoT: `arq-feature*`. Alias `arq-clients*` deprecado — retirada cuando
-consumers=0 ([F68-A2](../plans/rounds/plans-68-sixty-eight-round/1750000251000-f68-retire-arq-clients-alias.md)).
+CSS SoT: `arq-feature*`. Dual `arq-clients*` **retirado** (F68-A2); path alias
+`clients-list.css` → thin re-export de `feature-list.css`.
 
 ## Piezas
 
@@ -28,17 +28,24 @@ FeatureShell
 └── status     empty | loading | error
 ```
 
+`[featureCustom]` / `customBody` se muestra también con lista vacía (create panel).
+
 ### PresentationStrategy
 
-| Mode | Uso típico |
-|------|------------|
-| `cards` | Mobile / densidad táctil |
-| `table` | Desktop ≥ breakpoint |
-| `board` | Kanban (Native UI board) — **defer F68-A1** (no base-board CE) |
-| `custom` | Dominio aporta el body entero |
+| Mode | Uso típico | Breakpoint |
+|------|------------|------------|
+| `cards` | Mobile / densidad táctil | fuerza cards |
+| `table` | Desktop denso | fuerza table |
+| `board` | Kanban (`<base-board>` / `NativeBoard`) | fuerza board |
+| `auto` | cards &lt; desktop, table ≥ | CSS |
+| `custom` | Dominio aporta el body entero | — |
 
-Default: `auto` → `cards` bajo breakpoint, `table` en desktop. Override por
-dominio (`roles` puede forzar `table` always).
+Default: `auto`. Override por dominio (`roles` / `users` suelen forzar `table`).
+
+**`auto` CSS (SoT):** `@base/ui-styles` `pages/feature-list` —
+`.arq-feature[data-presentation='auto']` oculta table &lt; 1024px y cards ≥ 1024px.
+Ionic: mismos selectores + reglas encapsuladas en `ArqIonFeatureShell`.
+E2e: `ionic-multi-e2e` (desktop + narrow). Harden continuo → [F69-A1](../plans/rounds/plans-69-sixty-nine-round/1750000260000-f69-feature-shell-auto-e2e.md).
 
 ### Relación con otras guías
 
@@ -55,18 +62,15 @@ dominio (`roles` puede forzar `table` always).
 - `MobileXPage` + `DesktopXPage` separados.
 - Shell llamado `ClientsLayout` usado por users.
 - Meter HTTP o validación de dominio en el shell.
+- Regenerar dual-CSS naive (`@charset` / `@keyframes` / `var()` duplicados).
 
-## Estado
-
-Implementado (F66-A3 + F67-A2):
+## Estado (F68)
 
 | Pieza | Ubicación / estado |
 |-------|--------------------|
-| CSS `arq-feature*` (+ alias `arq-clients*`) | `@base/ui-styles` → `pages/feature-list`; alias retire → F68-A2 |
-| Angular shell | `@base/angular-ui` → `FeatureShellComponent` — **clients / roles / users** montados |
-| React shell | `@base/react-shared` → `FeatureShell` — **clients / roles / users** montados |
-| Ionic | CSS-only `arq-feature*` (intencional F67); thin wrapper opcional → [F68-A3](../plans/rounds/plans-68-sixty-eight-round/1750000252000-f68-ionic-feature-shell-wrapper.md) |
-
-`presentation: 'board'` → [F68-A1](../plans/rounds/plans-68-sixty-eight-round/1750000250000-f68-feature-shell-board.md)
-(Native board CE + strategy). Owner: design-system / FE platform. Blocker: no
-base-board CE.
+| CSS `arq-feature*` | `@base/ui-styles` → `pages/feature-list` — dual `arq-clients*` retirado (F68-A2) |
+| Path alias `clients-list*` | Thin re-export; apps/Next migrados a `feature-list` |
+| Angular shell | `@base/angular-ui` → `FeatureShellComponent` — cards/table/**board**/auto/custom |
+| React shell | `@base/react-shared` → `FeatureShell` — idem |
+| Native board | `@base/native-ui` → `<base-board>` / `<base-board-lane>`; wrappers `NativeBoard` / `ArqNativeBoard` |
+| Ionic | `@base/ionic-ui` → `ArqIonFeatureShell` (F68-A3); piloto clients `home.page` |

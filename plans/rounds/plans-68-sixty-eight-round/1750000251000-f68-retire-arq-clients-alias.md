@@ -11,7 +11,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -33,9 +33,9 @@ SoT: `@base/ui-styles` → `pages/feature-list` (`arq-feature*`).
 
 ## Criterios de aceptación
 
-- [ ] Alias retirado **o** inventario residual + defer F69 con owner.
-- [ ] Sin regenerar dual-CSS naive (`@charset` / `@keyframes` / `var()`).
-- [ ] Build Angular arquetipos sin warnings CSS del alias.
+- [x] Alias retirado **o** inventario residual + defer F69 con owner.
+- [x] Sin regenerar dual-CSS naive (`@charset` / `@keyframes` / `var()`).
+- [x] Build Angular arquetipos sin warnings CSS del alias.
 
 ## Verificación
 

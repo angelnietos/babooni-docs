@@ -11,7 +11,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -35,9 +35,9 @@ No base-board CE. Owner: design-system / FE platform.
 
 ## Criterios de aceptación
 
-- [ ] Decisión explícita: implementado **o** defer F69 (owner + blocker).
-- [ ] Si implementado: `presentation: 'board'` tipado; smoke visual ≥1 stack.
-- [ ] Guía `feature-shell-presentation.md` refleja el estado real.
+- [x] Decisión explícita: implementado **o** defer F69 (owner + blocker).
+- [x] Si implementado: `presentation: 'board'` tipado; smoke visual ≥1 stack.
+- [x] Guía `feature-shell-presentation.md` refleja el estado real.
 
 ## Verificación
 

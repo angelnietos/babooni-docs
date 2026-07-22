@@ -1,8 +1,7 @@
-# Deprecated base atoms — residual consumers (F68-B1)
+# Deprecated base atoms — residual consumers (F69-B1)
 
 Inventory of Angular/React atoms marked `@deprecated` (prefer `Native*` /
-`<base-*>`). Carry from F67-B1 — target cleanup **[F68-B1](../plans/rounds/plans-68-sixty-eight-round/1750000253000-f68-carry-chromatic-deprecated.md)**
-(or defer F69).
+`<base-*>`).
 
 ## Marked SoT atoms
 
@@ -20,14 +19,13 @@ Inventory of Angular/React atoms marked `@deprecated` (prefer `Native*` /
 | Arquetipos features | Mostly **Native** / `ArqNative*` already |
 | Josanz | Product `ButtonComponent` in `@josanz/angular-ui` (own branding — not this list) |
 
-## Decision
+## Decision (F68 close → F69)
 
 | Sub-item | Status | Owner / blocker |
 |----------|--------|-----------------|
-| Chromatic CI soft | **Target F68-B1** | No `CHROMATIC_PROJECT_TOKEN` / no chromatic package — owner: design-system |
-| Code Connect | **Target F68-B1** | No Figma CI access — owner: design-system |
-| Deprecated migration (auth + chrome) | **Target F68-B1** | Wide surface; arquetipos happy path already Native-first — owner: FE platform |
+| Chromatic CI soft | **Target F69-B1** | No `CHROMATIC_PROJECT_TOKEN` / no chromatic package — owner: design-system |
+| Code Connect | **Target F69-B1** | No Figma CI access — owner: design-system |
+| Deprecated migration (auth + chrome) | **Target F69-B1** | Wide surface; arquetipos happy path already Native-first — owner: FE platform |
 
 See also [design-system.md](./design-system.md) · [ci-gates.md](./ci-gates.md) ·
-[F67-B1](../plans/rounds/plans-67-sixty-seven-round/1750000243000-f67-carry-chromatic-deprecated.md)
-(defer record) · [F68-B1](../plans/rounds/plans-68-sixty-eight-round/1750000253000-f68-carry-chromatic-deprecated.md).
+[F69-B1](../plans/rounds/plans-69-sixty-nine-round/1750000263000-f69-carry-chromatic-deprecated.md).

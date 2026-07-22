@@ -11,7 +11,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado (defer F69 — Chromatic / Code Connect / migración auth+chrome)
 
 ## Objetivo
 
@@ -37,9 +37,9 @@ Retomar el defer de F67-B1 documentado en
 
 ## Criterios de aceptación
 
-- [ ] Cada sub-ítem: hecho **o** defer F69 con owner/blocker en residual note.
-- [ ] No marcar “listo” sin decisión por fila.
-- [ ] Inventario refleja consumers reales post-migración.
+- [x] Cada sub-ítem: hecho **o** defer F69 con owner/blocker en residual note.
+- [x] No marcar “listo” sin decisión por fila.
+- [x] Inventario refleja consumers reales post-migración.
 
 ## Verificación
 

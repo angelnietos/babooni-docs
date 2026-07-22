@@ -11,7 +11,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -31,9 +31,9 @@ FeatureShell (misma API de slots / presentation) sin reintroducir
 
 ## Criterios de aceptación
 
-- [ ] Decisión explícita en guía (wrapper **o** CSS-only intencional).
-- [ ] Si wrapper: ≥1 página Ionic sin markup chrome duplicado.
-- [ ] Sin páginas MobileX/DesktopX nuevas.
+- [x] Decisión explícita en guía (wrapper **o** CSS-only intencional).
+- [x] Si wrapper: ≥1 página Ionic sin markup chrome duplicado.
+- [x] Sin páginas MobileX/DesktopX nuevas.
 
 ## Verificación
 
