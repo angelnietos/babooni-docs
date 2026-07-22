@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -45,10 +45,10 @@ Problemas: solapamiento gen-domain vs scaffold-*, sin README, sin `pnpm scaffold
 
 ## Criterios de aceptación
 
-- [ ] `pnpm scaffold` muestra help con subcomandos.
-- [ ] Dry-run de dominio arquetipos + josanz no crea archivos.
-- [ ] README scaffolds enlazado desde `tools/README.md`.
-- [ ] Sin romper scripts existentes (paths estables; CLI es capa fina).
+- [x] `pnpm scaffold` muestra help con subcomandos.
+- [x] Dry-run de dominio arquetipos + josanz no crea archivos.
+- [x] README scaffolds enlazado desde `tools/README.md`.
+- [x] Sin romper scripts existentes (paths estables; CLI es capa fina).
 
 ## Verificación
 

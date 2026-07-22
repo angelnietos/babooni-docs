@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -30,9 +30,9 @@ fuera del árbol, o paths que meten fuentes de otra lib en la compilación.
 
 ## Criterios de aceptación
 
-- [ ] `pnpm arq:fe:build:smoke` verde sin exclude **o** exclude eliminado porque ya no hay target tsc conflictivo.
-- [ ] Typecheck features React arquetipos sigue verde.
-- [ ] Sin regresiones Angular single build.
+- [x] `pnpm arq:fe:build:smoke` verde sin exclude **o** exclude eliminado porque ya no hay target tsc conflictivo.
+- [x] Typecheck features React arquetipos sigue verde.
+- [x] Sin regresiones Angular single build.
 
 ## Verificación
 

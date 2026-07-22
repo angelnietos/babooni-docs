@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -27,10 +27,10 @@ Que lo generado por scaffolds cumpla **hoy** las convenciones del monorepo
 
 ## Criterios de aceptación
 
-- [ ] Dominio generado (base o arquetipos) pasa `check-lib-layout --strict` en paths nuevos.
-- [ ] No se escriben tags `scope:*` en project.json nuevos.
-- [ ] React thin domain arquetipos generable con `--framework react|both`.
-- [ ] Docs de scaffold actualizadas con tags correctos.
+- [x] Dominio generado (base o arquetipos) pasa `check-lib-layout --strict` en paths nuevos.
+- [x] No se escriben tags `scope:*` en project.json nuevos.
+- [x] React thin domain arquetipos generable con `--framework react|both`.
+- [x] Docs de scaffold actualizadas con tags correctos.
 
 ## Verificación
 

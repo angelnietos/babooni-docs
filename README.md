@@ -205,8 +205,7 @@ pnpm check:legacy-paths
 pnpm check:migration-encoding
 ```
 
-Última ronda cerrada: **[F56](./plans/rounds/plans-56-fifty-six-round/)**.  
-Ronda activa: **[F57](./plans/rounds/plans-57-fifty-seven-round/)** — coverage truth por proyecto, scaffolds unificados, TS6059 React, carry Chromatic/Code Connect. Índice: [plans/README.md](./plans/README.md).
+Última ronda cerrada: **[F57](./plans/rounds/plans-57-fifty-seven-round/)** (coverage truth, scaffolds CLI, build smoke React; carry Chromatic/Code Connect → F58). Índice: [plans/README.md](./plans/README.md).
 
 Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md) — unit → integration (Postgres) → e2e Playwright. Operativa Jest/coverage: [runbooks/jest-coverage.md](./runbooks/jest-coverage.md).
 

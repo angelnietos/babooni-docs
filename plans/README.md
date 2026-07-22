@@ -17,18 +17,19 @@ Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `traslad
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| [plans-57](./rounds/plans-57-fifty-seven-round/) | listo para ejecutar | Coverage truth + scaffolds unificados + carry F56 |
+| — | — | (ninguna; F57 cerrada) |
 
 ## Siguiente (preparada)
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| — | — | F58: carries F57 (Chromatic/Code Connect/deprecated si defer; umbrales coverage globales) |
+| — | — | F58: Chromatic / Code Connect / deprecated + coverage-truth strict |
 
 ## Rondas completadas (archivo)
 
 | Ronda | Tema |
 |-------|------|
+| [plans-57](./rounds/plans-57-fifty-seven-round/) | Coverage truth, scaffolds CLI, TS6059 React, carry Chromatic→F58 |
 | [plans-56](./rounds/plans-56-fifty-six-round/) | Apps arquetipos build/visual, Jest BE, MockServer FE-only |
 | [plans-55](./rounds/plans-55-fifty-five-round/) | Carry F54: Lit 2, a11y, coverage BE strict, Jest workspace, parity strict |
 | [plans-54](./rounds/plans-54-fifty-four-round/) | Migración native wrappers, oleadas Lit, tokens, SB CI, parity, gate strict |

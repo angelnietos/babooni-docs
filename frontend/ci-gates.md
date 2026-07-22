@@ -21,8 +21,13 @@ checks in sequence.
 | Coverage BE strict (F55-C1) | `pnpm test:cov:check` en job `quality` (**fail**) | Below domain threshold (audit/settings/tenants) |
 | Jest workspace coverage (F55-C3) | `check:jest-preset` + `test:coverage:affected` + merge → `coverage/global/` | Soft (`continue-on-error`); no umbral workspace fail |
 | Arquetipos parity strict (F55-C2) | `pnpm check:arquetipos-parity -- --strict` | Drift rutas/dominios/UI entre stacks plantilla |
-| Arquetipos FE build smoke (F56-A1) | `pnpm arq:fe:build:smoke` (soft CI) | Angular/React single fail to bundle |
+| Arquetipos FE build smoke (F56-A1 / F57-C1) | `pnpm arq:fe:build:smoke` (soft CI) | Angular/React single fail to bundle |
+| Coverage truth (F57-A1/A2) | `check:coverage-truth` + inventory tras merge (soft) | Missing coverage-final / coverage/root dumps |
 | MockServer (F56-C1) | `pnpm mockserver` / `mockserver:smoke` | (dev only; not a PR fail gate) |
+| Scaffolds smoke (F57-E1) | `pnpm scaffolds:smoke` | CLI/dry-run crash |
+
+Script paths live under `tools/{checks,dx,jest,scaffolds,…}` — see
+[runbooks/tools-layout.md](../runbooks/tools-layout.md).
 
 ### F12-NM — Base Prisma nested `node_modules` (resolved)
 
@@ -45,9 +50,6 @@ without `.env`. Migrate/deploy and runtime apps still require a real
 
 Do **not** remove the two entries from `FORBIDDEN_PATTERNS` in
 `tools/checks/audit-nested-node-modules.mjs` — the gate must stay strict.
-
-Script paths live under `tools/{checks,dx,…}` — see
-[runbooks/tools-layout.md](../runbooks/tools-layout.md).
 
 ### F12-DX — Typecheck on large graphs
 

@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -41,11 +41,11 @@ tests — sin filas fantasma a 0%, sin proyectos con tests que no emiten
 
 ## Criterios de aceptación
 
-- [ ] `pnpm nx test <lib> -- --coverage` → artefactos solo bajo `coverage/<projectRoot>/`.
-- [ ] `check-coverage-truth` detecta al menos: missing coverage-final, wrong coverageDirectory, broad collectCoverageFrom no allowlisted.
-- [ ] Merge produce `projects.json` auditable; runbook actualizado (pitfalls + comandos).
-- [ ] Gate BE `test:cov:check` **sigue** siendo la fuente de umbrales dominio; no se diluye en el merge global.
-- [ ] Sin reintroducir `collectCoverageFrom` global en `jest.shared.cjs`.
+- [x] `pnpm nx test <lib> -- --coverage` → artefactos solo bajo `coverage/<projectRoot>/`.
+- [x] `check-coverage-truth` detecta al menos: missing coverage-final, wrong coverageDirectory, broad collectCoverageFrom no allowlisted.
+- [x] Merge produce `projects.json` auditable; runbook actualizado (pitfalls + comandos).
+- [x] Gate BE `test:cov:check` **sigue** siendo la fuente de umbrales dominio; no se diluye en el merge global.
+- [x] Sin reintroducir `collectCoverageFrom` global en `jest.shared.cjs`.
 
 ## Verificación
 

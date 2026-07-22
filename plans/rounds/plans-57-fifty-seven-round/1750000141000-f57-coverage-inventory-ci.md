@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -27,10 +27,10 @@ affected/main.
 
 ## Criterios de aceptación
 
-- [ ] Inventario reproducible localmente.
-- [ ] Soft gate en CI con artefacto/log legible.
-- [ ] Decisión explícita: strict en F57 **o** defer F58 con umbral/motivo.
-- [ ] No falla PR por apps sin specs legítimas (`passWithNoTests` allowlisted).
+- [x] Inventario reproducible localmente.
+- [x] Soft gate en CI con artefacto/log legible.
+- [x] Decisión explícita: strict en F57 **o** defer F58 con umbral/motivo.
+- [x] No falla PR por apps sin specs legítimas (`passWithNoTests` allowlisted).
 
 ## Verificación
 

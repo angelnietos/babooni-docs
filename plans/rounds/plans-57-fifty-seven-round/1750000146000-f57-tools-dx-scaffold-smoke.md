@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -20,9 +20,9 @@ smoke dry-run en CI (o script local gate) y alineación con `tools/` reorganizad
 
 ## Criterios de aceptación
 
-- [ ] `pnpm scaffolds:smoke` verde en local.
-- [ ] Soft en CI o documentado como gate local obligatorio en PR de scaffolds.
-- [ ] tools-layout menciona scaffolds CLI tras B1.
+- [x] `pnpm scaffolds:smoke` verde en local.
+- [x] Soft en CI o documentado como gate local obligatorio en PR de scaffolds.
+- [x] tools-layout menciona scaffolds CLI tras B1.
 
 ## Verificación
 

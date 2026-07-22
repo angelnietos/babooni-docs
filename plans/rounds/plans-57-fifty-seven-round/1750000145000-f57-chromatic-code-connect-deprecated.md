@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+defer F58
 
 ## Objetivo
 
@@ -19,6 +19,8 @@ Cerrar o re-diferir con motivo los tres carries de F55/F56:
 - [ ] Si remove deprecated: codemod o PR acotado + `check:deprecated` / native-first.
 - [ ] Sin regresiones `check:ui-ownership:strict`.
 
-## Notas
+## Resultado
 
-Sin secretos en git. Prefer soft CI hasta que el token esté en GitHub Actions secrets.
+**Defer F58:** sin `CHROMATIC_PROJECT_TOKEN` ni Figma Code Connect en CI.
+Remove de primitivos `@deprecated` no ejecutado. `build-storybook` base UI
+sigue como señal de rotura de stories.
