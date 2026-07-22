@@ -13,7 +13,9 @@ Features must depend on a **data-access port (facade)**, not on a concrete store
 tool (NgRx `Store`, RTK `useAppDispatch`, mutable demo arrays). Goal: swap the
 implementation behind the port and unit-test panels with a mock.
 
-Piloto: **clients** (Angular, React, Ionic, Next, RN).
+Piloto F65: **clients**. Extensión F66-D1: **users / roles / audit** (y settings
+si aplica) con la **misma** forma de puerto — ver
+[F66-D1](../plans/rounds/plans-66-sixty-six-round/1750000236000-f66-domain-facade-parity.md).
 
 ## Matriz canónica (stack → herramienta)
 
@@ -30,9 +32,13 @@ CRUD) were removed from the clients piloto — apps register auth/users/roles/au
 stores only; clients CRUD goes through the facade.
 
 **F66 follow-ups:** panel SoC
-([features-layout-soc.md](./features-layout-soc.md)), entity views
-([entity-view-abstractions.md](./entity-view-abstractions.md)), ESLint
-features↔store ([F66-B3](../plans/rounds/plans-66-sixty-six-round/1750000234000-f66-eslint-features-store-ratchet.md)).
+([features-layout-soc.md](./features-layout-soc.md)), entity field views
+([entity-view-abstractions.md](./entity-view-abstractions.md)), FeatureShell
+([feature-shell-presentation.md](./feature-shell-presentation.md)), facade
+multi-dominio
+([F66-D1](../plans/rounds/plans-66-sixty-six-round/1750000236000-f66-domain-facade-parity.md)),
+ESLint features↔store
+([F66-B3](../plans/rounds/plans-66-sixty-six-round/1750000234000-f66-eslint-features-store-ratchet.md)).
 
 ## Reglas SoC
 

@@ -10,9 +10,9 @@
   <a href="../plans/rounds/plans-66-sixty-six-round/1750000231000-f66-entity-view-abstractions.md"><img alt="F66-A2" src="https://img.shields.io/badge/F66--A2-14b8a6?style=flat-square" /></a>
 </p>
 
-Patrón objetivo (F66-A2): **vista padre genérica** + extensión por dominio para
-obtener detalle solo-lectura, formulario solo-escritura, o mixto **por
-propiedad**, sin duplicar markup.
+Patrón objetivo (F66-A2): **vista de entidad domain-agnóstica** + config/extensión
+por dominio. **No** es un layout de clients — el chrome de lista es
+[feature-shell-presentation.md](./feature-shell-presentation.md) (A3).
 
 ## Contrato (borrador)
 

@@ -26,9 +26,10 @@
 | 5b | [ui-styles-7-1.md](./ui-styles-7-1.md) | Arquitectura CSS 7–1 (`@base/ui-styles`) para paridad visual |
 | 5c | [tenant-themes-checklist.md](./tenant-themes-checklist.md) | Identidad tenant vs atmósfera (Angular/React/Ionic) |
 | 6 | [arquetipos-thin-libs.md](./arquetipos-thin-libs.md) | Thin libs plantilla |
-| 6b | [state-soc-facade.md](./state-soc-facade.md) | Puerto/facade clients (F65-D1) — swap tool + tests |
+| 6b | [state-soc-facade.md](./state-soc-facade.md) | Puerto/facade (F65-D1 clients → F66-D1 todos los dominios) |
 | 6c | [features-layout-soc.md](./features-layout-soc.md) | `layout/pages/components` + SOLID en paneles (F66-A1) |
-| 6d | [entity-view-abstractions.md](./entity-view-abstractions.md) | Vista padre read/write por campo (F66-A2) |
+| 6d | [entity-view-abstractions.md](./entity-view-abstractions.md) | Campos read/write por entidad (F66-A2) |
+| 6e | [feature-shell-presentation.md](./feature-shell-presentation.md) | Shell lista genérico cards/table/board (F66-A3) |
 | 7 | [workspace-packages.md](./workspace-packages.md) | exports ↔ paths |
 
 ## Referencia

@@ -261,7 +261,8 @@ pnpm check:migration-encoding
 
 Última ronda cerrada: **[F65](./plans/rounds/plans-65-sixty-five-round/)**.
 Ronda activa: **[F66](./plans/rounds/plans-66-sixty-six-round/)** — features SoC +
-entity views read/write + carries (Chromatic / Zod / ESLint store).
+FeatureShell genérico + facade multi-dominio + entity views + carries
+(Chromatic / Zod / ESLint store).
 Índice: [plans/README.md](./plans/README.md).
 
 Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md).  

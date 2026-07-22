@@ -54,11 +54,13 @@ a Ionic / Next / RN si falta).
 - Duplicar mapping form↔DTO en tres stacks — un hook/servicio por stack o
   shared helper.
 
-## Relación con A2
+## Relación con A2 / A3
 
-La orquestación (A1) llama a facades; los formularios/detalle reutilizan
-[entity-view-abstractions.md](./entity-view-abstractions.md) para modos
-read/write por campo.
+| Capa | Guía |
+|------|------|
+| Orquestación panel | esta (A1) + facade |
+| Campos entidad read/write | [entity-view-abstractions.md](./entity-view-abstractions.md) (A2) |
+| Chrome lista cards/table/board | [feature-shell-presentation.md](./feature-shell-presentation.md) (A3) — **no** reutilizar semántica `arq-clients*` |
 
 ## Verificación
 

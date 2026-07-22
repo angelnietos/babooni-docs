@@ -30,7 +30,7 @@ Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `traslad
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| [plans-66](./rounds/plans-66-sixty-six-round/) | listo para ejecutar | Features SoC + layout/pages/components; entity view read/write; Chromatic/deprecated; Zod; ESLint store |
+| [plans-66](./rounds/plans-66-sixty-six-round/) | listo para ejecutar | Features SoC; FeatureShell genérico; facade multi-dominio; entity read/write; Chromatic/Zod/ESLint |
 
 ## Rondas completadas (archivo)
 

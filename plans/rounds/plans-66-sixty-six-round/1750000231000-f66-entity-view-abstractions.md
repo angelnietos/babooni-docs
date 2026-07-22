@@ -15,16 +15,18 @@ listo para ejecutar
 
 ## Objetivo
 
-Introducir **clases / hooks padre genéricos** para vistas de entidad de forma
-que, por extensión o configuración, se obtengan:
+Introducir **abstracciones de vista de entidad domain-agnósticas** (no un
+“formulario genérico de clients”) para que, por config / extensión, cualquier
+dominio obtenga:
 
-- Vista **solo lectura** (detalle / audit).
+- Vista **solo lectura** (detalle).
 - Vista **solo escritura** (create / edit) de un subconjunto de propiedades.
 - Vista **mixta** (algunos campos read-only, otros editables) sin duplicar
   templates.
 
-Patrón: **Template Method** + configuración de campos (`FieldAccess`), no
-copiar-pegar formularios por dominio.
+Clients es un **piloto consumidor**, igual que users/roles. El chrome de
+página / lista vive en **A3** ([FeatureShell](1750000237000-f66-generic-feature-shell.md)),
+no en esta tarjeta.
 
 ## Entregables
 
@@ -49,14 +51,12 @@ interface EntityViewConfig<T> {
 - Subclases de dominio: `ClientsFormView extends EntityFormViewBase<ClientDto>`
   solo define `config` + labels / slots UI.
 
-### A2.2 — Piloto `clients`
+### A2.2 — Piloto (cualquier dominio list CRUD; empezar por `clients`)
 
-1. Detail read-only: `email` + `name` read; acciones (edit/delete) fuera.
-2. Edit: `name`/`email` write; `id`/`tenantId` read o hidden.
-3. Create: solo campos write del create DTO.
+1. Detail read-only / edit mixed / create write-only vía **misma** API genérica.
+2. Segundo dominio (users o roles) reutiliza la misma base sin fork.
 
-Consumir desde features (A1): el panel llama al facade; la vista padre no hace
-HTTP.
+El panel (A1) + FeatureShell (A3) montan el form; la vista padre **no** hace HTTP.
 
 ### A2.3 — Ubicación de código
 
@@ -89,4 +89,5 @@ F66-A1 (páginas thin). F65-D1 facades. ADR 0006.
 ## Fuera de alcance
 
 - Form builders visuales / JSON Schema completo.
+- Shell de lista / chrome de página → **A3**.
 - Generación automática de UI desde OpenAPI en esta ronda.

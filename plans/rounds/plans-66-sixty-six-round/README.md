@@ -2,7 +2,7 @@
   <img src="../../../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
 </p>
 
-<h1 align="center">Ronda F66 — SoC features + vistas genéricas + carries</h1>
+<h1 align="center">Ronda F66 — SoC + shell genérico + facade multi-dominio + carries</h1>
 
 <p align="center">
   <img alt="arquetipos" src="https://img.shields.io/badge/arquetipos-0f766e?style=flat-square" />
@@ -13,39 +13,38 @@
 
 listo para ejecutar
 
-> Abierta 2026-07-22. Eje: **SOLID / separación de responsabilidades** en features
-> arquetipos (lógica fuera de components; `layout/` · `pages/` · `components/`
-> en todas las libs features), **abstracciones de vista padre** (read / write por
-> propiedad), y carries F65 (Chromatic·deprecated, Zod kit, ESLint store ratchet).
+> Abierta 2026-07-22. Eje: **SOLID / SoC** en features; **shell de presentación
+> genérico** (no chrome “clients”); **facade/state estándar en todos los
+> dominios**; entity views read/write por campo; carries F65
+> (Chromatic·deprecated, Zod, ESLint store).
 
 ## Contexto
 
-F65 cerró confirm+toast multi-stack, ADR 0012 (predicates clients), facade SoC
-clients (D1) y eliminó dual stores demo. Quedan: deuda visual Chromatic /
-atoms `@deprecated`, kit Zod opcional, y endurecer SoC **dentro** de features
-(no solo data-access).
+F65 cerró confirm+toast, ADR 0012, facade clients y eliminó dual stores demo de
+clients. Queda: same pattern para **users/roles/audit/…**, sustituir
+`arq-clients*` compartido por un **FeatureShell** agnóstico, y SoC dentro de
+features.
 
 | Problema | Plan F66 |
 |----------|----------|
-| Lógica de negocio / CRUD en pages-components; gaps `layout/pages/components` | A1 |
-| Vistas CRUD duplicadas; falta padre genérico read/write por campo | A2 |
-| Chromatic / Code Connect / deprecated atoms (F65-B2) | B1 |
-| Zod kit isomórfico (F65-B1 defer) | B2 |
-| ESLint features ↔ store concreto (F65-D1) | B3 |
-| Docs + hub F66 / cierre F65 | C1 |
+| Lógica en pages-components; gaps `layout/pages/components` | A1 |
+| Formularios/detalle: campos read/write sin duplicar (dominio-agnóstico) | A2 |
+| Chrome `arq-clients*` copiado; falta shell genérico mobile/desktop/modes | A3 |
+| Solo clients tiene facade; resto distinto / DEMO en page | D1 |
+| Chromatic / Code Connect / deprecated atoms | B1 |
+| Zod kit isomórfico | B2 |
+| ESLint features ↔ store concreto | B3 |
+| Docs + hub F66 | C1 |
 
 **Contrato:**
 
-1. Features **no** concentran reglas de dominio ni orquestación HTTP en el
-   template/JSX — van a **servicios** (Angular/Ionic) o **hooks** (React/Next/RN)
-   en `features/src/services|hooks/` o en data-access facade.
-2. Toda lib `*-features` (base + arquetipos, web + mobile) expone
-   `layout/` · `pages/` · `components/` (+ routes). Gate:
-   `check-frontend-conventions` (ampliar a mobile/Next si falta).
-3. Formularios / detalle reutilizan **vista padre** configurable: modo
-   `read` \| `write` \| `mixed` y flags por propiedad (solo lectura / solo
-   escritura / hidden).
-4. Carries B*: hecho **o** defer F67 con motivo + owner — no “listo eterno”.
+1. Features: lógica en servicios/hooks/facade — no en templates.
+2. Toda `*-features`: `layout/` · `pages/` · `components/` (+ routes).
+3. **Presentación de lista** vía FeatureShell (A3) — slots + strategy
+   `cards` \| `table` \| `board`; **no** layouts nombrados por dominio.
+4. **Campos de entidad** vía EntityViewConfig (A2) — read/write/hidden.
+5. **Datos** vía facade canónico por dominio (D1) — misma forma API en todos.
+6. Carries B*: hecho **o** defer F67 con motivo + owner.
 
 ## Hitos
 
@@ -53,6 +52,8 @@ atoms `@deprecated`, kit Zod opcional, y endurecer SoC **dentro** de features
 |----|------|--------|
 | F66-A1 | [Features SoC + layout/pages/components](1750000230000-f66-features-layout-soc.md) | listo para ejecutar |
 | F66-A2 | [Entity view abstractions (read/write)](1750000231000-f66-entity-view-abstractions.md) | listo para ejecutar |
+| F66-A3 | [Generic feature shell (presentation)](1750000237000-f66-generic-feature-shell.md) | listo para ejecutar |
+| F66-D1 | [Facade parity all domains](1750000236000-f66-domain-facade-parity.md) | listo para ejecutar |
 | F66-B1 | [Carry: Chromatic / deprecated](1750000232000-f66-carry-chromatic-deprecated.md) | listo para ejecutar |
 | F66-B2 | [Carry: Zod kit](1750000233000-f66-carry-zod-kit.md) | listo para ejecutar |
 | F66-B3 | [ESLint features↔store ratchet](1750000234000-f66-eslint-features-store-ratchet.md) | listo para ejecutar |
@@ -60,15 +61,15 @@ atoms `@deprecated`, kit Zod opcional, y endurecer SoC **dentro** de features
 
 ## Criterios de aceptación (ronda)
 
-- [ ] A1: piloto ≥2 dominios × ≥2 stacks con lógica fuera del component; gate
-      layout/pages/components verde en features arquetipos (+ base).
-- [ ] A2: API padre documentada + piloto clients (detalle/form) con modo read y
-      write por propiedad.
+- [ ] A1: piloto ≥2 dominios × ≥2 stacks; gate layout/pages/components.
+- [ ] A2: API padre domain-agnóstica + ≥1 dominio con read/write por campo.
+- [ ] A3: FeatureShell genérico; ≥2 dominios sin chrome `arq-clients` semántico.
+- [ ] D1: users + roles (+ audit) con facade estándar (no solo clients).
 - [ ] B1–B3: hecho **o** defer F67 explícito.
-- [ ] C1: hubs → F66; F65 cerrada; guías + agent mirrors al día.
+- [ ] C1: hubs / guías / agent mirrors al día.
 
 ## Fuera de alcance
 
-- Redesign Josanz/SaaS product UX (salvo consumo de abstracciones `@base/*`).
-- Sustituir ADR 0012 sin ADR nuevo (Zod no reemplaza class-validator Nest).
-- Migrar auth session stores a facade (sigue en auth data-access).
+- Redesign Josanz/SaaS (salvo consumo de abstracciones `@base/*`).
+- Sustituir ADR 0012 sin ADR nuevo.
+- Auth session store (sigue auth data-access).

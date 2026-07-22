@@ -18,9 +18,9 @@ Cuándo usarla: tokens, Storybook, ownership de componentes, handoff desde Figma
 Estrategia operativa: [ui-strategy.md](./ui-strategy.md) (incluye **freeze F53+**).
 
 Ronda activa: [F66](../plans/rounds/plans-66-sixty-six-round/) — features SoC +
-entity views + carries (Chromatic / Zod / ESLint store). F65 cerró confirm+toast
-multi-stack, facade clients y ADR 0012. F64 portal/mobile e2e; F62 temas/
-`base-select`; F63 dual shell Ionic.
+FeatureShell + facade multi-dominio + entity views + carries (Chromatic / Zod /
+ESLint store). F65 cerró confirm+toast multi-stack, facade clients y ADR 0012.
+F64 portal/mobile e2e; F62 temas/`base-select`; F63 dual shell Ionic.
 
 ### Overlays → portal (F63 / F64-A1)
 
@@ -149,7 +149,8 @@ isomórfica: [ADR 0012](../adr/adr-0012-isomorphic-validation.md) +
 [isomorphic-validation-defer.md](./isomorphic-validation-defer.md) (Zod → F66-B2).
 Estado / SoC facade: [state-soc-facade.md](./state-soc-facade.md).
 Features SoC + layout: [features-layout-soc.md](./features-layout-soc.md).
-Entity views read/write: [entity-view-abstractions.md](./entity-view-abstractions.md).
+Entity field views: [entity-view-abstractions.md](./entity-view-abstractions.md).
+FeatureShell presentación: [feature-shell-presentation.md](./feature-shell-presentation.md).
 
 ## Figma / handoff
 
