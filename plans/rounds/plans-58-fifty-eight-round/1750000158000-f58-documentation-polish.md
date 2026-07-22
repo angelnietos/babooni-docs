@@ -12,7 +12,8 @@ scaffolds y mockserver.
 ## Entregables
 
 1. Hub [plans/README](../../README.md) + [docs/README](../../../README.md).
-2. Actualizar jest-coverage, ci-gates, tools-layout, mockserver, scaffold guide.
+2. Actualizar jest-coverage, ci-gates, tools-layout, mockserver, scaffold guide,
+   **parity.md** (e2e matrix F58-D2).
 3. Marcar hitos README F58.
 
 ## Criterios de aceptación

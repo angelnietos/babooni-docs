@@ -43,5 +43,7 @@ Secuencia canario **idéntica** en `angular-single-e2e` y `react-single-e2e`
 
 **Build:** `pnpm arq:fe:build:smoke` (CI soft).
 
-CI `e2e-web` (main only) ejecuta angular-single + multi stacks con Keycloak real.
-Chromatic → carry F56-D1 / F57.
+CI `e2e-web` (main only) ejecuta hoy `angular-single` + `angular-multi` +
+`react-multi` (Keycloak real). **Falta `react-single-e2e` y `mf-host-e2e`** —
+cierre en [F58-D2](../plans/rounds/plans-58-fifty-eight-round/1750000159000-f58-arquetipos-e2e-all-apps.md).
+Chromatic → [F58-B1](../plans/rounds/plans-58-fifty-eight-round/1750000152000-f58-chromatic-or-visual-alt.md).

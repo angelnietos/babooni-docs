@@ -9,6 +9,9 @@ listo para ejecutar
 Ampliar fixtures MockServer (roles/settings CRUD si faltan) y opcional smoke e2e
 Playwright contra mock (soft CI o local-only documentado).
 
+Complementa **[F58-D2](1750000159000-f58-arquetipos-e2e-all-apps.md)** (e2e Keycloak
+real de todas las apps): D1 = path FE-only; D2 = cobertura de plantillas en CI.
+
 ## Entregables
 
 1. Gaps de fixtures vs [auth API contracts] / nav users-audit-roles.

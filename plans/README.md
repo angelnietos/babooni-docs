@@ -17,7 +17,7 @@ Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `traslad
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| [plans-58](./rounds/plans-58-fifty-eight-round/) | listo para ejecutar | Coverage strict, visual/Figma, purge `scope:*`, mock e2e |
+| [plans-58](./rounds/plans-58-fifty-eight-round/) | listo para ejecutar | Coverage strict, e2e arquetipos all, visual/Figma, purge `scope:*` |
 
 ## Siguiente (preparada)
 

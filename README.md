@@ -206,7 +206,7 @@ pnpm check:migration-encoding
 ```
 
 Última ronda cerrada: **[F57](./plans/rounds/plans-57-fifty-seven-round/)**.  
-Ronda activa: **[F58](./plans/rounds/plans-58-fifty-eight-round/)** — coverage-truth strict, Chromatic/Code Connect/deprecated, purge `scope:*`, mock e2e. Índice: [plans/README.md](./plans/README.md).
+Ronda activa: **[F58](./plans/rounds/plans-58-fifty-eight-round/)** — coverage-truth strict, **e2e todos los arquetipos**, Chromatic/Code Connect/deprecated, purge `scope:*`, mock e2e. Índice: [plans/README.md](./plans/README.md).
 
 Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md) — unit → integration (Postgres) → e2e Playwright. Operativa Jest/coverage: [runbooks/jest-coverage.md](./runbooks/jest-coverage.md).
 

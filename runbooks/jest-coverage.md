@@ -42,12 +42,14 @@ No sustituye ni baja `pnpm test:cov:check` (dominios audit/settings/tenants).
 pnpm nx test <project> -- --coverage
 pnpm test:coverage:merge                 # → coverage/global/ + projects.json
 pnpm report:coverage-inventory           # → coverage/inventory.json
-pnpm check:coverage-truth                # soft; :strict para fallar
+pnpm check:coverage-truth                # soft (F57)
+pnpm check:coverage-truth:strict         # F58-A1
 ```
 
 Cada proyecto debe emitir bajo `coverage/<projectRoot>/` (vía `nx test`). Evitar
 `jest -c` desde la raíz (`coverage/root`). El gate BE `test:cov:check` sigue
 aparte (umbrales audit/settings/tenants).
+Strict CI: [F58-A1](../plans/rounds/plans-58-fifty-eight-round/1750000150000-f58-coverage-truth-strict.md).
 
 
 ## Apps vs libs
