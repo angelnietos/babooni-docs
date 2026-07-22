@@ -1,7 +1,7 @@
-# Figma ↔ `@base/native-ui` (F54-D1 / F55-D1)
+# Figma ↔ `@base/native-ui` (F54-D1 / F55-D1 / F58-B2)
 
-**Estado:** matriz documentada. **Code Connect piloto defer → F56** (sin token
-Figma MCP / Code Connect en CI). Regla: **Figma → Lit CE primero**; no generar
+**Estado:** matriz documentada. **Code Connect piloto defer → F59** (sin acceso
+Figma / Code Connect en CI). Regla: **Figma → Lit CE primero**; no generar
 wrappers Angular/React saltándose `@base/native-ui`.
 
 | Figma (nombre sugerido) | CE tag | Wrapper Angular | Wrapper React |
@@ -21,4 +21,5 @@ wrappers Angular/React saltándose `@base/native-ui`.
 | Icon | `base-icon` | `NativeIconComponent` | `NativeIcon` |
 | Pagination | `base-pagination` | `NativePaginationComponent` | `NativePagination` |
 
-Piloto Code Connect (button/input/alert) cuando haya acceso Figma.
+Piloto Code Connect (button/input/alert + `*.figma.ts`) → **F59** cuando haya
+acceso Figma.

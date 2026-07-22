@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -17,6 +17,6 @@ Quitar `scope:angular|react|node|…` de `project.json` / package tags donde
 
 ## Criterios de aceptación
 
-- [ ] 0 tags `scope:*` en libs arquetipos frontend (o allowlist documentada).
-- [ ] `check-lib-layout:strict` verde.
-- [ ] Sin romper `@nx/enforce-module-boundaries` (actualizar eslint depConstraints si aún citan scope).
+- [x] 0 tags `scope:*` en libs arquetipos frontend (o allowlist documentada).
+- [x] `check-lib-layout:strict` verde.
+- [x] Sin romper `@nx/enforce-module-boundaries` (actualizar eslint depConstraints si aún citan scope).

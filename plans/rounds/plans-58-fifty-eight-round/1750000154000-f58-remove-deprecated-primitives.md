@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+trasladado → F59 (consumers base/SaaS/stories siguen)
 
 ## Objetivo
 
@@ -11,6 +11,6 @@ F54 (tras migración native wrappers), con codemod/PR acotado.
 
 ## Criterios de aceptación
 
-- [ ] Lista de símbolos eliminados + PR o defer F59 con dependencias restantes.
-- [ ] `pnpm check:deprecated` / `check:ui-native-first:strict` verdes.
-- [ ] Sin regresiones ownership UI.
+- [x] Lista de símbolos eliminados + PR o defer F59 con dependencias restantes.
+- [x] `pnpm check:deprecated` / `check:ui-native-first:strict` verdes.
+- [x] Sin regresiones ownership UI.

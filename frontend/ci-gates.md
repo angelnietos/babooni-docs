@@ -22,9 +22,12 @@ checks in sequence.
 | Jest workspace coverage (F55-C3) | `check:jest-preset` + `test:coverage:affected` + merge → `coverage/global/` | Soft (`continue-on-error`); no umbral workspace fail |
 | Arquetipos parity strict (F55-C2) | `pnpm check:arquetipos-parity -- --strict` | Drift rutas/dominios/UI entre stacks plantilla |
 | Arquetipos FE build smoke (F56-A1 / F57-C1) | `pnpm arq:fe:build:smoke` (soft CI) | Angular/React single fail to bundle |
-| Coverage truth (F57-A1 / **F58-A1** strict) | `check:coverage-truth` (+ `:strict` en F58) | Missing coverage-final / coverage/root dumps |
-| MockServer (F56-C1) | `pnpm mockserver` / `mockserver:smoke` | (dev only; not a PR fail gate) |
-| Scaffolds smoke (F57-E1) | `pnpm scaffolds:smoke` | CLI/dry-run crash |
+| Coverage truth (**F58-A1** strict) | `pnpm check:coverage-truth:strict` | Missing coverage-final / coverage/root / unallowlisted broad collect |
+| Coverage thresholds (F58-A2) | `pnpm check:coverage-thresholds` | Soft local opt-in; no fail PR |
+| MockServer (F56-C1 / F58-D1) | `pnpm mockserver` / `mockserver:smoke` / `mockserver:e2e:soft` | (dev only; not a PR fail gate) |
+| E2E arquetipos (F58-D2) | `pnpm arq:fe:e2e:smoke` / job `e2e-web` | main: single+multi Angular/React; mf-host soft |
+| Chromatic / visual (F58-B1) | — | **Defer F59** (sin `CHROMATIC_PROJECT_TOKEN`) |
+| Scaffolds smoke (F57-E1 / F58-C2) | `pnpm scaffolds:smoke` | CLI/dry-run crash (incl. SaaS Angular) |
 
 Script paths live under `tools/{checks,dx,jest,scaffolds,…}` — see
 [runbooks/tools-layout.md](../runbooks/tools-layout.md).

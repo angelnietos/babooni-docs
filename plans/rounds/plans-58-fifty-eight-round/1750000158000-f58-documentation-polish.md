@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -18,6 +18,6 @@ scaffolds y mockserver.
 
 ## Criterios de aceptación
 
-- [ ] Links relativos OK.
-- [ ] F58 completada o carries → F59 explícitos.
-- [ ] Sin `tools/scripts/` en docs operativos nuevos.
+- [x] Links relativos OK.
+- [x] F58 completada o carries → F59 explícitos.
+- [x] Sin `tools/scripts/` en docs operativos nuevos.

@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -19,10 +19,10 @@ marcar configs con inventario intencional y fallar solo en mentiras reales
 
 ## Criterios de aceptación
 
-- [ ] `pnpm check:coverage-truth:strict` exit 0 en workspace limpio tras
+- [x] `pnpm check:coverage-truth:strict` exit 0 en workspace limpio tras
       `test:coverage:affected` + merge (o inventario documentado).
-- [ ] CI actualizado; `ci-gates.md` refleja strict/soft.
-- [ ] Sin reintroducir `collectCoverageFrom` global en `jest.shared.cjs`.
+- [x] CI actualizado; `ci-gates.md` refleja strict/soft.
+- [x] Sin reintroducir `collectCoverageFrom` global en `jest.shared.cjs`.
 
 ## Verificación
 

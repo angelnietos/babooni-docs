@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+trasladado → F59 (sin CHROMATIC_PROJECT_TOKEN)
 
 ## Objetivo
 
@@ -11,9 +11,9 @@ Cerrar el carry de visual regression Storybook: Chromatic **o** alternativa
 
 ## Criterios de aceptación
 
-- [ ] Chromatic cableado con `CHROMATIC_PROJECT_TOKEN` **o** alternativa documentada **o** defer F59 con bloqueo (sin token).
-- [ ] No fallar PR sin secreto configurado (soft / skip).
-- [ ] `design-system.md` + `ci-gates.md` actualizados.
+- [x] Chromatic cableado con `CHROMATIC_PROJECT_TOKEN` **o** alternativa documentada **o** defer F59 con bloqueo (sin token).
+- [x] No fallar PR sin secreto configurado (soft / skip).
+- [x] `design-system.md` + `ci-gates.md` actualizados.
 
 ## Notas
 

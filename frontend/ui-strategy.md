@@ -7,7 +7,15 @@ Cuándo usarla: debates “¿componentes nativos compartidos o solo Angular Mate
 [0011](../adr/adr-0011-storybook-native-ui-first.md) (Storybook).
 
 Planes: [F53](../plans/rounds/plans-53-fifty-three-round/) ·
-[F54](../plans/rounds/plans-54-fifty-four-round/).
+[F54](../plans/rounds/plans-54-fifty-four-round/) ·
+[F60](../plans/rounds/plans-60-sixty-round/) (login/clients) ·
+**[F62](../plans/rounds/plans-62-sixty-two-round/)** (native-first features,
+temas, select).
+
+**Arquetipos demo (F62):** el camino feliz de features es **solo** `Native*` /
+`ArqNative*` sobre `@base/native-ui`. No `<select>` OS; no PageHeader/TableToolbar
+framework en páginas de producto. `/native-ui` muestra el catálogo real, no un
+piloto F35.
 
 ---
 

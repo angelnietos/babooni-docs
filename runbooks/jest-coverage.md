@@ -36,20 +36,36 @@ en `jest.shared.cjs`.
 `nx run-many -t test -p tag:runtime:backend -- --coverage` (+ merge opcional).
 No sustituye ni baja `pnpm test:cov:check` (dominios audit/settings/tenants).
 
-**Verdad del informe (F57-A1/A2):**
+**Verdad del informe (F57 soft → F58-A1 strict):**
 
 ```bash
 pnpm nx test <project> -- --coverage
 pnpm test:coverage:merge                 # → coverage/global/ + projects.json
 pnpm report:coverage-inventory           # → coverage/inventory.json
-pnpm check:coverage-truth                # soft (F57)
-pnpm check:coverage-truth:strict         # F58-A1
+pnpm check:coverage-truth                # soft
+pnpm check:coverage-truth:strict         # CI quality (F58-A1)
+pnpm check:coverage-thresholds           # F58-A2 soft opt-in por proyecto
 ```
 
 Cada proyecto debe emitir bajo `coverage/<projectRoot>/` (vía `nx test`). Evitar
 `jest -c` desde la raíz (`coverage/root`). El gate BE `test:cov:check` sigue
 aparte (umbrales audit/settings/tenants).
-Strict CI: [F58-A1](../plans/rounds/plans-58-fifty-eight-round/1750000150000-f58-coverage-truth-strict.md).
+
+Inventario intencional (`collectCoverageFrom` amplio): marcar el config con
+`// coverage-truth: allow-broad-collect` (apps backend + roots arquetipos FE).
+Sin el marcador, `--strict` falla.
+
+### Cómo leer el informe (F58-A2)
+
+| Capa / señal | Qué mirar | Gate |
+|--------------|-----------|------|
+| Proyecto unit | `coverage/<projectRoot>/` HTML / lcov | Local / affected |
+| Merge workspace | `coverage/global/` | Soft CI (`test:coverage:affected` + merge) |
+| Verdad artefactos | missing `coverage-final`, `coverage/root`, broad collect | `check:coverage-truth:strict` |
+| BE dominios | audit / settings / tenants | `test:cov:check` (**fail**) |
+| Opt-in % lines | allowlist en `check-coverage-thresholds.mjs` | soft local; no umbral monorepo único |
+
+No hay un % único para todo el monorepo. Umbrales por capa = opt-in (A2) o gate BE.
 
 
 ## Apps vs libs

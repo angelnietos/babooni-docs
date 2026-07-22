@@ -38,6 +38,9 @@ pnpm nx serve <app-fe>
 
 Login demo / health OK. Si está roto: **para** y arregla el arquetipo (es deuda del motor).
 
+Smoke e2e canónico (Keycloak): `pnpm arq:fe:e2e:smoke` — matriz en [parity.md](./parity.md).
+FE-only sin API: `pnpm mockserver` + `pnpm arq:fe:<app>:mock` ([mockserver.md](../runbooks/mockserver.md)).
+
 ### Paso 3 — Scaffold producto (no copy-paste gigante)
 
 Preferido:

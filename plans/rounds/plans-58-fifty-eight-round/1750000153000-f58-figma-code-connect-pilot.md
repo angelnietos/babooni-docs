@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+trasladado → F59 (sin acceso Figma / Code Connect)
 
 ## Objetivo
 
@@ -11,6 +11,6 @@ defer F59 si no hay acceso Figma / token.
 
 ## Criterios de aceptación
 
-- [ ] Mappings `*.figma.ts` (o equivalente) para el pilot **o** defer F59.
-- [ ] Matriz [figma-native-ui-map.md](../../../frontend/figma-native-ui-map.md) actualizada.
-- [ ] Sin romper `check:ui-ownership:strict`.
+- [x] Mappings `*.figma.ts` (o equivalente) para el pilot **o** defer F59.
+- [x] Matriz [figma-native-ui-map.md](../../../frontend/figma-native-ui-map.md) actualizada.
+- [x] Sin romper `check:ui-ownership:strict`.

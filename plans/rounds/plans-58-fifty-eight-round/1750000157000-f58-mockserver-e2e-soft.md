@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -20,6 +20,6 @@ real de todas las apps): D1 = path FE-only; D2 = cobertura de plantillas en CI.
 
 ## Criterios de aceptación
 
-- [ ] `pnpm mockserver:smoke` sigue verde.
-- [ ] Soft e2e o checklist visual ampliada.
-- [ ] Sin depender de Keycloak Docker para el path mock.
+- [x] `pnpm mockserver:smoke` sigue verde.
+- [x] Soft e2e o checklist visual ampliada.
+- [x] Sin depender de Keycloak Docker para el path mock.

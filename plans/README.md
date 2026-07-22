@@ -17,18 +17,21 @@ Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `traslad
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| [plans-58](./rounds/plans-58-fifty-eight-round/) | listo para ejecutar | Coverage strict, e2e arquetipos all, visual/Figma, purge `scope:*` |
+| [plans-62](./rounds/plans-62-sixty-two-round/) | listo para ejecutar | Temas, select, átomos native-ui, shell/nav, RN tokens, features native-first, Storybook/Chromatic/docs + carries F60 |
 
 ## Siguiente (preparada)
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| — | — | F59: carries F58 (Chromatic/Code Connect/deprecated si defer) |
+| — | — | F63: carries F62 si defer (validación / Chromatic) |
 
 ## Rondas completadas (archivo)
 
 | Ronda | Tema |
 |-------|------|
+| [plans-60](./rounds/plans-60-sixty-round/) | 7–1 ui-styles, login/clients nativos DOM; temas/select/features → F62 |
+| [plans-59](./rounds/plans-59-fifty-nine-round/) | E2E Next·Ionic·RN (C1); validación isomórfica + visual tooling → F60 |
+| [plans-58](./rounds/plans-58-fifty-eight-round/) | Coverage strict, e2e arquetipos all, purge `scope:*`, mock soft; Chromatic/Code Connect/deprecated → F59 |
 | [plans-57](./rounds/plans-57-fifty-seven-round/) | Coverage truth, scaffolds CLI, TS6059 React, carry Chromatic→F58 |
 | [plans-56](./rounds/plans-56-fifty-six-round/) | Apps arquetipos build/visual, Jest BE, MockServer FE-only |
 | [plans-55](./rounds/plans-55-fifty-five-round/) | Carry F54: Lit 2, a11y, coverage BE strict, Jest workspace, parity strict |

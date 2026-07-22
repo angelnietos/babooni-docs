@@ -86,7 +86,8 @@ Los primitivos Angular/React/Ionic **paralelos** a `@base/native-ui` están
 |------|--------|
 | F53+ | No añadir/evolucionar (salvo bug crítico) |
 | F54-A3 | Marcar `@deprecated` + alternativa `Native*` (**hecho** 2026-07-22) |
-| F56+ (planificado) | Remove en `major` tras ventana de política |
+| F58-B3 | **Defer F59** — siguen exportados desde `@base/angular-ui` / `@base/react-ui` (login-form, audit panels, stories, SaaS wrappers). Inventario consumers + unexport en F59. |
+| F59+ | Remove / dejar de exportar en `major` tras ventana de política |
 
 Sigue las reglas JSDoc de § Paquetes. Branding `@josanz/angular-ui` **no** se
 depreca en bloque por este freeze.

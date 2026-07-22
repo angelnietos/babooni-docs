@@ -11,6 +11,7 @@ Capas, stacks (Angular / React / Next / mobile), UI nativa (Lit) y paridad.
 | 3 | [../architecture/framework-decision-guide.md](../architecture/framework-decision-guide.md) | Cuándo Angular / React / Next / RN |
 | 4 | [../architecture/frontend-deep-dive.md](../architecture/frontend-deep-dive.md) | Deep dive capas |
 | 5 | [design-system.md](./design-system.md) | Tokens, Storybook ([ADR 0011](../adr/adr-0011-storybook-native-ui-first.md)), catálogo |
+| 5b | [ui-styles-7-1.md](./ui-styles-7-1.md) | Arquitectura CSS 7–1 (`@base/ui-styles`) para paridad visual |
 | 6 | [arquetipos-thin-libs.md](./arquetipos-thin-libs.md) | Thin libs plantilla |
 | 7 | [workspace-packages.md](./workspace-packages.md) | exports ↔ paths |
 

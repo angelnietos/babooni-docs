@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -18,5 +18,5 @@ Angular-only), y hooks post-scaffold (`emit-frontend-tsconfig-paths`,
 
 ## Criterios de aceptación
 
-- [ ] Dry-run SaaS + arquetipos React documentados y smoke verde.
-- [ ] README scaffolds actualizado.
+- [x] Dry-run SaaS + arquetipos React documentados y smoke verde.
+- [x] README scaffolds actualizado.

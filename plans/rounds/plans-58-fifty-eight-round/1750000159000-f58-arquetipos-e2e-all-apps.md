@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -40,11 +40,11 @@ no hay job unificado “todas las plantillas”.
 
 ## Criterios de aceptación
 
-- [ ] Los 5 proyectos e2e web existentes (`angular/react` × single/multi + `mf-host`) tienen smoke verde local documentado.
-- [ ] CI ejecuta **al menos** angular-single + react-single + angular-multi + react-multi (mf-host soft OK).
-- [ ] `pnpm arq:fe:e2e:smoke` (o equivalente) documentado en how-to-use / parity.
-- [ ] Parity.md actualizado (ya no “CI skips react-single”).
-- [ ] Fallos tipados (flaky / puerto / Keycloak) con retry o soft motivado — no silencio.
+- [x] Los 5 proyectos e2e web existentes (`angular/react` × single/multi + `mf-host`) tienen smoke verde local documentado.
+- [x] CI ejecuta **al menos** angular-single + react-single + angular-multi + react-multi (mf-host soft OK).
+- [x] `pnpm arq:fe:e2e:smoke` (o equivalente) documentado en how-to-use / parity.
+- [x] Parity.md actualizado (ya no “CI skips react-single”).
+- [x] Fallos tipados (flaky / puerto / Keycloak) con retry o soft motivado — no silencio.
 
 ## Verificación
 

@@ -37,11 +37,15 @@ Fails if a remote omits a required singleton key or if the host inventory drifts
 4. If DTOs change (`ClientDto`, auth claims), bump host + all remotes in the **same** release train.
 5. Local smoke: `pnpm arq:fe:mf` then hit `/dashboard` (shared-store counters) + one React remote route.
 
-## Smoke (no dedicated e2e yet)
+## Smoke e2e (F58-D2)
 
 ```bash
 node tools/checks/check-mf-shared.mjs
-pnpm nx show project mf-host-angular --json   # targets: build/serve exist
+pnpm arq:fe:mf                                          # host :4210 + remotes :4211/:4212
+pnpm nx run mf-host-e2e:e2e -- --project=chromium       # soft in CI e2e-web
+# or full arquetipos set:
+pnpm arq:fe:e2e:smoke
 ```
 
-Full UI smoke remains manual / future Playwright against `mf-host-angular`.
+Playwright config starts host + remotes (`mf-remote-react`, `mf-remote-audit`,
+`mf-host-angular`). Ver matriz en [parity.md](../arquetipos/parity.md).

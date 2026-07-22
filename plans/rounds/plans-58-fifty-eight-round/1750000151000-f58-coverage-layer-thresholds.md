@@ -2,7 +2,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -18,9 +18,9 @@ umbrales **opt-in** por tag (`runtime:backend`, UI tokens) — no un % único mo
 
 ## Criterios de aceptación
 
-- [ ] Docs claras “cómo leer el informe”.
-- [ ] Si hay script de umbrales: soft en CI o solo local documentado.
-- [ ] Gate BE dominio intacto.
+- [x] Docs claras “cómo leer el informe”.
+- [x] Si hay script de umbrales: soft en CI o solo local documentado.
+- [x] Gate BE dominio intacto.
 
 ## Depende de
 

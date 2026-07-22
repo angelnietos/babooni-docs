@@ -8,11 +8,75 @@ Cuándo usarla: tokens, Storybook, ownership de componentes, handoff desde Figma
 
 Estrategia operativa: [ui-strategy.md](./ui-strategy.md) (incluye **freeze F53+**).
 
+Ronda activa: [F62](../plans/rounds/plans-62-sixty-two-round/) — temas tenant,
+átomos native-ui, shell/nav, RN tokens, `base-select` listbox, features
+native-first, showcase `/native-ui`, Storybook/Chromatic/docs. F60 cerró
+login/clients + 7–1 `@base/ui-styles`.
+
+**CSS compartido:** arquitectura [7–1](./ui-styles-7-1.md) en `@base/ui-styles`
+(`main.scss` + abstracts/base/components/layout/pages/themes/vendors).
+
+## F60/F62 — dirección visual (“cinematic HUD” sobrio)
+
+Inspiración Ubisoft / Nintendo / Rockstar **filtrada** (sin cosplay ni assets con
+copyright).
+
+| Tomar | Evitar |
+|-------|--------|
+| Jerarquía tipográfica clara (IBM Plex Sans) | Púrpura genérico / glow AI |
+| Atmósfera de profundidad suave (hero teal ink) | Cream + terracotta cliché |
+| Un acento contenido (`--color-brand` teal `#0f766e`) | Stat strips / pills de marketing |
+| Motion corto: enter / focus / feedback | HUD saturado / cromados |
+
+### Tokens
+
+Paquete: `@base/ui-tokens` (`tokenValues`, `tokens.css`, `./rn`).
+
+| Grupo | Ejemplos |
+|-------|----------|
+| Color | `--color-fg`, `--color-brand`, `--color-cta`, `--color-hero-from/to` |
+| Superficie | `--color-surface`, `--color-surface-muted`, `--shadow-*` |
+| Tipo | `--font-sans`, `--text-sm`…`--text-hero` |
+| Motion | `--duration-enter`, `--duration-focus`, `--duration-feedback`, `--ease-out` |
+
+Alias `--arq-*` en `tokens.css` puentean apps arquetipos existentes.
+
+### Qué token usa cada átomo canario
+
+| Átomo | Tokens principales |
+|-------|--------------------|
+| `base-button` | `--color-cta*`, `--radius-md`, `--focus-ring`, `--duration-*`, `--shadow-*` |
+| `base-input` | `--color-border/brand`, `--focus-ring`, `--color-fg/muted` |
+| `base-alert` | `--status-*-bg/fg/border`, `--radius-lg` |
+| `base-card` | `--color-surface/border`, `--shadow-sm`, `--radius-lg` |
+| `base-badge` / `base-chip` | `--status-*` / `--color-brand*` |
+| `base-spinner` / `base-avatar` | `--color-brand`, `--avatar-bg` |
+
+### Composiciones compartidas (paridad apps)
+
+| Composición | CSS SoT (7–1) | Clases BEM |
+|-------------|---------------|------------|
+| Auth login | `@base/ui-styles` → `pages/_auth-login.scss` | `arq-auth*` |
+| Clients list | `@base/ui-styles` → `pages/_clients-list.scss` | `arq-clients*` |
+| Users / Roles / Audit / Settings | F62-B1 | pendiente F62 |
+| Shell / tenant switcher | F62-B2 | pendiente F62 |
+
+Entry: `@use '@base/ui-styles'` / `main.scss`. Alias legacy:
+`@base/native-ui/compositions/*.css` → mismas pages.
+
+Las features de cada stack **importan** esos CSS y rellenan con wrappers `Native*` /
+`ArqNative*`. No inventar HTML/CSS de login/list en paralelo.
+
+**Native-first (F62):** camino feliz arquetipos = `@base/native-ui`. Sin
+`<select>` HTML (usar `base-select` listbox). Temas tenant deben cambiar brand /
+CTA / nav de forma obvia.
+
 ## Capas de UI
 
 | Paquete | Rol |
 |---------|-----|
 | `@base/native-ui` | **SoT** Lit Custom Elements (cross-framework) |
+| `@base/ui-styles` | **7–1** SCSS compartido (themes + pages BEM) |
 | `@base/angular-ui` / `@base/react-ui` | Wrappers `Native*` + legacy framework-only (congelado) |
 | `@base/react-native-ui` | Primitivos RN (tokens/API alineados; no Lit) |
 | `@josanz/angular-ui` | Marca Josanz (wrappers + re-exports) |
@@ -43,13 +107,12 @@ Gate: `node tools/checks/check-ui-ownership.mjs` (F53+: soft native-first).
 | `arquetipos-angular-ui` | `nx storybook arquetipos-angular-ui` | sí | 4404 |
 | `arquetipos-react-ui` | `nx storybook arquetipos-react-ui` | sí | 4405 |
 
-- Stories en el paquete **dueño** del componente.
+- Stories en el paquete **dueño** del componente — **ver `base-native-ui` primero**.
 - Inferencia: `@nx/storybook/plugin` en `nx.json`; puertos/styles/output en
   `project.json` por lib.
-- **CI visual / Chromatic (F55-B1):** **defer F56** — sin `CHROMATIC_PROJECT_TOKEN`.
-  Estrategia elegida: Playwright screenshots sobre Storybook static cuando haya
-  presupuesto; mientras, `build-storybook` de `base-native-ui` (+ angular/react-ui)
-  en CI es la señal de rotura de stories. Loki no adoptado (mantenimiento baselines).
+- **CI visual / Chromatic (F60-E2):** sin `CHROMATIC_PROJECT_TOKEN` →
+  `build-storybook` de `base-native-ui` (+ angular/react-ui) en CI es la señal
+  de rotura; Chromatic / Code Connect defer F61 si falta acceso.
 
 ```bash
 pnpm nx storybook base-native-ui
@@ -76,13 +139,15 @@ Tokens compartidos: `@base/ui-tokens` (+ `./css`, `./rn`). A11y:
 ## Tokens
 
 Preferir variables CSS / theme del paquete UI. Evadir hex sueltos en features.
-F54: paquete `@base/ui-tokens` compartido web↔RN.
+F54: paquete `@base/ui-tokens` compartido web↔RN. F60: tipografía + motion + atmósfera.
 
 ## Verificación
 
 ```bash
 node tools/checks/check-ui-ownership.mjs
+pnpm check:ui-native-first
 pnpm nx typecheck base-native-ui
+pnpm nx typecheck base-ui-tokens
 pnpm nx typecheck josanz-angular-ui
 ```
 
@@ -90,4 +155,4 @@ pnpm nx typecheck josanz-angular-ui
 
 - [josanz-product-exceptions.md](./josanz-product-exceptions.md)
 - [ci-gates.md](./ci-gates.md)
-- Planes [F53](../plans/rounds/plans-53-fifty-three-round/) / [F54](../plans/rounds/plans-54-fifty-four-round/)
+- Planes [F60](../plans/rounds/plans-60-sixty-round/) (activa) · [F53](../plans/rounds/plans-53-fifty-three-round/) / [F54](../plans/rounds/plans-54-fifty-four-round/)

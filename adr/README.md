@@ -23,6 +23,9 @@ changes can be evaluated against the original rationale.
 | [0010](adr-0010-native-ui-lit-sot.md) | Lit native-ui SoT | `@base/native-ui` = cross-framework SoT; freeze framework-only primitives in base; wrappers + RN tokens |
 | [0011](adr-0011-storybook-native-ui-first.md) | Storybook native-first | SB serve+build on native-ui; serve on base Angular/React UI; ownership by package |
 
+**Planificado (F59-A1):** ADR validación isomórfica FE↔BE — ver
+[plans-59](../plans/rounds/plans-59-fifty-nine-round/1750000160000-f59-isomorphic-validation-strategy.md).
+
 ## How to use these
 
 - Before changing a cross-cutting system (auth, encryption, events, tenancy, **UI SoT**),

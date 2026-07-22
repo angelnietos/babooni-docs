@@ -133,6 +133,17 @@ Doc: [workspace-packages.md](../frontend/workspace-packages.md).
 
 ---
 
+## 7bis. Estilos compartidos — 7–1 (`@base/ui-styles`)
+
+Además de las 4 capas de dominio, el CSS compartido de plantillas arquetipos
+sigue el patrón **7–1** (Sass): siete carpetas + `main.scss`.
+
+Ver [ui-styles-7-1.md](../frontend/ui-styles-7-1.md). Composiciones canario
+(`arq-auth*`, `arq-clients*`) viven en `pages/` para que Angular/React/Next/Ionic
+compartan el mismo look.
+
+---
+
 ## 8. Opt-in (no el día 1)
 
 | Stack | Guía |

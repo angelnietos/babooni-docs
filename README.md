@@ -205,8 +205,12 @@ pnpm check:legacy-paths
 pnpm check:migration-encoding
 ```
 
-Última ronda cerrada: **[F57](./plans/rounds/plans-57-fifty-seven-round/)**.  
-Ronda activa: **[F58](./plans/rounds/plans-58-fifty-eight-round/)** — coverage-truth strict, **e2e todos los arquetipos**, Chromatic/Code Connect/deprecated, purge `scope:*`, mock e2e. Índice: [plans/README.md](./plans/README.md).
+Última ronda cerrada: **[F60](./plans/rounds/plans-60-sixty-round/)** (7–1
+ui-styles, login/clients nativos DOM; temas/select/features → F62).  
+Ronda activa: **[F62](./plans/rounds/plans-62-sixty-two-round/)** — temas
+tenant, átomos native-ui, shell/nav, RN tokens, Select listbox, features
+native-first, Storybook/Chromatic/docs (+ carries validación). Índice:
+[plans/README.md](./plans/README.md).
 
 Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md) — unit → integration (Postgres) → e2e Playwright. Operativa Jest/coverage: [runbooks/jest-coverage.md](./runbooks/jest-coverage.md).
 
