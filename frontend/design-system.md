@@ -17,10 +17,9 @@ Cuándo usarla: tokens, Storybook, ownership de componentes, handoff desde Figma
 
 Estrategia operativa: [ui-strategy.md](./ui-strategy.md) (incluye **freeze F53+**).
 
-Ronda activa: [F62](../plans/rounds/plans-62-sixty-two-round/) — temas tenant,
-átomos native-ui, shell/nav, RN tokens, `base-select` listbox, features
-native-first, showcase `/native-ui`, Storybook/Chromatic/docs. F60 cerró
-login/clients + 7–1 `@base/ui-styles`.
+Ronda activa: [F64](../plans/rounds/plans-64-sixty-four-round/) — cierre F63
+(portal verify, mobile e2e, brand life) + Storybook/Chromatic/validación + CI.
+F62 cerró temas/`base-select`/native-first; F63 dual shell Ionic + cascade tenant.
 
 **CSS compartido:** arquitectura [7–1](./ui-styles-7-1.md) en `@base/ui-styles`
 (`main.scss` + abstracts/base/components/layout/pages/themes/vendors).
@@ -166,4 +165,7 @@ pnpm nx typecheck josanz-angular-ui
 
 - [josanz-product-exceptions.md](./josanz-product-exceptions.md)
 - [ci-gates.md](./ci-gates.md)
-- Planes [F60](../plans/rounds/plans-60-sixty-round/) (activa) · [F53](../plans/rounds/plans-53-fifty-three-round/) / [F54](../plans/rounds/plans-54-fifty-four-round/)
+- Planes [F64](../plans/rounds/plans-64-sixty-four-round/) (activa) ·
+  [F63](../plans/rounds/plans-63-sixty-three-round/) /
+  [F62](../plans/rounds/plans-62-sixty-two-round/) /
+  [F60](../plans/rounds/plans-60-sixty-round/)
