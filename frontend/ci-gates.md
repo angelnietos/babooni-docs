@@ -22,7 +22,7 @@ checks in sequence.
 | Jest workspace coverage (F55-C3) | `check:jest-preset` + `test:coverage:affected` + merge → `coverage/global/` | Soft (`continue-on-error`); no umbral workspace fail |
 | Arquetipos parity strict (F55-C2) | `pnpm check:arquetipos-parity -- --strict` | Drift rutas/dominios/UI entre stacks plantilla |
 | Arquetipos FE build smoke (F56-A1 / F57-C1) | `pnpm arq:fe:build:smoke` (soft CI) | Angular/React single fail to bundle |
-| Coverage truth (F57-A1/A2) | `check:coverage-truth` + inventory tras merge (soft) | Missing coverage-final / coverage/root dumps |
+| Coverage truth (F57-A1 / **F58-A1** strict) | `check:coverage-truth` (+ `:strict` en F58) | Missing coverage-final / coverage/root dumps |
 | MockServer (F56-C1) | `pnpm mockserver` / `mockserver:smoke` | (dev only; not a PR fail gate) |
 | Scaffolds smoke (F57-E1) | `pnpm scaffolds:smoke` | CLI/dry-run crash |
 
