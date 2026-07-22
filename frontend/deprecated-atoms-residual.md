@@ -19,13 +19,12 @@ Inventory of Angular/React atoms marked `@deprecated` (prefer `Native*` /
 | Arquetipos features | Mostly **Native** / `ArqNative*` already |
 | Josanz | Product `ButtonComponent` in `@josanz/angular-ui` (own branding — not this list) |
 
-## Decision (F68 close → F69)
+## Decision (F68 close → F69 → F70)
 
 | Sub-item | Status | Owner / blocker |
 |----------|--------|-----------------|
-| Chromatic CI soft | **Target F69-B1** | No `CHROMATIC_PROJECT_TOKEN` / no chromatic package — owner: design-system |
-| Code Connect | **Target F69-B1** | No Figma CI access — owner: design-system |
-| Deprecated migration (auth + chrome) | **Target F69-B1** | Wide surface; arquetipos happy path already Native-first — owner: FE platform |
+| Chromatic CI soft | **Defer F70** | Sin `CHROMATIC_PROJECT_TOKEN` / sin paquete chromatic — owner: design-system |
+| Code Connect | **Defer F70** | Sin acceso Figma CI — owner: design-system |
+| Deprecated migration (auth + chrome) | **Defer F70** | Superficie amplia; arquetipos happy path ya Native-first — owner: FE platform |
 
-See also [design-system.md](./design-system.md) · [ci-gates.md](./ci-gates.md) ·
-[F69-B1](../plans/rounds/plans-69-sixty-nine-round/1750000263000-f69-carry-chromatic-deprecated.md).
+F69-B1 no pudo cerrar por blockers externos. Reanudar en F70 con owner asignado.

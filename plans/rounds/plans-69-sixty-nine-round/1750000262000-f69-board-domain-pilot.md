@@ -11,7 +11,20 @@
 
 ## Estado
 
-listo para ejecutar
+defer F70
+
+## Razón de deferimiento
+
+Piloto de dominio requiere página arquetipos con `presentation="board"` + NativeBoard
+lanes. No hay bloqueo técnico, pero **falta asignación de owner** (design-system /
+FE platform) y definición de dominio canario. F69 priorizó A1/A2/B3; A3 se difiere
+a F70 con owner design-system / FE platform.
+
+## Criterios de aceptación (F70)
+
+- [ ] Piloto dominio con `presentation="board"` + NativeBoard lanes.
+- [ ] Typecheck stacks tocados.
+- [ ] Guía actualizada.
 
 ## Objetivo
 

@@ -17,10 +17,9 @@ Cuándo usarla: tokens, Storybook, ownership de componentes, handoff desde Figma
 
 Estrategia operativa: [ui-strategy.md](./ui-strategy.md) (incluye **freeze F53+**).
 
-Ronda activa: [F69](../plans/rounds/plans-69-sixty-nine-round/) — auto
-presentation harden + e2e; Ionic FeatureShell rollout; board piloto;
-Chromatic/Zod carries. F68 cerró Native board CE, retire `arq-clients*`,
-`ArqIonFeatureShell` piloto, users entity-view; Chromatic/Zod → F69.
+Ronda activa: [F70](../plans/rounds/plans-70-seventy-round/) — board piloto;
+Ionic audit rollout; Chromatic/Zod carries. F69 cerró auto presentation harden,
+users/roles `ArqIonFeatureShell`, retire `clients-list*`.
 
 ### Overlays → portal (F63 / F64-A1)
 
@@ -73,7 +72,7 @@ Alias `--arq-*` en `tokens.css` puentean apps arquetipos existentes.
 | Composición | CSS SoT (7–1) | Clases BEM |
 |-------------|---------------|------------|
 | Auth login | `@base/ui-styles` → `pages/_auth-login.scss` | `arq-auth*` |
-| Feature list | `@base/ui-styles` → `pages/_feature-list.scss` | `arq-feature*` (alias `clients-list*` = thin re-export) |
+| Feature list | `@base/ui-styles` → `pages/_feature-list.scss` | `arq-feature*` (alias `clients-list*` **retirado F69-B3**) |
 | Users / Roles / Audit / Settings | F62-B1 | pendiente F62 |
 | Shell / tenant switcher | F62-B2 | pendiente F62 |
 
@@ -126,9 +125,9 @@ Gate: `node tools/checks/check-ui-ownership.mjs` (F53+: soft native-first).
 - Stories en el paquete **dueño** del componente — **ver `base-native-ui` primero**.
 - Inferencia: `@nx/storybook/plugin` en `nx.json`; puertos/styles/output en
   `project.json` por lib.
-- **CI visual / Chromatic (F69):** sin `CHROMATIC_PROJECT_TOKEN` →
+- **CI visual / Chromatic (F69-B1):** sin `CHROMATIC_PROJECT_TOKEN` →
   `build-storybook` de `base-native-ui` (+ angular/react-ui) en CI es la señal
-  de rotura; Chromatic / Code Connect / migración auth+chrome → **defer F69**
+  de rotura; Chromatic / Code Connect / migración auth+chrome → **defer F70**
   ([deprecated-atoms-residual.md](./deprecated-atoms-residual.md)).
   Arquetipos SB (`arquetipos-*-ui`) ya tiene targets Nx; adapters brand only.
 
@@ -147,7 +146,7 @@ Tokens compartidos: `@base/ui-tokens` (+ `./css`, `./rn`). A11y:
 [figma-native-ui-map.md](./figma-native-ui-map.md). Deprecated residual:
 [deprecated-atoms-residual.md](./deprecated-atoms-residual.md). Validación
 isomórfica: [ADR 0012](../adr/adr-0012-isomorphic-validation.md) +
-[isomorphic-validation-defer.md](./isomorphic-validation-defer.md) (Zod → F69).
+[isomorphic-validation-defer.md](./isomorphic-validation-defer.md) (Zod → F70).
 Estado / SoC facade: [state-soc-facade.md](./state-soc-facade.md).
 Features SoC + layout: [features-layout-soc.md](./features-layout-soc.md).
 Entity field views: [entity-view-abstractions.md](./entity-view-abstractions.md).

@@ -2,20 +2,20 @@
   <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
 </p>
 
-<h1 align="center">Feature shell — presentación genérica (no “clients UI”)</h1>
+<h1 align="center">Feature shell — presentación genérica (no "clients UI")</h1>
 
 <p align="center">
-  <img alt="frontend" src="https://img.shields.io/badge/frontend-0f766e?style=flat-square" />
-  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
-  <a href="../plans/rounds/plans-68-sixty-eight-round/"><img alt="F68" src="https://img.shields.io/badge/F68-14b8a6?style=flat-square" /></a>
+  <img alt="frontend" src="https://img.shields.io/badge/frontend-0f766e?style=for-the-badge" />
+  <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=for-the-badge" /></a>
+  <a href="../plans/rounds/plans-69-sixty-nine-round/"><img alt="F69" src="https://img.shields.io/badge/F69-14b8a6?style=for-the-badge" /></a>
 </p>
 
-Contrato objetivo (F66-A3 + F68): **un chrome de feature reutilizable** para list CRUD
+Contrato objetivo (F66-A3 + F68/F69): **un chrome de feature reutilizable** para list CRUD
 (y pantallas similares). Clients / users / roles / audit son **consumidores**,
 no dueños del layout.
 
 CSS SoT: `arq-feature*`. Dual `arq-clients*` **retirado** (F68-A2); path alias
-`clients-list.css` → thin re-export de `feature-list.css`.
+`clients-list.css` **eliminado** (F69-B3). Canonical: `feature-list.css`.
 
 ## Piezas
 
@@ -64,13 +64,13 @@ E2e: `ionic-multi-e2e` (desktop + narrow). Harden continuo → [F69-A1](../plans
 - Meter HTTP o validación de dominio en el shell.
 - Regenerar dual-CSS naive (`@charset` / `@keyframes` / `var()` duplicados).
 
-## Estado (F68)
+## Estado (F69)
 
 | Pieza | Ubicación / estado |
 |-------|--------------------|
-| CSS `arq-feature*` | `@base/ui-styles` → `pages/feature-list` — dual `arq-clients*` retirado (F68-A2) |
-| Path alias `clients-list*` | Thin re-export; apps/Next migrados a `feature-list` |
+| CSS `arq-feature*` | `@base/ui-styles` → `pages/feature-list` — dual `arq-clients*` retirado (F68-A2); alias `clients-list*` eliminado (F69-B3) |
+| Path alias `clients-list*` | Eliminado (export + tsconfig paths + archivos fuente) |
 | Angular shell | `@base/angular-ui` → `FeatureShellComponent` — cards/table/**board**/auto/custom |
 | React shell | `@base/react-shared` → `FeatureShell` — idem |
 | Native board | `@base/native-ui` → `<base-board>` / `<base-board-lane>`; wrappers `NativeBoard` / `ArqNativeBoard` |
-| Ionic | `@base/ionic-ui` → `ArqIonFeatureShell` (F68-A3); piloto clients `home.page` |
+| Ionic | `@base/ionic-ui` → `ArqIonFeatureShell` (F68-A3); users/roles migrados a shell (F69-A2); audit pendiente F70 |
