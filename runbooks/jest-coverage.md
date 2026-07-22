@@ -13,7 +13,7 @@ isomórfico). Nx (`@nx/jest/plugin`) infiere `test` desde `jest.config.*`.
 | `jest.shared.cjs` | Defaults: cache, reporters, `coverageDirectory` (sin forzar inventario) |
 | `jest.preset.js` | React / Node / isomórfico (`@nx/jest/preset` + shared) |
 | `jest.preset.angular.cjs` | Angular (`jest-preset-angular` + shared) |
-| `tools/scripts/merge-jest-coverage.mjs` | Une `coverage-final.json` → `coverage/global/` |
+| `tools/jest/merge-jest-coverage.mjs` | Une `coverage-final.json` → `coverage/global/` |
 
 **Qué aparece en el HTML de coverage:** por defecto **solo módulos cargados** durante
 la corrida. Un `collectCoverageFrom: ['src/**']` amplio mete todos los `.ts` en el

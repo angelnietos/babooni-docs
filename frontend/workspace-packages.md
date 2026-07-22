@@ -110,7 +110,7 @@ Ver también `pnpm typecheck:all:josanz` (capa cliente) y `docs/frontend/ci-gate
 Solo cuando el dominio está **confirmado con producto** (hoy: `events`, `clients`):
 
 1. Verificar `workspace:*` en shell → features y app → shell.
-2. `node tools/scripts/pilot-remove-tsconfig-paths.mjs --list` — revisar cluster.
+2. `node tools/migrate/pilot-remove-tsconfig-paths.mjs --list` — revisar cluster.
 3. Extender el script con el cluster, `--apply`, ratchet `--check-max` en `package.json`.
 4. `pnpm check:tsconfig-paths` + `tsc` del cluster.
 

@@ -140,7 +140,7 @@ Plantillas Arquetipos: thin re-export — **no** copiar el árbol CQRS.
 
 ## 8. Cómo añadir un dominio (resumen)
 
-1. `pnpm exec node tools/scripts/new-domain.mjs --name foo` (o guía).
+1. `pnpm exec node tools/scaffolds/new-domain.mjs --name foo` (o guía).
 2. Schema Prisma + migrate si hay tabla.
 3. DTOs en `@base/shared`.
 4. Handlers + tests unit (ports mock).

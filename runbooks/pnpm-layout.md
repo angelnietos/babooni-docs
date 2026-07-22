@@ -29,7 +29,7 @@ Prefer the scripts — **do not** run `git clean -fdx` (wipes local env and IDE 
 **Bash:**
 
 ```bash
-node tools/scripts/clean-nested-node-modules.mjs
+node tools/dx/clean-nested-node-modules.mjs
 # optional local artifacts (untracked):
 rm -rf libs/base/backend/coverage apps/**/dist
 pnpm install
@@ -39,7 +39,7 @@ pnpm check:node-modules
 **PowerShell:**
 
 ```powershell
-node tools/scripts/clean-nested-node-modules.mjs
+node tools/dx/clean-nested-node-modules.mjs
 Remove-Item -Recurse -Force -ErrorAction SilentlyContinue libs/base/backend/coverage
 Get-ChildItem -Path apps -Recurse -Directory -Filter dist -ErrorAction SilentlyContinue |
   Remove-Item -Recurse -Force

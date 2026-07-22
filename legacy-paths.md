@@ -1,7 +1,9 @@
-# Legacy path mapping (F8-DX4)
+# Legacy path mapping
 
-Historical docs and early plans refer to folders that were **renamed during F5–F7**.
-Use this table when reading first-round plans or old branches.
+Historical docs and early plans refer to folders that were **renamed**. Use this
+table when reading first-round plans or old branches.
+
+## Libs (F5–F8)
 
 | Legacy path / name | Current location | Notes |
 |--------------------|------------------|-------|
@@ -14,6 +16,16 @@ Use this table when reading first-round plans or old branches.
 | `libs/productos-saas/crm/isomorphic/` | `libs/productos-saas/crm/shared/` | F6-S1 |
 | `libs/productos-saas/crm/node/` | `libs/productos-saas/crm/backend/` | F6-S1 |
 
-CI enforces no live references via `node tools/scripts/check-legacy-paths.mjs`.
+CI: `node tools/checks/check-legacy-paths.mjs` (`pnpm check:legacy-paths`).
+
+## Tools (post-F56)
+
+| Legacy path | Current location | Notes |
+|-------------|------------------|-------|
+| `tools/scripts/<file>.mjs` | `tools/{checks,dx,jest,scaffolds,seeds,smoke,migrate,publish,typecheck}/` | Agrupado por utilidad |
+| `tools/scripts/lib/` | `tools/lib/` | Helpers compartidos |
+| `tools/ai-migrations/` | `tools/ai/migrations/` | Notas Nx AI |
+
+Mapa vivo: [runbooks/tools-layout.md](./runbooks/tools-layout.md) · [`tools/README.md`](../tools/README.md).
 
 See also [docs/README.md](./README.md), [architecture/overview.md](./architecture/overview.md) and [AGENTS.md](../AGENTS.md).

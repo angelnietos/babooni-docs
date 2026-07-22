@@ -52,24 +52,27 @@ Estilo de autoría: [CONTRIBUTING-DOCS.md](../CONTRIBUTING-DOCS.md).
 
 ## Generadores y scripts
 
-| Script | Uso |
-|--------|-----|
-| `tools/scripts/new-domain.mjs` | Dominio hexagonal en `@base/backend` (`--dry` preview) |
-| `tools/scripts/scaffold-josanz-domain.mjs` | 4 capas frontend + backend Josanz |
-| `tools/scripts/scaffold-cliente-product.mjs` | Esqueleto `@acme/shared`, backend, platform |
-| `tools/scripts/check-domain-conventions.mjs` | Valida layout hex backend |
-| `tools/scripts/check-frontend-conventions.mjs` | Valida layout/pages/components |
-| `tools/scripts/check-lib-layout.mjs` | Path físico vs categoría lib |
-| `tools/scripts/check-ui-ownership.mjs` | UI base vs josanz vs arquetipos |
-| `tools/scripts/audit-workspace-deps.mjs` | Imports `@scope/*` sin `workspace:*` (`pnpm check:workspace-deps:strict`) |
-| `tools/scripts/check-publishable-deps.mjs` | Libs `tag:publishable` sin deps workspace private |
-| `tools/scripts/pack-publishable.mjs` | `npm pack` canario + reescritura `workspace:*` |
+Mapa completo: [runbooks/tools-layout.md](../runbooks/tools-layout.md). Prefer `pnpm <script>`.
+
+| Script / comando | Uso |
+|------------------|-----|
+| `tools/scaffolds/new-domain.mjs` | Dominio hexagonal en `@base/backend` (`--dry` preview) |
+| `tools/scaffolds/scaffold-josanz-domain.mjs` | 4 capas frontend + backend Josanz |
+| `tools/scaffolds/scaffold-cliente-product.mjs` | Esqueleto `@acme/shared`, backend, platform |
+| `pnpm check:domain-conventions` | Valida layout hex backend |
+| `pnpm check:frontend-conventions` | Valida layout/pages/components |
+| `pnpm check:lib-layout` | Path físico vs categoría lib |
+| `pnpm check:ui-ownership` | UI base vs josanz vs arquetipos |
+| `pnpm check:workspace-deps:strict` | Imports `@scope/*` sin `workspace:*` |
+| `pnpm check:publishable-deps` | Libs `tag:publishable` sin deps workspace private |
+| `pnpm pack:publishable` | `npm pack` canario + reescritura `workspace:*` |
+| `pnpm mockserver` | FE plantilla sin Nest ([mockserver](../runbooks/mockserver.md)) |
 
 ## Verificación mínima tras cualquier guía
 
 ```bash
 pnpm nx typecheck <project>
-node tools/scripts/check-lib-layout.mjs
-node tools/scripts/check-frontend-conventions.mjs   # si tocaste frontend
-pnpm check:workspace-deps:strict                   # si tocaste package.json / imports entre libs
+pnpm check:lib-layout
+pnpm check:frontend-conventions   # si tocaste frontend
+pnpm check:workspace-deps:strict  # si tocaste package.json / imports entre libs
 ```

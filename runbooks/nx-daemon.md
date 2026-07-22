@@ -36,7 +36,7 @@ cuando se estabilice, se puede revertir.
 
 1. Tamaño del grafo — cientos de proyectos Nx (web, Next, Ionic, RN, SaaS).
 2. Fan-out de plugins — `@nx/eslint`, `@nx/jest`, `@nx/vite`, `@nx/playwright`,
-   más `tools/scripts/nx-typecheck-plugin.mjs`. El registro/handshake frío es
+   más `tools/typecheck/nx-typecheck-plugin.mjs`. El registro/handshake frío es
    costoso en Windows.
 3. Presión de procesos — muchos `nx run *:serve` concurrentes → plugin workers
    que no entregan handshake a tiempo (ver [pnpm-layout.md](./pnpm-layout.md)).

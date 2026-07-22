@@ -141,7 +141,7 @@ provideEffects(usersStore.Effects);
 ## Verificación
 
 ```bash
-node tools/scripts/check-lib-layout.mjs
+node tools/checks/check-lib-layout.mjs
 npx tsc -p apps/clientes/josanz/frontend/josanz/tsconfig.app.json --noEmit
 ```
 

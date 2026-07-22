@@ -322,7 +322,7 @@ Rutas antiguas: [legacy-paths.md](../legacy-paths.md).
 | Tipo | Dónde | Uso |
 |------|-------|-----|
 | **Operativa (biblia)** | `docs/README.md`, `docs/architecture/`, `docs/guides/`, `docs/backend/`, `docs/frontend/`, `docs/runbooks/`, `docs/adr/` | Decisiones actuales |
-| **Agentes / CI** | `AGENTS.md`, scripts en `tools/scripts/` | Automatización |
+| **Agentes / CI** | `AGENTS.md`, `tools/` ([tools-layout](../runbooks/tools-layout.md)) | Automatización |
 | **Catálogo vivo** | `SERVICES.md`, `ui-component-catalog.yaml` | Inventario dominios/UI |
 | **Planes activos** | `docs/plans/` | Trabajo en curso |
 

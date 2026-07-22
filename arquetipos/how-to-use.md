@@ -44,7 +44,7 @@ Preferido:
 
 ```bash
 # ver scripts actuales en guides/README
-pnpm exec node tools/scripts/scaffold-cliente-product.mjs …
+pnpm exec node tools/scaffolds/scaffold-cliente-product.mjs …
 ```
 
 Checklist: [../clientes/nuevo-cliente-checklist.md](../clientes/nuevo-cliente-checklist.md).

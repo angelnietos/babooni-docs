@@ -33,7 +33,7 @@ flowchart LR
 
 - One application codebase, two deployment shapes.
 - The two schemas must stay in parity except for the `tenantId` column (enforced
-  by `tools/scripts/check-schema-parity.mjs`). Drift here is the top fragility risk.
+  by `tools/checks/check-schema-parity.mjs`). Drift here is the top fragility risk.
 - Single-tenant deployments drop the tenant filter automatically — verified by
   the tenant-leak suite and `describeAntiFuga` harness.
 - **Orthogonal** to “one DB vs DB-per-service”: tenancy mode ≠ database topology.
@@ -50,7 +50,7 @@ flowchart LR
 
 ## See also
 
-- Schema-parity: `tools/scripts/check-schema-parity.mjs` (CI migrations job).
+- Schema-parity: `tools/checks/check-schema-parity.mjs` (CI migrations job).
 - Integration: `libs/base/backend` `*.int-spec.ts` / `prisma.repository.int-spec.ts`.
 - Testing: [testing-pyramid.md](../guides/testing-pyramid.md).
 - Auth principal `tenantId`: [ADR 0005](adr-0005-jwt-vs-keycloak.md).

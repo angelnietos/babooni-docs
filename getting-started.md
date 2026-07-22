@@ -16,9 +16,11 @@ Un **monorepo Nx** con un kernel reutilizable (`@base/*`), plantillas de referen
 
 | Herramienta | Versión orientativa |
 |-------------|---------------------|
-| Node.js | 20+ (ver `.nvmrc` si existe) |
-| pnpm | 9+ (`packageManager` en `package.json`) |
+| Node.js | **20.x o 22.x** (matriz Nx — `pnpm check:node-nx`; evita Node 24 con Nx 23) |
+| pnpm | 10+ (`packageManager` en `package.json`) |
 | Docker Desktop | Para Postgres, Redis, Kafka, Keycloak |
+
+Sin Docker puedes prototipar UI de plantillas con [MockServer](./runbooks/mockserver.md) (`pnpm mockserver`).
 
 ---
 
@@ -104,25 +106,34 @@ Abre `http://localhost:4200`. Login vía Keycloak — realm `josanz` (el bootstr
 | React multi | `pnpm nx serve react-multi` | 4202 |
 | Angular multi | `pnpm nx serve angular-multi` | 4203 |
 
+**Solo UI (sin Nest/Keycloak):**
+
+```bash
+pnpm mockserver                     # :4010
+pnpm arq:fe:angular-single:mock     # o arq:fe:react-single:mock
+```
+
+Detalle: [runbooks/mockserver.md](./runbooks/mockserver.md).
+
 ---
 
 ## 8. Verificar que todo compila
 
 ```bash
-# Backend kernel
-npx tsc -p libs/base/backend/tsconfig.lib.json --noEmit
-npx jest --config libs/base/backend/jest.config.ts
+# Preferido (cache Nx)
+pnpm nx typecheck base-backend
+pnpm nx test base-backend
 
-# Producto Josanz
-npx tsc -p libs/clientes/josanz/backend/tsconfig.lib.json --noEmit
-npx tsc -p apps/clientes/josanz/frontend/josanz/tsconfig.app.json --noEmit
+# Producto Josanz (ejemplos)
+pnpm nx typecheck josanz-backend
+pnpm nx typecheck josanz
 
-# Convenciones (rápido)
-node tools/scripts/check-frontend-conventions.mjs
-node tools/scripts/check-lib-layout.mjs
+# Convenciones (o pnpm hygiene)
+pnpm check:lib-layout
+pnpm check:frontend-conventions
 ```
 
-Si `nx` cuelga, usa `tsc` directamente (ver [README § Verificación](./README.md#verificación)).
+Si `nx` cuelga: `npx tsc -p … --noEmit` o `pnpm typecheck:affected:legacy` (ver [README § Verificación](./README.md#verificación) y [tools-layout](./runbooks/tools-layout.md)).
 
 ---
 
@@ -139,9 +150,11 @@ libs/
 ├── arquetipos/          # Thin re-exports plantilla @arquetipos/*
 ├── clientes/josanz/     # Extensión producto @josanz/*
 └── productos-saas/      # SaaS @saas/*
+
+tools/                   # checks, dx, jest, scaffolds, mockserver, ai/ …
 ```
 
-Mapa mental completo: [architecture/overview.md](./architecture/overview.md).
+Mapa mental: [architecture/overview.md](./architecture/overview.md). Scripts: [runbooks/tools-layout.md](./runbooks/tools-layout.md).
 
 ---
 
@@ -155,6 +168,7 @@ Mapa mental completo: [architecture/overview.md](./architecture/overview.md).
 | Extraer un microservicio | [guides/add-microservice.md](./guides/add-microservice.md) |
 | Crear producto cliente nuevo | [clientes/nuevo-cliente-checklist.md](./clientes/nuevo-cliente-checklist.md) |
 | Publicar / versionar una lib | [guides/npm-publish-and-versioning.md](./guides/npm-publish-and-versioning.md) |
+| UI plantilla sin backend | [runbooks/mockserver.md](./runbooks/mockserver.md) |
 | Cambiar auth, eventos, cifrado… | [adr/README.md](./adr/README.md) |
 | Desplegar / incidentes | [runbooks/README.md](./runbooks/README.md) |
 | Ver planes activos | [plans/README.md](./plans/README.md) |
@@ -166,3 +180,4 @@ Mapa mental completo: [architecture/overview.md](./architecture/overview.md).
 - [README.md](./README.md) — índice maestro
 - [AGENTS.md](../AGENTS.md) — reglas para agentes IA / resumen técnico
 - [SERVICES.md](../SERVICES.md) — catálogo de dominios HTTP y eventos
+- [tools/README.md](../tools/README.md) — utilidades del monorepo

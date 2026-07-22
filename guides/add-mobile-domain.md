@@ -95,7 +95,7 @@ Mismatch `@types/react` 18 vs 19: ver nota en [local-development.md](./local-dev
 ```bash
 pnpm nx serve react-native-single
 # Abrir http://localhost:8091 — debe verse login (no pantalla blanca)
-node tools/scripts/check-lib-layout.mjs
+node tools/checks/check-lib-layout.mjs
 ```
 
 ## Enlaces

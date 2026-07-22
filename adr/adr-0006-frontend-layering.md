@@ -42,7 +42,7 @@ the frontend and its cross-cutting governance.
    `layer:*` / `scope:*` tags; `scope:browser-*` (UI) cannot depend on the
    data-layer or features, and `scope:angular`/`scope:react` (features) may only
    use `browser-*` (UI) + `client-*` (data). A new
-   `tools/scripts/check-frontend-conventions.mjs` (CI job `verify` → `Frontend
+   `tools/checks/check-frontend-conventions.mjs` (CI job `verify` → `Frontend
    conventions`) validates the feature folder shape and the `shared` purity, and
    fails barrels that implement locally instead of re-exporting.
    `CONTRIBUTING.md`, `CODEOWNERS` and `.editorconfig` document the rules.
@@ -59,7 +59,7 @@ the frontend and its cross-cutting governance.
 
 ## See also
 
-- Convention linter: `tools/scripts/check-frontend-conventions.mjs`.
+- Convention linter: `tools/checks/check-frontend-conventions.mjs`.
 - Contributor guide: `CONTRIBUTING.md`.
 - Shared components: `libs/base/frontend/{angular,react}/features/src/shared/`.
 - UI SoT (Lit) & freeze: [ADR 0010](adr-0010-native-ui-lit-sot.md),

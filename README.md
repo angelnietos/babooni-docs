@@ -81,10 +81,13 @@ docs/                        # ← Estás aquí (biblia operativa)
 ├── arquetipos/              # plantillas apps/arquetipos como modelo
 ├── backend/ · frontend/     # cómo funciona cada lado
 ├── guides/ · adr/ · runbooks/
-tools/scripts/               # Linters y scaffolding (convenciones en código)
+tools/                       # Utilidades por carpeta (checks, dx, jest, …)
+├── checks/ · scaffolds/ · typecheck/ · mockserver/ …
+└── ai/                      # índice agentes + migraciones Nx AI
 ```
 
-Rutas legacy renombradas en F5–F7: [legacy-paths.md](./legacy-paths.md).
+Mapa de scripts: [runbooks/tools-layout.md](./runbooks/tools-layout.md) · [`tools/README.md`](../tools/README.md).  
+Rutas legacy (libs) F5–F7: [legacy-paths.md](./legacy-paths.md).
 
 ---
 
@@ -165,6 +168,8 @@ Rutas legacy renombradas en F5–F7: [legacy-paths.md](./legacy-paths.md).
 | [pnpm-layout.md](./runbooks/pnpm-layout.md) | Workspaces |
 | [nx-daemon.md](./runbooks/nx-daemon.md) | Daemon hang / `NX_DAEMON=false` |
 | [jest-coverage.md](./runbooks/jest-coverage.md) | Preset Jest, coverage por proyecto + merge global |
+| [mockserver.md](./runbooks/mockserver.md) | FE plantilla sin Nest/Keycloak (`pnpm mockserver`) |
+| [tools-layout.md](./runbooks/tools-layout.md) | Dónde vive cada utilidad bajo `tools/` |
 
 ### Decisiones de arquitectura (ADRs)
 
@@ -225,7 +230,7 @@ Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md) —
 | Ubicación | Estado |
 |-----------|--------|
 | `docs/README.md`, `architecture/`, `guides/`, `backend/`, `frontend/`, `runbooks/`, `adr/` | **Fuente de verdad operativa** |
-| `AGENTS.md`, `tools/scripts/` | Contrato para CI y agentes |
+| `AGENTS.md`, `tools/` ([mapa](./runbooks/tools-layout.md)) | Contrato para CI y agentes |
 | `docs/plans/` | Planes (activos + archivo) — [plans/README.md](./plans/README.md) |
 | [CONTRIBUTING-DOCS.md](./CONTRIBUTING-DOCS.md) | Cómo escribir docs |
 
@@ -310,5 +315,5 @@ Si un plan histórico contradice esta biblia, **prevalece la biblia**.
 
 Diagrama interactivo: abre el Canvas **arquetipos-platform-bible** en Cursor (panel Canvas junto al chat).
 
-*Última ampliación biblia: Jest shared + coverage runbook (F55-C3), ADR 0010/0011.
+*Última ampliación biblia: layout `tools/` + MockServer (F56) + Jest coverage (F55).
 Mantén este índice al añadir runbooks o ADRs.*

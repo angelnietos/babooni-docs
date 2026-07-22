@@ -24,7 +24,7 @@ Host marks these **eager**; remotes mark **singleton: true** (not eager) so they
 ## Gate script
 
 ```bash
-node tools/scripts/check-mf-shared.mjs
+node tools/checks/check-mf-shared.mjs
 ```
 
 Fails if a remote omits a required singleton key or if the host inventory drifts.
@@ -40,7 +40,7 @@ Fails if a remote omits a required singleton key or if the host inventory drifts
 ## Smoke (no dedicated e2e yet)
 
 ```bash
-node tools/scripts/check-mf-shared.mjs
+node tools/checks/check-mf-shared.mjs
 pnpm nx show project mf-host-angular --json   # targets: build/serve exist
 ```
 

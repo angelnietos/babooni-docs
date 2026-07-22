@@ -1,6 +1,10 @@
 # MockServer — desarrollo FE sin API (F56)
 
-Ver guía corta en [`tools/mockserver/README.md`](../../tools/mockserver/README.md).
+Cuándo usarlo: prototipar login + listados de plantillas (`angular-single` /
+`react-single`) **sin** Nest, gateway ni Keycloak Docker.
+
+Implementación: [`tools/mockserver/`](../../tools/mockserver/README.md).
+Mapa utilidades: [tools-layout.md](./tools-layout.md).
 
 ## Por qué
 

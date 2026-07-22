@@ -37,10 +37,10 @@ only; an AI `CommandBus` (future `AiCommandGateway`) is an explicit allow-list.
 
 ## Consequences
 
-- `tools/scripts/check-domain-conventions.mjs` enforces
+- `tools/checks/check-domain-conventions.mjs` enforces
   `application/<x>/{commands,queries,handlers}/` and forbids loose
   `infrastructure/*.module.ts` (use `--strict` in CI).
-- `tools/scripts/new-domain.mjs` scaffolds the CQRS template directly.
+- `tools/scaffolds/new-domain.mjs` scaffolds the CQRS template directly.
 - `audit` keeps its existing CQRS handlers under `application/`.
 - `clients` is the reference template for handlers.
 - More files per domain, accepted as the cost of a uniform, AI-gateable seam.
@@ -48,6 +48,6 @@ only; an AI `CommandBus` (future `AiCommandGateway`) is an explicit allow-list.
 ## See also
 
 - AI policy: [ai-cqrs-policy.md](../guides/ai-cqrs-policy.md).
-- Convention linter: `tools/scripts/check-domain-conventions.mjs`.
+- Convention linter: `tools/checks/check-domain-conventions.mjs`.
 - Testing handlers: [testing-pyramid.md](../guides/testing-pyramid.md).
 - Back to the [docs hub](../README.md).

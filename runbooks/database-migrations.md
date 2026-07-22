@@ -123,7 +123,7 @@ Domain code depends on **repository ports**; infrastructure binds Prisma adapter
 Migration SQL must be UTF-8 (no embedded nulls):
 
 ```bash
-node tools/scripts/fix-migration-encoding.mjs --check
+node tools/migrate/fix-migration-encoding.mjs --check
 ```
 
 ## Parity

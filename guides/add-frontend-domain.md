@@ -39,7 +39,7 @@ libs/clientes/josanz/angular/{domain}/
 ### 1. Scaffold (recomendado)
 
 ```bash
-node tools/scripts/scaffold-josanz-domain.mjs orders "Pedidos"
+node tools/scaffolds/scaffold-josanz-domain.mjs orders "Pedidos"
 ```
 
 Revisa paths generados; ajusta nombres de rutas y DTOs.
@@ -69,8 +69,8 @@ Revisa paths generados; ajusta nombres de rutas y DTOs.
 Consulta [ui-component-catalog.yaml](../frontend/ui-component-catalog.yaml). Valida:
 
 ```bash
-node tools/scripts/check-ui-ownership.mjs
-node tools/scripts/check-frontend-conventions.mjs
+node tools/checks/check-ui-ownership.mjs
+node tools/checks/check-frontend-conventions.mjs
 ```
 
 **Regla:** features `components/` importan `@josanz/angular-ui` (producto) o
@@ -105,7 +105,7 @@ Apps plantilla: lazy `@arquetipos/react-{domain}-shell`.
 ```bash
 npx tsc -p libs/clientes/josanz/angular/{domain}/features/tsconfig.lib.json --noEmit
 npx tsc -p apps/clientes/josanz/frontend/josanz/tsconfig.app.json --noEmit
-node tools/scripts/check-frontend-conventions.mjs
+node tools/checks/check-frontend-conventions.mjs
 ```
 
 ---

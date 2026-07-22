@@ -7,7 +7,7 @@ Utilidades para generar plantillas thin sobre `@base/*` y clonar apps de referen
 ## Dominio frontend (4 capas)
 
 ```bash
-node tools/scripts/scaffold-arquetipos-domain.mjs <domain> \
+node tools/scaffolds/scaffold-arquetipos-domain.mjs <domain> \
   [--framework angular|react|both] \
   [--with-backend] \
   [--title "Display Title"] \
@@ -17,8 +17,8 @@ node tools/scripts/scaffold-arquetipos-domain.mjs <domain> \
 Ejemplo:
 
 ```bash
-node tools/scripts/scaffold-arquetipos-domain.mjs orders --framework both --dry-run
-node tools/scripts/scaffold-arquetipos-domain.mjs orders --with-backend
+node tools/scaffolds/scaffold-arquetipos-domain.mjs orders --framework both --dry-run
+node tools/scaffolds/scaffold-arquetipos-domain.mjs orders --with-backend
 ```
 
 Crea `libs/arquetipos/frontend/{angular|react}/{domain}/{api,data-access,shell,features}` con re-exports thin hacia `@base/*`. Con `--with-backend` invoca `new-domain.mjs`.
@@ -26,7 +26,7 @@ Crea `libs/arquetipos/frontend/{angular|react}/{domain}/{api,data-access,shell,f
 Después:
 
 1. `pnpm install`
-2. `node tools/scripts/emit-frontend-tsconfig-paths.mjs` (si aplica)
+2. `node tools/migrate/emit-frontend-tsconfig-paths.mjs` (si aplica)
 3. Cablear la app a `@arquetipos/{angular|react}-{domain}-shell`
 
 Detalle del modelo thin (incl. **override de un método** con flag
@@ -37,7 +37,7 @@ Detalle del modelo thin (incl. **override de un método** con flag
 ## App desde plantilla
 
 ```bash
-node tools/scripts/scaffold-arquetipos-app.mjs <kebab-name> \
+node tools/scaffolds/scaffold-arquetipos-app.mjs <kebab-name> \
   [--framework angular|react] \
   [--tenant single|multi] \
   [--dry-run]
@@ -46,7 +46,7 @@ node tools/scripts/scaffold-arquetipos-app.mjs <kebab-name> \
 Ejemplo:
 
 ```bash
-node tools/scripts/scaffold-arquetipos-app.mjs demo --framework angular --tenant single --dry-run
+node tools/scaffolds/scaffold-arquetipos-app.mjs demo --framework angular --tenant single --dry-run
 ```
 
 Clona `angular-single` / `angular-multi` / `react-single` / `react-multi` bajo

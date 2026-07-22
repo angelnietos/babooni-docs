@@ -79,9 +79,9 @@ Tipos compartidos en `@josanz/shared` si el frontend los consume.
 Para dominios que deben vivir en monolito **y** microservicios:
 
 ```bash
-node tools/scripts/new-domain.mjs orders --dry
-node tools/scripts/new-domain.mjs orders
-node tools/scripts/check-domain-conventions.mjs
+node tools/scaffolds/new-domain.mjs orders --dry
+node tools/scaffolds/new-domain.mjs orders
+node tools/checks/check-domain-conventions.mjs
 ```
 
 Layout (F33 — Nest CQRS):

@@ -4,10 +4,10 @@
 
 ## Typecheck incluye specs
 
-El target `typecheck` (plugin `tools/scripts/nx-typecheck-plugin.mjs`) invoca:
+El target `typecheck` (plugin `tools/typecheck/nx-typecheck-plugin.mjs`) invoca:
 
 ```bash
-node tools/scripts/lib/run-typecheck.mjs <projectRoot>
+node tools/lib/run-typecheck.mjs <projectRoot>
 ```
 
 Ese runner ejecuta `tsc --noEmit` sobre:
@@ -20,8 +20,8 @@ Jest/`isolatedModules` **no** sustituye el typecheck de specs (p. ej. TS2307 en 
 **Inherited exclude blind spot:** si `tsconfig.spec.json` extiende un lib/app config con
 `exclude: **/*.spec.ts`, hay que **sobreescribir** `exclude` en el spec config (p. ej.
 `["node_modules","dist"]`) o los specs quedan fuera del gate aunque aparezcan en `include`.
-Validar: `node tools/scripts/validate-tsconfig-spec-json.mjs` (113 archivos, exit 0).
-Bulk fix seguro: `node tools/scripts/fix-tsconfig-spec-exclude.mjs --write` (usa JSON.stringify).
+Validar: `node tools/checks/validate-tsconfig-spec-json.mjs` (113 archivos, exit 0).
+Bulk fix seguro: `node tools/checks/fix-tsconfig-spec-exclude.mjs --write` (usa JSON.stringify).
 
 ### Preferencias locales
 
@@ -30,8 +30,8 @@ Bulk fix seguro: `node tools/scripts/fix-tsconfig-spec-exclude.mjs --write` (usa
 | Gate affected (CI-like) | `pnpm verify:affected` (= `nx affected -t lint,typecheck,test --parallel=3`) |
 | Scope base + arquetipos (paralelo + cache) | `pnpm typecheck:all:base-arquetipos` |
 | Un scope | `pnpm typecheck:all:base` / `pnpm typecheck:all:arquetipos` |
-| Proyecto concreto (debug) | `node tools/scripts/lib/run-typecheck.mjs <projectRoot>` |
-| Inventario rojo | `node tools/scripts/report-typecheck-failures.mjs` |
+| Proyecto concreto (debug) | `node tools/lib/run-typecheck.mjs <projectRoot>` |
+| Inventario rojo | `node tools/typecheck/report-typecheck-failures.mjs` |
 
 **No** usar bucles secuenciales sobre `run-typecheck.mjs` para inventarios de workspace — es lento y no usa cache Nx. Usar `nx run-many -t typecheck` (ver scripts `typecheck:all:*`).
 

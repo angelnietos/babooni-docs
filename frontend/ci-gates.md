@@ -44,7 +44,10 @@ without `.env`. Migrate/deploy and runtime apps still require a real
 `DATABASE_URL` (see `.env.example` / `docker-compose.dev.yml`).
 
 Do **not** remove the two entries from `FORBIDDEN_PATTERNS` in
-`tools/scripts/audit-nested-node-modules.mjs` — the gate must stay strict.
+`tools/checks/audit-nested-node-modules.mjs` — the gate must stay strict.
+
+Script paths live under `tools/{checks,dx,…}` — see
+[runbooks/tools-layout.md](../runbooks/tools-layout.md).
 
 ### F12-DX — Typecheck on large graphs
 

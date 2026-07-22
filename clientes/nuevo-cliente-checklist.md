@@ -15,7 +15,7 @@ Guía para añadir un **producto cliente** al monorepo. Los clientes viven en `a
 | **scope npm** | `@acme` | Paquetes `@acme/shared`, `@acme/backend`, `@acme/clients-features` |
 | **App Nx backend** | `acme-api` | `apps/clientes/acme/backend` |
 | **App Nx frontend** | `acme` | `apps/clientes/acme/frontend/acme` |
-| **Tags Nx** | `layer:clientes`, `runtime:*` | Mismo layer que Josanz; ver [check-lib-layout.mjs](../../tools/scripts/check-lib-layout.mjs) |
+| **Tags Nx** | `layer:clientes`, `runtime:*` | Mismo layer que Josanz; ver [check-lib-layout.mjs](../../tools/checks/check-lib-layout.mjs) |
 
 ---
 
@@ -44,10 +44,10 @@ Excepciones Josanz aplicables a cualquier cliente: [josanz-product-exceptions.md
 
 ```bash
 # Vista previa
-node tools/scripts/scaffold-cliente-product.mjs --slug acme --scope acme --dry-run
+node tools/scaffolds/scaffold-cliente-product.mjs --slug acme --scope acme --dry-run
 
 # Crear libs mínimas (shared, backend, angular-ui, platform)
-node tools/scripts/scaffold-cliente-product.mjs --slug acme --scope acme
+node tools/scaffolds/scaffold-cliente-product.mjs --slug acme --scope acme
 ```
 
 El script **no** crea apps ni dominios de negocio; genera el esqueleto de libs y lista los pasos manuales restantes.
@@ -138,7 +138,7 @@ pnpm install
 
 - Tags `layer:clientes` en todas las libs del producto
 - El producto **no** puede importar `layer:arquetipos`
-- Validar: `node tools/scripts/check-lib-layout.mjs --strict`
+- Validar: `node tools/checks/check-lib-layout.mjs --strict`
 
 ---
 
@@ -146,7 +146,7 @@ pnpm install
 
 ```bash
 # Adaptar slug en el script o copiar scaffold-josanz-domain y ajustar paths
-node tools/scripts/scaffold-josanz-domain.mjs orders "Pedidos"
+node tools/scaffolds/scaffold-josanz-domain.mjs orders "Pedidos"
 # Luego mover de josanz/ a acme/ o fork del script → scaffold-cliente-domain.mjs (futuro)
 ```
 
@@ -163,7 +163,7 @@ Checklist dominio:
 ## Paso 5 — Verificación
 
 ```bash
-node tools/scripts/check-lib-layout.mjs --strict
+node tools/checks/check-lib-layout.mjs --strict
 npx tsc -p libs/clientes/acme/shared/tsconfig.lib.json --noEmit
 npx tsc -p libs/clientes/acme/backend/tsconfig.lib.json --noEmit
 npx tsc -p apps/clientes/acme/frontend/acme/tsconfig.app.json --noEmit
@@ -203,5 +203,5 @@ pnpm nx serve acme
 
 - [docs/README.md](../README.md) — biblia del monorepo
 - [AGENTS.md](../../AGENTS.md)
-- [scaffold-cliente-product.mjs](../../tools/scripts/scaffold-cliente-product.mjs)
-- [scaffold-josanz-domain.mjs](../../tools/scripts/scaffold-josanz-domain.mjs)
+- [scaffold-cliente-product.mjs](../../tools/scaffolds/scaffold-cliente-product.mjs)
+- [scaffold-josanz-domain.mjs](../../tools/scaffolds/scaffold-josanz-domain.mjs)

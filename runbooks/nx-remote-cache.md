@@ -89,7 +89,7 @@ Remote cache works with or without the daemon.
 - **Do not** pass `--skip-nx-cache` / `--skipNxCache` unless you are debugging cache
   correctness. Skipping cache triggers Nx’s “enable remote cache” performance tip and
   slows every run.
-- Legacy **raw `tsc` walkers** (`tools/scripts/typecheck-affected.mjs`, `run-tsc.mjs`)
+- Legacy **raw `tsc` walkers** (`tools/typecheck/typecheck-affected.mjs`, `run-tsc.mjs`)
   set `NX_CLOUD=false` because they bypass Nx entirely — prefer `pnpm typecheck:affected`.
 - Plans that mention `--skip-nx-cache` for **benchmarking** only; normal gates should
   use cached Nx targets.

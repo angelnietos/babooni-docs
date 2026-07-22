@@ -38,17 +38,17 @@ apps/clientes/acme/
 
 ```bash
 # 1. Scaffold libs
-node tools/scripts/scaffold-cliente-product.mjs --slug acme --scope acme
+node tools/scaffolds/scaffold-cliente-product.mjs --slug acme --scope acme
 
 # 2. Copiar apps desde Josanz y renombrar (josanz → acme)
 # 3. tsconfig.base.json paths @acme/*
 # 4. pnpm install
 # 5. Primer dominio
-node tools/scripts/scaffold-josanz-domain.mjs orders "Pedidos"
+node tools/scaffolds/scaffold-josanz-domain.mjs orders "Pedidos"
 # (mover/adaptar paths a acme si el script aún genera josanz)
 
 # 6. Verificar
-node tools/scripts/check-lib-layout.mjs --strict
+node tools/checks/check-lib-layout.mjs --strict
 pnpm nx serve acme-api
 pnpm nx serve acme
 ```

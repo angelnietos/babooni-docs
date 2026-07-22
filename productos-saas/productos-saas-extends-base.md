@@ -115,8 +115,8 @@ Detalle operativo: [apps/productos-saas/README.md](../../apps/productos-saas/REA
 ## Verificación
 
 ```bash
-node tools/scripts/check-lib-layout.mjs --strict
-node tools/scripts/check-ui-ownership.mjs
+node tools/checks/check-lib-layout.mjs --strict
+node tools/checks/check-ui-ownership.mjs
 npx tsc -p apps/productos-saas/verifactu-platform/tsconfig.app.json --noEmit
 npx tsc -p libs/productos-saas/crm/frontend/angular/shared/ui/tsconfig.lib.json --noEmit
 ```

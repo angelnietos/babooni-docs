@@ -32,7 +32,7 @@
 | `demo@demo.com` | manager | Clients write, Users/Audit read; no Roles write |
 | `readonly@demo.com` | member | Clients/Settings read; emails masked; no Users/Audit/Roles; no write buttons |
 
-Seed: `tools/scripts/seed-arquetipos-demo.sql` (run after migrate).
+Seed: `tools/seeds/seed-arquetipos-demo.sql` (run after migrate).
 
 ```bash
 pnpm migrate:deploy

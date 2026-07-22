@@ -227,8 +227,8 @@ libs/arquetipos/
 ## Verificación
 
 ```bash
-node tools/scripts/check-lib-layout.mjs
-node tools/scripts/check-frontend-conventions.mjs
+node tools/checks/check-lib-layout.mjs
+node tools/checks/check-frontend-conventions.mjs
 pnpm nx typecheck arquetipos-angular-clients-features
 pnpm nx typecheck arquetipos-react-clients-features
 ```

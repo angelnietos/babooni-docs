@@ -1,8 +1,8 @@
 # UI Component Catalog — ownership and app consumption matrix
 # Plan: plan-pulido-profundizacion-post-capas.md §0.6
 # Validated by:
-#   node tools/scripts/check-ui-ownership.mjs
-#   node tools/scripts/check-storybook-owner-tags.mjs
+#   node tools/checks/check-ui-ownership.mjs
+#   node tools/checks/check-storybook-owner-tags.mjs
 
 version: 1
 

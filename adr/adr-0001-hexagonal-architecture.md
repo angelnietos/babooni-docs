@@ -38,7 +38,7 @@ their own thin app shell (`apps/`).
 
 - New domains follow one template → low variance, easy review.
 - Framework swaps (Nest ↔ other) are localized to `adapters/`.
-- A domain convention linter (`tools/scripts/check-domain-conventions.mjs`)
+- A domain convention linter (`tools/checks/check-domain-conventions.mjs`)
   enforces the structure automatically (see ADR-adjacent tooling).
 - Slightly more boilerplate than a single fat service, accepted as the cost of
   reuse.
@@ -58,7 +58,7 @@ their own thin app shell (`apps/`).
 ## See also
 
 - Scaffolding how-to + domain template: `plans/README.md` §7.
-- Convention linter: `tools/scripts/check-domain-conventions.mjs`.
-- New-domain generator: `tools/scripts/new-domain.mjs`.
+- Convention linter: `tools/checks/check-domain-conventions.mjs`.
+- New-domain generator: `tools/scaffolds/new-domain.mjs`.
 - Service catalog: `SERVICES.md`.
 - Back to the [docs hub](../README.md).

@@ -19,9 +19,9 @@ Cuando el cambio beneficia a **todos** los productos (Josanz, plantillas, futuro
 ### Dominio nuevo en hex
 
 ```bash
-node tools/scripts/new-domain.mjs widgets --dry
-node tools/scripts/new-domain.mjs widgets
-node tools/scripts/check-domain-conventions.mjs
+node tools/scaffolds/new-domain.mjs widgets --dry
+node tools/scaffolds/new-domain.mjs widgets
+node tools/checks/check-domain-conventions.mjs
 ```
 
 Exporta `WidgetsModule` desde `libs/base/backend/src/index.ts`.
@@ -66,7 +66,7 @@ Contratos isomórficos en `libs/base/shared/`. Frontend `*-api` y backend DTOs d
 ```bash
 npx tsc -p libs/base/backend/tsconfig.lib.json --noEmit
 npx jest --config libs/base/backend/jest.config.ts
-node tools/scripts/check-frontend-conventions.mjs
+node tools/checks/check-frontend-conventions.mjs
 ```
 
 Module boundaries: tag `layer:base` en libs nuevas.

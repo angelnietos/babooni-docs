@@ -35,6 +35,8 @@ Procedimientos operativos para Josanz, plantillas Arquetipos y SaaS Verifactu. C
 - [Module Federation deploy](./module-federation-deploy.md) — host + remotes en prod
 - [Typecheck & lint gates](./typecheck-and-lint-gates.md) — gates locales y CI
 - [Jest + coverage](./jest-coverage.md) — preset compartido, `coverage/<project>`, merge global
+- [MockServer](./mockserver.md) — FE plantilla sin API/Keycloak (`:4010`)
+- [Tools layout](./tools-layout.md) — mapa `tools/{checks,dx,jest,…}`
 - [Verifactu demo e2e](./verifactu-demo-e2e.md) — smoke CRM / worker
 
 DX MF local: [guides/module-federation-dev.md](../guides/module-federation-dev.md).
@@ -62,6 +64,8 @@ Dashboards y alertas: `deploy/observability/`.
 | Migrar BD Josanz o crear `josanz` DB | [database-migrations.md](./database-migrations.md) |
 | Nuevo microservicio con BD propia | [database-migrations.md](./database-migrations.md) + [guides/add-microservice.md](../guides/add-microservice.md) |
 | `pnpm install` / módulo no resuelto | [pnpm-layout.md](./pnpm-layout.md) |
+| ¿Dónde está el script X? | [tools-layout.md](./tools-layout.md) |
+| UI plantilla sin backend | [mockserver.md](./mockserver.md) |
 | Kafka caído, eventos atascados | [kafka-redis-outage.md](./kafka-redis-outage.md) |
 | Rotar clave de cifrado PII | [secrets.md](./secrets.md) + [backup-restore-pii.md](./backup-restore-pii.md) |
 | Release fallido | [deploy.md](./deploy.md) |

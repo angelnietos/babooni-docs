@@ -30,7 +30,7 @@ Fuente máquina: [ui-component-catalog.yaml](./ui-component-catalog.yaml).
 - CRM SaaS → `@saas/shared-ui`
 - **No mezclar** imports entre `layer:arquetipos` ↔ `layer:clientes` ↔ `layer:productos-saas`
 
-Gate: `node tools/scripts/check-ui-ownership.mjs` (F53+: soft native-first).
+Gate: `node tools/checks/check-ui-ownership.mjs` (F53+: soft native-first).
 
 ## Storybook
 
@@ -81,7 +81,7 @@ F54: paquete `@base/ui-tokens` compartido web↔RN.
 ## Verificación
 
 ```bash
-node tools/scripts/check-ui-ownership.mjs
+node tools/checks/check-ui-ownership.mjs
 pnpm nx typecheck base-native-ui
 pnpm nx typecheck josanz-angular-ui
 ```

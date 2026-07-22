@@ -101,8 +101,10 @@ pnpm arq:fe:react-single:mock
 # Runbook: docs/runbooks/mockserver.md
 
 # Convenciones
-node tools/scripts/check-lib-layout.mjs --strict
+pnpm check:lib-layout:strict
 pnpm check:legacy-paths
+pnpm hygiene                 # layout + paths + deps + barrels + native-first
+# Mapa scripts: docs/runbooks/tools-layout.md
 ```
 
 ---
@@ -139,7 +141,8 @@ Un cambio nuevo debe preservar «arranca sin infra opcional».
 | `pnpm install` falla workspace | Falta `workspace:*` | `pnpm add @base/foo --filter @josanz/bar --workspace` |
 | `pnpm install` 404 en `@base/ionic-*` / `@base/react-native-*` | Dep tipada como `"0.0.0"` en vez de `workspace:*` | En `package.json` de la lib: `"@base/…": "workspace:*"` (nunca versión fija de paquete privado). Luego `pnpm install`. |
 | `check:workspace-deps:strict` falla | Import `@base|@josanz|@arquetipos|@saas/*` sin declarar en el consumidor | `pnpm add <pkg> --filter <consumer> --workspace` — ver [workspace-packages.md](../frontend/workspace-packages.md); plan [F52-A2](../plans/rounds/plans-52-fifty-two-round/1750000071000-f52-fix-undeclared-workspace-deps.md). |
-| Language server Nx no responde / cuelga | Node fuera de rango para Nx | 1) Recargar VS Code. 2) `pnpm nx reset`. 3) `pnpm check:node-nx` para verificar compatibilidad. |
+| Language server Nx no responde / cuelga | Node fuera de rango para Nx | 1) Recargar VS Code. 2) `pnpm nx reset`. 3) `pnpm check:node-nx` (Node 20/22 con Nx 23). |
+| Login plantilla pide Keycloak/API | Quieres solo UI | `pnpm mockserver` + `pnpm arq:fe:*-single:mock` — [mockserver.md](../runbooks/mockserver.md) |
 | Mismatch tipos React 18/19 en React Native | `@types/react` 19.x raíz vs 18.x RN | Pin Metro vía `tools/metro/create-arquetipos-expo-metro-config.cjs` (`disableHierarchicalLookup` + `extraNodeModules`) — [add-mobile-domain.md](./add-mobile-domain.md). Casts locales solo si queda mismatch de types. |
 | Pantalla blanca RN web + error `$$typeof` en ArqInput | React 19 + React 18 en el mismo bundle | Reiniciar Expo con `--clear` tras arreglar Metro (`tools/metro/…`) |
 
@@ -173,8 +176,9 @@ Puertos: Postgres `5440`, Redis `6381`, CRM API `3120`, Worker `3130`, Platform 
 
 - [database-migrations.md](../runbooks/database-migrations.md)
 - [pnpm-layout.md](../runbooks/pnpm-layout.md)
+- [mockserver.md](../runbooks/mockserver.md)
+- [tools-layout.md](../runbooks/tools-layout.md)
 - [kafka-redis-outage.md](../runbooks/kafka-redis-outage.md)
-
 ## Compatibilidad Node ↔ Nx
 
 El workspace usa Nx `23.x`, que soporta Node `20.x` y `22.x`. No usar Node `24.x` con esta versión de Nx.

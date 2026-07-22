@@ -8,7 +8,7 @@ siguen su propia plantilla de ronda; no los reescribas por estética.
 | Prioridad | Ubicación |
 |-----------|-----------|
 | 1 — Biblia | `docs/README.md`, `architecture/`, `guides/`, `backend/`, `frontend/`, `runbooks/`, `adr/` |
-| 2 — Agentes / CI | `AGENTS.md`, `tools/scripts/` |
+| 2 — Agentes / CI | `AGENTS.md`, `tools/` (ver `tools/README.md`) |
 | 3 — Planes | `docs/plans/` (trabajo en curso o histórico) |
 
 Si un plan contradice la biblia, **gana la biblia**.
@@ -70,6 +70,8 @@ pnpm nx typecheck <project>
 
 - [docs/README.md](./README.md) — hub
 - [guides/README.md](./guides/README.md)
+- [runbooks/tools-layout.md](./runbooks/tools-layout.md) — mapa `tools/`
 - [guides/npm-publish-and-versioning.md](./guides/npm-publish-and-versioning.md) — publicar libs canario + workflow manual
 - [plans/README.md](./plans/README.md) — rondas activas / siguientes
 - [CONTRIBUTING.md](../CONTRIBUTING.md) — contribuir código
+- [`tools/README.md`](../tools/README.md) — utilidades (código)

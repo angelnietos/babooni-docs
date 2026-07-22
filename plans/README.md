@@ -3,6 +3,9 @@
 Planes de trabajo del monorepo. **No son la biblia operativa** — si contradicen
 `docs/README.md` / `architecture/` / `guides/`, gana la biblia.
 
+> Paths `tools/scripts/…` en planes antiguos → ver [legacy-paths.md](../legacy-paths.md#tools-post-f56)
+> y [tools-layout.md](../runbooks/tools-layout.md).
+
 ## Estructura
 
 - **`rounds/`** — rondas `plans-{n}-{nombre}-round/` (histórico + activas).

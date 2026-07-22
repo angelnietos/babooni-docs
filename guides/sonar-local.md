@@ -4,7 +4,8 @@
 
 | Herramienta | Uso |
 |-------------|-----|
-| **SonarLint** (IDE) | Reglas en tiempo real sobre `apps/`, `libs/`, `tools/scripts/` |
+| **SonarLint** (IDE) | Reglas en tiempo real sobre `apps/`, `libs/`, `tools/{checks,smoke,dx,…}/` |
+
 | **SonarScanner** (opcional) | `sonar-scanner` con `sonar-project.properties` en la raíz |
 
 ## Alcance
@@ -17,7 +18,7 @@
 
 ## Scripts de smoke (F13)
 
-Los scripts en `tools/scripts/*verifactu*.mjs` y `preflight-dev-infra.mjs` siguen estas convenciones para evitar hallazgos Sonar:
+Los scripts en `tools/smoke/*verifactu*.mjs` y `tools/dx/preflight-dev-infra.mjs` siguen estas convenciones para evitar hallazgos Sonar:
 
 | Regla | Mitigación |
 |-------|------------|
@@ -26,14 +27,14 @@ Los scripts en `tools/scripts/*verifactu*.mjs` y `preflight-dev-infra.mjs` sigue
 | **S4030** colecciones sin uso | No acumular en arrays si solo se hace `console.log` |
 | **S7763** re-export | `export { x } from './mod'` en barriles TypeScript |
 
-Supresión documentada en `sonar-project.properties` solo para **S7785** en `tools/scripts/**` si el servidor Sonar no reconoce top-level await en ESM.
+Supresión documentada en `sonar-project.properties` solo para **S7785** en `tools/**` si el servidor Sonar no reconoce top-level await en ESM.
 
 ## Verificación manual
 
 ```bash
-node tools/scripts/preflight-dev-infra.mjs
-node tools/scripts/smoke-verifactu-worker.mjs
-node --check tools/scripts/run-verifactu-smoke.mjs
+node tools/dx/preflight-dev-infra.mjs
+node tools/smoke/smoke-verifactu-worker.mjs
+node --check tools/smoke/run-verifactu-smoke.mjs
 ```
 
 ## CI (opcional F14)

@@ -19,14 +19,14 @@ flowchart LR
 ## 1. Scaffold producto
 
 Sigue [nuevo-cliente-checklist.md](../clientes/nuevo-cliente-checklist.md) /
-`tools/scripts/scaffold-cliente-product.mjs`.
+`tools/scaffolds/scaffold-cliente-product.mjs`.
 
 Resultado esperado: `@acme/shared`, `@acme/backend`, platform FE, app backend + SPA.
 
 ## 2. Dominio de negocio
 
 1. Backend hex: [add-backend-domain.md](./add-backend-domain.md) o
-   `tools/scripts/new-domain.mjs` / `scaffold-josanz-domain.mjs`.
+   `tools/scaffolds/new-domain.mjs` / `scaffold-josanz-domain.mjs`.
 2. Frontend 4 capas: [add-frontend-domain.md](./add-frontend-domain.md).
 3. Slug = carpeta = `@Controller('{slug}')` = ruta `/api/{slug}`.
 

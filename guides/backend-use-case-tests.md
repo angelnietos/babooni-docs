@@ -79,5 +79,5 @@ pnpm exec playwright test -c apps/arquetipos/frontend/angular/microfrontend/mf-h
 pnpm exec playwright test -c apps/clientes/josanz/frontend/josanz-e2e/playwright.config.mts --project=chromium
 
 # Coverage baseline (re-run after each wave)
-node tools/scripts/report-test-gaps.mjs
+node tools/checks/report-test-gaps.mjs
 ```
