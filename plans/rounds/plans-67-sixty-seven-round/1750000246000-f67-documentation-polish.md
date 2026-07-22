@@ -11,7 +11,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -19,14 +19,17 @@ Hubs → F67 activa; F66 cerrada; residual notes apuntan a F67-B*;
 design-system / ci-gates / plans README / frontend index / agent mirrors
 (`platform-bible`, AGENTS, copilot, kilo, tools/ai).
 
+Cierre de ronda: hubs → F68 activa; F67 cerrada; residuals → F68-B*.
+
 ## Criterios de aceptación
 
 - [x] Badge / tabla ronda activa = F67 (pass de apertura).
 - [x] F66 marcada cerrada en hubs.
-- [ ] Tras cerrar A*/B*: guías actualizadas; residual Chromatic/Zod → hecho o
+- [x] Tras cerrar A*/B*: guías actualizadas; residual Chromatic/Zod → hecho o
       F68; agent task→guide al día.
 
 ## Nota
 
 La apertura de F67 **incluye** el primer pass de hubs + configs IA; el cierre
-de ronda vuelve a marcar este plan `completado` cuando A/B terminen o deferan.
+de ronda vuelve a marcar este plan `completado` cuando A/B terminen o deferan
+y abre [F68](../plans-68-sixty-eight-round/).

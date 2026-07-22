@@ -11,7 +11,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -20,12 +20,16 @@ shell** (Angular/React) y retirar la deuda semántica del alias `arq-clients*`,
 sin repetir la rotura de CSS dual (selectores dentro de `@keyframes` /
 `@charset` / `var()`).
 
-## Problema actual
+## Resultado (2026-07-22)
 
-- Ionic/pages usan BEM `arq-feature*` pero el chrome aún es HTML+CSS local.
-- CSS dual `.arq-feature*, .arq-clients*` se regeneró mal en F66 (warnings
-  Angular compiler + error Sass `#0d5f59))`).
-- Alias `clients-list` → `feature-list` documentado; retirada no planificada.
+- Angular/React **clients, roles, users** montan `FeatureShellComponent` /
+  `FeatureShell`.
+- Ionic permanece **CSS-only** `arq-feature*` (intencional).
+- Paneles arquetipos clients + Ionic settings migrados `arq-clients*` →
+  `arq-feature*`.
+- Alias `clients-list.css` conservado; **retirada completa defer F68-A2** hasta
+  zero residual consumers.
+- Dual CSS `feature-list.css` ya seguro (`@charset` / `@keyframes`).
 
 ## Entregables
 
@@ -54,11 +58,11 @@ sin repetir la rotura de CSS dual (selectores dentro de `@keyframes` /
 
 ## Criterios de aceptación
 
-- [ ] ≥2 stacks (Angular + React **o** Angular + Ionic) con shell cableado
+- [x] ≥2 stacks (Angular + React **o** Angular + Ionic) con shell cableado
       o justificación documentada para “CSS-only” en mobile.
-- [ ] Inventario alias + decisión retirada / defer F68.
-- [ ] Build Angular arquetipos sin warnings `feature-list.css` charset/keyframes.
-- [ ] Guía [feature-shell-presentation.md](../../../frontend/feature-shell-presentation.md)
+- [x] Inventario alias + decisión retirada / defer F68.
+- [x] Build Angular arquetipos sin warnings `feature-list.css` charset/keyframes.
+- [x] Guía [feature-shell-presentation.md](../../../frontend/feature-shell-presentation.md)
       actualizada (estado adopción).
 
 ## Verificación
@@ -73,3 +77,8 @@ pnpm nx typecheck base-react-clients-features
 ## Depende de
 
 F66-A3; fix CSS dual ya aplicado en `feature-list.css` / `_feature-list.scss`.
+
+## Carry
+
+Alias remove → [F68-A2](../plans-68-sixty-eight-round/1750000251000-f68-retire-arq-clients-alias.md).
+Ionic wrapper → [F68-A3](../plans-68-sixty-eight-round/1750000252000-f68-ionic-feature-shell-wrapper.md).

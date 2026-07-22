@@ -14,8 +14,8 @@ Contrato objetivo (F66-A3): **un chrome de feature reutilizable** para list CRUD
 (y pantallas similares). Clients / users / roles / audit son **consumidores**,
 no dueños del layout.
 
-Hoy el código reutiliza clases `arq-clients*` en otros dominios — deuda semántica.
-Migrar a `arq-feature*` (o equivalente) + componente/layout shell.
+CSS SoT: `arq-feature*`. Alias `arq-clients*` deprecado — retirada cuando
+consumers=0 ([F68-A2](../plans/rounds/plans-68-sixty-eight-round/1750000251000-f68-retire-arq-clients-alias.md)).
 
 ## Piezas
 
@@ -34,7 +34,7 @@ FeatureShell
 |------|------------|
 | `cards` | Mobile / densidad táctil |
 | `table` | Desktop ≥ breakpoint |
-| `board` | Kanban (Native UI board) |
+| `board` | Kanban (Native UI board) — **defer F68-A1** (no base-board CE) |
 | `custom` | Dominio aporta el body entero |
 
 Default: `auto` → `cards` bajo breakpoint, `table` en desktop. Override por
@@ -58,15 +58,15 @@ dominio (`roles` puede forzar `table` always).
 
 ## Estado
 
-Implementado (F66-A3):
+Implementado (F66-A3 + F67-A2):
 
-| Pieza | Ubicación |
-|-------|-----------|
-| CSS `arq-feature*` (+ alias `arq-clients*`) | `@base/ui-styles` → `pages/feature-list` |
-| Angular shell | `@base/angular-ui` → `FeatureShellComponent` (`lib-feature-shell`) |
-| React shell | `@base/react-shared` → `FeatureShell` |
-| Piloto Ionic | clients / users / roles / audit pages usan clases `arq-feature*` |
+| Pieza | Ubicación / estado |
+|-------|--------------------|
+| CSS `arq-feature*` (+ alias `arq-clients*`) | `@base/ui-styles` → `pages/feature-list`; alias retire → F68-A2 |
+| Angular shell | `@base/angular-ui` → `FeatureShellComponent` — **clients / roles / users** montados |
+| React shell | `@base/react-shared` → `FeatureShell` — **clients / roles / users** montados |
+| Ionic | CSS-only `arq-feature*` (intencional F67); thin wrapper opcional → [F68-A3](../plans/rounds/plans-68-sixty-eight-round/1750000252000-f68-ionic-feature-shell-wrapper.md) |
 
-`presentation: 'board'` → [F67-A1](../plans/rounds/plans-67-sixty-seven-round/1750000240000-f67-feature-shell-board.md)
-(Native board strategy). Adopción de componente + retirada alias `arq-clients*`:
-[F67-A2](../plans/rounds/plans-67-sixty-seven-round/1750000241000-f67-feature-shell-adoption-closeout.md).
+`presentation: 'board'` → [F68-A1](../plans/rounds/plans-68-sixty-eight-round/1750000250000-f68-feature-shell-board.md)
+(Native board CE + strategy). Owner: design-system / FE platform. Blocker: no
+base-board CE.

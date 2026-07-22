@@ -11,7 +11,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado (defer F68)
 
 ## Objetivo
 
@@ -20,6 +20,11 @@ cuando el board nativo (Native UI / Lit) esté listo; si no, documentar defer
 F68 con owner + blocker (no silenciar).
 
 Contrato: [feature-shell-presentation.md](../../../frontend/feature-shell-presentation.md).
+
+## Decisión (2026-07-22)
+
+**Defer F68-A1.** No existe base-board CE / wrapper Angular·React usable.
+Owner: design-system / FE platform. Blocker: no Native board CE.
 
 ## Entregables
 
@@ -32,9 +37,9 @@ Contrato: [feature-shell-presentation.md](../../../frontend/feature-shell-presen
 
 ## Criterios de aceptación
 
-- [ ] Decisión explícita: implementado **o** defer F68 (owner + blocker).
-- [ ] Si implementado: `presentation: 'board'` tipado; smoke visual ≥1 stack.
-- [ ] Guía `feature-shell-presentation.md` refleja el estado real.
+- [x] Decisión explícita: implementado **o** defer F68 (owner + blocker).
+- [x] Si implementado: `presentation: 'board'` tipado; smoke visual ≥1 stack.
+- [x] Guía `feature-shell-presentation.md` refleja el estado real.
 
 ## Verificación
 
@@ -47,3 +52,7 @@ pnpm nx typecheck base-react-shared
 ## Depende de
 
 F66-A3 (shell cards/table). Native board CE si existe.
+
+## Carry
+
+[F68-A1](../plans-68-sixty-eight-round/1750000250000-f68-feature-shell-board.md)

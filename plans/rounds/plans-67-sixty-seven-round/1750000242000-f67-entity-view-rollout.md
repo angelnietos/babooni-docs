@@ -11,7 +11,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -20,6 +20,13 @@ Extender el piloto F66-A2 (`EntityFieldAccess` / `EntityFormViewBase` /
 el **slot** del FeatureShell (no templates duplicados read vs write).
 
 Contrato: [entity-view-abstractions.md](../../../frontend/entity-view-abstractions.md).
+
+## Resultado (2026-07-22)
+
+- **roles:** configs + `RolesFormViewComponent` + `RoleForm` usa
+  `isReadable`/`isWritable`; React `useRolesEntityView`.
+- **users:** configs + `UsersFormViewComponent` + `useUsersEntityView`.
+- **clients:** form view montado en FeatureShell create slot (Angular + React).
 
 ## Entregables
 
@@ -31,10 +38,10 @@ Contrato: [entity-view-abstractions.md](../../../frontend/entity-view-abstractio
 
 ## Criterios de aceptación
 
-- [ ] ≥1 dominio nuevo con `EntityViewConfig` (no solo clients).
-- [ ] Mixed read/write en ≥1 pantalla sin duplicar template por modo.
-- [ ] Slot shell + entity view en ≥1 dominio (enlace A2 ↔ FeatureShell).
-- [ ] Tests unitarios del helper/base (≥1 stack) o spec de config.
+- [x] ≥1 dominio nuevo con `EntityViewConfig` (no solo clients).
+- [x] Mixed read/write en ≥1 pantalla sin duplicar template por modo.
+- [x] Slot shell + entity view en ≥1 dominio (enlace A2 ↔ FeatureShell).
+- [x] Tests unitarios del helper/base (≥1 stack) o spec de config.
 
 ## Verificación
 
@@ -47,3 +54,8 @@ pnpm nx typecheck base-shared
 ## Depende de
 
 F66-A2; F67-A2 facilita el slot del shell.
+
+## Carry
+
+Deepen (users form en pages; audit si aplica) →
+[F68-B3](../plans-68-sixty-eight-round/1750000255000-f68-entity-view-deepen.md).

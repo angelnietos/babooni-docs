@@ -30,7 +30,7 @@ while debating Zod vs class-validator as a second SoT.
    `Validators`, React messages) call these predicates — they do not own rules.
 3. **Async rules** (unique email, …): **ports** on the backend + stable error
    codes for the FE. Not isomorphic.
-4. **Zod / Standard Schema kit:** carry **[F67-B2](../plans/rounds/plans-67-sixty-seven-round/1750000244000-f67-carry-zod-kit.md)**
+4. **Zod / Standard Schema kit:** carry **[F68-B2](../plans/rounds/plans-68-sixty-eight-round/1750000254000-f68-carry-zod-kit.md)**
    if we need one schema language for non-Nest consumers; until then, no second
    library in app deps.
 
@@ -38,7 +38,7 @@ while debating Zod vs class-validator as a second SoT.
 
 - FE forms can share clients Create/Update checks without Nest runtime.
 - BE ↔ shared DTO drift (e.g. optional `tenantId` on Nest-only DTOs) remains a
-  separate cleanup (F67 / shared DTO alignment).
+  separate cleanup (F68 / shared DTO alignment).
 - Products must not add Zod “just for forms” while this ADR stands.
 
 ## Links

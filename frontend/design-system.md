@@ -17,10 +17,11 @@ Cuándo usarla: tokens, Storybook, ownership de componentes, handoff desde Figma
 
 Estrategia operativa: [ui-strategy.md](./ui-strategy.md) (incluye **freeze F53+**).
 
-Ronda activa: [F67](../plans/rounds/plans-67-sixty-seven-round/) — FeatureShell
-board + adopción; entity-view rollout; carries Chromatic / Zod; ratchet store.
-F66 cerró SoC features, FeatureShell cards/table, facade multi-dominio y entity
-piloto. F65 confirm+toast + ADR 0012; F64 portal/mobile e2e.
+Ronda activa: [F68](../plans/rounds/plans-68-sixty-eight-round/) — Native board
+CE; retire `arq-clients*` alias; Ionic FeatureShell wrapper; carries Chromatic /
+Zod; entity-view deepen. F67 cerró FeatureShell adoption + entity-view
+roles/users + store ratchet; Chromatic/Zod → F68. F66 SoC features /
+FeatureShell cards/table / facade multi-dominio.
 
 ### Overlays → portal (F63 / F64-A1)
 
@@ -126,9 +127,9 @@ Gate: `node tools/checks/check-ui-ownership.mjs` (F53+: soft native-first).
 - Stories en el paquete **dueño** del componente — **ver `base-native-ui` primero**.
 - Inferencia: `@nx/storybook/plugin` en `nx.json`; puertos/styles/output en
   `project.json` por lib.
-- **CI visual / Chromatic (F67-B1):** sin `CHROMATIC_PROJECT_TOKEN` →
+- **CI visual / Chromatic (F68-B1):** sin `CHROMATIC_PROJECT_TOKEN` →
   `build-storybook` de `base-native-ui` (+ angular/react-ui) en CI es la señal
-  de rotura; Chromatic / Code Connect siguen en carry F67 (o defer F68).
+  de rotura; Chromatic / Code Connect siguen en carry F68 (o defer F69).
   Arquetipos SB (`arquetipos-*-ui`) ya tiene targets Nx; adapters brand only.
 
 ```bash
@@ -146,7 +147,7 @@ Tokens compartidos: `@base/ui-tokens` (+ `./css`, `./rn`). A11y:
 [figma-native-ui-map.md](./figma-native-ui-map.md). Deprecated residual:
 [deprecated-atoms-residual.md](./deprecated-atoms-residual.md). Validación
 isomórfica: [ADR 0012](../adr/adr-0012-isomorphic-validation.md) +
-[isomorphic-validation-defer.md](./isomorphic-validation-defer.md) (Zod → F66-B2).
+[isomorphic-validation-defer.md](./isomorphic-validation-defer.md) (Zod → F68-B2).
 Estado / SoC facade: [state-soc-facade.md](./state-soc-facade.md).
 Features SoC + layout: [features-layout-soc.md](./features-layout-soc.md).
 Entity field views: [entity-view-abstractions.md](./entity-view-abstractions.md).
@@ -181,7 +182,8 @@ pnpm nx typecheck josanz-angular-ui
 
 - [josanz-product-exceptions.md](./josanz-product-exceptions.md)
 - [ci-gates.md](./ci-gates.md)
-- Planes [F67](../plans/rounds/plans-67-sixty-seven-round/) (activa) ·
+- Planes [F68](../plans/rounds/plans-68-sixty-eight-round/) (activa) ·
+  [F67](../plans/rounds/plans-67-sixty-seven-round/) ·
   [F66](../plans/rounds/plans-66-sixty-six-round/) ·
   [F65](../plans/rounds/plans-65-sixty-five-round/) ·
   [F64](../plans/rounds/plans-64-sixty-four-round/) ·

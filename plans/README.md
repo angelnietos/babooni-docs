@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
-  <a href="./rounds/plans-67-sixty-seven-round/"><img alt="F67" src="https://img.shields.io/badge/F67-active-14b8a6?style=flat-square" /></a>
+  <a href="./rounds/plans-68-sixty-eight-round/"><img alt="F68" src="https://img.shields.io/badge/F68-active-14b8a6?style=flat-square" /></a>
 </p>
 
 Planes de trabajo del monorepo. **No son la biblia operativa** — si contradicen
@@ -30,12 +30,13 @@ Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `traslad
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| [plans-67](./rounds/plans-67-sixty-seven-round/) | listo para ejecutar | FeatureShell board + adopción; entity-view rollout; Chromatic/Zod carries; store ratchet expand |
+| [plans-68](./rounds/plans-68-sixty-eight-round/) | listo para ejecutar | Native board CE; retire arq-clients* alias; Ionic FeatureShell wrapper; Chromatic/Zod carries; entity-view deepen |
 
 ## Rondas completadas (archivo)
 
 | Ronda | Tema |
 |-------|------|
+| [plans-67](./rounds/plans-67-sixty-seven-round/) | FeatureShell adoption; entity-view roles/users; store ratchet expand; Chromatic/Zod → F68 |
 | [plans-66](./rounds/plans-66-sixty-six-round/) | Features SoC; FeatureShell cards/table; facade multi-dominio; entity piloto; Chromatic/Zod → F67 |
 | [plans-65](./rounds/plans-65-sixty-five-round/) | Confirm+toast multi-stack; facade SoC clients (D1); ADR 0012; Chromatic/deprecated → F66 |
 | [plans-64](./rounds/plans-64-sixty-four-round/) | Portal verify, Next listbox, mobile e2e, tokens, Storybook; Chromatic/validación → F65; CI jest-preset strict |

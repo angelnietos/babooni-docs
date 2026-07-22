@@ -40,14 +40,19 @@ Legacy dual stores (`createFeatureState` / RTK list stores) remain for auth/sess
 legacy app registration; **list CRUD panels** must use the facade. ESLint/check:
 `pnpm check:features-no-store` (+ `:strict`).
 
-**F66 follow-ups:** panel SoC
+**F67-B3:** `STRICT_DOMAINS` incluye **clients / users / roles / audit** —
+`pnpm check:features-no-store:strict` verde. Carry closed.
+
+**Related:** panel SoC
 ([features-layout-soc.md](./features-layout-soc.md)), entity field views
 ([entity-view-abstractions.md](./entity-view-abstractions.md)), FeatureShell
 ([feature-shell-presentation.md](./feature-shell-presentation.md)), facade
 multi-dominio
 ([F66-D1](../plans/rounds/plans-66-sixty-six-round/1750000236000-f66-domain-facade-parity.md)),
 ESLint features↔store
-([F66-B3](../plans/rounds/plans-66-sixty-six-round/1750000234000-f66-eslint-features-store-ratchet.md)).
+([F66-B3](../plans/rounds/plans-66-sixty-six-round/1750000234000-f66-eslint-features-store-ratchet.md))
+· expand
+([F67-B3](../plans/rounds/plans-67-sixty-seven-round/1750000245000-f67-features-store-ratchet-expand.md)).
 
 ## Reglas SoC
 

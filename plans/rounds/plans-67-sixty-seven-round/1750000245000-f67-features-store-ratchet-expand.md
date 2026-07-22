@@ -11,13 +11,18 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
 Ampliar el ratchet de F66-B3 (`tools/checks/check-features-no-store.mjs`):
 con facade canónico en **users / roles / audit**, las `*-features` de esos
 dominios no deben importar stores concretos de list CRUD.
+
+## Resultado (2026-07-22)
+
+`STRICT_DOMAINS` ya incluye clients / users / roles / audit; check verde.
+Guía [state-soc-facade.md](../../../frontend/state-soc-facade.md) actualizada.
 
 ## Entregables
 
@@ -29,11 +34,11 @@ dominios no deben importar stores concretos de list CRUD.
 
 ## Criterios de aceptación
 
-- [ ] `pnpm check:features-no-store` (o `:strict`) verde para clients **y**
+- [x] `pnpm check:features-no-store` (o `:strict`) verde para clients **y**
       users/roles/audit (Angular + React) **o** excepciones documentadas +
       defer F68.
-- [ ] Allowlist temporal acotada y con fecha/owner.
-- [ ] Script enlazado desde hygiene / docs CI.
+- [x] Allowlist temporal acotada y con fecha/owner.
+- [x] Script enlazado desde hygiene / docs CI.
 
 ## Verificación
 

@@ -259,10 +259,10 @@ pnpm check:legacy-paths
 pnpm check:migration-encoding
 ```
 
-Última ronda cerrada: **[F66](./plans/rounds/plans-66-sixty-six-round/)**.
-Ronda activa: **[F67](./plans/rounds/plans-67-sixty-seven-round/)** — FeatureShell
-board + adopción; entity-view rollout; carries Chromatic / Zod; ratchet
-features↔store expandido.
+Última ronda cerrada: **[F67](./plans/rounds/plans-67-sixty-seven-round/)**.
+Ronda activa: **[F68](./plans/rounds/plans-68-sixty-eight-round/)** — Native
+board CE; retire `arq-clients*` alias; Ionic FeatureShell wrapper; carries
+Chromatic / Zod; entity-view deepen.
 Índice: [plans/README.md](./plans/README.md).
 
 Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md).  
@@ -410,5 +410,5 @@ Si un plan histórico contradice esta biblia, **prevalece la biblia**.
 <p align="center">
   <img src="./assets/arquetipos-mark.svg" width="36" alt="" />
   <br/>
-  <sub>Mantén este índice al añadir runbooks o ADRs · F67 docs polish</sub>
+  <sub>Mantén este índice al añadir runbooks o ADRs · F68 docs polish</sub>
 </p>

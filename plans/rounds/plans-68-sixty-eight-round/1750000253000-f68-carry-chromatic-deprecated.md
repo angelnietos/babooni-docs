@@ -2,38 +2,33 @@
   <img src="../../../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
 </p>
 
-<h1 align="center">F67-B1 — Carry: Chromatic / Code Connect / deprecated atoms</h1>
+<h1 align="center">F68-B1 — Carry: Chromatic / Code Connect / deprecated atoms</h1>
 
 <p align="center">
   <img alt="arquetipos" src="https://img.shields.io/badge/arquetipos-0f766e?style=flat-square" />
-  <a href="./README.md"><img alt="F67" src="https://img.shields.io/badge/round-F67-14b8a6?style=flat-square" /></a>
+  <a href="./README.md"><img alt="F68" src="https://img.shields.io/badge/round-F68-14b8a6?style=flat-square" /></a>
 </p>
 
 ## Estado
 
-completado (defer F68)
+listo para ejecutar
 
 ## Objetivo
 
-Retomar el defer de F66-B1 documentado en
+Retomar el defer de F67-B1 documentado en
 [deprecated-atoms-residual.md](../../../frontend/deprecated-atoms-residual.md):
 
-| Sub-ítem | Blocker (F66) |
+| Sub-ítem | Blocker (F67) |
 |----------|---------------|
 | Chromatic CI soft | Sin `CHROMATIC_PROJECT_TOKEN` / package |
 | Code Connect | Sin acceso Figma CI |
 | Migración auth + chrome → Native | Superficie amplia; happy path arquetipos ya Native-first |
 
-## Decisión (2026-07-22)
-
-**Defer F68-B1.** Sin token Chromatic / package; Code Connect necesita Figma CI;
-migración atoms `@deprecated` aún residual. Residual note → Target F68.
-
 ## Entregables
 
-1. Chromatic: token + package + job soft en CI **o** defer F68 (owner:
+1. Chromatic: token + package + job soft en CI **o** defer F69 (owner:
    design-system).
-2. Code Connect: mapear ≥1 oleada CE ↔ wrappers **o** defer F68.
+2. Code Connect: mapear ≥1 oleada CE ↔ wrappers **o** defer F69.
 3. Migrar residuales prioritarios: auth login form + presenters chrome
    (`ErrorState`, `ConfirmDialog`, `SearchBar`, `SessionExpiry`) →
    `Native*` / `<base-*>`.
@@ -42,9 +37,9 @@ migración atoms `@deprecated` aún residual. Residual note → Target F68.
 
 ## Criterios de aceptación
 
-- [x] Cada sub-ítem: hecho **o** defer F68 con owner/blocker en residual note.
-- [x] No marcar “listo” sin decisión por fila.
-- [x] Inventario refleja consumers reales post-migración.
+- [ ] Cada sub-ítem: hecho **o** defer F69 con owner/blocker en residual note.
+- [ ] No marcar “listo” sin decisión por fila.
+- [ ] Inventario refleja consumers reales post-migración.
 
 ## Verificación
 
@@ -54,7 +49,3 @@ Storybook a11y smoke si aplica.
 ## Depende de
 
 Secretos / Figma; no bloquea A*.
-
-## Carry
-
-[F68-B1](../plans-68-sixty-eight-round/1750000253000-f68-carry-chromatic-deprecated.md)

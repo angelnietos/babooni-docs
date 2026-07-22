@@ -90,13 +90,21 @@ La vista **no** llama HTTP: el panel (F66-A1) usa el facade
 
 ## Estado de implementación
 
-Código piloto (F66-A2):
+Kernel (F66-A2) + rollout (F67-A3):
 
 | Pieza | Ubicación |
 |-------|-----------|
 | Helpers + `EntityViewConfig` | `@base/shared` → `lib/entity-view` (`EntityFieldAccess` evita choque con RBAC `FieldAccess`) |
 | Angular base | `@base/angular-ui` → `EntityFormViewBase` |
 | React hook | `@base/react-shared` → `useEntityView` |
-| Piloto clients | `ClientsFormViewComponent` + configs; React `useClientsEntityView` |
+
+### Matriz dominio × stack (F67-A3)
+
+| Dominio | Angular | React | Notes |
+|---------|---------|-------|-------|
+| clients | `ClientsFormViewComponent` + configs; form en FeatureShell create slot | `useClientsEntityView`; form en FeatureShell create slot | Piloto F66 + slot F67 |
+| roles | configs + `RolesFormViewComponent`; `RoleForm` usa `isReadable`/`isWritable` | `useRolesEntityView` | F67-A3 |
+| users | configs + `UsersFormViewComponent` | `useUsersEntityView` | F67-A3; wire pages → [F68-B3](../plans/rounds/plans-68-sixty-eight-round/1750000255000-f68-entity-view-deepen.md) |
+| audit | — | — | Evaluar read-only en F68-B3 |
 
 Validación sigue predicates / [ADR 0012](../adr/adr-0012-isomorphic-validation.md).

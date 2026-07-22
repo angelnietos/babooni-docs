@@ -11,32 +11,33 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
-> Apertura 2026-07-22. Eje: **cerrar FeatureShell** (board + adopción real de
-> componentes / retirada de alias `arq-clients*`); **extender EntityView** más
-> allá del piloto clients; **carries F66** (Chromatic·Code Connect·deprecated,
-> Zod kit); **ampliar ratchet** features↔store a users/roles/audit.
+> Cerrada 2026-07-22. Eje: **FeatureShell adoption** (Angular/React wire;
+> Ionic CSS-only intencional); **EntityView** en clients + roles + users;
+> **ratchet** features↔store expandido; carries Chromatic / Zod → F68
+> (board Native, alias `arq-clients*`).
 
 ## Contexto
 
 F66 cerró SoC en features, FeatureShell `cards`/`table` + CSS `arq-feature*`,
-facade parity users/roles/audit y check `features-no-store`. Quedó deferido:
+facade parity users/roles/audit y check `features-no-store`. F67 cerró adopción
+real del shell y rollout entity-view; deferió board Native y carries visual/Zod.
 
-| Deuda / gap | Plan F67 |
-|-------------|----------|
-| `presentation: 'board'` (Native board) | A1 |
-| Shell Angular/React poco cableado; alias `arq-clients*`; dual-CSS frágil | A2 |
-| EntityView solo piloto clients | A3 |
-| Chromatic / Code Connect / atoms `@deprecated` | B1 |
-| Zod kit opcional (ADR 0012) | B2 |
-| `check-features-no-store --strict` solo clients-clean | B3 |
-| Docs + hub F67 | C1 |
+| Deuda / gap | Plan F67 | Resultado |
+|-------------|----------|-----------|
+| `presentation: 'board'` (Native board) | A1 | defer F68 |
+| Shell Angular/React cableado; alias `arq-clients*` | A2 | hecho (alias remove → F68) |
+| EntityView solo piloto clients | A3 | hecho (roles + users + clients slot) |
+| Chromatic / Code Connect / atoms `@deprecated` | B1 | defer F68 |
+| Zod kit opcional (ADR 0012) | B2 | defer F68 |
+| `check-features-no-store --strict` solo clients | B3 | hecho (clients/users/roles/audit) |
+| Docs + hub F67 | C1 | hecho → abre F68 |
 
 **Contrato:**
 
 1. FeatureShell es el único chrome de lista CRUD en arquetipos (`arq-feature*`).
-2. Board es strategy de primera clase cuando Native board existe.
+2. Board es strategy de primera clase cuando Native board existe (F68-A1).
 3. EntityViewConfig se reutiliza en ≥2 dominios × ≥2 stacks.
 4. Features no importan stores concretos donde hay facade (ratchet expandido).
 5. Carries B*: hecho **o** defer F68 con motivo + owner (no “listo” silencioso).
@@ -45,24 +46,24 @@ facade parity users/roles/audit y check `features-no-store`. Quedó deferido:
 
 | ID | Plan | Estado |
 |----|------|--------|
-| F67-A1 | [FeatureShell board strategy](1750000240000-f67-feature-shell-board.md) | listo para ejecutar |
-| F67-A2 | [FeatureShell adoption closeout](1750000241000-f67-feature-shell-adoption-closeout.md) | listo para ejecutar |
-| F67-A3 | [Entity view rollout](1750000242000-f67-entity-view-rollout.md) | listo para ejecutar |
-| F67-B1 | [Carry: Chromatic / deprecated](1750000243000-f67-carry-chromatic-deprecated.md) | listo para ejecutar |
-| F67-B2 | [Carry: Zod kit](1750000244000-f67-carry-zod-kit.md) | listo para ejecutar |
-| F67-B3 | [Features↔store ratchet expand](1750000245000-f67-features-store-ratchet-expand.md) | listo para ejecutar |
-| F67-C1 | [Docs polish + hub F67](1750000246000-f67-documentation-polish.md) | listo para ejecutar |
+| F67-A1 | [FeatureShell board strategy](1750000240000-f67-feature-shell-board.md) | completado (defer F68) |
+| F67-A2 | [FeatureShell adoption closeout](1750000241000-f67-feature-shell-adoption-closeout.md) | completado |
+| F67-A3 | [Entity view rollout](1750000242000-f67-entity-view-rollout.md) | completado |
+| F67-B1 | [Carry: Chromatic / deprecated](1750000243000-f67-carry-chromatic-deprecated.md) | completado (defer F68) |
+| F67-B2 | [Carry: Zod kit](1750000244000-f67-carry-zod-kit.md) | completado (defer F68) |
+| F67-B3 | [Features↔store ratchet expand](1750000245000-f67-features-store-ratchet-expand.md) | completado |
+| F67-C1 | [Docs polish + hub F67](1750000246000-f67-documentation-polish.md) | completado |
 
 ## Criterios de aceptación (ronda)
 
-- [ ] A1: `presentation: 'board'` documentado + implementado **o** defer F68
+- [x] A1: `presentation: 'board'` documentado + implementado **o** defer F68
       explícito (Native board no listo).
-- [ ] A2: ≥2 stacks montan `FeatureShell` real; alias `arq-clients*` deprecado
+- [x] A2: ≥2 stacks montan `FeatureShell` real; alias `arq-clients*` deprecado
       con plan de retirada; CSS dual sin romper `@charset` / `@keyframes`.
-- [ ] A3: EntityView en ≥1 dominio adicional (users o roles) × ≥2 stacks;
+- [x] A3: EntityView en ≥1 dominio adicional (users o roles) × ≥2 stacks;
       form/detail en slot del shell en ≥1 dominio.
-- [ ] B1–B3: hecho **o** defer F68 con owner/blocker.
-- [ ] C1: hubs / residual notes / agent mirrors al día.
+- [x] B1–B3: hecho **o** defer F68 con owner/blocker.
+- [x] C1: hubs / residual notes / agent mirrors al día.
 
 ## Fuera de alcance
 
@@ -71,8 +72,7 @@ facade parity users/roles/audit y check `features-no-store`. Quedó deferido:
 - Auth session store (sigue auth data-access).
 - Sustituir class-validator en Nest por Zod.
 
-## Predecesora / siguiente
+## Siguiente ronda
 
-- Cerrada: [F66](../plans-66-sixty-six-round/)
-- Residual visual: [deprecated-atoms-residual.md](../../../frontend/deprecated-atoms-residual.md)
-- Residual validación: [isomorphic-validation-defer.md](../../../frontend/isomorphic-validation-defer.md)
+[F68](../plans-68-sixty-eight-round/) — Native board CE; retire `arq-clients*`
+alias; Ionic FeatureShell wrapper; Chromatic / Zod carries; entity-view deepen.
