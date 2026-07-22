@@ -259,8 +259,8 @@ pnpm check:legacy-paths
 pnpm check:migration-encoding
 ```
 
-Última ronda cerrada: **[F69](./plans/rounds/plans-69-sixty-nine-round/)**.
-Ronda activa: **[F70](./plans/rounds/plans-70-seventy-round/)** — board piloto + Ionic audit rollout + Chromatic/Zod carries.
+Última ronda cerrada: **[F70](./plans/rounds/plans-70-seventy-round/)**.
+Ronda activa: **[F71](./plans/rounds/plans-71-seventy-one-round/)** — carries F70 (Chromatic/Zod/deprecated) + expansión board.
 Índice: [plans/README.md](./plans/README.md).
 
 Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md).  

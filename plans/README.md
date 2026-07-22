@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
-  <a href="./rounds/plans-69-sixty-nine-round/"><img alt="F69" src="https://img.shields.io/badge/F69-active-14b8a6?style=flat-square" /></a>
+  <a href="./rounds/plans-71-seventy-one-round/"><img alt="F71" src="https://img.shields.io/badge/F71-active-14b8a6?style=flat-square" /></a>
 </p>
 
 Planes de trabajo del monorepo. **No son la biblia operativa** — si contradicen
@@ -30,13 +30,14 @@ Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `traslad
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| [plans-69](./rounds/plans-69-sixty-nine-round/) | listo para ejecutar | auto presentation harden + e2e; Ionic FeatureShell rollout; board piloto; Chromatic/Zod carries |
+| [plans-71](./rounds/plans-71-seventy-one-round/) | listo para ejecutar | carries F70 (Chromatic/Zod/deprecated); expansión board; docs |
 
 ## Rondas completadas (archivo)
 
 | Ronda | Tema |
 |-------|------|
-| [plans-68](./rounds/plans-68-sixty-eight-round/) | Native board CE; retire arq-clients*; Ionic FeatureShell; users entity-view; Chromatic/Zod → F69 |
+| [plans-70](./rounds/plans-70-seventy-round/) | Board piloto tasks; Ionic audit rollout; Chromatic/Zod → F71 |
+| [plans-69](./rounds/plans-69-sixty-nine-round/) | auto presentation harden + e2e; Ionic FeatureShell rollout; board piloto deferido; Chromatic/Zod → F70 |
 | [plans-67](./rounds/plans-67-sixty-seven-round/) | FeatureShell adoption; entity-view roles/users; store ratchet expand; Chromatic/Zod → F68 |
 | [plans-66](./rounds/plans-66-sixty-six-round/) | Features SoC; FeatureShell cards/table; facade multi-dominio; entity piloto; Chromatic/Zod → F67 |
 | [plans-65](./rounds/plans-65-sixty-five-round/) | Confirm+toast multi-stack; facade SoC clients (D1); ADR 0012; Chromatic/deprecated → F66 |
