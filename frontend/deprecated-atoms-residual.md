@@ -1,7 +1,8 @@
-# Deprecated base atoms — residual consumers (F66-B1)
+# Deprecated base atoms — residual consumers (F67-B1)
 
 Inventory of Angular/React atoms marked `@deprecated` (prefer `Native*` /
-`<base-*>`). Carry from F65-B2 — target cleanup **F66-B1** (or defer F67).
+`<base-*>`). Carry from F66-B1 — target cleanup **[F67-B1](../plans/rounds/plans-67-sixty-seven-round/1750000243000-f67-carry-chromatic-deprecated.md)**
+(or defer F68).
 
 ## Marked SoT atoms
 
@@ -23,9 +24,10 @@ Inventory of Angular/React atoms marked `@deprecated` (prefer `Native*` /
 
 | Sub-item | Status | Owner / blocker |
 |----------|--------|-----------------|
-| Chromatic CI soft | **F66-B1** | No `CHROMATIC_PROJECT_TOKEN` / no chromatic package |
-| Code Connect | **F66-B1** | No Figma CI access |
-| Deprecated migration (auth + chrome) | **F66-B1** | Wide surface; arquetipos happy path already Native-first |
+| Chromatic CI soft | **Target F67-B1** | No `CHROMATIC_PROJECT_TOKEN` / no chromatic package — owner: design-system |
+| Code Connect | **Target F67-B1** | No Figma CI access — owner: design-system |
+| Deprecated migration (auth + chrome) | **Target F67-B1** | Wide surface; arquetipos happy path already Native-first — owner: FE platform |
 
 See also [design-system.md](./design-system.md) · [ci-gates.md](./ci-gates.md) ·
-[F66-B1](../plans/rounds/plans-66-sixty-six-round/1750000232000-f66-carry-chromatic-deprecated.md).
+[F66-B1](../plans/rounds/plans-66-sixty-six-round/1750000232000-f66-carry-chromatic-deprecated.md)
+(defer record) · [F67-B1](../plans/rounds/plans-67-sixty-seven-round/1750000243000-f67-carry-chromatic-deprecated.md).

@@ -11,7 +11,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -27,8 +27,8 @@ dominio ya tiene facade (piloto **clients**; opcional users).
 
 ## Criterios de aceptación
 
-- [ ] Check existe y corre en hygiene o job `frontend`.
-- [ ] Clients features (Angular + React) pasan en strict **o** defer F67 con
+- [x] Check existe y corre en hygiene o job `frontend`.
+- [x] Clients features (Angular + React) pasan en strict **o** defer F67 con
       lista de excepciones.
 
 ## Verificación

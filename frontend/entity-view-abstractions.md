@@ -90,4 +90,13 @@ La vista **no** llama HTTP: el panel (F66-A1) usa el facade
 
 ## Estado de implementación
 
-Contrato documentado en apertura F66; código piloto en la tarjeta A2.
+Código piloto (F66-A2):
+
+| Pieza | Ubicación |
+|-------|-----------|
+| Helpers + `EntityViewConfig` | `@base/shared` → `lib/entity-view` (`EntityFieldAccess` evita choque con RBAC `FieldAccess`) |
+| Angular base | `@base/angular-ui` → `EntityFormViewBase` |
+| React hook | `@base/react-shared` → `useEntityView` |
+| Piloto clients | `ClientsFormViewComponent` + configs; React `useClientsEntityView` |
+
+Validación sigue predicates / [ADR 0012](../adr/adr-0012-isomorphic-validation.md).

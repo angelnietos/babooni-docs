@@ -58,4 +58,15 @@ dominio (`roles` puede forzar `table` always).
 
 ## Estado
 
-Borrador de contrato en apertura F66-A3; implementación en la tarjeta.
+Implementado (F66-A3):
+
+| Pieza | Ubicación |
+|-------|-----------|
+| CSS `arq-feature*` (+ alias `arq-clients*`) | `@base/ui-styles` → `pages/feature-list` |
+| Angular shell | `@base/angular-ui` → `FeatureShellComponent` (`lib-feature-shell`) |
+| React shell | `@base/react-shared` → `FeatureShell` |
+| Piloto Ionic | clients / users / roles / audit pages usan clases `arq-feature*` |
+
+`presentation: 'board'` → [F67-A1](../plans/rounds/plans-67-sixty-seven-round/1750000240000-f67-feature-shell-board.md)
+(Native board strategy). Adopción de componente + retirada alias `arq-clients*`:
+[F67-A2](../plans/rounds/plans-67-sixty-seven-round/1750000241000-f67-feature-shell-adoption-closeout.md).

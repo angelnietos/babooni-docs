@@ -11,7 +11,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -22,7 +22,7 @@ frontend index / agent mirrors (`platform-bible`, AGENTS).
 
 - [x] Badge / tabla ronda activa = F66 (este commit de apertura).
 - [x] F65 marcada cerrada en hubs.
-- [ ] Tras cerrar A*/B*: guías A1/A2 enlazadas y agent task→guide al día.
+- [x] Tras cerrar A*/B*: guías A1/A2 enlazadas y agent task→guide al día.
 
 ## Nota
 

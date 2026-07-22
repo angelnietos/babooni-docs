@@ -21,15 +21,24 @@ si aplica) con la **misma** forma de puerto — ver
 
 | Stack | Herramienta detrás del puerto | API del puerto |
 |-------|-------------------------------|----------------|
-| Angular SPA | `EntityListStore` (`ClientsService` / `ClientsFacade`) | signals `items` / `loading` / `error` + `load` / `create` / `update` / `remove` |
-| React SPA | **react-query** (`useClientsFacade`) | `items` / `loading` / `error` + `load` / `create` / `remove` |
-| Ionic | `IonicClientsFacade` (signals + in-memory) | same shape |
-| Next | `useClientsFacade` (hook owns list) | same shape |
-| RN | `useClientsFacade` (hook owns list) | same shape |
+| Angular SPA | `EntityListStore` / service + `{Domain}Facade` alias | signals `items` / `loading` / `error` + `load` / `create` / `update` / `remove` (audit: load only) |
+| React SPA | **react-query** (`use{Domain}Facade`) | `items` / `loading` / `error` + mutations según dominio |
+| Ionic | `Ionic{Domain}Facade` (signals + in-memory) | same shape |
+| Next | `use{Domain}Facade` (hook owns list) | same shape |
+| RN | `use{Domain}Facade` (hook owns list) | same shape |
 
-Legacy dual stores (`createFeatureState` / RTK `createEntityListStore` for list
-CRUD) were removed from the clients piloto — apps register auth/users/roles/audit
-stores only; clients CRUD goes through the facade.
+### Multi-dominio (F66-D1)
+
+| Dominio | Angular | React | Ionic |
+|---------|---------|-------|-------|
+| clients | `ClientsFacade` | `useClientsFacade` | `IonicClientsFacade` |
+| users | `UsersFacade` | `useUsersFacade` | `IonicUsersFacade` |
+| roles | `RolesFacade` | `useRolesFacade` | `IonicRolesFacade` |
+| audit | `AuditFacade` (read) | `useAuditFacade` | `IonicAuditFacade` |
+
+Legacy dual stores (`createFeatureState` / RTK list stores) remain for auth/session and
+legacy app registration; **list CRUD panels** must use the facade. ESLint/check:
+`pnpm check:features-no-store` (+ `:strict`).
 
 **F66 follow-ups:** panel SoC
 ([features-layout-soc.md](./features-layout-soc.md)), entity field views

@@ -11,9 +11,9 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
-> Abierta 2026-07-22. Eje: **SOLID / SoC** en features; **shell de presentación
+> Cerrada 2026-07-22. Eje: **SOLID / SoC** en features; **shell de presentación
 > genérico** (no chrome “clients”); **facade/state estándar en todos los
 > dominios**; entity views read/write por campo; carries F65
 > (Chromatic·deprecated, Zod, ESLint store).
@@ -21,9 +21,8 @@ listo para ejecutar
 ## Contexto
 
 F65 cerró confirm+toast, ADR 0012, facade clients y eliminó dual stores demo de
-clients. Queda: same pattern para **users/roles/audit/…**, sustituir
-`arq-clients*` compartido por un **FeatureShell** agnóstico, y SoC dentro de
-features.
+clients. F66 extendió el patrón a **users/roles/audit**, sustituyó
+`arq-clients*` por **FeatureShell** / `arq-feature*`, y SoC dentro de features.
 
 | Problema | Plan F66 |
 |----------|----------|
@@ -50,26 +49,31 @@ features.
 
 | ID | Plan | Estado |
 |----|------|--------|
-| F66-A1 | [Features SoC + layout/pages/components](1750000230000-f66-features-layout-soc.md) | listo para ejecutar |
-| F66-A2 | [Entity view abstractions (read/write)](1750000231000-f66-entity-view-abstractions.md) | listo para ejecutar |
-| F66-A3 | [Generic feature shell (presentation)](1750000237000-f66-generic-feature-shell.md) | listo para ejecutar |
-| F66-D1 | [Facade parity all domains](1750000236000-f66-domain-facade-parity.md) | listo para ejecutar |
-| F66-B1 | [Carry: Chromatic / deprecated](1750000232000-f66-carry-chromatic-deprecated.md) | listo para ejecutar |
-| F66-B2 | [Carry: Zod kit](1750000233000-f66-carry-zod-kit.md) | listo para ejecutar |
-| F66-B3 | [ESLint features↔store ratchet](1750000234000-f66-eslint-features-store-ratchet.md) | listo para ejecutar |
-| F66-C1 | [Docs polish + hub F66](1750000235000-f66-documentation-polish.md) | listo para ejecutar |
+| F66-A1 | [Features SoC + layout/pages/components](1750000230000-f66-features-layout-soc.md) | completado |
+| F66-A2 | [Entity view abstractions (read/write)](1750000231000-f66-entity-view-abstractions.md) | completado |
+| F66-A3 | [Generic feature shell (presentation)](1750000237000-f66-generic-feature-shell.md) | completado |
+| F66-D1 | [Facade parity all domains](1750000236000-f66-domain-facade-parity.md) | completado |
+| F66-B1 | [Carry: Chromatic / deprecated](1750000232000-f66-carry-chromatic-deprecated.md) | completado (defer F67) |
+| F66-B2 | [Carry: Zod kit](1750000233000-f66-carry-zod-kit.md) | completado (defer F67) |
+| F66-B3 | [ESLint features↔store ratchet](1750000234000-f66-eslint-features-store-ratchet.md) | completado |
+| F66-C1 | [Docs polish + hub F66](1750000235000-f66-documentation-polish.md) | completado |
 
 ## Criterios de aceptación (ronda)
 
-- [ ] A1: piloto ≥2 dominios × ≥2 stacks; gate layout/pages/components.
-- [ ] A2: API padre domain-agnóstica + ≥1 dominio con read/write por campo.
-- [ ] A3: FeatureShell genérico; ≥2 dominios sin chrome `arq-clients` semántico.
-- [ ] D1: users + roles (+ audit) con facade estándar (no solo clients).
-- [ ] B1–B3: hecho **o** defer F67 explícito.
-- [ ] C1: hubs / guías / agent mirrors al día.
+- [x] A1: piloto ≥2 dominios × ≥2 stacks; gate layout/pages/components.
+- [x] A2: API padre domain-agnóstica + ≥1 dominio con read/write por campo.
+- [x] A3: FeatureShell genérico; ≥2 dominios sin chrome `arq-clients` semántico.
+- [x] D1: users + roles (+ audit) con facade estándar (no solo clients).
+- [x] B1–B3: hecho **o** defer F67 explícito.
+- [x] C1: hubs / guías / agent mirrors al día.
 
 ## Fuera de alcance
 
 - Redesign Josanz/SaaS (salvo consumo de abstracciones `@base/*`).
 - Sustituir ADR 0012 sin ADR nuevo.
 - Auth session store (sigue auth data-access).
+
+## Siguiente ronda
+
+[F67](../plans-67-sixty-seven-round/) — FeatureShell board + adopción; entity-view
+rollout; Chromatic / Zod carries; ratchet store expand.

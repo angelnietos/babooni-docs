@@ -17,10 +17,10 @@ Cuándo usarla: tokens, Storybook, ownership de componentes, handoff desde Figma
 
 Estrategia operativa: [ui-strategy.md](./ui-strategy.md) (incluye **freeze F53+**).
 
-Ronda activa: [F66](../plans/rounds/plans-66-sixty-six-round/) — features SoC +
-FeatureShell + facade multi-dominio + entity views + carries (Chromatic / Zod /
-ESLint store). F65 cerró confirm+toast multi-stack, facade clients y ADR 0012.
-F64 portal/mobile e2e; F62 temas/`base-select`; F63 dual shell Ionic.
+Ronda activa: [F67](../plans/rounds/plans-67-sixty-seven-round/) — FeatureShell
+board + adopción; entity-view rollout; carries Chromatic / Zod; ratchet store.
+F66 cerró SoC features, FeatureShell cards/table, facade multi-dominio y entity
+piloto. F65 confirm+toast + ADR 0012; F64 portal/mobile e2e.
 
 ### Overlays → portal (F63 / F64-A1)
 
@@ -126,9 +126,9 @@ Gate: `node tools/checks/check-ui-ownership.mjs` (F53+: soft native-first).
 - Stories en el paquete **dueño** del componente — **ver `base-native-ui` primero**.
 - Inferencia: `@nx/storybook/plugin` en `nx.json`; puertos/styles/output en
   `project.json` por lib.
-- **CI visual / Chromatic (F66-B1):** sin `CHROMATIC_PROJECT_TOKEN` →
+- **CI visual / Chromatic (F67-B1):** sin `CHROMATIC_PROJECT_TOKEN` →
   `build-storybook` de `base-native-ui` (+ angular/react-ui) en CI es la señal
-  de rotura; Chromatic / Code Connect siguen en carry F66 (o defer F67).
+  de rotura; Chromatic / Code Connect siguen en carry F67 (o defer F68).
   Arquetipos SB (`arquetipos-*-ui`) ya tiene targets Nx; adapters brand only.
 
 ```bash
@@ -181,7 +181,8 @@ pnpm nx typecheck josanz-angular-ui
 
 - [josanz-product-exceptions.md](./josanz-product-exceptions.md)
 - [ci-gates.md](./ci-gates.md)
-- Planes [F66](../plans/rounds/plans-66-sixty-six-round/) (activa) ·
+- Planes [F67](../plans/rounds/plans-67-sixty-seven-round/) (activa) ·
+  [F66](../plans/rounds/plans-66-sixty-six-round/) ·
   [F65](../plans/rounds/plans-65-sixty-five-round/) ·
   [F64](../plans/rounds/plans-64-sixty-four-round/) ·
   [F63](../plans/rounds/plans-63-sixty-three-round/) /

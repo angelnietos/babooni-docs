@@ -11,7 +11,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
@@ -28,7 +28,7 @@ de atoms `@deprecated` (auth + chrome) a `Native*` / `<base-*>`.
 
 ## Criterios de aceptación
 
-- [ ] Cada sub-ítem: hecho **o** defer F67 con owner/blocker en residual note.
+- [x] Cada sub-ítem: hecho **o** defer F67 con owner/blocker en residual note.
 
 ## Verificación
 
