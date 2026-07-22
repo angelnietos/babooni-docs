@@ -24,7 +24,7 @@ src/styles/
 ├── components/  # helpers de host / CE
 ├── layout/      # shell / canvas
 ├── pages/       # composiciones canario (auth, clients; F62: users/roles/…)
-├── themes/      # CSS custom properties (platform + tenant cascade F62)
+├── themes/      # platform + tenants.css + arq-atmosphere-overrides.css
 ├── vendors/     # terceros
 └── main.scss
 ```
@@ -35,7 +35,11 @@ Clases: **BEM** (`block__element--modifier`), p. ej. `arq-auth__hero`.
 exports del paquete. Preferir `import '@base/ui-styles/pages/….css'` desde TS/JS
 de la feature, o ruta relativa desde SCSS/CSS de Angular/Ionic.
 
-Ronda activa de polish visual: [F62](../plans/rounds/plans-62-sixty-two-round/).
+Cascade tenant vs atmósfera (no invertir):
+[tenant-themes-checklist.md](./tenant-themes-checklist.md).
+
+Ronda activa de polish visual: [F62](../plans/rounds/plans-62-sixty-two-round/) ·
+[F63](../plans/rounds/plans-63-sixty-three-round/).
 
 ## Relación con otras capas UI
 

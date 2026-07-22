@@ -52,6 +52,22 @@ Detalle de paths: [arquetipos-thin-libs.md](../frontend/arquetipos-thin-libs.md)
 
 Multi añade `loginChildren` (switcher de tenant) y `brandColor` por tenant.
 
+## Temas tenant + atmósfera (Ionic multi)
+
+Misma API que Angular/React (`@base/shared`):
+
+1. Bootstrap: `applyArqDemoTenant()` **antes** de `applyArqVisualTheme()`.
+2. Settings (`@base/ionic-settings-features`): cards de identidad (5 tenants) +
+   atmósfera Switch/Connect/Studio + RBAC — paridad web.
+3. CSS global en `ionic-multi` `styles[]`: `tenants.css` +
+   `arq-atmosphere-overrides.css` (después de `variables.css`).
+4. Con tenant activo, atmósfera solo cambia radios; la marca (nav / CTA / canvas)
+   la pone el tenant (inline en `<html>` + `[data-arq-tenant]`).
+
+Checklist visual: [tenant-themes-checklist.md](../frontend/tenant-themes-checklist.md).
+
+Demo login: `admin@demo.com` / `admin` (también manager / member).
+
 ## Metro — React único (crítico)
 
 El monorepo hoist **React 19** en la raíz; Expo RN necesita **React 18**. Sin pin

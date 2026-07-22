@@ -149,6 +149,8 @@ Tokens compartidos: `@base/ui-tokens` (+ `./css`, `./rn`). A11y:
 
 Preferir variables CSS / theme del paquete UI. Evadir hex sueltos en features.
 F54: paquete `@base/ui-tokens` compartido web↔RN. F60: tipografía + motion + atmósfera.
+Arquetipos multi: **identidad tenant** gana sobre atmósfera tipográfica —
+[tenant-themes-checklist.md](./tenant-themes-checklist.md).
 
 ## Verificación
 

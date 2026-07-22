@@ -140,6 +140,7 @@ Rutas legacy (libs) F5–F7: [legacy-paths.md](./legacy-paths.md).
 | Nuevo primitivo UI / Lit SoT | [frontend/ui-strategy.md](./frontend/ui-strategy.md) ([ADR 0010](./adr/adr-0010-native-ui-lit-sot.md)) |
 | Storybook UI | [frontend/design-system.md](./frontend/design-system.md) ([ADR 0011](./adr/adr-0011-storybook-native-ui-first.md)) |
 | Mobile Ionic / RN | [guides/add-mobile-domain.md](./guides/add-mobile-domain.md) |
+| Temas tenant / atmósfera demo | [frontend/tenant-themes-checklist.md](./frontend/tenant-themes-checklist.md) |
 | Next.js | [guides/add-next-domain.md](./guides/add-next-domain.md) |
 | Module Federation | [guides/module-federation-dev.md](./guides/module-federation-dev.md) |
 | Keycloak | [guides/keycloak-setup.md](./guides/keycloak-setup.md) |
@@ -179,6 +180,7 @@ Rutas legacy (libs) F5–F7: [legacy-paths.md](./legacy-paths.md).
 | [arquetipos-thin-libs.md](./frontend/arquetipos-thin-libs.md) | Plantillas sin duplicar base |
 | [josanz-product-exceptions.md](./frontend/josanz-product-exceptions.md) | UI raíz, audit/users thin |
 | [design-system.md](./frontend/design-system.md) | Tokens, Storybook, catálogo, Figma |
+| [tenant-themes-checklist.md](./frontend/tenant-themes-checklist.md) | Tenant brand vs atmósfera (multi + Ionic) |
 | [ui-strategy.md](./frontend/ui-strategy.md) | Lit SoT + freeze framework-only + wrappers |
 | [ui-component-catalog.yaml](./frontend/ui-component-catalog.yaml) | Quién posee cada componente |
 | [ui-re-export-vs-wrapper.md](./guides/ui-re-export-vs-wrapper.md) | Re-export vs wrapper |

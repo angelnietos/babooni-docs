@@ -24,6 +24,7 @@
 | 4 | [../architecture/frontend-deep-dive.md](../architecture/frontend-deep-dive.md) | Deep dive capas |
 | 5 | [design-system.md](./design-system.md) | Tokens, Storybook ([ADR 0011](../adr/adr-0011-storybook-native-ui-first.md)), catálogo |
 | 5b | [ui-styles-7-1.md](./ui-styles-7-1.md) | Arquitectura CSS 7–1 (`@base/ui-styles`) para paridad visual |
+| 5c | [tenant-themes-checklist.md](./tenant-themes-checklist.md) | Identidad tenant vs atmósfera (Angular/React/Ionic) |
 | 6 | [arquetipos-thin-libs.md](./arquetipos-thin-libs.md) | Thin libs plantilla |
 | 7 | [workspace-packages.md](./workspace-packages.md) | exports ↔ paths |
 
@@ -32,6 +33,7 @@
 | Doc | Contenido |
 |-----|-----------|
 | [josanz-product-exceptions.md](./josanz-product-exceptions.md) | audit/users thin, angular-ui |
+| [tenant-themes-checklist.md](./tenant-themes-checklist.md) | Cascade `data-arq-tenant` + atmósfera secundaria |
 | [ui-component-catalog.yaml](./ui-component-catalog.yaml) | Ownership componentes |
 | [ci-gates.md](./ci-gates.md) | Gates FE |
 | [dual-stack-clients-parity.md](./dual-stack-clients-parity.md) | Paridad Angular↔React |
