@@ -414,11 +414,12 @@ Migrar dominios React Native a la topología de 8 capas.
 
 - **Estado:** Completo
 - Auditar y asegurar que TODA librería de dominio creada o existente cuente con:
-  - `jest.config.ts` o `vitest.config.ts` local.
+  - `jest.config.ts` local (unificado: Jest en todo el monorepo).
   - Target `"test"` configurado en `project.json`.
   - `.eslintrc.json` o `eslint.config.js` local.
   - Target `"lint"` configurado en `project.json`.
 - **Follow-up F76-B2**: Completada librería estructuralmente incompleta `libs/base/frontend/react/domains/settings/features/` (faltaban `project.json`, `tsconfig.lib.json`, `index.tsx`, `jest.config.ts`, `tsconfig.spec.json`, `settings.feature.ts` barrel). Ahora completa con `test`/`lint` targets y config.
+- **Estrategia unificada**: Todo el monorepo usa **Jest** como único runner (Angular: `jest-preset-angular`, React/Next: `ts-jest` + `jest.preset.next.cjs`).
 
 ## F76-B3 — CI Gates de API Pública (`check-public-api-barrels.mjs`)
 

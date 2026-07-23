@@ -123,7 +123,7 @@ Se ha establecido una configuración de testing por framework para maximizar la 
 |-----------|--------|--------|---------------|
 | **Angular** | Jest | `jest-preset-angular` | Soporte nativo de templates HTML, componentes, DI |
 | **React (libs base)** | Jest | `jest.preset.js` + `ts-jest` | Compatibilidad Nx, entorno node/jsdom |
-| **Next.js (libs + apps)** | Vitest | `@vitejs/plugin-react` | Nativo en Vite/Next.js, mejor HMR, ESM first |
+| **Next.js (libs + apps)** | Jest | `jest.preset.next.cjs` + `ts-jest` | Unifica runner, reusa `jest.shared.cjs`, `ts-jest` para TS/TSX |
 | **React Native** | Jest | `jest-expo` / `metro` | Requerido por ecosistema RN |
 
 **Regla**: Un solo runner por framework. No mezclar Jest + Vitest en el mismo scope de librería.

@@ -72,7 +72,7 @@ Todas las librerías creadas o migradas deben contar obligatoriamente con:
 **Runner por framework (F75-F2 / F76-B2)**:
 - Angular → Jest (`jest-preset-angular`)
 - React (libs base) → Jest (`jest.preset.js` + `ts-jest`)
-- Next.js (libs + apps) → Vitest (`@vitejs/plugin-react`)
+- Next.js (libs + apps) → Jest (`jest.preset.next.cjs` + `ts-jest`)
 - React Native → Jest (`jest-expo` / `metro`)
 
 Un solo runner por framework. No mezclar Jest + Vitest en el mismo scope.
