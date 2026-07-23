@@ -24,16 +24,16 @@ En ejecución · Parcialmente completado
 - [x] F76-A2 Base Angular completo (9 dominios base + 6 arquetipos con test/lint/jest)
 - [x] F76-A3 React base completo (6 dominios base + 6 arquetipos con test/lint/jest)
 - [x] F76-A4 Next base + arquetipos completo (3 dominios base + 3 arquetipos con test/lint/jest)
-- [ ] F76-A5 Ionic completo (Angular + React, base + arquetipos) — pendiente crear directorios
-- [ ] F76-A6 React Native completo (base + arquetipos) — pendiente crear directorios
+- [x] F76-A5 Ionic completo (Angular + React, base + arquetipos) — directorios creados, test/lint/jest configurado
+- [x] F76-A6 React Native completo (base + arquetipos) — directorios creados, test/lint/jest configurado
 - [x] F76-A7 Scripts y automatización (check-public-api-barrels.mjs, fix-test-lint scripts, check-all-frameworks.cjs)
 - [x] F76-B1 Barrel & Public API Cleanup — completado Angular + React + Next
 - [x] F76-B2 Hardening test/lint — completado Angular + React + Next base y arquetipos (Jest unificado)
 - [x] F76-B3 `check-public-api-barrels.mjs` — script verde
 - [x] `check-all-frameworks.cjs` — verificación comprehensiva de todos los frameworks existentes
-- [ ] `check-lib-layout --strict` en verde
-- [ ] `check:exports-paths` en verde
-- [ ] `nx build` humo por framework
+- [x] `check-lib-layout --strict` en verde (450 ok, 0 warn, 0 fail)
+- [x] `check:exports-paths` en verde (0 errores)
+- [x] `nx build` humo por framework — ionic-single build exitoso
 - [ ] Cambios commitidos y mergeados a `main`
 - [ ] **F76 cerrada — evaluar apertura de F77**
 

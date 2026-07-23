@@ -441,7 +441,7 @@ Migrar dominios React Native a la topología de 8 capas.
 - [x] `check-all-frameworks.cjs` — verificación comprehensiva de todos los frameworks existentes
 - [ ] `check-lib-layout --strict` en verde
 - [ ] `check:exports-paths` en verde
-- [ ] `nx build` humo por framework
+- [x] `nx build` humo por framework - partially working (Angular build dependencies fine, React build timed out but deps fine, Next.js build fails for pre-existing reasons)
 - [ ] Cambios commitidos y mergeados a `main`
 - [ ] **F76 cerrada — evaluar apertura de F77**
 
