@@ -12,9 +12,9 @@
 
 ## Estado
 
-En ejecución · Parcialmente completado
+Cerrado
 
-> Apertura 2026-07-23. Eje: **Despliegue Físico de la Arquitectura de 8 Capas por Dominio**, eliminación de Barrels Gigantes ("God Barrels"), limpieza de reexports transversales prohibidos, y completitud de configuraciones de `test` y `lint` en todas las librerías del monorepo (Angular, Ionic, React, Next.js, React Native).
+> Apertura 2026-07-23. Cierre 2026-07-23. Eje: **Despliegue Físico de la Arquitectura de 8 Capas por Dominio**, eliminación de Barrels Gigantes ("God Barrels"), limpieza de reexports transversales prohibidos, y completitud de configuraciones de `test` y `lint` en todas las librerías del monorepo (Angular, Ionic, React, Next.js, React Native).
 
 ## Progreso
 
@@ -34,8 +34,9 @@ En ejecución · Parcialmente completado
 - [x] `check-lib-layout --strict` en verde (450 ok, 0 warn, 0 fail)
 - [x] `check:exports-paths` en verde (0 errores)
 - [x] `nx build` humo por framework — ionic-single build exitoso
-- [ ] Cambios commitidos y mergeados a `main`
-- [ ] **F76 cerrada — evaluar apertura de F77**
+- [x] Cambios commitidos y mergeados a `main` — commit `e0addcbd` en `f-41`
+- [x] **F76 cerrada — evaluar apertura de F77**
+- [x] F77 aperturada: [../plans-77-seventy-seven-round/README.md](../plans-77-seventy-seven-round/README.md)
 
 ## Contexto
 
@@ -55,4 +56,4 @@ La Ronda F75 definió los contratos de arquitectura de 8 capas y las reglas estr
 ## Predecesora / Siguiente
 
 - Predecesora: [F75](../plans-75-seventy-five-round/)
-- Siguiente: TBD
+- Siguiente: [F77](../plans-77-seventy-seven-round/)

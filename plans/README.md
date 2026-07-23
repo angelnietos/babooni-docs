@@ -30,6 +30,7 @@ Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `traslad
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
+| [plans-77](./rounds/plans-77-seventy-seven-round/) | listo para ejecutar | mobile parity, Next.js build fix, React base completion |
 | [plans-72](./rounds/plans-72-seventy-two-round/) | listo para ejecutar | cierre carries F71; paridad scaffolding features multi-framework |
 
 ## Rondas completadas (archivo)
