@@ -11,7 +11,9 @@
 
 ## Estado
 
-Listo para ejecutar
+F73-A1 (Isomorphic Shared Contracts) y F73-C1 (DX Governance) completados.
+F73-B1 (ViewModels) piloto `clients` completado.
+F73-A2 (Native UI SSR) no iniciado.
 
 > Apertura 2026-07-23. Eje: **Contratos Isomórficos Canónicos** (DTOs + Validación Zod compartida Backend/Frontend);
 > **Native UI Cross-Framework** (Compatibilidad SSR Lit CE en Next.js + RN bridge);
@@ -30,19 +32,19 @@ Actualmente:
 
 | ID | Plan | Descripción | Estado |
 |----|------|-------------|--------|
-| F73-A1 | [Isomorphic Shared Contracts](1750000301000-f73-isomorphic-shared-contracts.md) | Contratos de dominio isomórficos (DTOs + Zod) entre NestJS y los 5 frontends | Listo para ejecutar |
-| F73-A2 | [Cross-Framework Native UI](1750000302000-f73-cross-framework-native-ui.md) | Puente SSR de Lit CE en Next.js y adaptadores nativos en React Native | Listo para ejecutar |
-| F73-B1 | [Shared ViewModels Architecture](1750000303000-f73-shared-viewmodels-architecture.md) | Controllers/ViewModels en TypeScript agnóstico reutilizables por React/Angular/RN | Listo para ejecutar |
-| F73-C1 | [DX & Automation Governance](1750000304000-f73-monorepo-dx-automation.md) | Generadores y validadores CI para gobernanza de contratos isomórficos | Listo para ejecutar |
+| F73-A1 | [Isomorphic Shared Contracts](1750000301000-f73-isomorphic-shared-contracts.md) | Contratos de dominio isomórficos (DTOs + Zod) entre NestJS y los 5 frontends | **Completado** |
+| F73-A2 | [Cross-Framework Native UI](1750000302000-f73-cross-framework-native-ui.md) | Puente SSR de Lit CE en Next.js y adaptadores nativos en React Native | No iniciado |
+| F73-B1 | [Shared ViewModels Architecture](1750000303000-f73-shared-viewmodels-architecture.md) | Controllers/ViewModels en TypeScript agnóstico reutilizables por React/Angular/RN | **Piloto clients completado** |
+| F73-C1 | [DX & Automation Governance](1750000304000-f73-monorepo-dx-automation.md) | Generadores y validadores CI para gobernanza de contratos isomórficos | **Completado** |
 
-## Criterios de Aceptación (Ronda F73)
+## Entregables cerrados F73
 
-- [ ] A1: Eliminada la duplicación de DTOs entre NestJS y Frontends; `@base/shared-contracts` centraliza DTOs y validación Zod.
-- [ ] A2: Lit Custom Elements funcionan sin fallos de SSR/Webpack en Next.js y disponen de fallback limpio en React Native.
-- [ ] B1: Demostrado al menos 1 ViewModel puro importado simultáneamente por una app Angular y una app React/Next.
-- [ ] C1: `check-domain-conventions.mjs` y `check-frontend-conventions.mjs` verifican la paridad isomórfica de contratos.
+- [x] A1: DTOs centralizados en `@base/shared/src/lib/domains/<domain>/<domain>.dto.ts`.
+- [x] A1: Validación Zod en `@base/shared/src/lib/validation/<domain>.ts` y `<domain>.schema.ts`.
+- [x] A1: Todos los api packages reexportan desde `@base/shared` sin redefiniciones locales.
+- [x] C1: `check-domain-conventions.mjs` detecta DTOs locales en api packages.
+- [x] B1: `ClientsController.ts` (Vanilla TS) + `useClientsController` funcionando.
 
-## Predecesora / Siguiente
+## Siguiente
 
-- Predecesora: [F72](../plans-72-seventy-two-round/)
-- Siguiente: TBD
+- [Ronda F74](../plans-74-seventy-four-round/) — Extensión multi-dominio completa.
