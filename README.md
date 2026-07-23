@@ -259,8 +259,8 @@ pnpm check:legacy-paths
 pnpm check:migration-encoding
 ```
 
-Última ronda cerrada: **[F70](./plans/rounds/plans-70-seventy-round/)**.
-Ronda activa: **[F71](./plans/rounds/plans-71-seventy-one-round/)** — carries F70 (Chromatic/Zod/deprecated) + expansión board.
+Última ronda cerrada: **[F71](./plans/rounds/plans-71-seventy-one-round/)**.
+Ronda activa: **[F72](./plans/rounds/plans-72-seventy-two-round/)** — cierre carries F71 + paridad scaffolding features multi-framework.
 Índice: [plans/README.md](./plans/README.md).
 
 Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md).  

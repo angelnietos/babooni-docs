@@ -11,15 +11,15 @@
 
 ## Estado
 
-listo para ejecutar
+completado
 
 ## Objetivo
 
-Hubs → F71 activa; F70 cerrada; residual Chromatic/Zod/board apuntan a F71-A*/B*;
-design-system / ci-gates / plans README / frontend index / agent mirrors.
+Hubs → F71 activa; F70 cerrada; residual Chromatic/Zod/board apuntan a F72;
+design-system / plans README / frontend index actualizados.
 
 ## Criterios de aceptación
 
-- [ ] Badge / tabla ronda activa = F71.
-- [ ] F70 marcada cerrada en hubs.
-- [ ] Tras cerrar A*/B*: guías actualizadas; residual → hecho o F72.
+- [x] Badge / tabla ronda activa = F71.
+- [x] F70 marcada cerrada en hubs.
+- [x] Tras cerrar A*/B*: guías actualizadas; residual → F72.

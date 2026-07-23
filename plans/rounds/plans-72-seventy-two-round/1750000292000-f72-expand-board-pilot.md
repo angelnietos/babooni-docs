@@ -2,21 +2,21 @@
   <img src="../../../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
 </p>
 
-<h1 align="center">F71-A2 — Expand board pilot</h1>
+<h1 align="center">F72-A2 — Expand board pilot</h1>
 
 <p align="center">
   <img alt="arquetipos" src="https://img.shields.io/badge/arquetipos-0f766e?style=flat-square" />
-  <a href="./README.md"><img alt="F71" src="https://img.shields.io/badge/round-F71-14b8a6?style=flat-square" /></a>
+  <a href="./README.md"><img alt="F72" src="https://img.shields.io/badge/round-F72-14b8a6?style=flat-square" /></a>
 </p>
 
 ## Estado
 
-completado (defer F72)
+listo para ejecutar
 
 ## Objetivo
 
-F70-A1 entregó `/tasks` con `<base-board>`. F71-A2 expande el piloto a
-**≥1 dominio adicional** y agrega e2e smoke desktop + narrow.
+F70-A1 entregó `/tasks` con `<base-board>`. F71-A2 deferió por falta de
+datos demo + harness e2e. F72-A2 retoma el piloto.
 
 | Sub-ítem | Blocker |
 |----------|---------|
@@ -31,7 +31,7 @@ F70-A1 entregó `/tasks` con `<base-board>`. F71-A2 expande el piloto a
 
 ## Criterios de aceptación
 
-- [ ] ≥2 dominios usan `presentation="board"` **o** defer F72 (owner + blocker).
+- [ ] ≥2 dominios usan `presentation="board"` **o** defer F73 (owner + blocker).
 - [ ] e2e board pasa en desktop y narrow.
 - [ ] Typecheck stacks tocados.
 

@@ -17,9 +17,9 @@ Cuándo usarla: tokens, Storybook, ownership de componentes, handoff desde Figma
 
 Estrategia operativa: [ui-strategy.md](./ui-strategy.md) (incluye **freeze F53+**).
 
-Ronda activa: [F70](../plans/rounds/plans-70-seventy-round/) — board piloto;
-Ionic audit rollout; Chromatic/Zod carries. F69 cerró auto presentation harden,
-users/roles `ArqIonFeatureShell`, retire `clients-list*`.
+Ronda activa: [F71](../plans/rounds/plans-71-seventy-one-round/) — carries F70 (Chromatic/Zod/deprecated) + expansión board;
+Ionic audit rollout. F70 cerró board piloto (tasks), Chromatic/Zod/deprecated deferred,
+y docs polish.
 
 ### Overlays → portal (F63 / F64-A1)
 
@@ -125,9 +125,9 @@ Gate: `node tools/checks/check-ui-ownership.mjs` (F53+: soft native-first).
 - Stories en el paquete **dueño** del componente — **ver `base-native-ui` primero**.
 - Inferencia: `@nx/storybook/plugin` en `nx.json`; puertos/styles/output en
   `project.json` por lib.
-- **CI visual / Chromatic (F69-B1):** sin `CHROMATIC_PROJECT_TOKEN` →
+- **CI visual / Chromatic (F71-A1):** sin `CHROMATIC_PROJECT_TOKEN` →
   `build-storybook` de `base-native-ui` (+ angular/react-ui) en CI es la señal
-  de rotura; Chromatic / Code Connect / migración auth+chrome → **defer F70**
+  de rotura; Chromatic / Code Connect / migración auth+chrome → **defer F72**
   ([deprecated-atoms-residual.md](./deprecated-atoms-residual.md)).
   Arquetipos SB (`arquetipos-*-ui`) ya tiene targets Nx; adapters brand only.
 
@@ -146,7 +146,7 @@ Tokens compartidos: `@base/ui-tokens` (+ `./css`, `./rn`). A11y:
 [figma-native-ui-map.md](./figma-native-ui-map.md). Deprecated residual:
 [deprecated-atoms-residual.md](./deprecated-atoms-residual.md). Validación
 isomórfica: [ADR 0012](../adr/adr-0012-isomorphic-validation.md) +
-[isomorphic-validation-defer.md](./isomorphic-validation-defer.md) (Zod → F70).
+[isomorphic-validation-defer.md](./isomorphic-validation-defer.md) (Zod → F72).
 Estado / SoC facade: [state-soc-facade.md](./state-soc-facade.md).
 Features SoC + layout: [features-layout-soc.md](./features-layout-soc.md).
 Entity field views: [entity-view-abstractions.md](./entity-view-abstractions.md).
@@ -181,8 +181,8 @@ pnpm nx typecheck josanz-angular-ui
 
 - [josanz-product-exceptions.md](./josanz-product-exceptions.md)
 - [ci-gates.md](./ci-gates.md)
-- Planes [F69](../plans/rounds/plans-69-sixty-nine-round/) (activa) ·
-  [F68](../plans/rounds/plans-68-sixty-eight-round/) ·
+- Planes [F72](../plans/rounds/plans-72-seventy-two-round/) (activa) ·
+  [F71](../plans/rounds/plans-71-seventy-one-round/) (cerrada) ·
   [F67](../plans/rounds/plans-67-sixty-seven-round/) ·
   [F66](../plans/rounds/plans-66-sixty-six-round/) ·
   [F65](../plans/rounds/plans-65-sixty-five-round/) ·

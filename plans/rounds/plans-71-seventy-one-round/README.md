@@ -11,7 +11,7 @@
 
 ## Estado
 
-listo para ejecutar
+completado (carries deferidos a F72; docs actualizadas)
 
 > Apertura 2026-07-23. Eje: **resolución carries F70** (Chromatic/Zod/deprecated);
 > **expansión board piloto** (más dominios + e2e); **docs** al día.
@@ -23,10 +23,10 @@ F70 cerró board piloto (tasks), Ionic audit rollout, y docs polish. Quedaron de
 | Deuda / gap | Plan F71 |
 |-------------|----------|
 | Chromatic CI soft + Code Connect | A1 |
-| Migración auth + chrome → Native | A2 |
+| Migración auth + chrome → Native | A1 |
 | Zod kit piloto / ADR 0013 addendum | B1 |
-| Expandir board a más dominios + e2e | B2 |
-| Docs + hub F71 | C1 |
+| Expandir board a más dominios + e2e | A2 |
+| Docs + hub F71 | B2 |
 
 **Contrato:**
 
@@ -39,16 +39,16 @@ F70 cerró board piloto (tasks), Ionic audit rollout, y docs polish. Quedaron de
 
 | ID | Plan | Estado |
 |----|------|--------|
-| F71-A1 | [Carry: Chromatic / deprecated](1750000281000-f71-carry-chromatic-deprecated.md) | listo para ejecutar |
-| F71-A2 | [Expand board pilot](1750000282000-f71-expand-board-pilot.md) | listo para ejecutar |
-| F71-B1 | [Carry: Zod kit](1750000283000-f71-carry-zod-kit.md) | listo para ejecutar |
-| F71-B2 | [Docs polish + hub F71](1750000284000-f71-documentation-polish.md) | listo para ejecutar |
+| F71-A1 | [Carry: Chromatic / deprecated](1750000281000-f71-carry-chromatic-deprecated.md) | completado (defer F72) |
+| F71-A2 | [Expand board pilot](1750000282000-f71-expand-board-pilot.md) | completado (defer F72) |
+| F71-B1 | [Carry: Zod kit](1750000283000-f71-carry-zod-kit.md) | completado (defer F72) |
+| F71-B2 | [Docs polish + hub F71](1750000284000-f71-documentation-polish.md) | completado |
 
 ## Criterios de aceptación (ronda)
 
-- [ ] A1–A2: hecho **o** defer F72 con owner + blocker explícito.
-- [ ] B1: Zod piloto **o** defer F72 (sin silencios).
-- [ ] B2: hubs / residual notes actualizados a F71.
+- [x] A1–A2: hecho **o** defer F72 con owner + blocker explícito.
+- [x] B1: Zod piloto **o** defer F72 (sin silencios).
+- [x] B2: hubs / residual notes actualizados a F71.
 
 ## Fuera de alcance
 
@@ -59,6 +59,6 @@ F70 cerró board piloto (tasks), Ionic audit rollout, y docs polish. Quedaron de
 ## Predecesora / siguiente
 
 - Cerrada: [F70](../plans-70-seventy-round/)
-- Siguiente: TBD
+- Siguiente: [F72](../plans-72-seventy-two-round/)
 - Residual visual: [deprecated-atoms-residual.md](../../../frontend/deprecated-atoms-residual.md)
 - Residual validación: [isomorphic-validation-defer.md](../../../frontend/isomorphic-validation-defer.md)
