@@ -418,6 +418,7 @@ Migrar dominios React Native a la topología de 8 capas.
   - Target `"test"` configurado en `project.json`.
   - `.eslintrc.json` o `eslint.config.js` local.
   - Target `"lint"` configurado en `project.json`.
+- **Follow-up F76-B2**: Completada librería estructuralmente incompleta `libs/base/frontend/react/domains/settings/features/` (faltaban `project.json`, `tsconfig.lib.json`, `index.tsx`, `jest.config.ts`, `tsconfig.spec.json`, `settings.feature.ts` barrel). Ahora completa con `test`/`lint` targets y config.
 
 ## F76-B3 — CI Gates de API Pública (`check-public-api-barrels.mjs`)
 

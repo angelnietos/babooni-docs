@@ -115,8 +115,29 @@ Cada librería existente y cada nueva librería creada por la arquitectura canó
 
 ---
 
-## Validación Automática en CI (`check-public-api-barrels.mjs`)
+## Estrategia de Testing Unificada (F75-F2 / F76-B2)
 
-Se añade el script de CI `tools/ci/check-public-api-barrels.mjs` que escanea todos los archivos `index.ts` del monorepo y **falla el build** si detecta:
-- Sentencias `export * from '@base/*'` hacia otras librerías sin el tag `// TODO F75 remove after migration`.
-- Exportaciones de Guards, Stores, Componentes o Directivas desde librerías clasificadas como `type:api`.
+Se ha establecido una configuración de testing por framework para maximizar la compatibilidad:
+
+| Framework | Runner | Preset | Justificación |
+|-----------|--------|--------|---------------|
+| **Angular** | Jest | `jest-preset-angular` | Soporte nativo de templates HTML, componentes, DI |
+| **React (libs base)** | Jest | `jest.preset.js` + `ts-jest` | Compatibilidad Nx, entorno node/jsdom |
+| **Next.js (libs + apps)** | Vitest | `@vitejs/plugin-react` | Nativo en Vite/Next.js, mejor HMR, ESM first |
+| **React Native** | Jest | `jest-expo` / `metro` | Requerido por ecosistema RN |
+
+**Regla**: Un solo runner por framework. No mezclar Jest + Vitest en el mismo scope de librería.
+**Validación CI**: `F75-RULE-8` exige `test` target + config local en cada `project.json`.
+
+---
+
+## Completitud Estructural (F76-B2 Follow-up)
+
+Para que `test` / `lint` targets sean válidos, la librería debe ser **estructuralmente completa**:
+- `project.json` existente
+- `package.json` con `name`, `main`/`exports` válidos
+- `tsconfig.lib.json` (o `tsconfig.json`) para build
+- `src/index.ts[x]` entry point válido (no vacío, `export {}`)
+- `jest.config.ts` / `vitest.config.ts` + `tsconfig.spec.json` si aplica `test`
+
+El caso `libs/base/frontend/react/domains/settings/features/` era **incompleto** (faltaba `project.json`, `tsconfig.lib.json`, `index.tsx`, `jest.config.ts`, `tsconfig.spec.json`). Se completó en F76-B2 follow-up.

@@ -34,13 +34,13 @@ Implementar verificaciones automáticas en CI y scripts de gobernanza para valid
 
 ```bash
 # Ejecutar verificación de gobernanza frontend F75
-node tools/ci/check-frontend-conventions.mjs
+node tools/checks/check-frontend-conventions.mjs
 
 # Ejecutar verificación de contratos de dominio F75
-node tools/ci/check-domain-conventions.mjs
+node tools/checks/check-domain-conventions.mjs
 
 # Ejecutar auditoría de Public API Barrels (Prohibición de God Barrels)
-node tools/ci/check-public-api-barrels.mjs
+node tools/checks/check-public-api-barrels.mjs
 ```
 
 ## Configuración ESLint (Boundary Check)

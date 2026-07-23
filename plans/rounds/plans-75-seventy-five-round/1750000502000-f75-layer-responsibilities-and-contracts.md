@@ -68,3 +68,11 @@ Definir de forma inequívoca el contrato de responsabilidades, entradas, salidas
 Todas las librerías creadas o migradas deben contar obligatoriamente con:
 - Target `"test"` en `project.json` respaldado por `jest.config.ts` o `vitest.config.ts`.
 - Target `"lint"` en `project.json` respaldado por `.eslintrc.json` o `eslint.config.js`.
+
+**Runner por framework (F75-F2 / F76-B2)**:
+- Angular → Jest (`jest-preset-angular`)
+- React (libs base) → Jest (`jest.preset.js` + `ts-jest`)
+- Next.js (libs + apps) → Vitest (`@vitejs/plugin-react`)
+- React Native → Jest (`jest-expo` / `metro`)
+
+Un solo runner por framework. No mezclar Jest + Vitest en el mismo scope.
