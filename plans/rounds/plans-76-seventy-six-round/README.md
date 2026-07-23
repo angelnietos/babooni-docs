@@ -18,18 +18,24 @@ En ejecución · Parcialmente completado
 
 ## Progreso
 
-- [x] F75-F1 — God barrels & transversal re-exports eliminados de Angular; `tools/checks/check-public-api-barrels.mjs` verde.
-- [x] F75-F2 — `test` y `lint` targets agregados a 30 base Angular domain libs; `jest.config.ts` y `tsconfig.spec.json` generados.
-- [ ] F76-A1 Next base clients (planeado)
-- [x] F76-A2.1 Base Angular: clients (estructura base + api barrel limpia)
-- [ ] F76-A2.2..F76-A2.10 Base/Arquetipos Angular resto dominios
-- [ ] F76-A3 React completo (base + arquetipos)
-- [ ] F76-A4 Next completo (resto base + arquetipos)
-- [ ] F76-A5 Ionic completo
-- [ ] F76-A6 React Native completo
-- [x] F76-B1 Barrel & Public API Cleanup — Angular completado
-- [x] F76-B2 Hardening test/lint — Angular base completado
+- [x] F75-F1 — God barrels / transversal re-exports eliminados; `tools/checks/check-public-api-barrels.mjs` verde.
+- [x] F75-F2 — Configuración `test` / `lint` completa en Angular base (28 libs), React base (20 libs), Next base + arquetipos (17 libs base + 2 apps).
+- [x] F76-A1 Next base clients completado (predecessor F75 pilot)
+- [x] F76-A2 Base Angular completo (9 dominios base + 6 arquetipos con test/lint/jest)
+- [x] F76-A3 React base completo (6 dominios base + 6 arquetipos con test/lint/jest)
+- [x] F76-A4 Next base + arquetipos completo (3 dominios base + 3 arquetipos con test/lint/jest)
+- [ ] F76-A5 Ionic completo (Angular + React, base + arquetipos) — pendiente crear directorios
+- [ ] F76-A6 React Native completo (base + arquetipos) — pendiente crear directorios
+- [x] F76-A7 Scripts y automatización (check-public-api-barrels.mjs, fix-test-lint scripts, check-all-frameworks.cjs)
+- [x] F76-B1 Barrel & Public API Cleanup — completado Angular + React + Next
+- [x] F76-B2 Hardening test/lint — completado Angular + React + Next base y arquetipos (Jest unificado)
 - [x] F76-B3 `check-public-api-barrels.mjs` — script verde
+- [x] `check-all-frameworks.cjs` — verificación comprehensiva de todos los frameworks existentes
+- [ ] `check-lib-layout --strict` en verde
+- [ ] `check:exports-paths` en verde
+- [ ] `nx build` humo por framework
+- [ ] Cambios commitidos y mergeados a `main`
+- [ ] **F76 cerrada — evaluar apertura de F77**
 
 ## Contexto
 

@@ -429,16 +429,16 @@ Migrar dominios React Native a la topología de 8 capas.
 ## Checklist de Cierre de F76
 
 - [x] F76-A1 Next base clients completado (predecessor F75 pilot)
-- [x] F76-A2.1 Base Angular: clients (api/ui/domain/shared/testing + test/lint targets)
-- [ ] F76-A2..F76-A2.10 Angular resto dominios (audit, auth, billing, inventory, projects, roles, settings, users + arquetipos)
-- [ ] F76-A3 React completo (base + arquetipos)
-- [ ] F76-A4 Next completo (resto base + arquetipos)
-- [ ] F76-A5 Ionic completo (Angular + React, base + arquetipos)
-- [ ] F76-A6 React Native completo (base + arquetipos)
-- [ ] F76-A7 Scripts y automatización
-- [x] F76-B1 Limpieza de "God Barrels" y reexports transversales completada (Angular api, kernel, arquetipos barrel)
-- [x] F76-B2 Configuración de `test` y `lint` auditada y completa en base Angular (30 libs)
+- [x] F76-A2 Base Angular completo (9 dominios base + 6 arquetipos + test/lint/jest configs)
+- [x] F76-A3 React base completo (6 dominios: audit, auth, clients, roles, settings, users)
+- [x] F76-A4 Next base + arquetipos completo (3 dominios: auth, clients, users + arquetipos)
+- [ ] F76-A5 Ionic completo (Angular + React, base + arquetipos) — pendiente crear directorios
+- [ ] F76-A6 React Native completo (base + arquetipos) — pendiente crear directorios
+- [x] F76-A7 Scripts y automatización (check-public-api-barrels.mjs, fix-test-lint scripts)
+- [x] F76-B1 Limpieza de "God Barrels" y reexports transversales completada (Angular api, kernel, arquetipos barrel, React kernel)
+- [x] F76-B2 Configuración de `test` y `lint` auditada y completa en Angular + React + Next base y arquetipos (unified Jest: jest-preset-angular / jest.preset.js / jest.preset.next.cjs)
 - [x] F76-B3 Script `check-public-api-barrels.mjs` verde
+- [x] `check-all-frameworks.cjs` — verificación comprehensiva de todos los frameworks existentes
 - [ ] `check-lib-layout --strict` en verde
 - [ ] `check:exports-paths` en verde
 - [ ] `nx build` humo por framework
