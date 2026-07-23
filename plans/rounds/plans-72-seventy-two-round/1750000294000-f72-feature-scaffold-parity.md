@@ -1,18 +1,13 @@
-La idea es buena, pero todavía está demasiado centrada en "crear carpetas". Yo lo convertiría en una historia de arquitectura que defina el **contrato de los features** para todos los frameworks y que además automatice su cumplimiento.
+<p align="center">
+  <img src="../../../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
+</p>
 
-Hay varias cosas que añadiría:
+<h1 align="center">F72-C1 — Canonical Feature Architecture (Multi-Framework Parity)</h1>
 
-* Separar claramente **definición del contrato**, **migración**, **automatización** y **validación**.
-* Añadir una fase para actualizar los **generators** (si no, el problema volverá a aparecer).
-* Definir excepciones explícitas para cada framework.
-* Documentar qué puede vivir en cada carpeta y qué no.
-* Añadir comprobaciones de dependencias (no solo existencia de carpetas).
-
-Una versión más completa sería algo como esta.
-
----
-
-# F72-C1 — Canonical Feature Architecture (Multi-Framework Parity)
+<p align="center">
+  <img alt="arquetipos" src="https://img.shields.io/badge/arquetipos-0f766e?style=flat-square" />
+  <a href="./README.md"><img alt="F72" src="https://img.shields.io/badge/round-F72-14b8a6?style=flat-square" /></a>
+</p>
 
 ## Estado
 
@@ -20,594 +15,144 @@ Listo para ejecutar
 
 ---
 
-# Objetivo
+## Objetivo
 
-Definir e implantar un **contrato único de arquitectura para todos los features frontend**, independientemente del framework (Angular, React, Next, Ionic y React Native), de forma que:
+Definir e implantar un **contrato único de arquitectura para todos los features frontend**, agnóstico al 100% del framework (Angular, React, Next, Ionic y React Native), de forma que:
 
-* todos los dominios compartan la misma organización mental;
-* los generadores creen siempre la misma estructura;
-* las validaciones impidan desviaciones futuras;
-* la migración sea automática cuando sea posible.
+* Todos los dominios compartan exactamente la misma organización mental y física.
+* Los generadores creen siempre la misma estructura universal.
+* Las validaciones impidan desviaciones futuras y acoplamiento excesivo.
+* La migración sea automática cuando sea posible.
+* La lógica de negocio y de presentación (view-models, stores) sea portable entre frameworks.
 
-Esta ronda consolida el trabajo iniciado en F66-A1 (SoC) y establece el **Canonical Feature Architecture** del monorepo.
-
----
-
-# Motivación
-
-Actualmente existen pequeñas diferencias entre stacks:
-
-* hooks mezclados con componentes;
-* lógica de panel distribuida;
-* ausencia de `services/` o `hooks/`;
-* algunos stacks sin scaffold estándar.
-
-Esto provoca:
-
-* mayor carga cognitiva;
-* menor reutilización;
-* documentación diferente según framework;
-* generadores inconsistentes.
-
-F72 elimina esas diferencias.
+Esta ronda consolida el trabajo iniciado en F66-A1 (SoC) y establece el **Canonical Framework-Agnostic Feature Architecture** del monorepo.
 
 ---
 
-# Contrato canónico
+## Motivación
 
-Todos los frameworks utilizan exactamente la misma estructura conceptual.
+Actualmente existen pequeñas diferencias estructurales entre stacks:
+* Hooks mezclados con componentes en React.
+* Lógica de panel distribuida diferentemente según el framework.
+* Presencia de `services/` en Angular vs `hooks/` en React, lo que impide una visión verdaderamente agnóstica.
+* Algunos stacks sin scaffold estándar.
 
-```
+Esto provoca mayor carga cognitiva, menor reutilización, documentación fragmentada y dificulta compartir lógica pura de TypeScript entre diferentes apps del monorepo.
+
+---
+
+## Contrato canónico
+
+Todos los frameworks utilizan exactamente la misma estructura conceptual y física. Se eliminan las carpetas específicas de framework (`services/`, `hooks/`) en favor de una abstracción unificada (`logic/` o `store/`).
+
+```text
 features/
 └── src/
-    ├── layout/
-    ├── pages/
-    ├── components/
-    ├── services/     (Angular / Ionic)
-    ├── hooks/        (React / Next / RN)
-    ├── *.routes.ts[x]
-    └── index.ts[x]
+    ├── layout/       (Composición visual, sin lógica de negocio)
+    ├── pages/        (Targets de routing, glue code mínimo)
+    ├── components/   (Componentes UI reutilizables del feature)
+    ├── logic/        (Controladores, ViewModels, Hooks puros o Servicios TS)
+    ├── routes.ts     (Configuración de rutas)
+    └── index.ts      (API pública del feature)
 ```
 
-## Significado de cada carpeta
+### 1. `layout/`
+**Responsabilidad:** Composición visual del dominio (chrome, wrappers, outlets, tabs, split views).
+**Restricción:** Nunca contiene llamadas HTTP, estado global o reglas de negocio.
 
-### layout/
+### 2. `pages/`
+**Responsabilidad:** Targets de enrutamiento. Su misión es conectar el router con el layout y los componentes.
+**Restricción:** Código extremadamente fino (glue code). Sin lógica condicional compleja.
 
-Responsabilidad:
+### 3. `components/`
+**Responsabilidad:** Componentes UI reutilizables dentro del feature (presentacionales o contenedores ligeros).
+**Restricción:** No realizan data fetching directo ni coordinan flujos complejos; delegan en `logic/`.
 
-* composición visual del dominio
-* chrome
-* wrappers
-* outlets
-* tabs
-* split views
+### 4. `logic/` (Reemplaza `services/` y `hooks/`)
+**Responsabilidad:** Coordinar el estado del panel, la interacción de UI y la conexión con `data-access/`.
+**Contenido:**
+- Clases de TypeScript agnósticas (ViewModels/Controllers).
+- Máquinas de estado (XState).
+- Stores locales (Zustand vanilla, Signals puros).
+- *Adaptadores* mínimos para el framework (ej. un custom hook que envuelve una clase TS, o un Injectable que expone un store).
+**Restricción:** Es la única capa del feature autorizada para orquestar lógica compleja. Sin acoplamiento a componentes de UI.
 
-Nunca contiene:
-
-* llamadas HTTP
-* estado
-* lógica de negocio
+### 5. `routes.ts` e `index.ts`
+- **routes.ts**: Configuración pura de rutas.
+- **index.ts**: Único punto de exportación pública (Barrel file).
 
 ---
 
-### pages/
+## Reglas arquitectónicas universales
 
-Responsabilidad:
-
-targets de routing.
-
-Debe ser extremadamente fino.
-
-Ejemplo:
-
-```
-route
-↓
-
-page
-
-↓
-
-layout
-
-↓
-
-components
-```
+- **R1 (Estructura Estricta):** Todo feature debe contener `layout`, `pages`, `components` y `logic`. Sin excepciones.
+- **R2 (Aislamiento de Lógica):** La orquestación vive únicamente en `logic/`. Nunca en `components/` ni en `pages/`.
+- **R3 (Data Access):** Las llamadas HTTP puras y DTOs son responsabilidad de `data-access/`, nunca del feature directamente. El feature (`logic/`) consume de `data-access/`.
+- **R4 (Agnosticismo Máximo):** Promover escribir el código de `logic/` en TypeScript puro (Vanilla JS/TS) para permitir que el mismo archivo pueda ser importado tanto por React, Angular o React Native con solo un wrapper mínimo.
+- **R5 (Convención de Nombres):** Uso estandarizado universal (ej. `UsersPage`, `UsersLayout`, `UserCard`, `UsersController`).
 
 ---
 
-### components/
+## Excepciones (Minimizadas)
 
-Responsabilidad:
-
-componentes reutilizables del feature.
-
-Pueden ser:
-
-* presentacionales
-* smart
-
-pero nunca deben contener:
-
-* fetch
-* navegación compleja
-* coordinación de varios servicios
-* lógica de panel
+Dado el objetivo de ser 100% agnóstico, las excepciones se limitan estrictamente al *glue code* necesario por cada framework en su capa de integración:
+- **Angular/Ionic:** En `logic/`, las clases pueden llevar el decorador `@Injectable()` para facilitar DI, aunque se prefiere DI manual si se comparte con React.
+- **React/Next/RN:** En `logic/`, se permite exportar hooks adaptadores (`useUsersController`) que instancian las clases agnósticas o conectan el estado puro al ciclo de vida de React.
+- **Next:** Las `pages/` se adaptan a la convención del App Router (`page.tsx`), pero el contenido sigue las mismas reglas finas.
 
 ---
 
-### services/
+## Alcance y Entregables
 
-Solo Angular e Ionic.
+### 1. Definición y Documentación
+- Actualizar *Architecture Guide* y *Frontend Conventions* con el modelo **Framework-Agnostic Canonical Feature**.
+- Documentar cómo escribir ViewModels/Controllers en Vanilla TS reutilizables entre frameworks.
 
-Responsabilidad:
+### 2. Generadores (Scaffolding)
+- Refactorizar todos los Nx Generators para emitir unívocamente la nueva estructura universal (`layout/`, `pages/`, `components/`, `logic/`).
+- Eliminar templates legacy acoplados a hooks/services.
 
-coordinar la lógica del panel.
+### 3. Migración Automática
+- Codemods para renombrar `hooks/` y `services/` a `logic/`.
+- Ajustar importaciones relativas automáticamente.
 
-Ejemplos:
-
-```
-load()
-
-refresh()
-
-save()
-
-delete()
-
-filters()
-
-pagination()
-
-signals()
-
-computed()
-```
-
-Nunca:
-
-* acceso HTTP directo (eso vive en data-access)
-* reglas de negocio
+### 4. Automatización y Validaciones (`check-frontend-conventions.mjs`)
+- **Existencia:** Exigir `layout`, `pages`, `components`, `logic`.
+- **Dependencias:** `components` no importa `data-access`. `layout` no importa `api`.
+- **Exports:** `index.ts` es el único punto de entrada válido (strict barrel).
 
 ---
 
-### hooks/
+## Criterios de aceptación
 
-Solo React, Next y React Native.
-
-Equivalente funcional de services.
-
-Ejemplo:
-
-```
-useUsersPage()
-
-↓
-
-usa
-
-↓
-
-queries
-mutations
-navigation
-state
-memo
-callbacks
-```
+- [ ] Todos los generadores frontend producen exactamente el mismo árbol de directorios independientemente del framework.
+- [ ] No existen carpetas `hooks/` ni `services/` en features; todo ha migrado a `logic/`.
+- [ ] `check-frontend-conventions` valida la estructura y dependencias de forma estricta en el CI.
+- [ ] La documentación oficial refleja este contrato como el estándar absoluto.
+- [ ] Se demuestra en un feature piloto la reutilización de código de `logic/` puro entre un framework (ej. React) y otro (ej. Angular).
 
 ---
 
-### routes
-
-Responsabilidad:
-
-configuración de rutas exclusivamente.
-
-Nunca:
-
-* lógica
-* providers de negocio
-
----
-
-### index
-
-Único punto público del feature.
-
----
-
-# Reglas arquitectónicas
-
-## R1
-
-Todos los features contienen:
-
-```
-layout
-pages
-components
-```
-
-sin excepción.
-
----
-
-## R2
-
-La orquestación vive únicamente en:
-
-Angular
-
-```
-services/
-```
-
-React
-
-```
-hooks/
-```
-
-Nunca en:
-
-```
-components/
-```
-
----
-
-## R3
-
-Las llamadas a API siguen siendo responsabilidad de:
-
-```
-data-access/
-```
-
-Nunca:
-
-```
-services/
-hooks/
-components/
-```
-
----
-
-## R4
-
-Los layouts nunca conocen APIs.
-
----
-
-## R5
-
-Las pages nunca implementan lógica.
-
----
-
-## R6
-
-Los components nunca contienen coordinación de panel.
-
----
-
-## R7
-
-La estructura del dominio permanece idéntica:
-
-```
-domain/
-
-api/
-
-data-access/
-
-features/
-
-shell/
-```
-
----
-
-## R8
-
-Todos los frameworks utilizan el mismo naming.
-
-Ejemplos:
-
-```
-UsersPage
-
-UsersLayout
-
-UserCard
-
-useUsers()
-
-UsersPanelService
-```
-
----
-
-# Excepciones por framework
-
-## Angular
-
-Utiliza
-
-```
-services/
-```
-
-No utiliza
-
-```
-hooks/
-```
-
----
-
-## React
-
-Utiliza
-
-```
-hooks/
-```
-
-No utiliza
-
-```
-services/
-```
-
----
-
-## Next
-
-Aunque el routing sea App Router, los features mantienen:
-
-```
-pages/
-
-components/
-
-hooks/
-```
-
-para conservar la paridad mental.
-
----
-
-## Ionic
-
-Misma arquitectura que Angular.
-
----
-
-## React Native
-
-Aunque no exista router lazy tradicional:
-
-```
-layout/
-pages/
-components/
-hooks/
-```
-
-se mantienen.
-
----
-
-# Estado actual
-
-(igual que ahora)
-
----
-
-# Alcance
-
-## Incluye
-
-### 1. Definición del contrato
-
-Documentación oficial del Canonical Feature Architecture.
-
----
-
-### 2. Migración
-
-Mover automáticamente cuando sea posible:
-
-```
-components/useUsers.ts
-
-↓
-
-hooks/useUsers.ts
-```
-
-Servicios inline
-
-↓
-
-```
-services/
-```
-
----
-
-### 3. Generators
-
-Actualizar todos los generators para que creen automáticamente:
-
-```
-layout/
-
-pages/
-
-components/
-
-services | hooks
-
-routes
-
-index
-```
-
-No debe existir ningún generador antiguo.
-
----
-
-### 4. Validaciones
-
-Actualizar
-
-```
-check-frontend-conventions.mjs
-```
-
-para comprobar:
-
-## existencia
-
-```
-layout
-
-pages
-
-components
-```
-
----
-
-## ubicación
-
-Hooks únicamente en
-
-```
-hooks/
-```
-
-Servicios únicamente en
-
-```
-services/
-```
-
----
-
-## dependencias
-
-Ejemplos:
-
-```
-components
-
-×
-
-data-access
-```
-
-```
-layout
-
-×
-
-api
-```
-
-```
-pages
-
-×
-
-http
-```
-
----
-
-## exports
-
-Verificar que
-
-```
-index.ts
-```
-
-expone únicamente la API pública.
-
----
-
-### 5. Documentación
-
-Actualizar:
-
-* Architecture Guide
-* Frontend Conventions
-* Feature Template
-
----
-
-# Entregables
-
-* Contrato de arquitectura publicado.
-* Generators actualizados.
-* Validaciones ampliadas.
-* Migración de features existentes.
-* Documentación actualizada.
-* Excepciones Next/RN documentadas.
-
----
-
-# Criterios de aceptación
-
-* Todos los nuevos features generados cumplen el contrato automáticamente.
-* Ningún feature incumple la estructura.
-* No existen hooks fuera de `hooks/`.
-* No existen servicios de panel fuera de `services/`.
-* `check-frontend-conventions` valida estructura y dependencias.
-* La documentación refleja el contrato oficial.
-* Angular, React, Ionic, Next y React Native presentan la misma organización conceptual.
-
----
-
-# Verificación
+## Verificación
 
 ```bash
 node tools/checks/check-frontend-conventions.mjs
-
 pnpm lint
-
 pnpm typecheck:all
-
-pnpm check:lib-layout
 ```
 
 ---
 
-# Riesgos
+## Riesgos y Mitigaciones
 
-* Movimiento masivo de archivos puede afectar imports.
-* Posibles falsos positivos iniciales en las validaciones.
-* Generadores antiguos pueden seguir creando estructuras obsoletas si no se eliminan.
-
-Mitigación:
-
-* aplicar codemods automáticos;
-* añadir reglas de lint;
-* eliminar los templates legacy una vez completada la migración.
+- **Movimiento de archivos:** Aplicar codemods automáticos para resolver imports rotos.
+- **Falsos positivos:** Ajustar reglas de lint de forma iterativa.
+- **Regresión:** Eliminar los templates legacy inmediatamente tras actualizar los generadores.
 
 ---
 
-# Fuera de alcance
+## Fuera de alcance
 
-* Cambios funcionales del dominio.
-* Reorganización de `data-access`.
-* Cambios en `api`.
-* Refactors de negocio.
-* Modificaciones del sistema de routing propias de cada framework.
+- Cambios funcionales del dominio o UI.
+- Reorganización interna de `data-access/` o `api/`.
+- Refactors profundos de negocio (sólo movimiento estructural a `logic/`).

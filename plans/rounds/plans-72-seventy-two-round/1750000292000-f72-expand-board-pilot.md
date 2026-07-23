@@ -31,7 +31,7 @@ datos demo + harness e2e. F72-A2 retoma el piloto.
 
 ## Criterios de aceptación
 
-- [ ] ≥2 dominios usan `presentation="board"` **o** defer F73 (owner + blocker).
+- [ ] ≥2 dominios usan `presentation="board"`. No se permite defer a F73.
 - [ ] e2e board pasa en desktop y narrow.
 - [ ] Typecheck stacks tocados.
 

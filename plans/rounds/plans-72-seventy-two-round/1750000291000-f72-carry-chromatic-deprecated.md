@@ -25,11 +25,11 @@ Resolución de los carries heredados de F68 → F69 → F70 → F71.
 
 ## Entregables
 
-1. Cada sub-ítem: hecho **o** defer F73 (owner + blocker en residual note).
-2. Si Chromatic/Code Connect se habilitan: actualizar `design-system.md` / `ci-gates.md`.
-3. Si deprecated migration avanza: inventario actualizado.
+1. Cada sub-ítem completamente resuelto y habilitado.
+2. Actualizar `design-system.md` y `ci-gates.md` con la integración de Chromatic/Code Connect finalizada.
+3. Inventario de deprecated atoms completado y residual cerrado.
 
 ## Criterios de aceptación
 
-- [ ] Decisión explícita por fila (no “listo” silencioso).
-- [ ] `deprecated-atoms-residual.md` apunta a F73 o marca done.
+- [ ] Chromatic CI y Code Connect funcionando y configurados.
+- [ ] `deprecated-atoms-residual.md` marcado como completamente cerrado. No se permite defer a F73.

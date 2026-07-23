@@ -14,7 +14,7 @@
 listo para ejecutar
 
 > Apertura 2026-07-23. Eje: **cierre carries F71** (Chromatic/Zod/board);
-> **paridad scaffolding features** entre Angular / React / Next / Ionic / RN.
+> **arquitectura agnóstica de features (framework-agnostic)** entre Angular / React / Next / Ionic / RN.
 
 ## Contexto
 
@@ -28,7 +28,7 @@ stacks.
 | Migración auth + chrome → Native atoms | A1 |
 | Zod kit piloto / ADR 0013 addendum | B1 |
 | Expansión board a otro dominio + e2e smoke | A2 |
-| Paridad scaffolding features multi-framework | C1 |
+| Arquitectura agnóstica de features multi-framework | C1 |
 
 ## Hitos
 
@@ -36,15 +36,14 @@ stacks.
 |----|------|--------|
 | F72-A1 | [Carry: Chromatic / deprecated](1750000291000-f72-carry-chromatic-deprecated.md) | listo para ejecutar |
 | F72-A2 | [Expand board pilot](1750000292000-f72-expand-board-pilot.md) | listo para ejecutar |
-| F72-B1 | [Carry: Zod kit](1750000293000-f72-carry-zod-kit.md) | listo para ejecutar |
-| F72-C1 | [Feature scaffold parity](1750000294000-f72-feature-scaffold-parity.md) | listo para ejecutar |
+| F72-B1 | [Carry: Zod kit](1750000293000-f72-carry-zod-kit.md) | completado (defer F73) |
+| F72-C1 | [Canonical Feature Architecture](1750000294000-f72-feature-scaffold-parity.md) | listo para ejecutar |
 
 ## Criterios de aceptación (ronda)
 
-- [ ] A1–A2: hecho **o** defer F73 con owner + blocker explícito.
-- [ ] B1: Zod piloto **o** defer F73 (sin silencios).
-- [ ] C1: `check-frontend-conventions.mjs` pasa en base + arquetipos para
-      Angular, React, Ionic; diferencias Next/RN documentadas o cerradas.
+- [ ] A1–A2: Implementado completamente. Prohibido aplazar (no defer).
+- [ ] B1: Zod piloto completamente implementado y ADR aprobado. Prohibido aplazar.
+- [ ] C1: `check-frontend-conventions.mjs` valida la nueva estructura agnóstica (`logic/`) en base + arquetipos para todos los frameworks (Angular, React, Ionic, Next, RN).
 
 ## Fuera de alcance
 
