@@ -1,92 +1,613 @@
-<p align="center">
-  <img src="../../../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
-</p>
+La idea es buena, pero todavía está demasiado centrada en "crear carpetas". Yo lo convertiría en una historia de arquitectura que defina el **contrato de los features** para todos los frameworks y que además automatice su cumplimiento.
 
-<h1 align="center">F72-C1 — Feature scaffold parity (multi-framework)</h1>
+Hay varias cosas que añadiría:
 
-<p align="center">
-  <img alt="arquetipos" src="https://img.shields.io/badge/arquetipos-0f766e?style=flat-square" />
-  <a href="./README.md"><img alt="F72" src="https://img.shields.io/badge/round-F72-14b8a6?style=flat-square" /></a>
-</p>
+* Separar claramente **definición del contrato**, **migración**, **automatización** y **validación**.
+* Añadir una fase para actualizar los **generators** (si no, el problema volverá a aparecer).
+* Definir excepciones explícitas para cada framework.
+* Documentar qué puede vivir en cada carpeta y qué no.
+* Añadir comprobaciones de dependencias (no solo existencia de carpetas).
+
+Una versión más completa sería algo como esta.
+
+---
+
+# F72-C1 — Canonical Feature Architecture (Multi-Framework Parity)
 
 ## Estado
 
-listo para ejecutar
+Listo para ejecutar
 
-## Objetivo
+---
 
-Garantizar que **todos los frameworks** (Angular, React, Next, Ionic, RN) usan
-el mismo scaffold canonico de `features/` respetando la arquitectura comun.
+# Objetivo
 
-### Contrato comun de features (SoC + F66-A1)
+Definir e implantar un **contrato único de arquitectura para todos los features frontend**, independientemente del framework (Angular, React, Next, Ionic y React Native), de forma que:
+
+* todos los dominios compartan la misma organización mental;
+* los generadores creen siempre la misma estructura;
+* las validaciones impidan desviaciones futuras;
+* la migración sea automática cuando sea posible.
+
+Esta ronda consolida el trabajo iniciado en F66-A1 (SoC) y establece el **Canonical Feature Architecture** del monorepo.
+
+---
+
+# Motivación
+
+Actualmente existen pequeñas diferencias entre stacks:
+
+* hooks mezclados con componentes;
+* lógica de panel distribuida;
+* ausencia de `services/` o `hooks/`;
+* algunos stacks sin scaffold estándar.
+
+Esto provoca:
+
+* mayor carga cognitiva;
+* menor reutilización;
+* documentación diferente según framework;
+* generadores inconsistentes.
+
+F72 elimina esas diferencias.
+
+---
+
+# Contrato canónico
+
+Todos los frameworks utilizan exactamente la misma estructura conceptual.
 
 ```
-features/src/
-├── layout/        # chrome del dominio (título, outlet, wrappers de sección)
-├── pages/         # targets de ruta — thin; componen layout + components
-├── components/    # smart/presentacional; bindings a servicio/hook/facade
-├── services/      # Angular / Ionic — orquestación de panel (opcional)
-├── hooks/         # React / Next / RN — orquestación de panel (opcional)
-├── *.routes.ts[x] # Angular/Ionic: rutas; React: barrel rutas si aplica
-└── index.ts[x]    # barrel público del feature
+features/
+└── src/
+    ├── layout/
+    ├── pages/
+    ├── components/
+    ├── services/     (Angular / Ionic)
+    ├── hooks/        (React / Next / RN)
+    ├── *.routes.ts[x]
+    └── index.ts[x]
 ```
 
-**Reglas:**
+## Significado de cada carpeta
 
-1. `layout/`, `pages/`, `components/` son obligatorios en **todos** los frameworks.
-2. La lógica de orquestación del panel vive en `services/` (Angular/Ionic)
-   o `hooks/` (React/Next/RN). No en componentes.
-3. `api/`, `data-access/`, `shell/` viven **al mismo nivel** de `features/`
-   dentro del dominio (`{domain}/{api,data-access,shell,features}`).
-4. Next/RN: si el stack no usa lazy `features/` cargado por `shell/`, conservar
-   el mismo scaffold interno (`pages/`, `components/`, `hooks/`) para paridad
-   mental.
+### layout/
 
-### Estado actual (2026-07-23)
+Responsabilidad:
 
-| Stack / scope | layout | pages | components | services | hooks | Gap |
-|---------------|--------|-------|------------|----------|-------|-----|
-| base-angular | ✓ | ✓ | ✓ | — | — | Falta `services/` cuando hay orquestación |
-| base-react | ✓ | ✓ | ✓ | — | ✓ | OK (algunos hooks sueltos en components/) |
-| base-ionic | ✓ | ✓ | ✓ | parcial | — | Falta `services/` en users/roles/auth/audit |
-| arquetipos-angular | ✓ | ✓ | ✓ | — | — | Falta `services/` cuando haya panel orquestado |
-| arquetipos-react | ✓ | ✓ | ✓ | — | — | Falta `hooks/` para orquestación |
-| arquetipos-ionic | — | — | — | — | — | Sin scaffold de dominio en mobile |
-| base-next | — | — | — | — | — | Sin dominio features estructurado |
-| base-rn | — | — | — | — | — | Sin dominio features estructurado |
-| arquetipos-next | — | — | — | — | — | Sin dominio features estructurado |
-| arquetipos-rn | — | — | — | — | — | Sin dominio features estructurado |
+* composición visual del dominio
+* chrome
+* wrappers
+* outlets
+* tabs
+* split views
 
-### Entregables
+Nunca contiene:
 
-1. Gate `check-frontend-conventions.mjs` actualizado para validar el scaffold
-   canonico por framework en `base/` + `arquetipos/`.
-2. Migración de features existentes que violan el contrato (p. ej. hooks
-   dentro de `components/`, `services/` ausentes en Ionic).
-3. Scaffolding base para Ionic arquetipos (clients, auth, users, roles, audit,
-   settings) o defer F73 con owner.
-4. Documentar excepciones Next/RN si aplica.
+* llamadas HTTP
+* estado
+* lógica de negocio
 
-## Criterios de aceptación
+---
 
-- [ ] Nuevos dominios creados con `nx g @nx/angular:lib …` (o equivalente)
-      incluyen el scaffold canonico automáticamente.
-- [ ] `check-frontend-conventions.mjs` pasa en base + arquetipos para todos
-      los frameworks con features.
-- [ ] No hay hooks sueltos en `components/` (React) ni servicios de panel
-      escritos inline en componentes (Angular/Ionic).
-- [ ] Diferencias Next/RN documentadas o cerradas.
+### pages/
 
-## Verificación
+Responsabilidad:
+
+targets de routing.
+
+Debe ser extremadamente fino.
+
+Ejemplo:
+
+```
+route
+↓
+
+page
+
+↓
+
+layout
+
+↓
+
+components
+```
+
+---
+
+### components/
+
+Responsabilidad:
+
+componentes reutilizables del feature.
+
+Pueden ser:
+
+* presentacionales
+* smart
+
+pero nunca deben contener:
+
+* fetch
+* navegación compleja
+* coordinación de varios servicios
+* lógica de panel
+
+---
+
+### services/
+
+Solo Angular e Ionic.
+
+Responsabilidad:
+
+coordinar la lógica del panel.
+
+Ejemplos:
+
+```
+load()
+
+refresh()
+
+save()
+
+delete()
+
+filters()
+
+pagination()
+
+signals()
+
+computed()
+```
+
+Nunca:
+
+* acceso HTTP directo (eso vive en data-access)
+* reglas de negocio
+
+---
+
+### hooks/
+
+Solo React, Next y React Native.
+
+Equivalente funcional de services.
+
+Ejemplo:
+
+```
+useUsersPage()
+
+↓
+
+usa
+
+↓
+
+queries
+mutations
+navigation
+state
+memo
+callbacks
+```
+
+---
+
+### routes
+
+Responsabilidad:
+
+configuración de rutas exclusivamente.
+
+Nunca:
+
+* lógica
+* providers de negocio
+
+---
+
+### index
+
+Único punto público del feature.
+
+---
+
+# Reglas arquitectónicas
+
+## R1
+
+Todos los features contienen:
+
+```
+layout
+pages
+components
+```
+
+sin excepción.
+
+---
+
+## R2
+
+La orquestación vive únicamente en:
+
+Angular
+
+```
+services/
+```
+
+React
+
+```
+hooks/
+```
+
+Nunca en:
+
+```
+components/
+```
+
+---
+
+## R3
+
+Las llamadas a API siguen siendo responsabilidad de:
+
+```
+data-access/
+```
+
+Nunca:
+
+```
+services/
+hooks/
+components/
+```
+
+---
+
+## R4
+
+Los layouts nunca conocen APIs.
+
+---
+
+## R5
+
+Las pages nunca implementan lógica.
+
+---
+
+## R6
+
+Los components nunca contienen coordinación de panel.
+
+---
+
+## R7
+
+La estructura del dominio permanece idéntica:
+
+```
+domain/
+
+api/
+
+data-access/
+
+features/
+
+shell/
+```
+
+---
+
+## R8
+
+Todos los frameworks utilizan el mismo naming.
+
+Ejemplos:
+
+```
+UsersPage
+
+UsersLayout
+
+UserCard
+
+useUsers()
+
+UsersPanelService
+```
+
+---
+
+# Excepciones por framework
+
+## Angular
+
+Utiliza
+
+```
+services/
+```
+
+No utiliza
+
+```
+hooks/
+```
+
+---
+
+## React
+
+Utiliza
+
+```
+hooks/
+```
+
+No utiliza
+
+```
+services/
+```
+
+---
+
+## Next
+
+Aunque el routing sea App Router, los features mantienen:
+
+```
+pages/
+
+components/
+
+hooks/
+```
+
+para conservar la paridad mental.
+
+---
+
+## Ionic
+
+Misma arquitectura que Angular.
+
+---
+
+## React Native
+
+Aunque no exista router lazy tradicional:
+
+```
+layout/
+pages/
+components/
+hooks/
+```
+
+se mantienen.
+
+---
+
+# Estado actual
+
+(igual que ahora)
+
+---
+
+# Alcance
+
+## Incluye
+
+### 1. Definición del contrato
+
+Documentación oficial del Canonical Feature Architecture.
+
+---
+
+### 2. Migración
+
+Mover automáticamente cuando sea posible:
+
+```
+components/useUsers.ts
+
+↓
+
+hooks/useUsers.ts
+```
+
+Servicios inline
+
+↓
+
+```
+services/
+```
+
+---
+
+### 3. Generators
+
+Actualizar todos los generators para que creen automáticamente:
+
+```
+layout/
+
+pages/
+
+components/
+
+services | hooks
+
+routes
+
+index
+```
+
+No debe existir ningún generador antiguo.
+
+---
+
+### 4. Validaciones
+
+Actualizar
+
+```
+check-frontend-conventions.mjs
+```
+
+para comprobar:
+
+## existencia
+
+```
+layout
+
+pages
+
+components
+```
+
+---
+
+## ubicación
+
+Hooks únicamente en
+
+```
+hooks/
+```
+
+Servicios únicamente en
+
+```
+services/
+```
+
+---
+
+## dependencias
+
+Ejemplos:
+
+```
+components
+
+×
+
+data-access
+```
+
+```
+layout
+
+×
+
+api
+```
+
+```
+pages
+
+×
+
+http
+```
+
+---
+
+## exports
+
+Verificar que
+
+```
+index.ts
+```
+
+expone únicamente la API pública.
+
+---
+
+### 5. Documentación
+
+Actualizar:
+
+* Architecture Guide
+* Frontend Conventions
+* Feature Template
+
+---
+
+# Entregables
+
+* Contrato de arquitectura publicado.
+* Generators actualizados.
+* Validaciones ampliadas.
+* Migración de features existentes.
+* Documentación actualizada.
+* Excepciones Next/RN documentadas.
+
+---
+
+# Criterios de aceptación
+
+* Todos los nuevos features generados cumplen el contrato automáticamente.
+* Ningún feature incumple la estructura.
+* No existen hooks fuera de `hooks/`.
+* No existen servicios de panel fuera de `services/`.
+* `check-frontend-conventions` valida estructura y dependencias.
+* La documentación refleja el contrato oficial.
+* Angular, React, Ionic, Next y React Native presentan la misma organización conceptual.
+
+---
+
+# Verificación
 
 ```bash
 node tools/checks/check-frontend-conventions.mjs
+
+pnpm lint
+
 pnpm typecheck:all
+
 pnpm check:lib-layout
 ```
 
-## No objetivo
+---
 
-- Migrar Next/RN si el stack no usa features lazy-cargados por shell, siempre
-  que respeten el scaffold interno pages/components/hooks.
-- Cambiar lógica de dominio que ya vive en `data-access/`.
+# Riesgos
+
+* Movimiento masivo de archivos puede afectar imports.
+* Posibles falsos positivos iniciales en las validaciones.
+* Generadores antiguos pueden seguir creando estructuras obsoletas si no se eliminan.
+
+Mitigación:
+
+* aplicar codemods automáticos;
+* añadir reglas de lint;
+* eliminar los templates legacy una vez completada la migración.
+
+---
+
+# Fuera de alcance
+
+* Cambios funcionales del dominio.
+* Reorganización de `data-access`.
+* Cambios en `api`.
+* Refactors de negocio.
+* Modificaciones del sistema de routing propias de cada framework.
