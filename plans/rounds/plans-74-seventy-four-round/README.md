@@ -38,6 +38,7 @@ y la verificación multi-dominio en CI.
 | F74-A2 | [NestJS Contract Integration](1750000402000-f74-nestjs-contract-integration.md) | Pipes y validadores que consumen `@base/shared` desde Nest | Listo para ejecutar |
 | F74-B1 | [Cross-Domain ViewModel Standardization](1750000403000-f74-viewmodel-standardization.md) | ClientsController replicado/adaptado por dominio restante | Listo para ejecutar |
 | F74-C1 | [Generator & CI Hardening](1750000404000-f74-generator-ci-hardening.md) | `gen-domain.mjs` scaffolding completo + gates CI | Listo para ejecutar |
+| F74-D1 | [Frontend Domain Architecture Contract](1750000405000-f74-frontend-domain-architecture-contract.md) | Contrato de arquitectura frontend único multi-framework | Listo para ejecutar |
 
 ## Criterios de Aceptación (Ronda F74)
 
@@ -45,6 +46,7 @@ y la verificación multi-dominio en CI.
 - [ ] A2: Los controladores NestJS de ≥3 dominios usan Pipes que consumen schemas de `@base/shared`.
 - [ ] B1: ≥5 dominios tienen `logic/Controllers.ts` (Vanilla TS) importados simultáneamente por dos frameworks distintos.
 - [ ] C1: `node tools/scaffolds/gen-domain.mjs <domain>` genera estructura completa; `check-domain-conventions` y `check-frontend-conventions` pasan verde en CI.
+- [ ] D1: Contrato de arquitectura frontend documentado y validado por CI para todos los frameworks.
 
 ## Predecesora / Siguiente
 

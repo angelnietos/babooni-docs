@@ -31,6 +31,7 @@
 | 6d | [entity-view-abstractions.md](./entity-view-abstractions.md) | Campos read/write por entidad (F66-A2) |
 | 6e | [feature-shell-presentation.md](./feature-shell-presentation.md) | Shell lista genérico cards/table/board (F66-A3) |
 | 7 | [workspace-packages.md](./workspace-packages.md) | exports ↔ paths |
+| 8 | [frontend-domain-architecture-contract.md](./frontend-domain-architecture-contract.md) | Contrato único de arquitectura frontend multi-framework (F74-D1) |
 
 ## Referencia
 
