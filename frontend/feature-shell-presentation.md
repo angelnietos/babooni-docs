@@ -7,7 +7,7 @@
 <p align="center">
   <img alt="frontend" src="https://img.shields.io/badge/frontend-0f766e?style=for-the-badge" />
   <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=for-the-badge" /></a>
-  <a href="../plans/rounds/plans-71-seventy-one-round/"><img alt="F71" src="https://img.shields.io/badge/F71-14b8a6?style=for-the-badge" /></a>
+  <a href="../plans/rounds/plans-72-seventy-two-round/"><img alt="F72" src="https://img.shields.io/badge/F72-14b8a6?style=for-the-badge" /></a>
 </p>
 
 Contrato objetivo (F66-A3 + F68/F69): **un chrome de feature reutilizable** para list CRUD
