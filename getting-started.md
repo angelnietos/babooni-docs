@@ -27,7 +27,7 @@ Un **monorepo Nx** con un kernel reutilizable (`@base/*`), plantillas de referen
 
 | Herramienta | Versión orientativa |
 |-------------|---------------------|
-| Node.js | **20.x o 22.x** (matriz Nx — `pnpm check:node-nx`; evita Node 24 con Nx 23) |
+| Node.js | **20.x o 22.x** (matriz Nx — `pnpm check:node-nx`; **Node 24 rompe** plugin workers / Nx Console) |
 | pnpm | 10+ (`packageManager` en `package.json`) |
 | Docker Desktop | Para Postgres, Redis, Kafka, Keycloak |
 
