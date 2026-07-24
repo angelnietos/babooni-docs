@@ -12,19 +12,19 @@
 
 ## Estado
 
-Planificada · Lista para ejecutar
+Completada
 
-> Apertura 2026-07-23. Eje: **Completitud de capas pendientes, paridad móvil, fix de builds rotos y cierre de deuda post-F76**.
+> Apertura 2026-07-23. Cierre 2026-07-23. Eje: **Completitud de capas pendientes, paridad móvil, fix de builds rotos y cierre de deuda post-F76**.
 
 ## Progreso
 
-- [ ] F77-A1 — React base: completar capas faltantes de `settings` (`domain`, `ui`, `shared`, `testing`)
-- [ ] F77-A2 — Next.js base: completar feature code real de `auth` y `users`; resolver build roto
-- [ ] F77-A3 — Next.js arquetipos: completar feature code real de `auth`, `clients` y `users`
-- [ ] F77-A4 — Ionic/React Native base + arquetipos: completar feature stubs vacíos y lógica mínima
-- [ ] F77-A5 — Fix `libs/base/frontend/next/native-ui/features/src/native-ui.routes.tsx` (sintaxis inválida RCS)
-- [ ] F77-A6 — Actualizar `docs/plans/README.md` con F77 como ronda activa
-- [ ] F77-A7 — Smoke build `nx build next-single` / `react-single` / `ionic-single` / `angular-single`
+- [x] F77-A1 — React base: completar capas faltantes de `settings` (`domain`, `ui`, `shared`, `testing`)
+- [x] F77-A2 — Next.js base: completar feature code real de `auth` y `users`; resolver build roto
+- [x] F77-A3 — Next.js arquetipos: completar feature code real de `auth`, `clients` y `users`
+- [x] F77-A4 — Ionic/React Native base + arquetipos: completar feature stubs vacíos y lógica mínima
+- [x] F77-A5 — Fix `libs/base/frontend/next/native-ui/features/src/native-ui.routes.tsx` (sintaxis inválida RCS)
+- [x] F77-A6 — Actualizar `docs/plans/README.md` con F77 como ronda activa
+- [x] F77-A7 — Smoke build `nx build next-single` / `react-single` / `ionic-single` / `angular-single`
 
 ## Contexto
 
