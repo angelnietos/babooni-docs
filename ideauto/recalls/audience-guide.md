@@ -31,7 +31,7 @@ Elige tu rol. No hace falta leer todo.
 2. [domain-map.md](./domain-map.md) — paquetes `@ideauto/*`  
 3. [legacy-vs-target.md](./legacy-vs-target.md) — stack  
 4. [stakeholders/developers.md](./stakeholders/developers.md) — día a día  
-5. Tickets: [F84](../../plans/rounds/plans-84-eighty-four-round/) · Runbook: [recalls-migration.md](../../runbooks/recalls-migration.md)  
+5. Tickets: [migration](../migration/) · Runbook: [recalls-migration.md](../../runbooks/recalls-migration.md)  
 
 ## Cliente Ideauto (negocio externo)
 
@@ -43,7 +43,7 @@ Elige tu rol. No hace falta leer todo.
 
 1. [ADR 0013](../../adr/adr-0013-recalls-strangler-migration.md)  
 2. [scope-and-placement.md](./scope-and-placement.md)  
-3. [F83 MSSQL](../../plans/rounds/plans-83-eighty-three-round/)  
+3. [DB providers / MSSQL](../../runbooks/database-providers.md)  
 4. Biblia: [docs/README.md](../../README.md)  
 
 ---

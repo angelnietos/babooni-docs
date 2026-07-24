@@ -21,6 +21,6 @@ Productos vendibles aparte del ERP, bajo `apps/productos-saas/` y `@saas/*`.
 |----------|--------|-------|
 | Verifactu CRM / worker | en monorepo | Apps + `@saas/*` actuales |
 
-> **Recalls (Ideauto)** no es SaaS. Vive como **cliente** en `apps/clientes/ideauto/recalls` → `@ideauto/*` ([F84](../plans/rounds/plans-84-eighty-four-round/), [assessment](../architecture/recalls-v2-assessment.md)).
+> **Recalls (Ideauto)** no es SaaS. Vive como **cliente** en `apps/clientes/ideauto/recalls` → `@ideauto/*` ([migration](../ideauto/migration/), [assessment](../architecture/recalls-v2-assessment.md)).
 
 También: [apps/productos-saas/README.md](../../apps/productos-saas/README.md), runbook [verifactu-demo-e2e.md](../runbooks/verifactu-demo-e2e.md).

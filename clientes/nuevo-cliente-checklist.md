@@ -222,7 +222,7 @@ pnpm nx serve acme
 | App Nest | `ideauto-recalls-api` → `apps/clientes/ideauto/recalls/backend` |
 | App Next | `ideauto-recalls-web` → `apps/clientes/ideauto/recalls/frontend` |
 | Libs | `@ideauto/shared`, `@ideauto/backend`, `@ideauto/angular-ui`, `@ideauto/platform-*` |
-| Plan | [F84](../plans/rounds/plans-84-eighty-four-round/) · [doc producto](../ideauto/recalls/) · [assessment](../architecture/recalls-v2-assessment.md) |
+| Plan | [ideauto/migration](../ideauto/migration/) · [doc producto](../ideauto/recalls/) · [assessment](../architecture/recalls-v2-assessment.md) |
 
 FE: Next (opt-in ADR 0008); el legacy ya es Next. Las libs Angular `platform/*` del scaffold son chrome opcional / futuro. Capas de dominio siguen el contrato del monorepo.
 

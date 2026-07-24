@@ -10,15 +10,13 @@
 
 <p align="center">
   <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
-  <a href="./rounds/plans-84-eighty-four-round/"><img alt="F84" src="https://img.shields.io/badge/F84-active-14b8a6?style=flat-square" /></a>
-  <a href="./rounds/plans-83-eighty-three-round/"><img alt="F83" src="https://img.shields.io/badge/F83-active-14b8a6?style=flat-square" /></a>
-  <a href="./rounds/plans-78-seventy-eight-round/"><img alt="F78" src="https://img.shields.io/badge/F78-ready-0d5f59?style=flat-square" /></a>
+  <a href="./rounds/plans-85-eighty-five-round/"><img alt="F85" src="https://img.shields.io/badge/F85-active-14b8a6?style=flat-square" /></a>
 </p>
 
 Planes de trabajo del monorepo. **No son la biblia operativa** — si contradicen
 `docs/README.md` / `architecture/` / `guides/`, gana la biblia.
 
-> Rondas cerradas (F41–F82 excepto F78) se eliminaron del árbol. Recuperables en el
+> Rondas cerradas (F41–F84, incl. F78/F83) se eliminaron del árbol. Recuperables en el
 > historial de git. Paths `tools/scripts/…` en planes antiguos → [legacy-paths.md](../legacy-paths.md)
 > y [tools-layout.md](../runbooks/tools-layout.md).
 
@@ -33,11 +31,15 @@ Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `traslad
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| [plans-84](./rounds/plans-84-eighty-four-round/) | activa | **Ideauto Recalls_v2 → monorepo**: `clientes/ideauto/recalls` (`@ideauto/*`), strangler, MSSQL (F83) — **no SaaS** |
-| [plans-83](./rounds/plans-83-eighty-three-round/) | activa | Database provider portability + adapters (Pg ⇄ SqlServer ⇄ MySql) |
-| [plans-78](./rounds/plans-78-seventy-eight-round/) | listo para ejecutar | Feature parity React, mobile logic cleanup & architecture compliance |
+| [plans-85](./rounds/plans-85-eighty-five-round/) | activa | **Motor monorepo / base**: migrate multi-provider real, SaaS adapter alignment, portability hardening |
 
-Docs canónicos Recalls: **[docs/ideauto/recalls/](../ideauto/recalls/)** · [assessment](../architecture/recalls-v2-assessment.md) · [runbook](../runbooks/recalls-migration.md) · [ADR 0013](../adr/adr-0013-recalls-strangler-migration.md).
+## Fuera de `docs/plans/` (producto)
+
+| Tema | Dónde |
+|------|-------|
+| Ideauto Recalls — ejecución M0–M6 | **[docs/ideauto/migration/](../ideauto/migration/)** |
+| Ideauto Recalls — narrativa | [docs/ideauto/recalls/](../ideauto/recalls/) |
+| DB portability (cerrado F83) | [database-providers.md](../runbooks/database-providers.md) · [ADR 0014](../adr/adr-0014-database-provider-portability.md) |
 
 ## Planes globales
 

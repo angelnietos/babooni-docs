@@ -77,7 +77,7 @@ Si un plan (activo o cerrado en git) contradice esta biblia, **prevalece la bibl
 | `@base/*` | Kernel compartido | `@base/backend`, `@base/clients-features` |
 | `@arquetipos/*` | Plantillas copy-paste | thin shells → `@base/*` |
 | `@josanz/*` | Producto cliente Josanz | ERP completo |
-| `@ideauto/*` | Producto cliente Ideauto | Recalls (migración F84) |
+| `@ideauto/*` | Producto cliente Ideauto | Recalls ([migration](./ideauto/migration/)) |
 | `@saas/*` | Productos SaaS | Verifactu CRM, worker |
 
 <p align="center">
@@ -148,7 +148,7 @@ Rutas legacy (libs) F5–F7: [legacy-paths.md](./legacy-paths.md).
 | Keycloak | [guides/keycloak-setup.md](./guides/keycloak-setup.md) |
 | Checklist PR | [guides/pr-checklist.md](./guides/pr-checklist.md) |
 | Publicar / versionar libs npm | [guides/npm-publish-and-versioning.md](./guides/npm-publish-and-versioning.md) |
-| Migrar Recalls_v2 → monorepo | [ideauto/recalls/](./ideauto/recalls/) (producto) · [assessment](./architecture/recalls-v2-assessment.md) · [F84](./plans/rounds/plans-84-eighty-four-round/) |
+| Migrar Recalls_v2 → monorepo | [ideauto/recalls/](./ideauto/recalls/) (narrativa) · [ideauto/migration/](./ideauto/migration/) (ejecución) · [assessment](./architecture/recalls-v2-assessment.md) |
 
 Índice completo: [guides/README.md](./guides/README.md). Estilo docs: [CONTRIBUTING-DOCS.md](./CONTRIBUTING-DOCS.md).
 
@@ -204,7 +204,8 @@ Rutas legacy (libs) F5–F7: [legacy-paths.md](./legacy-paths.md).
 |-----|-----------|
 | [nuevo-cliente-checklist.md](./clientes/nuevo-cliente-checklist.md) | Scaffold `@acme/*` |
 | [ideauto/](./ideauto/) | Hub cliente Ideauto |
-| [ideauto/recalls/](./ideauto/recalls/) | Migración Recalls (F84) |
+| [ideauto/migration/](./ideauto/migration/) | Ejecución migración Recalls |
+| [ideauto/recalls/](./ideauto/recalls/) | Narrativa Recalls |
 | [new-product-e2e-walkthrough.md](./guides/new-product-e2e-walkthrough.md) | Narrativa E2E producto |
 | [josanz-verifactu-billing-integration.md](./clientes/josanz-verifactu-billing-integration.md) | Billing → Verifactu |
 | [productos-saas-extends-base.md](./productos-saas/productos-saas-extends-base.md) | SaaS sobre kernel |
@@ -264,7 +265,7 @@ pnpm check:legacy-paths
 pnpm check:migration-encoding
 ```
 
-Rondas en el árbol: **[F84](./plans/rounds/plans-84-eighty-four-round/)** (Ideauto Recalls) · **[F83](./plans/rounds/plans-83-eighty-three-round/)** (DB providers) · **[F78](./plans/rounds/plans-78-seventy-eight-round/)** (parity / mobile).  
+Rondas en el árbol: **[F85](./plans/rounds/plans-85-eighty-five-round/)** (motor monorepo / base hardening). Ideauto: [ideauto/migration/](./ideauto/migration/).  
 Rondas cerradas: solo en historial de git. Índice: [plans/README.md](./plans/README.md).  
 Recalls (doc producto): [ideauto/recalls/](./ideauto/recalls/). Assessment: [architecture/recalls-v2-assessment.md](./architecture/recalls-v2-assessment.md).
 
@@ -298,8 +299,8 @@ Operativa Jest/coverage: [runbooks/jest-coverage.md](./runbooks/jest-coverage.md
 |-----------|--------|
 | `docs/README.md`, `architecture/`, `guides/`, `backend/`, `frontend/`, `runbooks/`, `adr/` | **Fuente de verdad operativa** |
 | `AGENTS.md`, `tools/` ([mapa](./runbooks/tools-layout.md)) | Contrato para CI y agentes |
-| `docs/plans/` | Solo rondas **activas** (F78 / F83 / F84) — [plans/README.md](./plans/README.md) |
-| Rondas cerradas (F41–F82 excepto F78) | **Solo en historial de git** — no recrear carpetas |
+| `docs/plans/` | Solo rondas **activas** (F85) — [plans/README.md](./plans/README.md) |
+| Rondas cerradas (F41–F84) | **Solo en historial de git** — no recrear carpetas |
 | [CONTRIBUTING-DOCS.md](./CONTRIBUTING-DOCS.md) | Cómo escribir docs |
 
 Si un plan cerrado en git contradice esta biblia, **prevalece la biblia**.

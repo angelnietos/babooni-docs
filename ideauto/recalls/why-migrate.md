@@ -110,4 +110,4 @@ Detalle: [migration-strategy.md](./migration-strategy.md) · [ADR 0013](../../ad
 
 - [legacy-vs-target.md](./legacy-vs-target.md)  
 - [stakeholders/product.md](./stakeholders/product.md)  
-- Plan F84: [rounds/plans-84](../../plans/rounds/plans-84-eighty-four-round/)
+- Ejecución: [migration/](../migration/)

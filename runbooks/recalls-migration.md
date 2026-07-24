@@ -7,7 +7,7 @@
 <p align="center">
   <img alt="runbook" src="https://img.shields.io/badge/runbook-0f766e?style=flat-square" />
   <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
-  <a href="../plans/rounds/plans-84-eighty-four-round/"><img alt="F84" src="https://img.shields.io/badge/plan-F84-14b8a6?style=flat-square" /></a>
+  <a href="../ideauto/migration/"><img alt="F84" src="https://img.shields.io/badge/plan-F84-14b8a6?style=flat-square" /></a>
 </p>
 
 Cuándo usarlo: ejecutar milestones de migración Recalls_v2 → **`clientes/ideauto/recalls`**.
@@ -97,5 +97,5 @@ node tools/checks/check-ui-ownership.mjs
 
 ## Enlaces
 
-- [F84-D1](../plans/rounds/plans-84-eighty-four-round/1764000023000-f84-technical-execution.md)
+- [F84-D1](../ideauto/migration/m0-m6-execution.md)
 - [ADR 0013](../adr/adr-0013-recalls-strangler-migration.md)

@@ -45,6 +45,15 @@ Detalle de decisión single/multi schema: [adr-0002](../adr/adr-0002-prisma-mult
 URL resolution: `resolveDatabaseUrl` / `applyProductDatabaseUrl` /
 `resolveDatabaseUrlOrDefault` in
 `libs/base/backend/src/lib/platform/kernel/prisma/resolve-database-url.ts`.
+Provider detection + adapters: `resolveDatabaseProvider` /
+`resolveAndCreateAdapter` (see [database-providers.md](./database-providers.md),
+[ADR 0014](../adr/adr-0014-database-provider-portability.md)).
+
+Supported URL schemes: `postgresql://` / `postgres://` (primary),
+`sqlserver://` / `mssql://`, `mysql://` / `mariadb://`. Optional override:
+`DATABASE_PROVIDER`. Shadow schemas for validate:
+`schema.mssql.prisma` / `schema.mysql.prisma` (regenerate with
+`pnpm prisma:generate-provider-schemas`).
 
 ## Migration timestamps & parallel PRs
 

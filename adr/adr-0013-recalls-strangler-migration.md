@@ -39,7 +39,7 @@ Database access to the existing MSSQL estate depends on provider portability (ro
 
 - Execute M0–M6: [runbooks/recalls-migration.md](../runbooks/recalls-migration.md).
 - Docs: [architecture/recalls-*.md](../architecture/recalls-v2-assessment.md).
-- Round: [plans-84](../plans/rounds/plans-84-eighty-four-round/).
+- Ejecución: [ideauto/migration](../ideauto/migration/).
 
 ## References
 
@@ -47,4 +47,4 @@ Database access to the existing MSSQL estate depends on provider portability (ro
 - [recalls-domain-mapping.md](../architecture/recalls-domain-mapping.md)
 - [adr-0005-jwt-vs-keycloak.md](./adr-0005-jwt-vs-keycloak.md)
 - [adr-0008-platform-scope-vs-mvp-client.md](./adr-0008-platform-scope-vs-mvp-client.md)
-- [plans-83](../plans/rounds/plans-83-eighty-three-round/)
+- [database-providers.md](../runbooks/database-providers.md) · [ADR 0014](./adr-0014-database-provider-portability.md)

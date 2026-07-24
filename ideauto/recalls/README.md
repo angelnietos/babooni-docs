@@ -11,7 +11,7 @@
 <p align="center">
   <img alt="estado" src="https://img.shields.io/badge/estado-en%20migración-14b8a6?style=flat-square" />
   <a href="../README.md"><img alt="Ideauto" src="https://img.shields.io/badge/hub-Ideauto-0f766e?style=flat-square" /></a>
-  <a href="../../plans/rounds/plans-84-eighty-four-round/"><img alt="F84" src="https://img.shields.io/badge/plan-F84-0d5f59?style=flat-square" /></a>
+  <a href="../migration/"><img alt="migration" src="https://img.shields.io/badge/migration-0d5f59?style=flat-square" /></a>
 </p>
 
 Documentación **independiente** de la migración del producto Recalls (Ideauto) al monorepo Arquetipos. Pensada para producto, PM, desarrollo y stakeholders de cliente.
@@ -56,18 +56,16 @@ tag: layer:clientes
 
 ---
 
-## Plan de ronda (tickets)
+## Plan de ronda
 
-| ID | Plan F84 | Espejo aquí |
-|----|----------|-------------|
-| F84-A1 | [comparativa](../../plans/rounds/plans-84-eighty-four-round/1764000020000-f84-comparative-analysis.md) | [why-migrate](./why-migrate.md) · [legacy-vs-target](./legacy-vs-target.md) |
-| F84-B1 | [strategy](../../plans/rounds/plans-84-eighty-four-round/1764000021000-f84-migration-strategy.md) | [migration-strategy](./migration-strategy.md) |
-| F84-C1 | [mapping](../../plans/rounds/plans-84-eighty-four-round/1764000022000-f84-domain-mapping.md) | [domain-map](./domain-map.md) |
-| F84-D1 | [execution](../../plans/rounds/plans-84-eighty-four-round/1764000023000-f84-technical-execution.md) | [milestones](./milestones.md) |
-| F84-E1 | [docs close](../../plans/rounds/plans-84-eighty-four-round/1764000024000-f84-docs-gates-close.md) | esta carpeta |
+La checklist operativa F84 quedó **cerrada** (solo en git). Ejecución: **[migration](../migration/)**.
 
-GitHub (main):  
-https://github.com/Babooni-Technologies/arquetipos/tree/main/docs/plans/rounds/plans-84-eighty-four-round
+| Tema | Doc aquí |
+|------|----------|
+| Por qué / comparativa | [why-migrate](./why-migrate.md) · [legacy-vs-target](./legacy-vs-target.md) |
+| Strategy strangler | [migration-strategy](./migration-strategy.md) |
+| Mapeo dominio | [domain-map](./domain-map.md) |
+| Milestones M0–M6 | [milestones](./milestones.md) |
 
 ADR: [0013 — strangler Ideauto](../../adr/adr-0013-recalls-strangler-migration.md)  
 Runbook ops: [runbooks/recalls-migration.md](../../runbooks/recalls-migration.md)

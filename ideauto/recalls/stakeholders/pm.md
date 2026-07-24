@@ -5,7 +5,7 @@ Hub: [../README.md](../README.md)
 ## Tablero
 
 Usa [milestones.md](../milestones.md) como SoT de estado.  
-Tickets de ronda: [F84](../../../plans/rounds/plans-84-eighty-four-round/).
+Tickets de ronda: [migration](../../migration/).
 
 ## Dependencias
 

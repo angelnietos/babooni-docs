@@ -68,13 +68,9 @@ Meter Recalls en `@saas/*` mezclaría marcas y rompería boundaries. Ver [nuevo-
 
 ---
 
-## Relación con planes F84
+## Relación con planes
 
-Los tickets viven en:
-
-https://github.com/Babooni-Technologies/arquetipos/tree/main/docs/plans/rounds/plans-84-eighty-four-round
-
-Esta carpeta `docs/ideauto/recalls/` es la **narrativa de producto**. F84 es el **checklist de ronda**.
+Narrativa de producto en esta carpeta. Ejecución: [migration](../migration/) (F84 cerrado — solo git).
 
 ---
 

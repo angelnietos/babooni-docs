@@ -35,6 +35,8 @@ Checklist cliente: [nuevo-cliente-checklist.md](../../../clientes/nuevo-cliente-
 `api → data-access → features ← ui` · `shell` lazy-load.  
 Contrato: [frontend-domain-architecture-contract.md](../../../frontend/frontend-domain-architecture-contract.md).
 
-## Plan F84
+## Migración operativa
 
-https://github.com/Babooni-Technologies/arquetipos/tree/main/docs/plans/rounds/plans-84-eighty-four-round
+Ejecución: [migration/](../../migration/).
+
+

@@ -200,6 +200,6 @@ Allowlist: `tools/checks/ui-native-first-allowlist.json`.
 - [josanz-product-exceptions.md](./josanz-product-exceptions.md)
 - [ci-gates.md](./ci-gates.md)
 - UI cerrada (**F79–F82**): esta guía · [ui-strategy.md](./ui-strategy.md)
-  (rondas en git). Activas: [F84 Recalls](../plans/rounds/plans-84-eighty-four-round/) ·
-  [F83 DB](../plans/rounds/plans-83-eighty-three-round/).
+  (rondas en git). Activas: [Ideauto migration](../ideauto/migration/) ·
+  [DB providers](../runbooks/database-providers.md) · [ADR 0014](../adr/adr-0014-database-provider-portability.md).
   Índice: [plans/README.md](../plans/README.md).

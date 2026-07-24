@@ -36,6 +36,7 @@ changes can be evaluated against the original rationale.
 | [0011](adr-0011-storybook-native-ui-first.md) | Storybook native-first | SB serve+build on native-ui; serve on base Angular/React UI; ownership by package |
 | [0012](adr-0012-isomorphic-validation.md) | Isomorphic validation FE↔BE | class-validator SoT + shared predicates; Zod kit deferred |
 | [0013](adr-0013-recalls-strangler-migration.md) | Recalls_v2 → cliente Ideauto | **Strangler** into `clientes/ideauto/recalls` (`@ideauto/*`); **not** SaaS (proposed) |
+| [0014](adr-0014-database-provider-portability.md) | DB provider portability | Postgres primary; SqlServer/MySQL via adapters + shadow schemas (best-effort) |
 
 ## How to use these
 
@@ -53,7 +54,8 @@ changes can be evaluated against the original rationale.
 |-----|------|
 | **0001** | Productos cliente incluyen `@josanz/*` y `@ideauto/*` (M0 scaffold Recalls). |
 | **0006** | Tags Nx: usar `runtime:*` (no `scope:*`). Ver nota en el propio ADR. |
-| **0013** | Status **proposed**; M0 stubs en árbol — ejecución F84 / [ideauto/recalls](../ideauto/recalls/). |
+| **0013** | Status **proposed**; M0 stubs in tree — ejecución en [ideauto/migration](../ideauto/migration/). |
+| **0014** | Postgres SoT + shadow MSSQL/MySQL; runtime adapters in kernel prisma. |
 
 ## Enlaces
 

@@ -67,4 +67,4 @@ Milestones técnicos: [milestones.md](./milestones.md).
 ## Enlaces
 
 - [risks-and-rollback.md](./risks-and-rollback.md)  
-- [F84-B1](../../plans/rounds/plans-84-eighty-four-round/1764000021000-f84-migration-strategy.md)
+- [migration](../migration/)

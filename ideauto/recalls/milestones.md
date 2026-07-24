@@ -80,5 +80,5 @@ M4 (DGT) puede ir en paralelo a M3 tras M2, con cuidado de no compartir PRs conf
 ## Enlaces
 
 - [migration-strategy.md](./migration-strategy.md)  
-- [F84-D1](../../plans/rounds/plans-84-eighty-four-round/1764000023000-f84-technical-execution.md)  
+- [m0-m6](../migration/m0-m6-execution.md)  
 - [stakeholders/pm.md](./stakeholders/pm.md)

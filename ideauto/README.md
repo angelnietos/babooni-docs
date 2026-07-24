@@ -23,7 +23,7 @@
 
 | Producto | Path app | Estado | Doc |
 |----------|----------|--------|-----|
-| **Recalls** | `apps/clientes/ideauto/recalls` | migración F84 (strangler) | [recalls/](./recalls/) |
+| **Recalls** | `apps/clientes/ideauto/recalls` | migración activa (strangler; F84 plan cerrado) | [recalls/](./recalls/) · [migration/](./migration/) |
 
 ---
 
@@ -65,13 +65,13 @@ Checklist genérico: [clientes/nuevo-cliente-checklist.md](../clientes/nuevo-cli
 
 ---
 
-## Plan de trabajo (Nx round)
+## Plan de trabajo
 
-Ronda operativa: [plans-84-eighty-four-round](../plans/rounds/plans-84-eighty-four-round/)  
-GitHub: [plans-84 on main](https://github.com/Babooni-Technologies/arquetipos/tree/main/docs/plans/rounds/plans-84-eighty-four-round)
+Ejecución operativa: **[migration/](./migration/)** (M0–M6).
 
-> Esta carpeta `docs/ideauto/` es la **doc de producto / migración** (humana).  
-> `docs/plans/rounds/plans-84-…` es el **ticket de ronda** (checklist de cierre).
+> Narrativa de producto: [recalls/](./recalls/).  
+> F84 (checklist plan) cerrada — solo git.  
+> Ronda Nx del **motor monorepo** (no Ideauto): [plans-85](../plans/rounds/plans-85-eighty-five-round/).
 
 ---
 
@@ -79,4 +79,4 @@ GitHub: [plans-84 on main](https://github.com/Babooni-Technologies/arquetipos/tr
 
 - Biblia: [docs/README.md](../README.md)
 - ADR strangler: [adr-0013](../adr/adr-0013-recalls-strangler-migration.md)
-- F83 (MSSQL): [plans-83](../plans/rounds/plans-83-eighty-three-round/)
+- DB MSSQL: [database-providers.md](../runbooks/database-providers.md) · [ADR 0014](../adr/adr-0014-database-provider-portability.md)

@@ -11,7 +11,7 @@
 <p align="center">
   <img alt="architecture" src="https://img.shields.io/badge/architecture-0f766e?style=flat-square" />
   <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
-  <a href="../plans/rounds/plans-84-eighty-four-round/"><img alt="F84" src="https://img.shields.io/badge/plan-F84-14b8a6?style=flat-square" /></a>
+  <a href="../ideauto/migration/"><img alt="F84" src="https://img.shields.io/badge/plan-F84-14b8a6?style=flat-square" /></a>
 </p>
 
 Cuándo leerlo: kickoff Ideauto Recalls, o cuando alguien pregunte *“¿por qué no seguimos con Express + Next sueltos?”* / *“¿va a SaaS?”*.
@@ -89,5 +89,5 @@ Guía: [nuevo-cliente-checklist.md](../clientes/nuevo-cliente-checklist.md).
 
 ## Enlaces
 
-- Ronda [F84](../plans/rounds/plans-84-eighty-four-round/)
+- Ronda [ideauto/migration](../ideauto/migration/)
 - [framework-decision-guide.md](./framework-decision-guide.md)

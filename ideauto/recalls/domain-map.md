@@ -61,5 +61,5 @@ apps/clientes/ideauto/recalls/{backend,frontend}
 ## Enlaces
 
 - [scope-and-placement.md](./scope-and-placement.md)  
-- [F84-C1](../../plans/rounds/plans-84-eighty-four-round/1764000022000-f84-domain-mapping.md)  
+- [migration](../migration/)  
 - Canónico architecture: [recalls-domain-mapping.md](../../architecture/recalls-domain-mapping.md)
