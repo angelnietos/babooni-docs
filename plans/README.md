@@ -10,6 +10,7 @@
 
 <p align="center">
   <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
+  <a href="./rounds/plans-84-eighty-four-round/"><img alt="F84" src="https://img.shields.io/badge/F84-active-14b8a6?style=flat-square" /></a>
   <a href="./rounds/plans-83-eighty-three-round/"><img alt="F83" src="https://img.shields.io/badge/F83-active-14b8a6?style=flat-square" /></a>
   <a href="./rounds/plans-82-eighty-two-round/"><img alt="F82" src="https://img.shields.io/badge/F82-active-14b8a6?style=flat-square" /></a>
   <a href="./rounds/plans-81-eighty-one-round/"><img alt="F81" src="https://img.shields.io/badge/F81-closed-0f766e?style=flat-square" /></a>
@@ -32,6 +33,7 @@ Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `traslad
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
+| [plans-84](./rounds/plans-84-eighty-four-round/) | activa | Recalls_v2 → arquetipos migration (strangler, MSSQL, F83) |
 | [plans-83](./rounds/plans-83-eighty-three-round/) | activa | Database provider portability + adapters (Pg ⇄ SqlServer ⇄ MySql) |
 | [plans-82](./rounds/plans-82-eighty-two-round/) | activa | Josanz on `@base/native-ui` + wrappers + atoms\|composites carry |
 | [plans-78](./rounds/plans-78-seventy-eight-round/) | listo para ejecutar | feature parity React, mobile logic cleanup & architecture compliance |
