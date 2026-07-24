@@ -33,27 +33,58 @@ Plans: F53-B1/B2/D2, F54-B1.
 
 ## Decision
 
-1. **Primary catalog Storybook** is **`base-native-ui`** (Lit / web-components):
-   both **`storybook` (serve)** and **`build-storybook`**. Default local port
-   **4400** (document in design-system; adjust if taken).
+1. **Primary catalog Storybook** is **`base-native-ui`** (Lit custom elements):
+   both **`storybook` (serve)** and **`build-storybook`**. Framework:
+   **`@storybook/web-components-vite`**. Stories are **`.ts`** using Lit
+   `html\`...\`` — **not** React JSX / `@storybook/react-vite`. Default local
+   port **6007** (document in design-system).
 
-2. **Framework adapter Storybooks** (`base-angular-ui`, `base-react-ui`) keep
-   documenting **wrappers and remaining legacy** components; each must expose
-   Nx **`storybook` serve** in addition to `build-storybook` (ports e.g. 4402 /
-   4403; Josanz stays on 4401).
+2. **Every framework adapter has its own Storybook** documenting **wrappers**
+   of the Lit SoT (or token-aligned twins for RN). Coverage of the atom set
+   must stay **parity-aligned** with `base-native-ui` — no stack left as a
+   thinner catalog.
+
+   | Package | Framework | Stories | Role |
+   |---------|-----------|---------|------|
+   | `base-native-ui` | `@storybook/web-components-vite` | `.ts` + Lit `html` | **SoT catalog** |
+   | `base-angular-ui` | `@storybook/angular` | `.ts` | Angular CE wrappers |
+   | `base-react-ui` | `@storybook/react-vite` | `.tsx` | React CE wrappers |
+   | `base-next-ui` | `@storybook/react-vite` | `.tsx` | Next adapters (`'use client'` / CE islands) |
+   | `base-ionic-ui` | `@storybook/angular` | `.ts` | Ionic adapters over Lit / Ion chrome |
+   | `base-react-native-ui` | `@storybook/react-vite` (+ RN-web) | `.tsx` | Token/API twins (no Lit in RN bundle) |
+   | Product UI (Josanz / Arquetipos) | Angular / React | brand only | Wrappers on top of base |
+
+   Ports (local): native 6007 · Josanz 4401 · Angular 4402 · React 4403 ·
+   Arquetipos Angular/React 4404/4405 · Next 4406 · Ionic 4407 · RN 4408.
 
 3. **Ownership:** stories live in the package that **owns** the component.
-   Product Storybooks (Josanz, Arquetipos) document brand wrappers only — do
-   not re-story base atoms unless the wrapper changes the visual API.
+   Product Storybooks document brand wrappers only — do not re-story base Lit
+   atoms unless the wrapper changes the visual API.
 
-4. **Arquetipos `.storybook` folders** must either gain Nx targets or be
-   explicitly deprecated in favor of native + base adapter SBs (F53-D2).
+4. **Arquetipos templates** must look the same across Angular / React / Next /
+   Ionic / RN by consuming the **same Lit SoT** (or RN token twin), not
+   parallel one-off atoms.
 
-5. **CI:** keep building base Angular/React SBs; add `base-native-ui`
-   `build-storybook` (F54 may add visual regression / Chromatic).
+5. **CI:** build `base-native-ui` + adapter SBs (angular/react required;
+   next/ionic/rn as targets land). F54+ may add Chromatic.
 
-6. **Root scripts** (optional but preferred): `pnpm storybook:native-ui`,
-   `storybook:base-angular`, `storybook:base-react` → `nx storybook …`.
+6. **Root scripts:** `pnpm storybook:native-ui`, `storybook:base-angular`,
+   `storybook:base-react`, `storybook:base-next`, `storybook:base-ionic`,
+   `storybook:base-rn`.
+
+### Amendment (2026-07-24) — Lit SoT ≠ React host
+
+Earlier scaffolding hosted Lit CEs inside `@storybook/react-vite` via a
+`Ce` bridge. That contradicted ADR 0010.
+
+**Superseded:** React-hosted native-ui stories (`.tsx` + `Ce`).
+**Current:** `@storybook/web-components-vite` + Lit `html` stories (`.ts`).
+
+### Amendment (2026-07-24) — adapter parity (Next / Ionic / RN)
+
+Do **not** treat Next / Ionic / RN as “no Storybook”. Each adapter documents
+the same atom set. Next loads Lit only in client islands (SSR-safe); RN keeps
+token/API parity per ADR 0010 §6.
 
 ## Consequences
 
@@ -67,5 +98,7 @@ Plans: F53-B1/B2/D2, F54-B1.
 
 - ADR [0010](adr-0010-native-ui-lit-sot.md)
 - [design-system.md](../frontend/design-system.md) § Storybook
+- [native-ui-adapter-matrix.md](../frontend/native-ui-adapter-matrix.md)
 - [ui-strategy.md](../frontend/ui-strategy.md) § Storybook
 - Reference serve target: `josanz-angular-ui` `project.json`
+- Plan: [F79](../plans/rounds/plans-79-seventy-nine-round/) — adapter Storybook parity + Lit migration

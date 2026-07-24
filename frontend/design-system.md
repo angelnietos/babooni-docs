@@ -93,10 +93,12 @@ CTA / nav de forma obvia.
 | `@base/native-ui` | **SoT** Lit Custom Elements (cross-framework) |
 | `@base/ui-styles` | **7–1** SCSS compartido (themes + pages BEM) |
 | `@base/angular-ui` / `@base/react-ui` | Wrappers `Native*` + legacy framework-only (congelado) |
+| `@base/next-ui` | Next client islands → `Native*` / Lit CE (F79) |
+| `@base/ionic-ui` | Átomos SoT → Lit; chrome `ion-*` documentado |
 | `@base/react-native-ui` | Primitivos RN (tokens/API alineados; no Lit) |
-| `@josanz/angular-ui` | Marca Josanz (wrappers + re-exports) |
-| `@arquetipos/*-ui` | Plantilla demo (wrappers premium / thin) |
-| `@saas/shared-ui` | SaaS (re-export / extensión base) |
+| `@josanz/angular-ui` | Marca Josanz (wrappers + re-exports); taxonomía producto bajo `src/lib/*` — ver [ui-lib-folder-layout.md](./ui-lib-folder-layout.md) |
+| `@arquetipos/*-ui` | Plantilla demo — `atoms|composites|theme` (adapters SoT en `atoms/{name}/`, F81) |
+| `@saas/shared-ui` | SaaS (`atoms|composites` + re-export base) |
 
 Decisión wrap vs re-export: [ui-re-export-vs-wrapper.md](../guides/ui-re-export-vs-wrapper.md).
 
@@ -109,39 +111,52 @@ Fuente máquina: [ui-component-catalog.yaml](./ui-component-catalog.yaml).
 - CRM SaaS → `@saas/shared-ui`
 - **No mezclar** imports entre `layer:arquetipos` ↔ `layer:clientes` ↔ `layer:productos-saas`
 
-Gate: `node tools/checks/check-ui-ownership.mjs` (F53+: soft native-first).
+Gate: `node tools/checks/check-ui-ownership.mjs` · native-first features:
+`pnpm check:ui-native-first` (F81-A1 — scopes angular/react/next/ionic/rn;
+allowlist ratchet hasta F81-C1/D1).
 
 ## Storybook
 
-| Proyecto | Serve | Build | Puerto |
-|----------|-------|-------|--------|
-| `base-native-ui` | `nx storybook base-native-ui` | sí (CI) | 6007 |
-| `base-angular-ui` | `nx storybook base-angular-ui` | sí (CI) | 4402 |
-| `base-react-ui` | `nx storybook base-react-ui` | sí (CI) | 4403 |
-| `josanz-angular-ui` | `nx storybook josanz-angular-ui` | sí | 4401 |
-| `arquetipos-angular-ui` | `nx storybook arquetipos-angular-ui` | sí | 4404 |
-| `arquetipos-react-ui` | `nx storybook arquetipos-react-ui` | sí | 4405 |
+Matriz **SoT Lit + adapters en paridad** (ADR [0011](../adr/adr-0011-storybook-native-ui-first.md)):
 
-- Stories en el paquete **dueño** del componente — **ver `base-native-ui` primero**.
+| Proyecto | Renderer | Extensión | Puerto | Rol |
+|----------|----------|-----------|--------|-----|
+| `base-native-ui` | `@storybook/web-components-vite` | `.ts` + Lit `html` | 6007 | **Catálogo SoT** (custom elements) |
+| `base-angular-ui` | `@storybook/angular` | `.ts` | 4402 | Wrappers Angular sobre Lit |
+| `base-react-ui` | `@storybook/react-vite` | `.tsx` | 4403 | Wrappers React sobre Lit |
+| `base-next-ui` | `@storybook/react-vite` | `.tsx` | 4406 | Adapters Next (client / CE islands) |
+| `base-ionic-ui` | `@storybook/angular` | `.ts` | 4407 | Adapters Ionic sobre Lit / Ion |
+| `base-react-native-ui` | `@storybook/react-vite` (+ RN-web) | `.tsx` | 4408 | Gemelos token/API (sin Lit en RN) |
+| `josanz-angular-ui` | `@storybook/angular` | `.ts` | 4401 | Brand wrappers |
+| `arquetipos-angular-ui` / `arquetipos-react-ui` | Angular / React | `.ts` / `.tsx` | 4404 / 4405 | Brand plantilla |
+
+**Paridad:** el set de átomos documentado en cada adapter debe alinearse con
+`base-native-ui` (Button, Input, Alert, …). Arquetipos en todos los runtimes
+debe verse igual porque consume la misma SoT Lit (RN: tokens + misma API).
+
+El catálogo SoT (`base-native-ui`) lleva **Docs autodocs** (`@storybook/addon-docs`),
+**Controls** por propiedad pública, **Actions** en eventos `base-*`, página
+`Introduction`, y stories Playground + variantes por átomo. Ver
+[`libs/base/frontend/crosscutting/native-ui/README.md`](../../libs/base/frontend/crosscutting/native-ui/README.md).
+
 - Inferencia: `@nx/storybook/plugin` en `nx.json`; puertos/styles/output en
   `project.json` por lib.
-- **CI visual / Chromatic (F71-A1):** sin `CHROMATIC_PROJECT_TOKEN` →
-  `build-storybook` de `base-native-ui` (+ angular/react-ui) en CI es la señal
-  de rotura; Chromatic / Code Connect / migración auth+chrome → **defer F72**
-  ([deprecated-atoms-residual.md](./deprecated-atoms-residual.md)).
-  Arquetipos SB (`arquetipos-*-ui`) ya tiene targets Nx; adapters brand only.
+- **CI visual / Chromatic:** sin token → `build-storybook` native + adapters
+  es la señal de rotura ([deprecated-atoms-residual.md](./deprecated-atoms-residual.md)).
 
 ```bash
-pnpm nx storybook base-native-ui
-pnpm nx build-storybook base-native-ui
-pnpm nx storybook base-angular-ui
-pnpm nx storybook base-react-ui
-pnpm nx storybook josanz-angular-ui
-pnpm nx storybook arquetipos-angular-ui
-pnpm nx storybook arquetipos-react-ui
+pnpm storybook:native-ui
+pnpm storybook:base-angular
+pnpm storybook:base-react
+pnpm storybook:base-next
+pnpm storybook:base-ionic
+pnpm storybook:base-rn
 ```
 
-Tokens compartidos: `@base/ui-tokens` (+ `./css`, `./rn`). A11y:
+Tokens compartidos: `@base/ui-tokens` (+ `./css`, `./rn`). Adapter matrix:
+[native-ui-adapter-matrix.md](./native-ui-adapter-matrix.md). UI folder layout:
+[ui-lib-folder-layout.md](./ui-lib-folder-layout.md). Next SSR islands:
+[next-native-ui.md](./next-native-ui.md). A11y:
 [native-ui-a11y-matrix.md](./native-ui-a11y-matrix.md). Figma:
 [figma-native-ui-map.md](./figma-native-ui-map.md). Deprecated residual:
 [deprecated-atoms-residual.md](./deprecated-atoms-residual.md). Validación
@@ -171,12 +186,17 @@ Arquetipos multi: **identidad tenant** gana sobre atmósfera tipográfica —
 
 ```bash
 node tools/checks/check-ui-ownership.mjs
-pnpm check:ui-native-first
+pnpm check:ui-native-first          # soft (warn + allowlist)
+pnpm check:ui-native-first:strict   # CI hygiene — ratchet only shrinks
 pnpm nx typecheck base-native-ui
 pnpm nx typecheck base-ui-tokens
 pnpm nx typecheck josanz-angular-ui
 ```
 
+**F81 native-first contract:** Arquetipos features → SoT adapters only
+([arquetipos-thin-libs.md](./arquetipos-thin-libs.md)). Adapters in
+`atoms/{name}/` ([ui-lib-folder-layout.md](./ui-lib-folder-layout.md)).
+Allowlist: `tools/checks/ui-native-first-allowlist.json`.
 ## Enlaces
 
 - [josanz-product-exceptions.md](./josanz-product-exceptions.md)

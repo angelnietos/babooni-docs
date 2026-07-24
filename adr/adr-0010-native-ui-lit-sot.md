@@ -79,7 +79,9 @@ Plans: [F53](../plans/rounds/plans-53-fifty-three-round/),
 
 - [ui-strategy.md](../frontend/ui-strategy.md)
 - [design-system.md](../frontend/design-system.md)
+- [native-ui-adapter-matrix.md](../frontend/native-ui-adapter-matrix.md)
 - [how-it-works.md](../frontend/how-it-works.md) § UI
 - ADR [0006](adr-0006-frontend-layering.md) (feature layering; complementary)
 - ADR [0011](adr-0011-storybook-native-ui-first.md) (Storybook)
 - Code: `libs/base/frontend/crosscutting/native-ui/`
+- Round: [F79](../plans/rounds/plans-79-seventy-nine-round/)- Plan: [F79](../plans/rounds/plans-79-seventy-nine-round/) — Next·Ionic·RN adapter migration + SB parity

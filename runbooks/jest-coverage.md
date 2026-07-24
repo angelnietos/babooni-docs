@@ -155,7 +155,7 @@ Jest desde la raíz del repo con `-c path/to/config` → a menudo `coverage/root
 | Merge: “no coverage-final.json” | Falta reporter `json` (viene en shared) o no corriste `--coverage` |
 | HTML lleno de carpetas a **0%** | Había `collectCoverageFrom` amplio — shared ya no lo fuerza; regenera coverage |
 | `react` / `react-dom` version mismatch | Pin dirs desde workspace root (ver `base-react-ui` jest.config) |
-| Lit ESM en Jest CJS | Mock `@base/native-ui` / shim `registerNativeUi` (CEs no se ejecutan → no piden coverage) |
+| Lit ESM en Jest CJS | **SoT** (`base-native-ui`): `testEnvironment: 'jsdom'` + `transformIgnorePatterns` for the pnpm-nested `lit` graph — real CE specs. **Adapters** (Angular/React wrappers): keep mocking `@base/native-ui` / shim `registerNativeUi` so consumer suites stay fast |
 | Comentario `/**/` en globs | Cierra JSDoc ESM — no usar `**/` dentro de `/** … */` |
 | Cache Nx no restaura coverage | `outputs` del target deben incluir `coverage/...` (plugin + `coverageDirectory`) |
 

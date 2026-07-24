@@ -11,6 +11,7 @@
 <p align="center">
   <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
   <a href="./rounds/plans-78-seventy-eight-round/"><img alt="F78" src="https://img.shields.io/badge/F78-active-14b8a6?style=flat-square" /></a>
+  <a href="./rounds/plans-81-eighty-one-round/"><img alt="F81" src="https://img.shields.io/badge/F81-closed-0f766e?style=flat-square" /></a>
 </p>
 
 Planes de trabajo del monorepo. **No son la biblia operativa** — si contradicen
@@ -31,11 +32,14 @@ Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `traslad
 | Ronda | Estado | Tema |
 |-------|--------|------|
 | [plans-78](./rounds/plans-78-seventy-eight-round/) | listo para ejecutar | feature parity React, mobile logic cleanup & architecture compliance |
+| [plans-81](./rounds/plans-81-eighty-one-round/) | cerrada | Native-first Arquetipos + atoms/{name}; Josanz folder → F82 |
 
 ## Rondas completadas (archivo)
 
 | Ronda | Tema |
 |-------|------|
+| [plans-80](./rounds/plans-80-eighty-round/) | UI lib folder layout, brand wrappers ↔ apps, dead-atom purge (+ F79 carries) |
+| [plans-79](./rounds/plans-79-seventy-nine-round/) | Lit SoT adapters Next·Ionic·RN + matriz; layout seed atoms/chrome/composites |
 | [plans-77](./rounds/plans-77-seventy-seven-round/) | Mobile parity, Next.js build fix, React base completion |
 | [plans-76](./rounds/plans-76-seventy-six-round/) | Canonical Domain Architecture rollout, God barrels cleanup, test/lint hardening |
 | [plans-75](./rounds/plans-75-seventy-five-round/) | Frontend Canonical Domain Architecture, 8-layer contract, public API barrel cleanup |

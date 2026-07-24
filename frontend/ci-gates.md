@@ -20,6 +20,7 @@ checks in sequence.
 | Paths | `pnpm check:tsconfig-paths` | paths > 3 or redundant > 0 |
 | Workspace | `pnpm check:workspace-deps:strict` | import without `workspace:*` |
 | UI | `pnpm check:ui-ownership:strict` | wrong UI layer; @josanz/*-features → `@base/angular-ui` direct |
+| UI lib layout (F80-A1) | `pnpm check:ui-lib-layout` (soft CI) · `pnpm check:ui-lib-layout:strict` | loose `*.ts`/`*.tsx` directly under `{ui-lib}/src/lib/` (allowlist: `tools/checks/ui-lib-layout-allowlist.json`) |
 | Lib layout | `pnpm check:lib-layout:strict` | runtime tags / lib layout violations |
 | Legacy paths | `pnpm check:legacy-paths` | legacy `browser/` / `isomorphic/` / `node/` structure |
 | Node modules | `pnpm check:node-modules` | nested `node_modules` (stray installs / Prisma copies) |

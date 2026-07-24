@@ -31,6 +31,36 @@ sin tocar base. El default es un **re-export thin** de `@base/*`.
 | `shell` | **Sí** | rutas lazy → features | Entry de dominio |
 | `ui` | **Sí** | presentacional plantilla | `@arquetipos/arquetipos-{angular,react}-ui` |
 
+**UI atoms → Lit adapters (F79/F80/F81):** features de plantilla **solo** consumen
+átomos SoT vía adapter del runtime — no CSS dual (`ArqButton` premium) ni
+`ButtonComponent` de base. Paths canónicos:
+
+| Runtime | Package UI | Átomos SoT |
+|---------|------------|------------|
+| Angular | `@arquetipos/arquetipos-angular-ui` | `ArqNative*Component` (→ `@base/angular-ui` `Native*`) |
+| React | `@arquetipos/arquetipos-react-ui` | `ArqNative*` (→ `@base/react-ui` `Native*`) |
+| Next | `@arquetipos/arquetipos-next-ui` / `@base/next-ui` | `Arq*` client islands → Lit |
+| Ionic | `@arquetipos/arquetipos-ionic-ui` / `@base/ionic-ui` | `ArqIon*` Lit + chrome `ion-*` |
+| RN | `@arquetipos/arquetipos-react-native-ui` / `@base/react-native-ui` | `Arq*` twin tokens (sin Lit) |
+
+**Features → adapters SoT only (F81-C1):** auth / clients / users / roles / audit /
+settings usan `ArqNative*` (Angular/React) o `@base/{next,ionic,react-native}-ui`.
+Chrome de plataforma (Topbar, Ion tabs) permitido. Gate:
+`pnpm check:ui-native-first:strict` (allowlist vacía).
+
+### Matriz mínima dominio × átomo (auth / clients)
+
+| Átomo | auth | clients |
+|-------|------|---------|
+| Button | login CTA | CRUD actions |
+| Input | email / password | search / filters |
+| Alert | auth errors | save / load errors |
+| EmptyState | — | empty list |
+| Spinner | submit pending | list loading |
+| Select | — | filters / status |
+
+Mismos conceptos en los 5 runtimes; solo cambia el adapter.
+
 **No omitir** `api/` ni `data-access/` en dominios de plantilla: sin esas carpetas
 no hay punto de extensión. Mientras no haga falta lógica propia, el `index.ts`
 puede ser solo `export * from '@base/…'`.
@@ -238,10 +268,14 @@ libs/arquetipos/
 ```bash
 node tools/checks/check-lib-layout.mjs
 node tools/checks/check-frontend-conventions.mjs
+pnpm check:ui-native-first          # soft warn + allowlist (F81-A1)
+pnpm check:ui-native-first:strict   # hygiene / after F81-C1/D1
 pnpm nx typecheck arquetipos-angular-clients-features
 pnpm nx typecheck arquetipos-react-clients-features
 ```
 
+**Ratchet native-first:** `tools/checks/ui-native-first-allowlist.json` solo encoge.
+Tras migrar badges/legacy en F81-C1/D1 → `paths: []` y `--strict` queda verde.
 ---
 
 ## Enlaces

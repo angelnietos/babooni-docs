@@ -111,4 +111,4 @@ F76 completó el rollout físico de 8 capas (domain, api, data-access, features,
 ## Predecesora / Siguiente
 
 - Predecesora: [F77](../plans-77-seventy-seven-round/)
-- Siguiente: TBD
+- Siguiente: [F79](../plans-79-seventy-nine-round/) — Lit SoT adapters Next·Ionic·RN + Storybook parity (eje UI; paralelizable)
