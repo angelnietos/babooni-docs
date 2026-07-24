@@ -25,7 +25,7 @@ Si el presupuesto lo permite: mapear `@josanz/angular-ui` `forms|feedback|layout
 - [x] Estimar churn de imports Storybook/apps — alto (taxonomía producto ERP; F80-B2 ya documentó defer)
 - [x] Documentar “→ F82” en README F81 checklist (no olvidado)
 - [x] Ronda F82 abierta — scope ampliado: native-extend + wrappers + folder carry ([F82 README](../plans-82-eighty-two-round/README.md))
-- [ ] Ejecutar move físico Josanz — **[F82-D1](../plans-82-eighty-two-round/1764000004000-f82-josanz-folder-carry.md)**
+- [x] Ejecutar move físico Josanz — **[F82-D1](../plans-82-eighty-two-round/1764000004000-f82-josanz-folder-carry.md)** (hecho)
 
 ## Criterios
 

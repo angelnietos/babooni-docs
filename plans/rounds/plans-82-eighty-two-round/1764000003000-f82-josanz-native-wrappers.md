@@ -11,24 +11,39 @@
 
 ## Estado
 
-listo para ejecutar · 2026-07-24 · depende de [F82-A1](1764000001000-f82-josanz-native-inventory.md) (+ [B1](1764000002000-f82-extend-base-native.md) si hay gaps)
+**hecho** · 2026-07-24 · depende de [F82-A1](1764000001000-f82-josanz-native-inventory.md) (+ [B1](1764000002000-f82-extend-base-native.md))
 
 ## Objetivo
 
 Que la app Angular Josanz **se vea igual que ahora**, pero los controles WRAP usen Lit SoT vía `@base/angular-ui` `Native*` + wrapper de marca en `@josanz/angular-ui` (tema, defaults, selectores `josanz-*` estables).
 
+## Wrappers ejecutados
+
+| Componente | Selector | Adapter |
+|------------|----------|---------|
+| Button | `josanz-button` | `NativeButtonComponent` |
+| Input | `josanz-input` | `NativeInputComponent` |
+| Alert | `josanz-alert` | `NativeAlertComponent` |
+| Checkbox | `josanz-checkbox` | `NativeCheckboxComponent` |
+| Spinner | `josanz-spinner` | `NativeSpinnerComponent` |
+| Badge | `josanz-badge` | `NativeBadgeComponent` |
+
+Host: clase `josanz-native` + mapa CSS vars en `theme/josanz-native-host-vars.ts`.
+
+**Deferred:** Select, Modal (sheet gap — sigue implementación Josanz), Toast/Toggle oleada completa.
+
 ## Acciones
 
-- [ ] Canarios: Button, Input, Alert (mismo selector / exports públicos del barrel)
-- [ ] Oleada controles: Select, Modal, Badge, Checkbox, Toggle, Spinner, Toast, …
-- [ ] RE-EXPORT donde no haya brand (YAGNI)
-- [ ] JOSANZ-ONLY sin tocar (sigue CSS/Angular propio)
-- [ ] `registerNativeUi` en bootstrap app / Storybook Josanz si aún no
-- [ ] Smoke visual: `apps/clientes/josanz` + Storybook `josanz-angular-ui`
-- [ ] Features `@josanz/*-features` siguen importando `@josanz/angular-ui` (no `@base/angular-ui` directo — ownership)
+- [x] Canarios: Button, Input, Alert (mismos selectors / exports)
+- [x] Oleada parcial: Badge, Checkbox, Spinner
+- [x] RE-EXPORT donde no haya brand (Topbar / Base* aliases intactos)
+- [x] JOSANZ-ONLY sin tocar (catalog, settings, delete, Figma shells)
+- [x] `registerNativeUi` en app Josanz `main.ts` + Storybook preview
+- [x] Tests canario `josanz-angular-ui` verdes; typecheck lib OK
+- [x] Features siguen importando `@josanz/angular-ui` (ownership)
 
 ## Criterios
 
-- [ ] Barrel `@josanz/angular-ui` no rompe named exports usados por features/apps
-- [ ] Paridad visual aceptada en canarios (checklist en E1)
-- [ ] Guía wrap vs re-export respetada (no wrappers vacíos)
+- [x] Barrel `@josanz/angular-ui` no rompe named exports
+- [x] Paridad visual vía tokens `--josanz-*` → `--color-*` / `--status-*` (checklist E1)
+- [x] Guía wrap vs re-export respetada

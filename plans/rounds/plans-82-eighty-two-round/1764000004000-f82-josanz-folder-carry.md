@@ -11,7 +11,7 @@
 
 ## Estado
 
-listo para ejecutar · 2026-07-24 · preferible **después** de [F82-C1](1764000003000-f82-josanz-native-wrappers.md) (o en paralelo si no mezcla con renames de wrappers)
+completado · 2026-07-24
 
 Carry explícito desde [F81-E1](../plans-81-eighty-one-round/1763000005000-f81-josanz-folder-carry.md).
 
@@ -33,14 +33,14 @@ Ajustar con matriz A1 (wrappers Native* viven en `atoms/{name}/`).
 
 ## Acciones
 
-- [ ] `git mv` por oleadas; actualizar relativos internos
-- [ ] Reescribir paths en `src/index.ts` (exports públicos iguales)
-- [ ] Storybook globs ya `../src/**/*.stories.*` — verificar tras move
-- [ ] `node tools/checks/check-ui-lib-layout.mjs` (+ strict si aplica)
-- [ ] Typecheck `josanz-angular-ui` + smoke app
+- [x] `git mv` por oleadas; actualizar relativos internos
+- [x] Reescribir paths en `src/index.ts` (exports públicos iguales)
+- [x] Storybook globs ya `../src/**/*.stories.*` — verificar tras move
+- [x] `node tools/checks/check-ui-lib-layout.mjs` (+ strict si aplica)
+- [x] Typecheck `josanz-angular-ui` + smoke app
 
 ## Criterios
 
-- [ ] No quedan carpetas `forms|feedback|layout|…` como taxonomía raíz (o documentadas como alias deprecados temporales)
-- [ ] Cero deep imports rotos hacia `@josanz/angular-ui/...` (API sigue siendo barrel)
-- [ ] Apps/features sin cambios de import de paquete
+- [x] No quedan carpetas `forms|feedback|layout|…` como taxonomía raíz (o documentadas como alias deprecados temporales)
+- [x] Cero deep imports rotos hacia `@josanz/angular-ui/...` (API sigue siendo barrel)
+- [x] Apps/features sin cambios de import de paquete

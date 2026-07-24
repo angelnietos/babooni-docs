@@ -24,7 +24,10 @@
 >
 > `apps/clientes/ideauto/recalls` + `libs/clientes/ideauto` → npm **`@ideauto/*`**, tag **`layer:clientes`**, sobre kernel `@base/*`.
 >
-> **No** es producto SaaS (`@saas/*` / `productos-saas`). Verifactu y Recalls no comparten capa de producto.
+> **No** es producto SaaS (`@saas/*` / `productos-saas`).
+>
+> **Doc de producto (humana):** [`docs/ideauto/recalls/`](../../../ideauto/recalls/) — porqués, audiencias, milestones.  
+> Esta ronda F84 es el **checklist operativo**.
 
 ---
 
@@ -177,3 +180,4 @@ flowchart LR
 | Nuevo cliente | [nuevo-cliente-checklist.md](../../../clientes/nuevo-cliente-checklist.md) |
 | Índice planes | [docs/plans/README.md](../../README.md) |
 | Snapshot legacy | fuera del repo |
+| **Doc producto** | [`docs/ideauto/recalls/`](../../../ideauto/recalls/) |

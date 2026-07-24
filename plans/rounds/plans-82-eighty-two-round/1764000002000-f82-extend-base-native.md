@@ -11,22 +11,33 @@
 
 ## Estado
 
-listo para ejecutar · 2026-07-24 · depende de [F82-A1](1764000001000-f82-josanz-native-inventory.md)
+**hecho** · 2026-07-24 · depende de [F82-A1](1764000001000-f82-josanz-native-inventory.md)
 
 ## Objetivo
 
 Donde el inventario marque **PROMOTE-TO-BASE**, enriquecer `@base/native-ui` (y adapters `@base/angular-ui` `Native*`) para que Josanz pueda wrappear sin reinventar CSS dual.
 
+## Promotes ejecutados (trazables a A1)
+
+| Gap A1 | Cambio SoT / adapter |
+|--------|----------------------|
+| Button `outline` + `xl` | `NativeButtonVariant` / `NativeButtonSize` + estilos Lit |
+| Alert `dismissible` + tone `neutral` | `base-alert` + `NativeAlertComponent` (`closed`) |
+| Checkbox `description` | `base-checkbox` + `NativeCheckboxComponent` |
+| Badge tone `neutral` | `TONE_VARS` en `base-badge` |
+
+**Defer (no bloquean canarios):** `base-textarea`, modal sheet, overlay primitives, date/autocomplete/…
+
 ## Acciones
 
-- [ ] Solo gaps con evidencia de reuso (Josanz + futuro Arquetipos/SaaS) — no subir brand Josanz a base
-- [ ] Implementar/ajustar Lit CE + stories/tests SoT (`base-native-ui`)
-- [ ] Actualizar adapters Angular `Native*` (y stories base si aplica)
-- [ ] `pnpm nx test base-native-ui` + `pnpm nx typecheck` proyectos tocados
-- [ ] Documentar API nueva en design-system / native-ui README si cambia contrato público
+- [x] Solo gaps con evidencia de reuso — no subir brand Josanz a base
+- [x] Implementar/ajustar Lit CE + tests SoT (`base-native-ui`)
+- [x] Actualizar adapters Angular `Native*`
+- [x] `pnpm nx test base-native-ui` verde
+- [x] Matriz/inventario documenta API nueva ([josanz-native-inventory.md](../../../frontend/josanz-native-inventory.md))
 
 ## Criterios
 
-- [ ] Cada promote trazable a fila A1
-- [ ] SoT tests + Storybook build verdes para átomos tocados
-- [ ] Cero tokens `--josanz-*` en `@base/native-ui`
+- [x] Cada promote trazable a fila A1
+- [x] SoT tests verdes para átomos tocados
+- [x] Cero tokens `--josanz-*` en `@base/native-ui`

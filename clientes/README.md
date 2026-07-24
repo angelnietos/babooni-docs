@@ -15,7 +15,8 @@ Productos bajo `apps/clientes/` y libs `@josanz/*` / `@ideauto/*` (u otro scope 
 |-----|-----------|
 | [nuevo-cliente-checklist.md](./nuevo-cliente-checklist.md) | Scaffold `@acme/*` completo |
 | [josanz-verifactu-billing-integration.md](./josanz-verifactu-billing-integration.md) | Billing Josanz → Verifactu |
-| [../architecture/recalls-v2-assessment.md](../architecture/recalls-v2-assessment.md) | Ideauto Recalls — migración F84 (`clientes/ideauto/recalls`) |
+| [../ideauto/](../ideauto/) | **Ideauto** — hub cliente |
+| [../ideauto/recalls/](../ideauto/recalls/) | Ideauto Recalls — migración F84 (producto/PM/devs) |
 
 ### Clientes
 

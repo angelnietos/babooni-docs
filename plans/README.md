@@ -37,7 +37,7 @@ Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `traslad
 | [plans-83](./rounds/plans-83-eighty-three-round/) | activa | Database provider portability + adapters (Pg ⇄ SqlServer ⇄ MySql) |
 | [plans-78](./rounds/plans-78-seventy-eight-round/) | listo para ejecutar | feature parity React, mobile logic cleanup & architecture compliance |
 
-Docs canónicos Recalls (biblia): [assessment](../architecture/recalls-v2-assessment.md) · [strategy](../architecture/recalls-migration-strategy.md) · [mapping](../architecture/recalls-domain-mapping.md) · [runbook](../runbooks/recalls-migration.md) · [ADR 0013](../adr/adr-0013-recalls-strangler-migration.md) · checklist [nuevo cliente](../clientes/nuevo-cliente-checklist.md).
+Docs canónicos Recalls: **[docs/ideauto/recalls/](../ideauto/recalls/)** (producto/PM/devs) · [assessment](../architecture/recalls-v2-assessment.md) · [runbook](../runbooks/recalls-migration.md) · [ADR 0013](../adr/adr-0013-recalls-strangler-migration.md) · [F84](./rounds/plans-84-eighty-four-round/).
 
 ## Rondas completadas (archivo)
 

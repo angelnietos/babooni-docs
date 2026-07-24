@@ -146,7 +146,7 @@ Rutas legacy (libs) F5–F7: [legacy-paths.md](./legacy-paths.md).
 | Keycloak | [guides/keycloak-setup.md](./guides/keycloak-setup.md) |
 | Checklist PR | [guides/pr-checklist.md](./guides/pr-checklist.md) |
 | Publicar / versionar libs npm | [guides/npm-publish-and-versioning.md](./guides/npm-publish-and-versioning.md) |
-| Migrar Recalls_v2 → monorepo | [architecture/recalls-v2-assessment.md](./architecture/recalls-v2-assessment.md) → [runbook](./runbooks/recalls-migration.md) · destino `clientes/ideauto/recalls` · [F84](./plans/rounds/plans-84-eighty-four-round/) |
+| Migrar Recalls_v2 → monorepo | [ideauto/recalls/](./ideauto/recalls/) (producto) · [assessment](./architecture/recalls-v2-assessment.md) · [F84](./plans/rounds/plans-84-eighty-four-round/) |
 
 Índice completo: [guides/README.md](./guides/README.md). Estilo docs: [CONTRIBUTING-DOCS.md](./CONTRIBUTING-DOCS.md).
 
@@ -262,7 +262,7 @@ pnpm check:migration-encoding
 
 Rondas activas: **[F84](./plans/rounds/plans-84-eighty-four-round/)** (Ideauto Recalls → `clientes/ideauto/recalls`) · **[F83](./plans/rounds/plans-83-eighty-three-round/)** (DB providers) · **[F78](./plans/rounds/plans-78-seventy-eight-round/)** (parity / mobile).  
 Última UI cerrada: **[F82](./plans/rounds/plans-82-eighty-two-round/)**. Índice: [plans/README.md](./plans/README.md).  
-Recalls (por qué / cómo): [architecture/recalls-v2-assessment.md](./architecture/recalls-v2-assessment.md).
+Recalls (doc producto): [ideauto/recalls/](./ideauto/recalls/). Assessment: [architecture/recalls-v2-assessment.md](./architecture/recalls-v2-assessment.md).
 
 Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md).  
 Operativa Jest/coverage: [runbooks/jest-coverage.md](./runbooks/jest-coverage.md).
