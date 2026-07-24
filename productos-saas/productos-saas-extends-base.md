@@ -80,6 +80,7 @@ libs/productos-saas/
 | | `/clients` | `@saas/clients-shell` |
 | | `/invoices` | `@saas/invoices-shell` |
 | | `/verifactu` | `@saas/verifactu-shell` |
+| **recalls** (F84) | TBD por dominio | `@saas/campaigns-shell`, `@saas/dgt-shell`, … — ver [recalls-domain-mapping.md](../architecture/recalls-domain-mapping.md) |
 | **document-generator** | `/documents` | `@josanz/documents-shell` (dominio ERP reutilizado) |
 | | auth | `@base/angular` (`authGuard`) + rutas app |
 | **verifactu-crm-api** | REST | `@saas/clients`, `@saas/identity`, `@saas/invoicing-backend`, `@saas/verifactu` |

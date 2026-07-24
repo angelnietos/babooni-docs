@@ -12,7 +12,7 @@
   <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
   <a href="./rounds/plans-84-eighty-four-round/"><img alt="F84" src="https://img.shields.io/badge/F84-active-14b8a6?style=flat-square" /></a>
   <a href="./rounds/plans-83-eighty-three-round/"><img alt="F83" src="https://img.shields.io/badge/F83-active-14b8a6?style=flat-square" /></a>
-  <a href="./rounds/plans-82-eighty-two-round/"><img alt="F82" src="https://img.shields.io/badge/F82-active-14b8a6?style=flat-square" /></a>
+  <a href="./rounds/plans-82-eighty-two-round/"><img alt="F82" src="https://img.shields.io/badge/F82-closed-0f766e?style=flat-square" /></a>
   <a href="./rounds/plans-81-eighty-one-round/"><img alt="F81" src="https://img.shields.io/badge/F81-closed-0f766e?style=flat-square" /></a>
 </p>
 
@@ -33,15 +33,17 @@ Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `traslad
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| [plans-84](./rounds/plans-84-eighty-four-round/) | activa | Recalls_v2 → arquetipos migration (strangler, MSSQL, F83) |
+| [plans-84](./rounds/plans-84-eighty-four-round/) | activa | **Recalls_v2 → monorepo**: por qué salir del legacy, strangler, mapeo `@saas/*`, M0–M6 (depende F83) |
 | [plans-83](./rounds/plans-83-eighty-three-round/) | activa | Database provider portability + adapters (Pg ⇄ SqlServer ⇄ MySql) |
-| [plans-82](./rounds/plans-82-eighty-two-round/) | activa | Josanz on `@base/native-ui` + wrappers + atoms\|composites carry |
 | [plans-78](./rounds/plans-78-seventy-eight-round/) | listo para ejecutar | feature parity React, mobile logic cleanup & architecture compliance |
+
+Docs canónicos Recalls (biblia, no solo planes): [assessment](../architecture/recalls-v2-assessment.md) · [strategy](../architecture/recalls-migration-strategy.md) · [mapping](../architecture/recalls-domain-mapping.md) · [runbook](../runbooks/recalls-migration.md) · [ADR 0013](../adr/adr-0013-recalls-strangler-migration.md).
 
 ## Rondas completadas (archivo)
 
 | Ronda | Tema |
 |-------|------|
+| [plans-82](./rounds/plans-82-eighty-two-round/) | Josanz on `@base/native-ui` + wrappers + atoms\|composites carry |
 | [plans-81](./rounds/plans-81-eighty-one-round/) | Native-first Arquetipos + atoms/{name}; Josanz → F82 |
 | [plans-80](./rounds/plans-80-eighty-round/) | UI lib folder layout, brand wrappers ↔ apps, dead-atom purge (+ F79 carries) |
 | [plans-79](./rounds/plans-79-seventy-nine-round/) | Lit SoT adapters Next·Ionic·RN + matriz; layout seed atoms/chrome/composites |

@@ -2,89 +2,154 @@
   <img src="../../../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
 </p>
 
-<h1 align="center">F84-D1 — Technical execution plan</h1>
+<h1 align="center">F84-D1 — Plan de ejecución técnica</h1>
 
 <p align="center">
   <img alt="arquetipos" src="https://img.shields.io/badge/arquetipos-0f766e?style=flat-square" />
   <a href="./README.md"><img alt="F84" src="https://img.shields.io/badge/round-F84-14b8a6?style=flat-square" /></a>
+  <a href="../../../runbooks/recalls-migration.md"><img alt="runbook" src="https://img.shields.io/badge/runbook-recalls-0f766e?style=flat-square" /></a>
 </p>
 
 ## Estado
 
-listo para ejecutar · espera F84-C1
+**listo para ejecutar** · espera firmas F84-B1 / F84-C1
+
+> Canónico operativo: [`docs/runbooks/recalls-migration.md`](../../../runbooks/recalls-migration.md).
+
+---
 
 ## Objetivo
 
-Plan detallado paso a paso por milestone y dominio, con comandos y gates.
+Pasos ejecutables por milestone, con comandos Nx y criterios de done.  
+**No** es un dump del código legacy: es la obra sobre el monorepo.
 
-## Pre-work
+---
 
-1. **Fork Nx workspace**: añadir `apps/recalls/backend` + `apps/recalls/frontend` (o integrar en `apps/productos-saas/`).
-2. **Habilitar MSSQL** en arquetipos (F83-A1 → D1): `DATABASE_PROVIDER=mssql`, `@prisma/adapter-mssql`.
-3. **Importar schema legacy**: mapear tablas MSSQL a modelos Prisma `schema.prisma` sin migraciones (introspect) o re-crear.
-4. **DGT SOAP adapter**: `@base/soap-adapters` o npm `soap` en `dgt-api`.
+## Pre-work (bloqueante)
 
-## Milestone M0 — Setup + adapters base
+1. **F83 verde** para MSSQL: `DATABASE_URL` sqlserver + adapter Prisma.
+2. Decidir nombres Nx: `recalls-backend`, `recalls-frontend` (o slug `ideauto-recalls-*`).
+3. Inventario de permisos authguard-core (matriz rol → ruta).
+4. Backup MSSQL + procedimiento PITR antes de cualquier write dual.
 
 ```bash
-pnpm nx g @nx/nest:app recalls-backend --directory=apps/recalls
-pnpm nx g @nx/next:app recalls-frontend --directory=apps/recalls
-pnpm nx build base-backend
-pnpm nx build base-react
+# Verificar portabilidad DB (F83)
+pnpm nx typecheck base-backend
+# Scaffold (ajustar generator local si existe; preferir generadores workspace)
+pnpm nx g @nx/nest:application recalls-backend --directory=apps/productos-saas/recalls/backend --no-interactive
+pnpm nx g @nx/next:application recalls-frontend --directory=apps/productos-saas/recalls/frontend --no-interactive
 ```
 
-- [ ] `apps/recalls/backend` arranca con Prisma + MSSQL.
-- [ ] `apps/recalls/frontend` SSR Next con `@base/react-api`.
-- [ ] CI: `nx affected -t lint,test,typecheck,build` verde.
+> Preferir generadores **locales** del monorepo si existen (`nx-generate` skill). Paths deben respetar `apps/productos-saas/` y tags `layer:productos-saas`.
 
-## Milestone M1 — Auth
+---
 
-- [ ] Migrar `/api/login`, `/api/usuarios`, `/api/confirmar-email`, `/api/recuperar-password`.
-- [ ] Reemplazar `authguard-core` por guards Nest locales.
-- [ ] Seed superadmin.
-- Gate: login happy path + olvido contraseña.
+## M0 — Setup + adapters
 
-## Milestone M2 — Campaigns/Waves
+**Por qué primero:** sin composition root y sin Prisma→MSSQL no hay strangler.
 
-- [ ] Domain `campaigns` (4 capas) + `waves` como sub-feature.
-- [ ] File upload VINs (CSV/XLSX) via `multer`/`express-fileupload` → Nest `FilesInterceptor`.
-- [ ] Paginación y filtros (query builder legacy → Prisma select + `@base/pagination`).
-- Gate: CRUD campañas, subida VINs, timeline oleadas.
+- [ ] Apps backend/frontend arrancan en monorepo.
+- [ ] Libs seed: `recalls-shared` + un dominio piloto (`users` thin → `@base`).
+- [ ] `DATABASE_URL` apunta a MSSQL de staging (introspect o schema mapeado).
+- [ ] CI: `nx affected -t lint,test,typecheck,build` incluye proyectos recalls.
 
-## Milestone M3 — Budgets/Invoices + PDF
+**Gate:** `pnpm nx typecheck recalls-backend` y `recalls-frontend` verdes.
 
-- [ ] Domain `budgets` + reusar `@base/invoices-*`.
-- [ ] PDF generation: `@base/shared` utility (pdf-lib).
-- [ ] Subida prefacturas/facturas.
- Gate: presupuesto aprobado + PDF generado.
+---
 
-## Milestone M4 — DGT + Addresses
+## M1 — Auth
 
-- [ ] SOAP client封装 en `dgt-api`.
-- [ ] Parallel run: legacy DGT sigue vivo; arquetipos envía copia.
+**Por qué:** la API legacy documenta listados/creación de usuarios **sin autenticación**. Migrar auth primero cierra el agujero y unifica identidad.
+
+- [ ] Sustituir `/api/login`, confirmación email, recovery, change password.
+- [ ] Retirar dependencia `@ideauto/authguard-core` del path migrado.
+- [ ] Guards Nest + RBAC; **ningún** CRUD usuarios público.
+- [ ] Seed superadmin staging.
+
+**Gate:** E2E login + recovery; test negativo acceso anónimo a `/usuarios`.
+
+---
+
+## M2 — Campaigns / Waves
+
+**Por qué:** es el corazón del producto (campañas de recall + oleadas).
+
+- [ ] Dominio 4 capas FE + módulo Nest hex.
+- [ ] Upload VINs (CSV/XLSX/TXT) via interceptor Nest + parsers tipados.
+- [ ] Timeline oleadas postales/telemáticas.
+- [ ] Proxy: rutas de campaña apuntan al nuevo backend; resto legacy.
+
+**Gate:** CRUD campaña + subida VINs + crear oleada en staging.
+
+---
+
+## M3 — Budgets / Invoices / PDF
+
+- [ ] Presupuestos + facturas; reutilizar patrones `@saas/invoices-*` sin mezclar Verifactu fiscal.
+- [ ] Generación PDF/DOCX con templates producto; golden-file diff.
+- [ ] Migrar backfills legacy solo como scripts one-shot documentados.
+
+**Gate:** presupuesto aprobado + PDF firmado por negocio (paridad visual).
+
+---
+
+## M4 — DGT + Addresses
+
+**Por qué es el milestone más peligroso:** sistema externo, XML, efectos legales.
+
+- [ ] Client SOAP encapsulado **solo** en `@saas/dgt-api` (o adapter infra).
+- [ ] Parallel-run: misma petición → legacy + nuevo; comparar respuesta.
 - [ ] Addresses CRUD + normalización.
- Gate: consulta DGT exitosa end-to-end.
+- [ ] Contract tests con fixtures XML (ya existen en legacy `tests/`).
 
-## Milestone M5 — Admin/Home + Reports
+**Gate:** consulta DGT E2E en staging; zero divergencia en casos golden.
 
-- [ ] Dashboard Next con `chart.js`.
-- [ ] Reports renting/VINs/certificates.
-- [ ] Tasks programadas (node-schedule → `@base/tasks` o BullMQ worker).
- Gate: dashboard carga + reportes exportan.
+---
 
-## Milestone M6 — Legacy off
+## M5 — Admin / Reports / Workers
 
-- [ ] DNS/proxy enruta todo a arquetipos.
-- [ ] Legacy apagado.
-- [ ] Backup MSSQL point-in-time recovery validado.
+- [ ] Dashboard admin (stats) en features Next.
+- [ ] Reports renting / VIN / certificates.
+- [ ] Mover `node-schedule` a worker (BullMQ u homólogo monorepo).
 
-## Criterios
+**Gate:** export OK + job programado ejecuta fuera del API process.
 
-- [ ] Cada milestone tiene PR propia con checklist verde.
-- [ ] No hay dependencias circulares entre dominios.
-- [ ] `nx typecheck recalls-backend` verde en cada milestone.
+---
 
-## Notas
+## M6 — Legacy off
 
-- Si MSSQL no es mandatorio post-F83, considerar PostgreSQL en paralelo y sincronizar.
-- SOAP DGT es único; mantener `soap` runtime solo en `dgt-api`.
+- [ ] Proxy 100% Arquetipos.
+- [ ] Apagar PM2 legacy.
+- [ ] Documentar runbook de emergencia (restore).
+- [ ] Retirar feature flags.
+
+**Gate:** 72h sin rollback + métricas de error estables.
+
+---
+
+## Verificación continua (cada PR de dominio)
+
+```bash
+pnpm nx typecheck recalls-backend
+pnpm nx typecheck recalls-frontend
+pnpm nx test recalls-backend
+pnpm nx lint recalls-backend recalls-frontend
+node tools/checks/check-lib-layout.mjs --strict
+node tools/checks/check-frontend-conventions.mjs
+```
+
+---
+
+## Criterios del plan
+
+- [ ] Cada milestone = PR(s) con checklist verde.
+- [ ] Sin dependencias circulares entre dominios.
+- [ ] SOAP solo en capa `dgt` infra.
+- [ ] Runbook biblia actualizado al cerrar cada M.
+
+## Enlaces
+
+- [Runbook](../../../runbooks/recalls-migration.md)
+- [F84-B1](./1764000021000-f84-migration-strategy.md)
+- [F84-C1](./1764000022000-f84-domain-mapping.md)
+- [F83](../plans-83-eighty-three-round/README.md)

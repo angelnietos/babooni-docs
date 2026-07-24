@@ -35,6 +35,7 @@ changes can be evaluated against the original rationale.
 | [0010](adr-0010-native-ui-lit-sot.md) | Lit native-ui SoT | `@base/native-ui` = cross-framework SoT; freeze framework-only primitives in base; wrappers + RN tokens |
 | [0011](adr-0011-storybook-native-ui-first.md) | Storybook native-first | SB serve+build on native-ui; serve on base Angular/React UI; ownership by package |
 | [0012](adr-0012-isomorphic-validation.md) | Isomorphic validation FE↔BE | class-validator SoT + shared predicates; Zod kit deferred |
+| [0013](adr-0013-recalls-strangler-migration.md) | Recalls_v2 → monorepo migration | **Strangler fig** (proposed); no big-bang while DGT/PDF parity open |
 
 ## How to use these
 

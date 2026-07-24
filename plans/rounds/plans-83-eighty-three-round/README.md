@@ -55,6 +55,6 @@ Cliente requiere ejecutar la app sobre **SQL Server** (y potencialmente MySQL/Ma
 
 ## Predecesora / Siguiente
 
-- Predecesora: [F82](../plans-82-eighty-two-round/) (activa)
+- Predecesora: [F82](../plans-82-eighty-two-round/) (cerrada)
 - Libs: `libs/base/backend/prisma/{single,multi}`, `libs/base/backend/src/lib/platform/kernel/prisma/`
 - Domains: `libs/base/backend/src/lib/domains/*/adapters/persistence/*.prisma.repository`

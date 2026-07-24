@@ -51,6 +51,7 @@ Procedimientos operativos para Josanz, plantillas Arquetipos y SaaS Verifactu. C
 - [MockServer](./mockserver.md) — FE plantilla sin API/Keycloak (`:4010`)
 - [Tools layout](./tools-layout.md) — mapa `tools/{checks,dx,jest,…}`
 - [Verifactu demo e2e](./verifactu-demo-e2e.md) — smoke CRM / worker
+- [Recalls migration](./recalls-migration.md) — strangler M0–M6 (legacy → monorepo SaaS)
 
 DX MF local: [guides/module-federation-dev.md](../guides/module-federation-dev.md).
 
@@ -83,6 +84,7 @@ Dashboards y alertas: `deploy/observability/`.
 | Rotar clave de cifrado PII | [secrets.md](./secrets.md) + [backup-restore-pii.md](./backup-restore-pii.md) |
 | Release fallido | [deploy.md](./deploy.md) |
 | 5xx alto / latencia | [observability.md](./observability.md) |
+| Migrar Recalls_v2 al monorepo | [recalls-migration.md](./recalls-migration.md) |
 
 ---
 

@@ -29,5 +29,15 @@ Mapa mental y deep dives del monorepo como **motor de empresa** (y base para IA 
 | 7 | [backend-deep-dive.md](./backend-deep-dive.md) | Backend |
 | 8 | [frontend-deep-dive.md](./frontend-deep-dive.md) | Frontend |
 
+## Producto en migración — Recalls
+
+| Doc | Para qué |
+|-----|----------|
+| [recalls-v2-assessment.md](./recalls-v2-assessment.md) | Por qué abandonar el legacy Express/Next suelto |
+| [recalls-migration-strategy.md](./recalls-migration-strategy.md) | Strangler, fases, riesgos |
+| [recalls-domain-mapping.md](./recalls-domain-mapping.md) | Entidades → `@saas/*` / `@base/*` |
+
+Plan: [F84](../plans/rounds/plans-84-eighty-four-round/) · Runbook: [recalls-migration.md](../runbooks/recalls-migration.md) · ADR: [0013](../adr/adr-0013-recalls-strangler-migration.md).
+
 Plantillas: [../arquetipos/README.md](../arquetipos/README.md).  
 Hub: [../README.md](../README.md).

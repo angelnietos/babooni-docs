@@ -17,9 +17,9 @@ Cuándo usarla: tokens, Storybook, ownership de componentes, handoff desde Figma
 
 Estrategia operativa: [ui-strategy.md](./ui-strategy.md) (incluye **freeze F53+**).
 
-Ronda activa: [F71](../plans/rounds/plans-71-seventy-one-round/) — carries F70 (Chromatic/Zod/deprecated) + expansión board;
-Ionic audit rollout. F70 cerró board piloto (tasks), Chromatic/Zod/deprecated deferred,
-y docs polish.
+UI layout: [ui-lib-folder-layout.md](./ui-lib-folder-layout.md) · Josanz ↔ native:
+[josanz-native-inventory.md](./josanz-native-inventory.md) (**F82** cerrada — wrappers
+`Native*` + `atoms|composites`).
 
 ### Overlays → portal (F63 / F64-A1)
 
@@ -201,12 +201,10 @@ Allowlist: `tools/checks/ui-native-first-allowlist.json`.
 
 - [josanz-product-exceptions.md](./josanz-product-exceptions.md)
 - [ci-gates.md](./ci-gates.md)
-- Planes [F72](../plans/rounds/plans-72-seventy-two-round/) (activa) ·
-  [F71](../plans/rounds/plans-71-seventy-one-round/) (cerrada) ·
-  [F67](../plans/rounds/plans-67-sixty-seven-round/) ·
-  [F66](../plans/rounds/plans-66-sixty-six-round/) ·
-  [F65](../plans/rounds/plans-65-sixty-five-round/) ·
-  [F64](../plans/rounds/plans-64-sixty-four-round/) ·
-  [F63](../plans/rounds/plans-63-sixty-three-round/) /
-  [F62](../plans/rounds/plans-62-sixty-two-round/) /
-  [F60](../plans/rounds/plans-60-sixty-round/)
+- Planes UI cerrados: [F82](../plans/rounds/plans-82-eighty-two-round/) ·
+  [F81](../plans/rounds/plans-81-eighty-one-round/) ·
+  [F80](../plans/rounds/plans-80-eighty-round/) ·
+  [F79](../plans/rounds/plans-79-seventy-nine-round/).
+  Activas no-UI: [F84 Recalls](../plans/rounds/plans-84-eighty-four-round/) ·
+  [F83 DB](../plans/rounds/plans-83-eighty-three-round/).
+  Índice: [plans/README.md](../plans/README.md).
