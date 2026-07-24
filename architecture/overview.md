@@ -51,7 +51,7 @@ flowchart TB
   subgraph products ["Productos"]
     J["Josanz ERP"]
     S["SaaS Verifactu"]
-    R["SaaS Recalls (F84)"]
+    R["Cliente Ideauto Recalls (F84)"]
     T["Plantillas Arquetipos"]
   end
   J --> engine

@@ -206,6 +206,18 @@ pnpm nx serve acme
 | `@josanz/{domain}-*` | `@acme/{domain}-*` |
 | `apps/clientes/josanz/` | `apps/clientes/acme/` |
 
+### Ejemplo en curso — Ideauto Recalls (F84)
+
+| Concepto | Valor |
+|----------|-------|
+| slug | `ideauto` |
+| scope npm | `@ideauto` |
+| App | `apps/clientes/ideauto/recalls/{backend,frontend}` |
+| Libs | `libs/clientes/ideauto/` |
+| Plan | [F84](../plans/rounds/plans-84-eighty-four-round/) · [assessment](../architecture/recalls-v2-assessment.md) |
+
+FE: Next (opt-in), no Angular por defecto — el legacy ya es Next; las **capas de dominio** siguen el contrato del monorepo.
+
 ---
 
 ## Enlaces
@@ -214,3 +226,4 @@ pnpm nx serve acme
 - [AGENTS.md](../../AGENTS.md)
 - [scaffold-cliente-product.mjs](../../tools/scaffolds/scaffold-cliente-product.mjs)
 - [scaffold-josanz-domain.mjs](../../tools/scaffolds/scaffold-josanz-domain.mjs)
+- [runbooks/recalls-migration.md](../runbooks/recalls-migration.md) — milestones Ideauto Recalls

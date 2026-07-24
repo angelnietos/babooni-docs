@@ -33,11 +33,11 @@ Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `traslad
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| [plans-84](./rounds/plans-84-eighty-four-round/) | activa | **Recalls_v2 → monorepo**: por qué salir del legacy, strangler, mapeo `@saas/*`, M0–M6 (depende F83) |
+| [plans-84](./rounds/plans-84-eighty-four-round/) | activa | **Ideauto Recalls_v2 → monorepo**: cliente `clientes/ideauto/recalls` (`@ideauto/*`), strangler, MSSQL (F83) — **no SaaS** |
 | [plans-83](./rounds/plans-83-eighty-three-round/) | activa | Database provider portability + adapters (Pg ⇄ SqlServer ⇄ MySql) |
 | [plans-78](./rounds/plans-78-seventy-eight-round/) | listo para ejecutar | feature parity React, mobile logic cleanup & architecture compliance |
 
-Docs canónicos Recalls (biblia, no solo planes): [assessment](../architecture/recalls-v2-assessment.md) · [strategy](../architecture/recalls-migration-strategy.md) · [mapping](../architecture/recalls-domain-mapping.md) · [runbook](../runbooks/recalls-migration.md) · [ADR 0013](../adr/adr-0013-recalls-strangler-migration.md).
+Docs canónicos Recalls (biblia): [assessment](../architecture/recalls-v2-assessment.md) · [strategy](../architecture/recalls-migration-strategy.md) · [mapping](../architecture/recalls-domain-mapping.md) · [runbook](../runbooks/recalls-migration.md) · [ADR 0013](../adr/adr-0013-recalls-strangler-migration.md) · checklist [nuevo cliente](../clientes/nuevo-cliente-checklist.md).
 
 ## Rondas completadas (archivo)
 

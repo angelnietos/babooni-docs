@@ -2,7 +2,7 @@
   <img src="../assets/arquetipos-mark.svg" width="56" alt="Arquetipos" />
 </p>
 
-<h1 align="center">Runbook — migración Recalls (M0–M6)</h1>
+<h1 align="center">Runbook — migración Recalls Ideauto (M0–M6)</h1>
 
 <p align="center">
   <img alt="runbook" src="https://img.shields.io/badge/runbook-0f766e?style=flat-square" />
@@ -10,7 +10,7 @@
   <a href="../plans/rounds/plans-84-eighty-four-round/"><img alt="F84" src="https://img.shields.io/badge/plan-F84-14b8a6?style=flat-square" /></a>
 </p>
 
-Cuándo usarlo: ejecutar o revisar un milestone de la migración Recalls_v2 → monorepo.
+Cuándo usarlo: ejecutar milestones de migración Recalls_v2 → **`clientes/ideauto/recalls`**.
 
 Contextos: [assessment](../architecture/recalls-v2-assessment.md) · [strategy](../architecture/recalls-migration-strategy.md) · [mapping](../architecture/recalls-domain-mapping.md).
 
@@ -18,82 +18,56 @@ Contextos: [assessment](../architecture/recalls-v2-assessment.md) · [strategy](
 
 ## Precondiciones
 
-1. [F83](../plans/rounds/plans-83-eighty-three-round/) usable para MSSQL (`DATABASE_URL` sqlserver).
-2. Backup MSSQL + PITR verificado.
-3. Matriz de permisos legacy inventariada.
-4. Proxy / feature flags listos (staging).
+1. F83 usable para MSSQL.
+2. Backup MSSQL + PITR.
+3. Matriz permisos legacy.
+4. Proxy / flags staging.
+5. Scaffold cliente: [nuevo-cliente-checklist.md](../clientes/nuevo-cliente-checklist.md) (`--slug ideauto --scope ideauto`).
 
 ---
 
 ## M0 — Scaffold
 
 ```bash
-# Preferir generadores locales del monorepo si existen
-pnpm nx g @nx/nest:application recalls-backend --directory=apps/productos-saas/recalls/backend --no-interactive
-pnpm nx g @nx/next:application recalls-frontend --directory=apps/productos-saas/recalls/frontend --no-interactive
+node tools/scaffolds/scaffold-cliente-product.mjs --slug ideauto --scope ideauto --dry-run
+node tools/scaffolds/scaffold-cliente-product.mjs --slug ideauto --scope ideauto
 
-pnpm nx typecheck recalls-backend
-pnpm nx typecheck recalls-frontend
+# Composition roots (ajustar generator local si existe)
+pnpm nx g @nx/nest:application ideauto-recalls-backend --directory=apps/clientes/ideauto/recalls/backend --no-interactive
+pnpm nx g @nx/next:application ideauto-recalls-frontend --directory=apps/clientes/ideauto/recalls/frontend --no-interactive
+
+pnpm nx typecheck ideauto-recalls-backend
+pnpm nx typecheck ideauto-recalls-frontend
 node tools/checks/check-lib-layout.mjs --strict
 ```
 
-**Done:** apps arrancan; Prisma conecta a MSSQL staging; tags `layer:productos-saas`.
+**Done:** apps arrancan; Prisma→MSSQL staging; tags `layer:clientes`; **sin** `layer:productos-saas`.
 
 ---
 
 ## M1 — Auth
 
-- Migrar login / recovery / confirmación.
-- Eliminar acceso anónimo a CRUD usuarios en el path nuevo.
-- Retirar `@ideauto/authguard-core` del slice migrado.
-
-**Done:** E2E login + test negativo anónimo.
-
----
+Login / recovery; sin acceso anónimo a usuarios; retirar authguard-core del slice.
 
 ## M2 — Campaigns / Waves
 
-- 4 capas FE + módulo Nest.
-- Upload VINs tipado.
-- Proxy enruta campañas al Nest.
-
-**Done:** CRUD + VIN upload + oleada en staging.
-
----
+`@ideauto/campaigns-*`; upload VINs; proxy a Nest Ideauto.
 
 ## M3 — Budgets / Invoices / PDF
 
-- Paridad PDF con golden files + sign-off negocio.
-
-**Done:** presupuesto aprobado + PDF aceptado.
-
----
+Paridad PDF + sign-off negocio.
 
 ## M4 — DGT
 
-- SOAP solo en adapter `dgt`.
-- Parallel-run + contract tests XML.
-
-**Done:** zero divergencia en fixtures golden.
-
----
+SOAP solo en `@ideauto/dgt-*`; parallel-run + contract tests XML.
 
 ## M5 — Reports / Admin / Workers
 
-- Dashboard + exports.
-- Jobs fuera del proceso HTTP.
-
-**Done:** job schedule OK sin `node-schedule` en API.
-
----
+Exports + jobs fuera del API process.
 
 ## M6 — Cutover
 
-- Tráfico 100% Arquetipos.
-- Legacy PM2 off.
-- Flags retirados tras periodo de observación.
-
-**Done:** 72h estables sin rollback.
+100% tráfico a Ideauto recalls; legacy off; observación 72h.
 
 ---
 
@@ -105,13 +79,15 @@ node tools/checks/check-frontend-conventions.mjs
 node tools/checks/check-ui-ownership.mjs
 ```
 
+**Gate boundaries:** ningún import `@saas/*` / `@josanz/*` / `@arquetipos/*` desde código Ideauto.
+
 ---
 
-## Rollback rápido
+## Rollback
 
-1. Feature flag → Express legacy para el path.
-2. Si corrupción de datos: PITR MSSQL (ops).
-3. No “arreglar a medias” el Nest en prod bajo presión.
+1. Feature flag → Express legacy.
+2. PITR MSSQL si corrupción.
+3. No hot-fix Nest a medias en prod.
 
 ---
 
@@ -119,4 +95,3 @@ node tools/checks/check-ui-ownership.mjs
 
 - [F84-D1](../plans/rounds/plans-84-eighty-four-round/1764000023000-f84-technical-execution.md)
 - [ADR 0013](../adr/adr-0013-recalls-strangler-migration.md)
-- [database-migrations.md](./database-migrations.md)

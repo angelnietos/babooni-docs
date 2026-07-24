@@ -1,48 +1,50 @@
-# Recalls migration — strangler fig over big-bang
+# Recalls migration — strangler into client Ideauto (not SaaS)
 
 - Status: proposed
 - Date: 2026-07-24
-- Deciders: platform + producto Recalls (Ideauto)
+- Deciders: platform + producto Ideauto Recalls
 
 ## Context
 
-Recalls_v2 (`ideauto-server` + `ideauto-client`) is a production product for vehicle recall campaigns (DGT SOAP, postal/telematic waves, VIN files, budgets/invoices). It runs as two standalone pnpm workspaces: Express/Sequelize/MSSQL backend and Next/React frontend, without Nx layering or `@base/*` reuse.
+Recalls_v2 (`ideauto-server` + `ideauto-client`) is Ideauto's production product for vehicle recall campaigns (DGT SOAP, waves, VIN files, budgets/invoices). It runs as two standalone pnpm workspaces without Nx layering or `@base/*` reuse.
 
-The Arquetipos monorepo is the target home for a rebuilt Recalls SaaS product (`apps/productos-saas/recalls`, `@saas/*` on top of `@base/*`). Database access to the existing MSSQL estate depends on provider portability work (round F83).
+The Arquetipos monorepo places **customer products** under `apps/clientes/{slug}` + `libs/clientes/{slug}` with npm scope `@slug/*` and tag `layer:clientes` (same pattern as Josanz). **SaaS** products (`apps/productos-saas`, `@saas/*`) are a different layer (e.g. Verifactu) and must not host Ideauto Recalls.
 
-We must choose a migration style that preserves business continuity (especially DGT) while stopping further investment in the legacy architecture.
+Database access to the existing MSSQL estate depends on provider portability (round F83).
 
 ## Decision
 
-Adopt a **strangler-fig migration**: migrate vertical slices (auth → campaigns/waves → budgets/invoices → DGT → reports/admin → cutover), keep legacy alive behind a reverse proxy / feature flags, share MSSQL during transition, and only decommission Express/Next legacy after parity gates pass.
+1. **Placement:** rebuild Recalls as client product **Ideauto**:
+   - `apps/clientes/ideauto/recalls/{backend,frontend}`
+   - `libs/clientes/ideauto/` → `@ideauto/*`
+   - Tags: `layer:clientes`
+   - May import `@base/*` only (not `@arquetipos/*`, `@saas/*`, `@josanz/*`)
 
-Reject a **big-bang cutover** as the default plan while external DGT contracts, document/PDF parity, and on-disk campaign file layouts remain.
+2. **Migration style:** **strangler fig** (vertical slices: auth → campaigns/waves → budgets/invoices → DGT → reports/admin → cutover). Keep legacy behind proxy/feature flags; share MSSQL during transition. Reject big-bang as default while DGT/PDF parity remain open.
 
 ## Consequences
 
 ### Positive
 
-- Rollback is a routing flag, not a weekend restore.
-- Security-critical auth can move first without waiting for full feature parity.
-- DGT can run in parallel (legacy + new adapter) before switching.
-- Platform investments (Prisma adapters, Nest hex, FE 4-layer contract, CI gates) land incrementally.
+- Aligns with client-product conventions ([nuevo-cliente-checklist](../clientes/nuevo-cliente-checklist.md)).
+- Clear brand/boundary separation from Verifactu SaaS and Josanz ERP.
+- Rollback via routing flags; auth can move first; DGT parallel-run possible.
 
 ### Negative / accepted costs
 
 - Temporary dual maintenance (hotfixes only on legacy).
-- Proxy/flag operational complexity.
-- Shared-DB discipline required (no destructive migrations without dual-write or freeze).
+- Shared-DB discipline during strangler.
 
 ### Follow-ups
 
-- Execute milestones M0–M6 per [runbooks/recalls-migration.md](../runbooks/recalls-migration.md).
-- Keep product docs in [architecture/recalls-*.md](../architecture/recalls-v2-assessment.md).
-- Round tracking: [plans-84](../plans/rounds/plans-84-eighty-four-round/).
+- Execute M0–M6: [runbooks/recalls-migration.md](../runbooks/recalls-migration.md).
+- Docs: [architecture/recalls-*.md](../architecture/recalls-v2-assessment.md).
+- Round: [plans-84](../plans/rounds/plans-84-eighty-four-round/).
 
 ## References
 
 - [recalls-v2-assessment.md](../architecture/recalls-v2-assessment.md)
-- [recalls-migration-strategy.md](../architecture/recalls-migration-strategy.md)
+- [recalls-domain-mapping.md](../architecture/recalls-domain-mapping.md)
 - [adr-0005-jwt-vs-keycloak.md](./adr-0005-jwt-vs-keycloak.md)
 - [adr-0008-platform-scope-vs-mvp-client.md](./adr-0008-platform-scope-vs-mvp-client.md)
 - [plans-83](../plans/rounds/plans-83-eighty-three-round/)

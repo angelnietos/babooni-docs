@@ -63,8 +63,8 @@ Estilo de autoría: [CONTRIBUTING-DOCS.md](../CONTRIBUTING-DOCS.md).
 - [adr/README.md](../adr/README.md) — decisiones (incl. 0010/0011 UI)
 - [backend/backend-domain-convention.md](../backend/backend-domain-convention.md) — slugs, BD, empaquetados
 - [productos-saas/productos-saas-extends-base.md](../productos-saas/productos-saas-extends-base.md) — SaaS sobre base
-- [architecture/recalls-v2-assessment.md](../architecture/recalls-v2-assessment.md) — migrar Recalls_v2 (por qué)
-- [runbooks/recalls-migration.md](../runbooks/recalls-migration.md) — milestones M0–M6
+- [architecture/recalls-v2-assessment.md](../architecture/recalls-v2-assessment.md) — migrar Recalls_v2 → `clientes/ideauto/recalls` (por qué)
+- [runbooks/recalls-migration.md](../runbooks/recalls-migration.md) — milestones M0–M6 (`@ideauto/*`)
 
 ## Generadores y scripts
 

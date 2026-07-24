@@ -51,7 +51,7 @@ Procedimientos operativos para Josanz, plantillas Arquetipos y SaaS Verifactu. C
 - [MockServer](./mockserver.md) — FE plantilla sin API/Keycloak (`:4010`)
 - [Tools layout](./tools-layout.md) — mapa `tools/{checks,dx,jest,…}`
 - [Verifactu demo e2e](./verifactu-demo-e2e.md) — smoke CRM / worker
-- [Recalls migration](./recalls-migration.md) — strangler M0–M6 (legacy → monorepo SaaS)
+- [Recalls migration](./recalls-migration.md) — strangler M0–M6 → `clientes/ideauto/recalls`
 
 DX MF local: [guides/module-federation-dev.md](../guides/module-federation-dev.md).
 
