@@ -71,7 +71,7 @@ Native CE adapters are atoms: one folder per component, same contract as seed
 | `apps/clientes/{slug}` | `@josanz/angular-ui` (etc.) |
 | `apps/productos-saas` | `@saas/shared-ui` |
 
-## `@josanz/angular-ui` (F80 allowlist → F81-E1 / F82)
+## `@josanz/angular-ui` (F80 → F81-E1 → **F82**)
 
 Large ERP catalog: folders like `forms/`, `feedback/`, `layout/`, `navigation/`,
 `data-display/`, `overlays/`, `settings/`, `catalog/`, … map **conceptually** to
@@ -82,8 +82,11 @@ F80-B2 did **not** rename every product folder (import churn). Changes in F80:
 - Global `styles.scss` / `styles.css` → `src/lib/theme/` (apps/Storybook paths updated).
 - No loose `.ts` under `src/lib/` root (only folder taxonomy + `theme/`).
 
-Full physical `atoms|composites` migration for Josanz is **deferred to F82**
-(F81-E1 explícito — no bloquea cierre F81).
+**F82** ([plans-82-eighty-two-round](../plans/rounds/plans-82-eighty-two-round/)):
+
+1. Controles compartidos → wrappers sobre `@base/native-ui` / `Native*` (paridad visual app).
+2. Promover a base solo gaps reutilizables; producto-only permanece en Josanz.
+3. Carry físico `atoms|composites|theme` ([F82-D1](../plans/rounds/plans-82-eighty-two-round/1764000004000-f82-josanz-folder-carry.md)).
 
 ## Public API
 

@@ -74,4 +74,4 @@ Target layout (adapters = atoms):
 - Matriz: [native-ui-adapter-matrix.md](../../../frontend/native-ui-adapter-matrix.md)
 - Layout: [ui-lib-folder-layout.md](../../../frontend/ui-lib-folder-layout.md)
 - Guía wrap: [ui-re-export-vs-wrapper.md](../../../guides/ui-re-export-vs-wrapper.md)
-- Siguiente: **F82** (Josanz `atoms|composites` folder carry — defer desde F81-E1)
+- Siguiente: [**F82**](../plans-82-eighty-two-round/) — Josanz on native SoT + wrappers + folder carry
