@@ -154,8 +154,8 @@ Un cambio nuevo debe preservar «arranca sin infra opcional».
 | `check:workspace-deps:strict` falla | Import `@base|@josanz|@arquetipos|@saas/*` sin declarar en el consumidor | `pnpm add <pkg> --filter <consumer> --workspace` — ver [workspace-packages.md](../frontend/workspace-packages.md) (F52-A2, cerrada). |
 | Language server Nx no responde / cuelga | Node fuera de rango para Nx | 1) Recargar VS Code. 2) `pnpm nx reset`. 3) `pnpm check:node-nx` (Node 20/22 con Nx 23). |
 | Login plantilla pide Keycloak/API | Quieres solo UI | `pnpm mockserver` + `pnpm arq:fe:*-single:mock` — [mockserver.md](../runbooks/mockserver.md) |
-| Mismatch tipos React 18/19 en React Native | `@types/react` 19.x raíz vs 18.x RN | Pin Metro vía `tools/metro/create-arquetipos-expo-metro-config.cjs` (`disableHierarchicalLookup` + `extraNodeModules`) — [add-mobile-domain.md](./add-mobile-domain.md). Casts locales solo si queda mismatch de types. |
-| Pantalla blanca RN web + error `$$typeof` en ArqInput | React 19 + React 18 en el mismo bundle | Reiniciar Expo con `--clear` tras arreglar Metro (`tools/metro/…`) |
+| Mismatch tipos React 18/19 en React Native | `@types/react` 19.x raíz vs 18.x RN | Pin Metro vía `@arquetipos/expo-metro-config` — [add-mobile-domain.md](./add-mobile-domain.md) |
+| Pantalla blanca RN web / `$$typeof` en ArqInput | Metro dejó de pinnear React 18 (duplicado 19+18) | Restaurar `createArquetiposExpoMetroConfig` y reiniciar Expo con `--clear` |
 
 ---
 

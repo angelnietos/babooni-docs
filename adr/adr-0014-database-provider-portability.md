@@ -24,8 +24,9 @@ The monorepo historically assumed PostgreSQL end-to-end (`PrismaPg`,
    from the Postgres SoT for `prisma validate` and document type remaps
    (`String[]` / `Json` differences). They are **not** the generate target for
    `@base/prisma-single|multi` until a product explicitly opts in.
-5. **Best-effort** secondary engines: connection + validate in F83; real
-   `migrate deploy` / seeds / CI matrix are follow-up work (F85).
+5. **Secondary engines (SQL Server / MySQL):** connection + validate + optional
+   `db push` smoke are in the tree. Provider-aware seeds and Azure SQL ops → F86-G.
+   Postgres remains the migration SoT for local/CI.
 
 ## Consequences
 
@@ -33,8 +34,8 @@ The monorepo historically assumed PostgreSQL end-to-end (`PrismaPg`,
   adapter without touching domain handlers.
 - Feature parity across engines is **not** guaranteed (arrays, JSON, cascades).
   See [database-provider-compat.md](../backend/database-provider-compat.md).
-- SaaS entrypoints that still construct `PrismaPg` directly should migrate to the
-  kernel factory (tracked in F85).
+- All runtime entrypoints (kernel + SaaS) must use `resolveAndCreateAdapter` —
+  enforced by `pnpm check:db-portability`.
 
 ## Links
 

@@ -64,10 +64,18 @@ the frontend and its cross-cutting governance.
 - Features stop duplicating cross-domain UI; visual consistency is centralized.
 - A structural regression (missing `layout/`, business logic in `shared/`,
   duplication inside a template barrel) breaks CI instead of shipping.
-- React features remain flat until Fase 1.1 lands; the checker runs them in
-  lenient mode (warning, not failure) and flips to strict via `STRICT_REACT=1`.
-- `@arquetipos/react-features` does not yet exist as a lib (only the React
-  data-layer + UI); adding it must follow the thin-barrel rule decided here.
+- Domain libs follow `api → data-access → features ← ui` with `shell` lazy-loading
+  features (Angular **and** React / Next / Ionic / RN). Arquetipos domains are
+  thin re-exports of `@base/*` by default ([arquetipos-thin-libs.md](../frontend/arquetipos-thin-libs.md)).
+- Gate: `pnpm check:frontend-conventions` (+ layout / native-first checks).
+
+### Amendment (2026-07-24)
+
+Fase 1.1 / “React flat + lenient” y el barrel monolítico
+`@arquetipos/react-features` quedaron **superados**: existen
+`@arquetipos/react-{domain}-features` (y base equivalentes) con
+`layout/pages/components`. No tratar el texto histórico de “pending Fase 1.1”
+como estado actual.
 
 ## See also
 

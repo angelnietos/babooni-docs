@@ -71,7 +71,7 @@ Ejecución operativa: **[migration/](./migration/)** (M0–M6).
 
 > Narrativa de producto: [recalls/](./recalls/).  
 > F84 (checklist plan) cerrada — solo git.  
-> Ronda Nx del **motor monorepo** (no Ideauto): [plans-85](../plans/rounds/plans-85-eighty-five-round/).
+> Ronda Nx del **motor monorepo** (no Ideauto): [plans-86](../plans/rounds/plans-86-eighty-six-round/).
 
 ---
 

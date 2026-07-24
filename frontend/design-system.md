@@ -69,12 +69,16 @@ Alias `--arq-*` en `tokens.css` puentean apps arquetipos existentes.
 
 ### Composiciones compartidas (paridad apps)
 
-| Composición | CSS SoT (7–1) | Clases BEM |
-|-------------|---------------|------------|
+| Composición | CSS SoT (7–1) | Clases BEM / uso |
+|-------------|---------------|------------------|
 | Auth login | `@base/ui-styles` → `pages/_auth-login.scss` | `arq-auth*` |
-| Feature list | `@base/ui-styles` → `pages/_feature-list.scss` | `arq-feature*` (alias `clients-list*` **retirado F69-B3**) |
-| Users / Roles / Audit / Settings | F62-B1 | pendiente F62 |
-| Shell / tenant switcher | F62-B2 | pendiente F62 |
+| Feature list (clients, users, roles, audit, …) | `pages/_feature-list.scss` | `arq-feature*` (alias `clients-list*` retirado) |
+| CRUD / detalle | `pages/_crud-page.scss` | páginas entidad |
+| Native showcase | `pages/_native-showcase.scss` | demos Lit |
+| Ionic feature list | `pages/ionic-feature-list.css` | listas Ionic |
+
+Shell / tenant switcher viven en chrome de app (`*-shell` / platform), no como
+página 7–1 aparte: reutilizan tokens + componentes SoT.
 
 Entry: `@use '@base/ui-styles'` / `main.scss`. Alias legacy:
 `@base/native-ui/compositions/*.css` → mismas pages.
@@ -82,7 +86,7 @@ Entry: `@use '@base/ui-styles'` / `main.scss`. Alias legacy:
 Las features de cada stack **importan** esos CSS y rellenan con wrappers `Native*` /
 `ArqNative*`. No inventar HTML/CSS de login/list en paralelo.
 
-**Native-first (F62):** camino feliz arquetipos = `@base/native-ui`. Sin
+**Native-first:** camino feliz arquetipos = `@base/native-ui`. Sin
 `<select>` HTML (usar `base-select` listbox). Temas tenant deben cambiar brand /
 CTA / nav de forma obvia.
 
@@ -112,8 +116,8 @@ Fuente máquina: [ui-component-catalog.yaml](./ui-component-catalog.yaml).
 - **No mezclar** imports entre `layer:arquetipos` ↔ `layer:clientes` ↔ `layer:productos-saas`
 
 Gate: `node tools/checks/check-ui-ownership.mjs` · native-first features:
-`pnpm check:ui-native-first` (F81-A1 — scopes angular/react/next/ionic/rn;
-allowlist ratchet hasta F81-C1/D1).
+`pnpm check:ui-native-first` / `:strict` (scopes angular/react/next/ionic/rn;
+allowlist solo se encoge).
 
 ## Storybook
 
@@ -184,22 +188,23 @@ Arquetipos multi: **identidad tenant** gana sobre atmósfera tipográfica —
 
 ```bash
 node tools/checks/check-ui-ownership.mjs
-pnpm check:ui-native-first          # soft (warn + allowlist)
-pnpm check:ui-native-first:strict   # CI hygiene — ratchet only shrinks
+pnpm check:ui-native-first
+pnpm check:ui-native-first:strict
 pnpm nx typecheck base-native-ui
 pnpm nx typecheck base-ui-tokens
 pnpm nx typecheck josanz-angular-ui
 ```
 
-**F81 native-first contract:** Arquetipos features → SoT adapters only
-([arquetipos-thin-libs.md](./arquetipos-thin-libs.md)). Adapters in
+**Native-first:** Arquetipos features → SoT adapters
+([arquetipos-thin-libs.md](./arquetipos-thin-libs.md)). Adapters en
 `atoms/{name}/` ([ui-lib-folder-layout.md](./ui-lib-folder-layout.md)).
 Allowlist: `tools/checks/ui-native-first-allowlist.json`.
+
 ## Enlaces
 
 - [josanz-product-exceptions.md](./josanz-product-exceptions.md)
 - [ci-gates.md](./ci-gates.md)
-- UI cerrada (**F79–F82**): esta guía · [ui-strategy.md](./ui-strategy.md)
-  (rondas en git). Activas: [Ideauto migration](../ideauto/migration/) ·
-  [DB providers](../runbooks/database-providers.md) · [ADR 0014](../adr/adr-0014-database-provider-portability.md).
-  Índice: [plans/README.md](../plans/README.md).
+- UI SoT / Storybook: esta guía · [ui-strategy.md](./ui-strategy.md)
+- Activas: [F86](../plans/rounds/plans-86-eighty-six-round/) · [Ideauto migration](../ideauto/migration/) ·
+  [DB providers](../runbooks/database-providers.md) · [ADR 0014](../adr/adr-0014-database-provider-portability.md)
+- Índice planes: [plans/README.md](../plans/README.md)

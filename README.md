@@ -38,11 +38,12 @@ Este monorepo es el **motor de empresa**: kernel `@base/*` + productos cliente (
 | 2 | **[architecture/learning-path.md](./architecture/learning-path.md)** | 10 min | Ruta junior → senior |
 | 3 | **[architecture/overview.md](./architecture/overview.md)** | 25 min | Capas, apps vs libs, hex, 4 capas FE |
 | 4 | **[architecture/framework-decision-guide.md](./architecture/framework-decision-guide.md)** | 15 min | Nest/Angular/React/Next/RN — cuándo cada uno |
-| 5 | **[architecture/platform-vision.md](./architecture/platform-vision.md)** | 15 min | Motor + IA por dominio + SaaS futuro |
-| 6 | **[arquetipos/README.md](./arquetipos/README.md)** | 15 min | Plantillas `apps/arquetipos` como modelo |
-| 7 | **[guides/README.md](./guides/README.md)** | 5 min | Recetas por tarea |
-| 8 | **[backend/README.md](./backend/README.md)** / **[frontend/README.md](./frontend/README.md)** | 20 min | Cómo funciona back/front |
-| 9 | **[adr/README.md](./adr/README.md)** | según tema | Decisiones irreversibles |
+| 5 | **[architecture/platform-as-product.md](./architecture/platform-as-product.md)** | 10 min | Base oficial de empresa (must/should/may) |
+| 6 | **[architecture/platform-vision.md](./architecture/platform-vision.md)** | 15 min | Motor + IA por dominio + SaaS |
+| 7 | **[arquetipos/README.md](./arquetipos/README.md)** | 15 min | Plantillas `apps/arquetipos` como modelo |
+| 8 | **[guides/README.md](./guides/README.md)** | 5 min | Recetas por tarea |
+| 9 | **[backend/README.md](./backend/README.md)** / **[frontend/README.md](./frontend/README.md)** | 20 min | Cómo funciona back/front |
+| 10 | **[adr/README.md](./adr/README.md)** | según tema | Decisiones irreversibles |
 
 Deep dives: [domain-lifecycle](./architecture/domain-lifecycle.md),
 [backend-deep-dive](./architecture/backend-deep-dive.md),
@@ -58,7 +59,7 @@ Después: [AGENTS.md](../AGENTS.md) y [SERVICES.md](../SERVICES.md).
 | Nivel | Cuándo | Documentos |
 |-------|--------|-----------|
 | **Día 1** | Primer día en el repo | [getting-started](./getting-started.md) + [learning-path](./architecture/learning-path.md) L0–L1 + [overview](./architecture/overview.md) |
-| **Día 2** | Antes de tocar código | [platform-vision](./architecture/platform-vision.md) + [guides/README](./guides/README.md) + [workspace-packages](./frontend/workspace-packages.md) |
+| **Día 2** | Antes de tocar código | [platform-as-product](./architecture/platform-as-product.md) + [platform-vision](./architecture/platform-vision.md) + [guides/README](./guides/README.md) |
 | **Primera feature** | Voy a cambiar un dominio | [domain-lifecycle](./architecture/domain-lifecycle.md) + deep dive FE o BE |
 | **Tarea específica** | Voy a hacer X | Guía en [guides/](./guides/) |
 
@@ -265,7 +266,7 @@ pnpm check:legacy-paths
 pnpm check:migration-encoding
 ```
 
-Rondas en el árbol: **[F85](./plans/rounds/plans-85-eighty-five-round/)** (motor monorepo / base hardening). Ideauto: [ideauto/migration/](./ideauto/migration/).  
+Rondas en el árbol: **[F86](./plans/rounds/plans-86-eighty-six-round/)** (base oficial de empresa / motor). Ideauto: [ideauto/migration/](./ideauto/migration/).  
 Rondas cerradas: solo en historial de git. Índice: [plans/README.md](./plans/README.md).  
 Recalls (doc producto): [ideauto/recalls/](./ideauto/recalls/). Assessment: [architecture/recalls-v2-assessment.md](./architecture/recalls-v2-assessment.md).
 
@@ -276,17 +277,18 @@ Operativa Jest/coverage: [runbooks/jest-coverage.md](./runbooks/jest-coverage.md
 
 <h2 align="center">Cosas que sorprenden</h2>
 
-<p align="center"><i>Léelo antes de depurar</i></p>
+<p align="center"><i>Léelo antes de depurar — restricciones actuales, no bugs abiertos</i></p>
 
 | Tema | Qué pasa | Qué hacer |
 |------|----------|-----------|
-| **Nx daemon** | `nx serve` a veces cuelga | `npx tsc -p … --noEmit`; `pnpm josanz-api:dev` |
+| **Nx daemon** | `nx serve` a veces cuelga en Windows | `npx tsc -p … --noEmit`; `pnpm josanz-api:dev`; [nx-daemon.md](./runbooks/nx-daemon.md) |
 | **Dual Prisma schema** | `single` vs `multi` deben estar en paridad | `pnpm check:schema-parity` |
-| **Paths wildcard IDE** | Errores fantasma en `*-features/*` | Ignorar si `tsc` pasa |
+| **Paths wildcard IDE** | Errores fantasma en `*-features/*` | Ignorar si `tsc` / `nx typecheck` pasa |
 | **Keycloak** | Backend no emite JWT; valida JWKS | Realm `josanz` vs `arquetipos` — [keycloak-setup.md](./guides/keycloak-setup.md) |
 | **Infra opcional** | Sin Redis/Kafka el backend arranca | No exijas Redis para boot local |
-| **Capas ESLint** | `@josanz` no importa `@arquetipos` | `layer:*` tags |
-| **RN web blanco** | React 19 raíz + React 18 Expo | Metro pin — [add-mobile-domain.md](./guides/add-mobile-domain.md) |
+| **Capas ESLint** | `@josanz` no importa `@arquetipos` | Tags `layer:*` |
+| **React Native / Expo** | Raíz hoist React 19; apps Expo pinnean React 18 vía Metro | Ya cableado (`@arquetipos/expo-metro-config`). Blanco/`$$typeof` solo si se rompe el pin — `--clear` · [add-mobile-domain.md](./guides/add-mobile-domain.md) |
+| **DB multi-provider** | Postgres = DX/CI; SQL Server/MySQL vía factory | `@base/backend/prisma` · [database-providers.md](./runbooks/database-providers.md) |
 
 ---
 
@@ -299,8 +301,8 @@ Operativa Jest/coverage: [runbooks/jest-coverage.md](./runbooks/jest-coverage.md
 |-----------|--------|
 | `docs/README.md`, `architecture/`, `guides/`, `backend/`, `frontend/`, `runbooks/`, `adr/` | **Fuente de verdad operativa** |
 | `AGENTS.md`, `tools/` ([mapa](./runbooks/tools-layout.md)) | Contrato para CI y agentes |
-| `docs/plans/` | Solo rondas **activas** (F85) — [plans/README.md](./plans/README.md) |
-| Rondas cerradas (F41–F84) | **Solo en historial de git** — no recrear carpetas |
+| `docs/plans/` | Solo rondas **activas** (F86) — [plans/README.md](./plans/README.md) |
+| Rondas cerradas (F41–F85) | **Solo en historial de git** — no recrear carpetas |
 | [CONTRIBUTING-DOCS.md](./CONTRIBUTING-DOCS.md) | Cómo escribir docs |
 
 Si un plan cerrado en git contradice esta biblia, **prevalece la biblia**.

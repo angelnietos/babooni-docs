@@ -116,14 +116,14 @@ Ver también `pnpm typecheck:all:josanz` (capa cliente) y `docs/frontend/ci-gate
 > TypeScript compilation". El impulso F9/F11 de "quitar paths" es la causa raíz de ese bug.
 > Solo quitar paths si el paquete deja de ser consumido por el bundler (o pasa a backend Node).
 
-Solo cuando el dominio está **confirmado con producto** (hoy: `events`, `clients`):
+Quitar paths solo cuando el dominio esté **confirmado** y el bundler ya no
+necesite el alias (raro en FE Angular/Vite — ver aviso F16-PATHS arriba):
 
 1. Verificar `workspace:*` en shell → features y app → shell.
 2. `node tools/migrate/pilot-remove-tsconfig-paths.mjs --list` — revisar cluster.
 3. Extender el script con el cluster, `--apply`, ratchet `--check-max` en `package.json`.
-4. `pnpm check:tsconfig-paths` + `tsc` del cluster.
+4. `pnpm check:tsconfig-paths` + `pnpm check:exports-paths` + typecheck del cluster.
 
-Dominios pendientes: revisar `tsconfig.base.json` para eliminar paths sobrantes.
 Preview bulk: `pnpm pilot:remove-paths:bulk-dry`.
 
 ## ESLint / Nx boundaries

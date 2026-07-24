@@ -96,6 +96,10 @@ Contenido…
 - [ ] Sin paths absolutos de máquina
 - [ ] Hub enlaza docs P0/P1 nuevos
 - [ ] Si cambia una convención de código, hay sección Verificación alineada con scripts CI
+- [ ] **Sin pendientes falsos:** no dejes “WIP / pendiente Fxx / pantalla en blanco / experimental”
+  si el código ya lo resolvió. Los bugs cerrados van a troubleshooting (“si X se rompe…”), no
+  a “Cosas que sorprenden” como estado actual. Los únicos “pendiente” válidos son trabajo
+  realmente abierto (p. ej. milestones Ideauto M1–M6, planes F86).
 
 ## Enlaces
 

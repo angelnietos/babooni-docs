@@ -52,7 +52,7 @@ tag: layer:clientes
 |-------|-----|
 | Prisma multi-provider / MSSQL | [database-providers.md](../../runbooks/database-providers.md) · [ADR 0014](../../adr/adr-0014-database-provider-portability.md) |
 | Nuevo cliente (patrón) | [nuevo-cliente-checklist.md](../../clientes/nuevo-cliente-checklist.md) |
-| Ronda motor monorepo (activa) | [plans-85](../../plans/rounds/plans-85-eighty-five-round/) |
+| Ronda motor monorepo (activa) | [plans-86](../../plans/rounds/plans-86-eighty-six-round/) |
 
 ---
 

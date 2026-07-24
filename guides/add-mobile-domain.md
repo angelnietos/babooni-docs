@@ -78,15 +78,16 @@ Checklist visual: [tenant-themes-checklist.md](../frontend/tenant-themes-checkli
 
 Demo login: `admin@demo.com` / `admin` (también manager / member).
 
-## Metro — React único (crítico)
+## Metro — React único (apps Expo)
 
-El monorepo hoist **React 19** en la raíz; Expo RN necesita **React 18**. Sin pin
-en Metro, `ArqInput`/`ArqButton` fallan con *"Objects are not valid as a React child"*
-(React duplicado).
+El monorepo hoist **React 19** en la raíz; las apps Expo RN usan **React 18**.
+Eso **ya está resuelto** en las plantillas: Metro pinnea un solo árbol de React
+desde `node_modules` de la app. No es un bug abierto ni una pantalla en blanco
+“pendiente”.
 
 Paquete workspace: `@arquetipos/expo-metro-config`
 (`libs/arquetipos/frontend/mobile/rn/metro-config`). Cada app declara
-`workspace:*` y requiere por nombre (sin allowlist ESLint):
+`workspace:*` y requiere por nombre:
 
 ```js
 // apps/arquetipos/mobile/react-native-{single,multi}/metro.config.js
@@ -102,7 +103,8 @@ El helper fija:
 - `extraNodeModules` → `react`, `react-dom`, `react-native`, `react-native-web`
   (y peers) desde `node_modules` de la **app**
 
-Tras cambiar Metro: reiniciar Expo con `--clear`.
+Si al tocar Metro aparece pantalla en blanco o `$$typeof` / *Objects are not
+valid as a React child*: restaurar el helper y reiniciar Expo con `--clear`.
 
 ## Peers canónicos (F52-C1)
 
@@ -129,7 +131,7 @@ Mismatch `@types/react` 18 vs 19: ver nota en [local-development.md](./local-dev
 
 ```bash
 pnpm nx serve react-native-single
-# Abrir http://localhost:8091 — debe verse login (no pantalla blanca)
+# Abrir http://localhost:8091 — login demo (Metro pin ya incluido en la plantilla)
 node tools/checks/check-lib-layout.mjs
 ```
 

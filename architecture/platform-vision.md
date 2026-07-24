@@ -20,8 +20,9 @@ No sustituye ADRs ni guías operativas: es la **historia de producto** del motor
 
 > Construimos un **motor de software empresarial** (dominios hexagonales + capas FE +
 > gates CI) tan claro y documentado que **personas e IA** pueden generar productos
-> correctos a velocidad alta. El siguiente paso es **modelos especialistas por
-> dominio de negocio** y venderlos como **SaaS** a otras empresas.
+> correctos a velocidad alta. Ya hay productos cliente y **SaaS** sobre `@base/*`;
+> el siguiente paso es **modelos especialistas por dominio** y más productos
+> vendibles sobre el mismo motor.
 
 ```mermaid
 flowchart LR
