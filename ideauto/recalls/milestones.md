@@ -21,7 +21,7 @@ Operativa detallada: [runbooks/recalls-migration.md](../../runbooks/recalls-migr
 
 | M | Nombre | Gate de salida | Estado |
 |---|--------|----------------|--------|
-| **M0** | Setup Ideauto + apps recalls | libs/apps existen; layout check; tags `layer:clientes` | **hecho (scaffold)** |
+| **M0** | Setup Ideauto + apps recalls | stubs `@ideauto/*` + apps Nx; layout check; tags `layer:clientes` | **hecho (scaffold)** |
 | **M1** | Auth | Login E2E; sin usuarios anónimos | pendiente |
 | **M2** | Campaigns / Waves | CRUD + VIN upload + oleada staging | pendiente |
 | **M3** | Budgets / Invoices / PDF | PDF paridad firmada | pendiente |
@@ -50,10 +50,12 @@ node tools/checks/check-lib-layout.mjs --strict
 ### Done when
 
 - [x] Doc producto en `docs/ideauto/recalls/`  
-- [x] `libs/clientes/ideauto/{shared,backend,…}`  
-- [x] `apps/clientes/ideauto/recalls/{backend,frontend}` stubs  
+- [x] Libs stub: `@ideauto/shared`, `@ideauto/backend`, `@ideauto/angular-ui`, `@ideauto/platform-{api,data-access,shell}`  
+- [x] Apps stub: `ideauto-recalls-api`, `ideauto-recalls-web` bajo `apps/clientes/ideauto/recalls/{backend,frontend}`  
 - [x] Paths `@ideauto/*`  
-- [x] `check-lib-layout` verde · `pnpm install` OK 
+- [x] `check-lib-layout` verde · `pnpm install` OK  
+
+> **Nota:** M0 = esqueleto vacío (serve imprime stub). Nest/Next cableados + Prisma→MSSQL entran en M1+.
 
 ---
 

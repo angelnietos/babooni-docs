@@ -12,75 +12,32 @@
   <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
   <a href="./rounds/plans-84-eighty-four-round/"><img alt="F84" src="https://img.shields.io/badge/F84-active-14b8a6?style=flat-square" /></a>
   <a href="./rounds/plans-83-eighty-three-round/"><img alt="F83" src="https://img.shields.io/badge/F83-active-14b8a6?style=flat-square" /></a>
-  <a href="./rounds/plans-82-eighty-two-round/"><img alt="F82" src="https://img.shields.io/badge/F82-closed-0f766e?style=flat-square" /></a>
-  <a href="./rounds/plans-81-eighty-one-round/"><img alt="F81" src="https://img.shields.io/badge/F81-closed-0f766e?style=flat-square" /></a>
+  <a href="./rounds/plans-78-seventy-eight-round/"><img alt="F78" src="https://img.shields.io/badge/F78-ready-0d5f59?style=flat-square" /></a>
 </p>
 
 Planes de trabajo del monorepo. **No son la biblia operativa** — si contradicen
 `docs/README.md` / `architecture/` / `guides/`, gana la biblia.
 
-> Paths `tools/scripts/…` en planes antiguos → ver [legacy-paths.md](../legacy-paths.md#tools-post-f56)
+> Rondas cerradas (F41–F82 excepto F78) se eliminaron del árbol. Recuperables en el
+> historial de git. Paths `tools/scripts/…` en planes antiguos → [legacy-paths.md](../legacy-paths.md)
 > y [tools-layout.md](../runbooks/tools-layout.md).
 
 ## Estructura
 
-- **`rounds/`** — rondas `plans-{n}-{nombre}-round/` (histórico + activas).
+- **`rounds/`** — solo rondas **activas** o listas para ejecutar.
 - **`global/`** — políticas transversales (`F00-*`).
 
 Estado por plan: `listo para ejecutar` | `en progreso` | `completado` | `trasladado`.
 
-## Ronda activa
+## Rondas en el árbol
 
 | Ronda | Estado | Tema |
 |-------|--------|------|
-| [plans-84](./rounds/plans-84-eighty-four-round/) | activa | **Ideauto Recalls_v2 → monorepo**: cliente `clientes/ideauto/recalls` (`@ideauto/*`), strangler, MSSQL (F83) — **no SaaS** |
+| [plans-84](./rounds/plans-84-eighty-four-round/) | activa | **Ideauto Recalls_v2 → monorepo**: `clientes/ideauto/recalls` (`@ideauto/*`), strangler, MSSQL (F83) — **no SaaS** |
 | [plans-83](./rounds/plans-83-eighty-three-round/) | activa | Database provider portability + adapters (Pg ⇄ SqlServer ⇄ MySql) |
-| [plans-78](./rounds/plans-78-seventy-eight-round/) | listo para ejecutar | feature parity React, mobile logic cleanup & architecture compliance |
+| [plans-78](./rounds/plans-78-seventy-eight-round/) | listo para ejecutar | Feature parity React, mobile logic cleanup & architecture compliance |
 
-Docs canónicos Recalls: **[docs/ideauto/recalls/](../ideauto/recalls/)** (producto/PM/devs) · [assessment](../architecture/recalls-v2-assessment.md) · [runbook](../runbooks/recalls-migration.md) · [ADR 0013](../adr/adr-0013-recalls-strangler-migration.md) · [F84](./rounds/plans-84-eighty-four-round/).
-
-## Rondas completadas (archivo)
-
-| Ronda | Tema |
-|-------|------|
-| [plans-82](./rounds/plans-82-eighty-two-round/) | Josanz on `@base/native-ui` + wrappers + atoms\|composites carry |
-| [plans-81](./rounds/plans-81-eighty-one-round/) | Native-first Arquetipos + atoms/{name}; Josanz → F82 |
-| [plans-80](./rounds/plans-80-eighty-round/) | UI lib folder layout, brand wrappers ↔ apps, dead-atom purge (+ F79 carries) |
-| [plans-79](./rounds/plans-79-seventy-nine-round/) | Lit SoT adapters Next·Ionic·RN + matriz; layout seed atoms/chrome/composites |
-| [plans-77](./rounds/plans-77-seventy-seven-round/) | Mobile parity, Next.js build fix, React base completion |
-| [plans-76](./rounds/plans-76-seventy-six-round/) | Canonical Domain Architecture rollout, God barrels cleanup, test/lint hardening |
-| [plans-75](./rounds/plans-75-seventy-five-round/) | Frontend Canonical Domain Architecture, 8-layer contract, public API barrel cleanup |
-| [plans-74](./rounds/plans-74-seventy-four-round/) | F74 round |
-| [plans-73](./rounds/plans-73-seventy-three-round/) | Cierre F72 + completitud Angular multi-tenant |
-| [plans-72](./rounds/plans-72-seventy-two-round/) | Cierre carries F71; paridad scaffolding features multi-framework |
-| [plans-71](./rounds/plans-71-seventy-one-round/) | Carries F70 deferidos a F72; docs F71 |
-| [plans-70](./rounds/plans-70-seventy-round/) | Board piloto tasks; Ionic audit rollout; Chromatic/Zod → F71 |
-| [plans-67](./rounds/plans-67-sixty-seven-round/) | FeatureShell adoption; entity-view roles/users; store ratchet expand; Chromatic/Zod → F68 |
-| [plans-66](./rounds/plans-66-sixty-six-round/) | Features SoC; FeatureShell cards/table; facade multi-dominio; entity piloto; Chromatic/Zod → F67 |
-| [plans-65](./rounds/plans-65-sixty-five-round/) | Confirm+toast multi-stack; facade SoC clients (D1); ADR 0012; Chromatic/deprecated → F66 |
-| [plans-64](./rounds/plans-64-sixty-four-round/) | Portal verify, Next listbox, mobile e2e, tokens, Storybook; Chromatic/validación → F65; CI jest-preset strict |
-| [plans-63](./rounds/plans-63-sixty-three-round/) | Overlay/mobile parcial; carries → F64 |
-| [plans-62](./rounds/plans-62-sixty-two-round/) | Temas, select, shell, features native-first, RN tokens; carries → F63 |
-| [plans-60](./rounds/plans-60-sixty-round/) | 7–1 ui-styles, login/clients nativos DOM; temas/select/features → F62 |
-| [plans-59](./rounds/plans-59-fifty-nine-round/) | E2E Next·Ionic·RN (C1); validación isomórfica + visual tooling → F60 |
-| [plans-58](./rounds/plans-58-fifty-eight-round/) | Coverage strict, e2e arquetipos all, purge `scope:*`, mock soft; Chromatic/Code Connect/deprecated → F59 |
-| [plans-57](./rounds/plans-57-fifty-seven-round/) | Coverage truth, scaffolds CLI, TS6059 React, carry Chromatic→F58 |
-| [plans-56](./rounds/plans-56-fifty-six-round/) | Apps arquetipos build/visual, Jest BE, MockServer FE-only |
-| [plans-55](./rounds/plans-55-fifty-five-round/) | Carry F54: Lit 2, a11y, coverage BE strict, Jest workspace, parity strict |
-| [plans-54](./rounds/plans-54-fifty-four-round/) | Migración native wrappers, oleadas Lit, tokens, SB CI, parity, gate strict |
-| [plans-53](./rounds/plans-53-fifty-three-round/) | Native-ui SoT + freeze + wrappers/SB (cerrado en paralelo con F54) |
-| [plans-52](./rounds/plans-52-fifty-two-round/) | Publish workflow + workspace-deps strict + storybook + coverage soft + peers mobile |
-| [plans-51](./rounds/plans-51-fifty-one-round/) | Workspace Ionic + cobertura BE + mobile layers + SaaS typecheck + npm publish canario |
-| [plans-50](./rounds/plans-50-fifty-round/) | Typecheck FE + tests BE + int-specs + Metro/CI |
-| [plans-49](./rounds/plans-49-forty-nine-round/) | Deep-imports + any impl. (A3/A4 → F50) |
-| [plans-48](./rounds/plans-48-forty-eight-round/) | Typecheck hygiene + barrels + deep-imports + any-cast specs |
-| [plans-47](./rounds/plans-47-forty-seven-round/) | Superseded por F48/F49 (harness / deep-imports / josanz-ui) |
-| [plans-46](./rounds/plans-46-forty-six-round/) | Typecheck hygiene + DX |
-| [plans-45](./rounds/plans-45-forty-five-round/) | Cierre F44 + typecheck + Node/Nx + harness |
-| [plans-44](./rounds/plans-44-forty-four-round/) | Deprecation hygiene + versionado |
-| [plans-43](./rounds/plans-43-forty-three-round/) | Facade consolidation + cleanup F42 |
-| [plans-42](./rounds/plans-42-forty-two-round/) | Harness + deep imports (parcial → F43) |
-| [plans-41](./rounds/plans-41-forty-one-round/) | Deuda principal / convenciones |
+Docs canónicos Recalls: **[docs/ideauto/recalls/](../ideauto/recalls/)** · [assessment](../architecture/recalls-v2-assessment.md) · [runbook](../runbooks/recalls-migration.md) · [ADR 0013](../adr/adr-0013-recalls-strangler-migration.md).
 
 ## Planes globales
 

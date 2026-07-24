@@ -101,4 +101,5 @@ token/API parity per ADR 0010 §6.
 - [native-ui-adapter-matrix.md](../frontend/native-ui-adapter-matrix.md)
 - [ui-strategy.md](../frontend/ui-strategy.md) § Storybook
 - Reference serve target: `josanz-angular-ui` `project.json`
-- Plan: [F79](../plans/rounds/plans-79-seventy-nine-round/) — adapter Storybook parity + Lit migration
+- Plan: F79 (cerrada, git) — adapter Storybook parity + Lit migration;
+  ver [design-system.md](../frontend/design-system.md)

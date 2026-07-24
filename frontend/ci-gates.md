@@ -117,5 +117,5 @@ pnpm check:node-modules
 
 ## Audit report
 
-`pnpm audit:tsconfig-paths:report` regenerates
-[tsconfig-paths-audit.md](./tsconfig-paths-audit.md).
+`pnpm audit:tsconfig-paths:report` imprime el informe en stdout (no hay anexo
+markdown en el árbol; `runtime:*` es autoritativo frente a tags `scope:*` legacy).

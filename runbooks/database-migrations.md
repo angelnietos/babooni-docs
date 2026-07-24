@@ -121,6 +121,7 @@ Each app bootstrap calls `applyProductDatabaseUrl()` from `@base/backend`, mappi
 | App | Bootstrap | Keys (first wins) |
 |-----|-----------|-------------------|
 | `josanz-api` | `apps/clientes/josanz/backend/src/bootstrap-env.ts` | `JOSANZ_DATABASE_URL`, `DATABASE_URL` |
+| `ideauto-recalls-api` | *(M0 stub — wire bootstrap in M1+ / F83 MSSQL)* | TBD |
 | `api-single` | `apps/arquetipos/backend/monolith/api-single/src/bootstrap-env.ts` | `ARQUETIPOS_DATABASE_URL`, `DATABASE_URL` |
 | `clients-ms` | `apps/arquetipos/backend/microservices/clients-ms/src/bootstrap-env.ts` | `CLIENTS_MS_DATABASE_URL`, `DATABASE_URL` |
 | `verifactu-crm-api` | `resolveCrmDatabaseUrl()` | `VERIFACTU_DATABASE_URL`, `DATABASE_URL` |

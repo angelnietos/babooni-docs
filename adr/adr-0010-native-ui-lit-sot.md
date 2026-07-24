@@ -32,8 +32,9 @@ Product brand packages (`@josanz/angular-ui`, `@arquetipos/*-ui`,
 `@saas/shared-ui`) remain the place for branding — they should wrap or re-export
 base adapters, not invent a fourth Button.
 
-Plans: [F53](../plans/rounds/plans-53-fifty-three-round/),
-[F54](../plans/rounds/plans-54-fifty-four-round/).
+Plans: F53 / F54 (cerradas — solo en git). Contrato vivo:
+[ui-strategy.md](../frontend/ui-strategy.md) ·
+[design-system.md](../frontend/design-system.md).
 
 ## Decision
 
@@ -84,4 +85,6 @@ Plans: [F53](../plans/rounds/plans-53-fifty-three-round/),
 - ADR [0006](adr-0006-frontend-layering.md) (feature layering; complementary)
 - ADR [0011](adr-0011-storybook-native-ui-first.md) (Storybook)
 - Code: `libs/base/frontend/crosscutting/native-ui/`
-- Round: [F79](../plans/rounds/plans-79-seventy-nine-round/)- Plan: [F79](../plans/rounds/plans-79-seventy-nine-round/) — Next·Ionic·RN adapter migration + SB parity
+- Round: F79 (cerrada, git) — Next·Ionic·RN adapter migration + SB parity;
+  ver [design-system.md](../frontend/design-system.md) ·
+  [ui-strategy.md](../frontend/ui-strategy.md)

@@ -44,3 +44,4 @@ Cómo funciona el backend del motor: NestJS, hexagonal, CQRS, apps vs libs, y
 | [0004](../adr/adr-0004-kafka-outbox.md) | Outbox / Kafka |
 | [0005](../adr/adr-0005-jwt-vs-keycloak.md) | Keycloak |
 | [0009](../adr/adr-0009-cqrs-nest.md) | CQRS Nest |
+| [0013](../adr/adr-0013-recalls-strangler-migration.md) | Ideauto Recalls (strangler; proposed) |

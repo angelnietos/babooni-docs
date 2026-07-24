@@ -48,13 +48,16 @@ the frontend and its cross-cutting governance.
    (e.g. `dashboard`, `billing`, `inventory`) but never import `@arquetipos/*`.
 
 4. **Governance enforced in CI.** ESLint `@nx/enforce-module-boundaries` keeps the
-   `layer:*` / `scope:*` tags; `scope:browser-*` (UI) cannot depend on the
-   data-layer or features, and `scope:angular`/`scope:react` (features) may only
-   use `browser-*` (UI) + `client-*` (data). A new
+   `layer:*` and **`runtime:*`** tags (`runtime:isomorphic|backend|angular|react`).
+   Legacy `scope:*` tags were purged (F58); `check-lib-layout --strict` fails if they
+   reappear. `runtime:*` is authoritative together with `layer:*`.
    `tools/checks/check-frontend-conventions.mjs` (CI job `verify` → `Frontend
    conventions`) validates the feature folder shape and the `shared` purity, and
    fails barrels that implement locally instead of re-exporting.
    `CONTRIBUTING.md`, `CODEOWNERS` and `.editorconfig` document the rules.
+
+> **Tag note (post-F58):** Do not add `scope:angular`, `scope:browser-*`, or
+> `scope:isomorphic`. Use `runtime:*` + `layer:*` only.
 
 ## Consequences
 

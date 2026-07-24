@@ -16,7 +16,7 @@
 ## Context
 
 The platform ships reusable reference implementations (`@arquetipos/*`) and
-final customer products (`@josanz/*`) on top of a shared kernel (`@base/*`).
+final customer products (`@josanz/*`, `@ideauto/*`, …) on top of a shared kernel (`@base/*`).
 They must share business logic without leaking framework or database concerns,
 and new domains must be added cheaply and consistently.
 

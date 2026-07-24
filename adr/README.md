@@ -23,7 +23,7 @@ changes can be evaluated against the original rationale.
 
 | # | Title | Decision in one line |
 |---|-------|----------------------|
-| [0001](adr-0001-hexagonal-architecture.md) | Hexagonal architecture | Per-domain ports & adapters, layered `@base` / `@arquetipos` / `@josanz` |
+| [0001](adr-0001-hexagonal-architecture.md) | Hexagonal architecture | Per-domain ports & adapters, layered `@base` / `@arquetipos` / `@josanz` / `@ideauto` |
 | [0002](adr-0002-prisma-multi-single-tenancy.md) | Prisma multi/single tenancy | Two schemas, one `PrismaRepository`, `tenantId` scoping via `TenantContext` |
 | [0003](adr-0003-aes-256-gcm-vs-kms.md) | AES-256-GCM vs KMS | App-layer envelope encryption with `kid`; `KeyProvider` pluggable to KMS |
 | [0004](adr-0004-kafka-outbox.md) | Kafka + transactional Outbox | Outbox table + relay → at-least-once delivery; consumers must be idempotent |
@@ -46,6 +46,14 @@ changes can be evaluated against the original rationale.
   above in sync.
 - ADRs are **accepted** unless their status says otherwise; an ADR can be
   superseded by a newer one (note the `revisited` date in 0005).
+
+### Notas operativas (hechos actuales, no reescriben la decisión)
+
+| ADR | Nota |
+|-----|------|
+| **0001** | Productos cliente incluyen `@josanz/*` y `@ideauto/*` (M0 scaffold Recalls). |
+| **0006** | Tags Nx: usar `runtime:*` (no `scope:*`). Ver nota en el propio ADR. |
+| **0013** | Status **proposed**; M0 stubs en árbol — ejecución F84 / [ideauto/recalls](../ideauto/recalls/). |
 
 ## Enlaces
 

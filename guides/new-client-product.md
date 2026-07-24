@@ -15,13 +15,15 @@ Resumen ejecutivo. Checklist completo: [clientes/nuevo-cliente-checklist.md](../
 
 ## Idea
 
-Un producto cliente es una **copia estructurada de Josanz**, no de Arquetipos:
+Un producto cliente sigue el patrón de **Josanz / Ideauto**, no de Arquetipos:
 
-- Vive en `apps/clientes/{slug}/` + `libs/clientes/{slug}/`
-- Scope npm `@acme/*` (ejemplo)
+- Vive en `apps/clientes/{slug}/` (+ subcarpeta de producto si hay varios, p. ej. `ideauto/recalls`) + `libs/clientes/{slug}/`
+- Scope npm `@acme/*` (ejemplo); reales: `@josanz/*`, `@ideauto/*`
 - Importa **`@base/*` únicamente** — nunca `@arquetipos/*`
 
 **Por qué:** Arquetipos son plantillas de demostración; un cliente en producción no debe depender de ellas.
+
+Referencia multi-producto: Ideauto Recalls (`@ideauto/*`, M0 scaffold) — [ideauto/recalls/](../ideauto/recalls/).
 
 ---
 

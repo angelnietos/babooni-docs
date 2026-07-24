@@ -14,8 +14,7 @@ tool (NgRx `Store`, RTK `useAppDispatch`, mutable demo arrays). Goal: swap the
 implementation behind the port and unit-test panels with a mock.
 
 Piloto F65: **clients**. Extensión F66-D1: **users / roles / audit** (y settings
-si aplica) con la **misma** forma de puerto — ver
-[F66-D1](../plans/rounds/plans-66-sixty-six-round/1750000236000-f66-domain-facade-parity.md).
+si aplica) con la **misma** forma de puerto.
 
 ## Matriz canónica (stack → herramienta)
 
@@ -46,13 +45,8 @@ legacy app registration; **list CRUD panels** must use the facade. ESLint/check:
 **Related:** panel SoC
 ([features-layout-soc.md](./features-layout-soc.md)), entity field views
 ([entity-view-abstractions.md](./entity-view-abstractions.md)), FeatureShell
-([feature-shell-presentation.md](./feature-shell-presentation.md)), facade
-multi-dominio
-([F66-D1](../plans/rounds/plans-66-sixty-six-round/1750000236000-f66-domain-facade-parity.md)),
-ESLint features↔store
-([F66-B3](../plans/rounds/plans-66-sixty-six-round/1750000234000-f66-eslint-features-store-ratchet.md))
-· expand
-([F67-B3](../plans/rounds/plans-67-sixty-seven-round/1750000245000-f67-features-store-ratchet-expand.md)).
+([feature-shell-presentation.md](./feature-shell-presentation.md)). Facade
+multi-dominio y ratchet features↔store (F66-D1 / F66-B3 / F67-B3, cerradas).
 
 ## Reglas SoC
 
@@ -103,7 +97,7 @@ do not import NgRx/RTK TestBed for list CRUD.
 
 ## Enlaces
 
-- Plan: [F65-D1](../plans/rounds/plans-65-sixty-five-round/1750000228000-f65-frontend-state-soc.md)
+- Origen: F65-D1 (cerrada, solo en git)
 - [ADR 0006](../adr/adr-0006-frontend-layering.md) · F41 state strategy
 - Guías: [add-frontend-domain.md](../guides/add-frontend-domain.md),
   [add-mobile-domain.md](../guides/add-mobile-domain.md)

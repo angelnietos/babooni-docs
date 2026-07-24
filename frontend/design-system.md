@@ -17,9 +17,9 @@ Cuándo usarla: tokens, Storybook, ownership de componentes, handoff desde Figma
 
 Estrategia operativa: [ui-strategy.md](./ui-strategy.md) (incluye **freeze F53+**).
 
-UI layout: [ui-lib-folder-layout.md](./ui-lib-folder-layout.md) · Josanz ↔ native:
-[josanz-native-inventory.md](./josanz-native-inventory.md) (**F82** cerrada — wrappers
-`Native*` + `atoms|composites`).
+UI layout: [ui-lib-folder-layout.md](./ui-lib-folder-layout.md) · Josanz ↔ native
+(**F82** cerrada — wrappers `Native*` + `atoms|composites`; ver esta guía y
+[ui-strategy.md](./ui-strategy.md)).
 
 ### Overlays → portal (F63 / F64-A1)
 
@@ -142,7 +142,7 @@ El catálogo SoT (`base-native-ui`) lleva **Docs autodocs** (`@storybook/addon-d
 - Inferencia: `@nx/storybook/plugin` en `nx.json`; puertos/styles/output en
   `project.json` por lib.
 - **CI visual / Chromatic:** sin token → `build-storybook` native + adapters
-  es la señal de rotura ([deprecated-atoms-residual.md](./deprecated-atoms-residual.md)).
+  es la señal de rotura (ver [ci-gates.md](./ci-gates.md)).
 
 ```bash
 pnpm storybook:native-ui
@@ -158,11 +158,9 @@ Tokens compartidos: `@base/ui-tokens` (+ `./css`, `./rn`). Adapter matrix:
 [ui-lib-folder-layout.md](./ui-lib-folder-layout.md). Next SSR islands:
 [next-native-ui.md](./next-native-ui.md). A11y:
 [native-ui-a11y-matrix.md](./native-ui-a11y-matrix.md). Figma:
-[figma-native-ui-map.md](./figma-native-ui-map.md). Deprecated residual:
-[deprecated-atoms-residual.md](./deprecated-atoms-residual.md). Validación
-isomórfica: [ADR 0012](../adr/adr-0012-isomorphic-validation.md) +
-[isomorphic-validation-defer.md](./isomorphic-validation-defer.md) (Zod → F72).
-Estado / SoC facade: [state-soc-facade.md](./state-soc-facade.md).
+[figma-native-ui-map.md](./figma-native-ui-map.md). Validación isomórfica:
+[ADR 0012](../adr/adr-0012-isomorphic-validation.md). Estado / SoC facade:
+[state-soc-facade.md](./state-soc-facade.md).
 Features SoC + layout: [features-layout-soc.md](./features-layout-soc.md).
 Entity field views: [entity-view-abstractions.md](./entity-view-abstractions.md).
 FeatureShell presentación: [feature-shell-presentation.md](./feature-shell-presentation.md).
@@ -201,10 +199,7 @@ Allowlist: `tools/checks/ui-native-first-allowlist.json`.
 
 - [josanz-product-exceptions.md](./josanz-product-exceptions.md)
 - [ci-gates.md](./ci-gates.md)
-- Planes UI cerrados: [F82](../plans/rounds/plans-82-eighty-two-round/) ·
-  [F81](../plans/rounds/plans-81-eighty-one-round/) ·
-  [F80](../plans/rounds/plans-80-eighty-round/) ·
-  [F79](../plans/rounds/plans-79-seventy-nine-round/).
-  Activas no-UI: [F84 Recalls](../plans/rounds/plans-84-eighty-four-round/) ·
+- UI cerrada (**F79–F82**): esta guía · [ui-strategy.md](./ui-strategy.md)
+  (rondas en git). Activas: [F84 Recalls](../plans/rounds/plans-84-eighty-four-round/) ·
   [F83 DB](../plans/rounds/plans-83-eighty-three-round/).
   Índice: [plans/README.md](../plans/README.md).

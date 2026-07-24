@@ -7,7 +7,7 @@
 <p align="center">
   <img alt="arquetipos" src="https://img.shields.io/badge/arquetipos-0f766e?style=flat-square" />
   <a href="../../../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
-  <a href="../plans-82-eighty-two-round/README.md"><img alt="previa" src="https://img.shields.io/badge/ronda-F82-14b8a6?style=flat-square" /></a>
+  <img alt="previa" src="https://img.shields.io/badge/ronda-F82-14b8a6?style=flat-square" />
 </p>
 
 ## Estado
@@ -55,6 +55,6 @@ Cliente requiere ejecutar la app sobre **SQL Server** (y potencialmente MySQL/Ma
 
 ## Predecesora / Siguiente
 
-- Predecesora: [F82](../plans-82-eighty-two-round/) (cerrada)
+- Predecesora: F82 (cerrada — solo en git; UI → [design-system.md](../../../frontend/design-system.md) · [ui-strategy.md](../../../frontend/ui-strategy.md))
 - Libs: `libs/base/backend/prisma/{single,multi}`, `libs/base/backend/src/lib/platform/kernel/prisma/`
 - Domains: `libs/base/backend/src/lib/domains/*/adapters/persistence/*.prisma.repository`

@@ -47,7 +47,7 @@ flowchart LR
 | Peers Angular UI | `@angular/common|core|router` ^21, `rxjs` ^7.8 |
 | Peers Ionic UI | `@angular/*` ~21.2, `@ionic/angular` ^8.5 |
 | Peers RN UI | `react`/`react-dom` **18.3.1**, `react-native` 0.76.9 |
-| Producto | `@josanz/*` / `@saas/*` — **no** publicar sin acuerdo |
+| Producto | `@josanz/*` / `@ideauto/*` / `@saas/*` — **no** publicar sin acuerdo |
 
 ## Auth / registry
 
@@ -112,7 +112,6 @@ pnpm check:deprecated
 
 ## Enlaces
 
-- [F51-E1](../plans/rounds/plans-51-fifty-one-round/1750000067000-f51-npm-publish-and-lib-versioning.md)
-- [F52-A1](../plans/rounds/plans-52-fifty-two-round/1750000070000-f52-carry-npm-publish-and-versioning.md)
+- Origen: F51-E1 / F52-A1 (cerradas, solo en git)
 - [deprecation-policy.md](./deprecation-policy.md)
 - [add-mobile-domain.md](./add-mobile-domain.md) — Metro pin React 18

@@ -44,6 +44,6 @@ El marco completo exige **tres ejes**:
 2. **Visual** — todos usan `@base/native-ui` (wrappers `Native*` / CE); no UI por framework.
 3. **Funcional** — mismas rutas/flujos/contratos (esta tabla clients es el canario).
 
-Plan: [F54-B4](../plans/rounds/plans-54-fifty-four-round/1750000104500-f54-arquetipos-cross-framework-parity.md) ·
+Plan: F54-B4 (cerrada, solo en git) ·
 Thin libs: [arquetipos-thin-libs.md](./arquetipos-thin-libs.md) ·
 SoT UI: [ADR 0010](../adr/adr-0010-native-ui-lit-sot.md).

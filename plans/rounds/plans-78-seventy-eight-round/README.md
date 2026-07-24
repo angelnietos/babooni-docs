@@ -7,7 +7,7 @@
 <p align="center">
   <img alt="arquetipos" src="https://img.shields.io/badge/arquetipos-0f766e?style=flat-square" />
   <a href="../../../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
-  <a href="../plans-77-seventy-seven-round/README.md"><img alt="previa" src="https://img.shields.io/badge/ronda-F77-14b8a6?style=flat-square" /></a>
+  <img alt="previa" src="https://img.shields.io/badge/ronda-F77-14b8a6?style=flat-square" />
 </p>
 
 ## Estado
@@ -106,9 +106,10 @@ F76 completó el rollout físico de 8 capas (domain, api, data-access, features,
 - [ ] F78-A5 Verificación transversal verde
 - [ ] F78-A6 Documentación actualizada y F77 cerrada formalmente
 - [ ] Cambios commitidos y mergeados a `main`
-- [ ] **F78 cerrada — evaluar apertura de F79**
+- [ ] **F78 cerrada** (UI F79–F82 ya cerrada — ver design-system / ui-strategy)
 
 ## Predecesora / Siguiente
 
-- Predecesora: [F77](../plans-77-seventy-seven-round/)
-- Siguiente: [F79](../plans-79-seventy-nine-round/) — Lit SoT adapters Next·Ionic·RN + Storybook parity (eje UI; paralelizable)
+- Predecesora: F77 (cerrada — solo en git)
+- UI posterior (F79–F82): cerrada — ver [design-system.md](../../../frontend/design-system.md) · [ui-strategy.md](../../../frontend/ui-strategy.md)
+- Paralelas activas: [F83](../plans-83-eighty-three-round/) · [F84](../plans-84-eighty-four-round/)

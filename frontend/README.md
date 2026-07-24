@@ -23,26 +23,26 @@
 | 3 | [../architecture/framework-decision-guide.md](../architecture/framework-decision-guide.md) | Cuándo Angular / React / Next / RN |
 | 4 | [../architecture/frontend-deep-dive.md](../architecture/frontend-deep-dive.md) | Deep dive capas |
 | 5 | [design-system.md](./design-system.md) | Tokens, Storybook ([ADR 0011](../adr/adr-0011-storybook-native-ui-first.md)), catálogo |
-| 5b | [ui-styles-7-1.md](./ui-styles-7-1.md) | Arquitectura CSS 7–1 (`@base/ui-styles`) para paridad visual |
-| 5c | [tenant-themes-checklist.md](./tenant-themes-checklist.md) | Identidad tenant vs atmósfera (Angular/React/Ionic) |
+| 5b | [ui-styles-7-1.md](./ui-styles-7-1.md) | Arquitectura CSS 7–1 (`@base/ui-styles`) |
+| 5c | [tenant-themes-checklist.md](./tenant-themes-checklist.md) | Identidad tenant vs atmósfera |
 | 6 | [arquetipos-thin-libs.md](./arquetipos-thin-libs.md) | Thin libs plantilla |
-| 6b | [state-soc-facade.md](./state-soc-facade.md) | Puerto/facade (F65-D1 clients → F66-D1 todos los dominios) |
-| 6c | [features-layout-soc.md](./features-layout-soc.md) | `layout/pages/components` + SOLID en paneles (F66-A1) |
-| 6d | [entity-view-abstractions.md](./entity-view-abstractions.md) | Campos read/write por entidad (F66-A2) |
-| 6e | [feature-shell-presentation.md](./feature-shell-presentation.md) | Shell lista genérico cards/table/board (F66-A3) |
-| 7 | [workspace-packages.md](./workspace-packages.md) | exports ↔ paths |
-| 8 | [frontend-domain-architecture-contract.md](./frontend-domain-architecture-contract.md) | Contrato único de arquitectura frontend multi-framework (F74-D1) |
+| 6b | [state-soc-facade.md](./state-soc-facade.md) | Puerto/facade en data-access |
+| 6c | [features-layout-soc.md](./features-layout-soc.md) | `layout/pages/components` + orquestación |
+| 6d | [entity-view-abstractions.md](./entity-view-abstractions.md) | Campos read/write por entidad |
+| 6e | [feature-shell-presentation.md](./feature-shell-presentation.md) | Shell lista cards/table/board |
+| 7 | [workspace-packages.md](./workspace-packages.md) | exports ↔ paths (`pnpm check:exports-paths`) |
+| 8 | [frontend-domain-architecture-contract.md](./frontend-domain-architecture-contract.md) | Contrato multi-framework |
 
 ## Referencia
 
 | Doc | Contenido |
 |-----|-----------|
 | [josanz-product-exceptions.md](./josanz-product-exceptions.md) | audit/users thin, angular-ui |
-| [tenant-themes-checklist.md](./tenant-themes-checklist.md) | Cascade `data-arq-tenant` + atmósfera secundaria |
+| [tenant-themes-checklist.md](./tenant-themes-checklist.md) | Cascade `data-arq-tenant` + atmósfera |
 | [ui-component-catalog.yaml](./ui-component-catalog.yaml) | Ownership componentes |
 | [ci-gates.md](./ci-gates.md) | Gates FE |
 | [dual-stack-clients-parity.md](./dual-stack-clients-parity.md) | Paridad Angular↔React |
-| [tsconfig-paths-audit.md](./tsconfig-paths-audit.md) | Paths |
+| [native-ui-adapter-matrix.md](./native-ui-adapter-matrix.md) | Adaptadores Lit → Angular/React/Next/Ionic/RN |
 
 ## Guías
 
@@ -51,3 +51,4 @@
 - [add-next-domain.md](../guides/add-next-domain.md)
 - [add-mobile-domain.md](../guides/add-mobile-domain.md)
 - Catálogo apps plantilla: [../arquetipos/](../arquetipos/README.md)
+- Cliente Ideauto (Next): [../ideauto/](../ideauto/)

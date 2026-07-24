@@ -26,22 +26,26 @@ Contextos: [assessment](../architecture/recalls-v2-assessment.md) · [strategy](
 
 ---
 
-## M0 — Scaffold
+## M0 — Scaffold (**hecho**)
+
+Stubs ya en árbol — **no** regenerar salvo reset:
+
+| Pieza | Nombre |
+|-------|--------|
+| Libs | `@ideauto/shared`, `@ideauto/backend`, `@ideauto/angular-ui`, `@ideauto/platform-{api,data-access,shell}` |
+| Apps | `ideauto-recalls-api`, `ideauto-recalls-web` |
 
 ```bash
+# Solo si hace falta recrear (dry-run primero)
 node tools/scaffolds/scaffold-cliente-product.mjs --slug ideauto --scope ideauto --dry-run
-node tools/scaffolds/scaffold-cliente-product.mjs --slug ideauto --scope ideauto
 
-# Composition roots (ajustar generator local si existe)
-pnpm nx g @nx/nest:application ideauto-recalls-backend --directory=apps/clientes/ideauto/recalls/backend --no-interactive
-pnpm nx g @nx/next:application ideauto-recalls-frontend --directory=apps/clientes/ideauto/recalls/frontend --no-interactive
-
-pnpm nx typecheck ideauto-recalls-backend
-pnpm nx typecheck ideauto-recalls-frontend
+pnpm nx typecheck ideauto-recalls-api
 node tools/checks/check-lib-layout.mjs --strict
 ```
 
-**Done:** apps arrancan; Prisma→MSSQL staging; tags `layer:clientes`; **sin** `layer:productos-saas`.
+**Done M0:** paths `@ideauto/*`; tags `layer:clientes` + `runtime:*`; **sin** `layer:productos-saas`. Serve imprime stub hasta M1+.
+
+Prisma→MSSQL staging y Nest/Next cableados: **M1+** (F83 + F84).
 
 ---
 

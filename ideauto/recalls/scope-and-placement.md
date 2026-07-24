@@ -14,15 +14,15 @@
 
 ```
 apps/clientes/ideauto/recalls/
-├── backend/     # Nest — composition root
-└── frontend/    # Next.js — composition root (opt-in ADR 0008)
+├── backend/     # Nx: ideauto-recalls-api (M0 stub → Nest)
+└── frontend/    # Nx: ideauto-recalls-web (M0 stub → Next; ADR 0008)
 
 libs/clientes/ideauto/
-├── shared/              # @ideauto/shared
-├── backend/             # @ideauto/backend
-├── angular-ui/          # stub scaffold (opcional; FE producto = Next)
-└── … dominios Next/FE
-    └── {campaigns,dgt,waves,…}/{api,data-access,shell,features}
+├── shared/              # @ideauto/shared          ← M0 stub
+├── backend/             # @ideauto/backend         ← M0 stub
+├── angular-ui/          # @ideauto/angular-ui      ← M0 stub (FE producto = Next)
+└── angular/platform/    # @ideauto/platform-{api,data-access,shell} ← M0 stub
+    # + dominios Next/FE (M1+): {campaigns,dgt,waves,…}/{api,data-access,shell,features}
 ```
 
 | Concepto | Valor |
@@ -30,9 +30,11 @@ libs/clientes/ideauto/
 | Cliente slug | `ideauto` |
 | Producto / app | `recalls` |
 | npm | `@ideauto/*` |
-| Nx tag | `layer:clientes` |
+| Apps Nx | `ideauto-recalls-api`, `ideauto-recalls-web` |
+| Nx tag | `layer:clientes` (+ `runtime:*`) |
 | Importa | `@base/*`, `@ideauto/*` |
 | **Prohibido** | `@arquetipos/*`, `@saas/*`, `@josanz/*` |
+| Estado M0 | **Scaffold hecho** — stubs sin dominio de negocio |
 
 ---
 

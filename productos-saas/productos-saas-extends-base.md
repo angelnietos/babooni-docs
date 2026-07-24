@@ -68,7 +68,7 @@ libs/productos-saas/
     └── crm-core/                  # cola UI CRM
 ```
 
-**Legacy en migración:** `crm/browser/`, `crm/isomorphic/`, `crm/node/` — ver plan F6-S1.
+**Legacy paths (F6-S1, migrado):** `crm/browser/` → `crm/frontend/angular/`, `crm/isomorphic/` → `crm/shared/`, `crm/node/` → `crm/backend/`. Ver [legacy-paths.md](../legacy-paths.md).
 
 ---
 
@@ -95,6 +95,7 @@ Detalle operativo: [apps/productos-saas/README.md](../../apps/productos-saas/REA
 |-------|------------------------|-------------|
 | **Arquetipos** | Thin shell+features → base | `@arquetipos/*-ui` o `@base/*-ui` |
 | **Josanz** | Backend hex + dominios producto; frontend 4 capas | `@josanz/angular-ui` → base |
+| **Ideauto** | Cliente Recalls (`@ideauto/*`); FE Next | `@ideauto/angular-ui` (scaffold) / Next |
 | **SaaS** | Modelo + UI + HTTP kernel extienden base; dominios fiscales propios | `@saas/shared-ui` → base |
 
 ---
@@ -116,8 +117,8 @@ Detalle operativo: [apps/productos-saas/README.md](../../apps/productos-saas/REA
 |------|--------|----------|
 | `shared-browser-data-access` | HttpClient + interceptors CRM | Envolver `@base/angular-api` / `NgApiClient` |
 | `clients` / `identity` backend | Prisma CRM aislado | Mantener; puente ERP vía webhooks/env |
-| Legacy `crm/browser/` | Duplicado paths | Consolidar en `crm/frontend/angular/` (F6-S1) |
-| Promoción `gcrm-*` → base | Componentes genéricos en CRM UI | F7-UI* promotionCandidates |
+| Paths `crm/browser|isomorphic|node` | **Migrados** (F6-S1) | No reintroducir — [legacy-paths.md](../legacy-paths.md) |
+| Promoción `gcrm-*` → base | Componentes genéricos en CRM UI | Promotion candidates documentados en UI strategy |
 
 ---
 

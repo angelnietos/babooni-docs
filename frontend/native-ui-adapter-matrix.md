@@ -1,8 +1,8 @@
 # Native UI adapter matrix (F79-A1)
 
 Canonical map: Lit SoT (`@base/native-ui`) → framework adapters.
-Rules: [F79 README](../plans/rounds/plans-79-seventy-nine-round/README.md) ·
-ADR [0010](../adr/adr-0010-native-ui-lit-sot.md) ·
+Rules: [design-system.md](./design-system.md) · [ui-strategy.md](./ui-strategy.md)
+(F79 cerrada, git) · ADR [0010](../adr/adr-0010-native-ui-lit-sot.md) ·
 ADR [0011](../adr/adr-0011-storybook-native-ui-first.md) ·
 folder layout [ui-lib-folder-layout.md](./ui-lib-folder-layout.md).
 
@@ -37,13 +37,10 @@ folder layout [ui-lib-folder-layout.md](./ui-lib-folder-layout.md).
 
 | Atom | Lit tag | Angular (`Native*`) | React (`Native*`) | Next (`Arq*`) | Ionic (`ArqIon*`) | RN (`Arq*`) | Notes |
 |------|---------|---------------------|-------------------|---------------|-------------------|-------------|-------|
-| alert | `base-alert` | `NativeAlertComponent` | `NativeAlert` | `ArqAlert` → Native | inline SoT via CE / host; `ArqIonAlert` = **chrome** (`ion-alert`) | `ArqAlert` OK | Ion overlay kept for mobile a11y |
-| avatar | `base-avatar` | `NativeAvatarComponent` | `NativeAvatar` | — (composite only) | `ArqIonAvatar` → Lit | `ArqAvatar` OK | |
-| badge | `base-badge` | `NativeBadgeComponent` | `NativeBadge` | `ArqBadge` → Native | `ArqIonBadge` → Lit (`color` shim → `tone`) | `ArqBadge` OK | |
-| board | `base-board` / lane | `NativeBoard*` | `NativeBoard*` | — | CE in features demos | **gap** | Complex; out of RN mobile scope |
-| button | `base-button` | `NativeButtonComponent` | `NativeButton` | `ArqButton` → Native | `ArqIonButton` → Lit | `ArqButton` OK | RN `outline` deprecated → `secondary` |
+| button | `base-button` | `NativeButtonComponent` | `NativeButton` | `ArqButton` → Native | `ArqIonButton` → Lit | `ArqButton` OK | F82: variants + `outline`; sizes + `xl` |
+| alert | `base-alert` | `NativeAlertComponent` | `NativeAlert` | `ArqAlert` → Native | inline SoT via CE / host; `ArqIonAlert` = **chrome** (`ion-alert`) | `ArqAlert` OK | F82: `dismissible` + tone `neutral`; Ion overlay kept for mobile a11y |
 | card | `base-card` | `NativeCardComponent` | `NativeCard` | `ArqCard` → Native | `ArqIonCard` → Lit | `ArqCard` OK | |
-| checkbox | `base-checkbox` | `NativeCheckboxComponent` | `NativeCheckbox` | — | — (use CE) | **gap** | Add in later wave if needed |
+| checkbox | `base-checkbox` | `NativeCheckboxComponent` | `NativeCheckbox` | — | — (use CE) | **gap** | F82: `description` prop |
 | chip | `base-chip` | `NativeChipComponent` | `NativeChip` | — | — (use CE) | **gap** | |
 | divider | `base-divider` | `NativeDividerComponent` | `NativeDivider` | — | — (use CE) | `ArqDivider` OK | |
 | empty-state | `base-empty-state` | `NativeEmptyStateComponent` | `NativeEmptyState` | `ArqEmptyState` → Native | `ArqIonEmptyState` → Lit | `ArqEmptyState` OK | |

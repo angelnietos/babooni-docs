@@ -19,7 +19,7 @@
 
 ## 1. Qué es este repositorio (en una frase)
 
-Un **monorepo Nx** con un kernel reutilizable (`@base/*`), plantillas de referencia (`@arquetipos/*`), productos de cliente (`@josanz/*`, etc.) y SaaS (`@saas/*`). Las **apps** componen libs; las **libs** no eligen cómo se despliegan (monolito, microservicio, BD compartida o dedicada).
+Un **monorepo Nx** con un kernel reutilizable (`@base/*`), plantillas de referencia (`@arquetipos/*`), productos de cliente (`@josanz/*`, `@ideauto/*`, …) y SaaS (`@saas/*`). Las **apps** componen libs; las **libs** no eligen cómo se despliegan (monolito, microservicio, BD compartida o dedicada).
 
 ---
 
@@ -152,20 +152,25 @@ Si `nx` cuelga: `npx tsc -p … --noEmit` o `pnpm typecheck:affected:legacy` (ve
 
 ```
 apps/
-├── arquetipos/          # Plantillas (monolito, gateway, microservicios, SPAs)
-├── clientes/josanz/     # Producto Josanz (api + SPA)
-└── productos-saas/      # Verifactu CRM, worker, etc.
+├── arquetipos/              # Plantillas (monolito, gateway, microservicios, SPAs)
+├── clientes/
+│   ├── josanz/              # Producto Josanz (api + SPA)
+│   └── ideauto/recalls/     # Ideauto Recalls (Nest + Next) — F84
+└── productos-saas/          # Verifactu CRM, worker, etc.
 
 libs/
-├── base/                # Kernel @base/* (backend hex, frontend por dominio, shared)
-├── arquetipos/          # Thin re-exports plantilla @arquetipos/*
-├── clientes/josanz/     # Extensión producto @josanz/*
-└── productos-saas/      # SaaS @saas/*
+├── base/                    # Kernel @base/* (backend hex, frontend por dominio, shared)
+├── arquetipos/              # Thin re-exports plantilla @arquetipos/*
+├── clientes/
+│   ├── josanz/              # Extensión producto @josanz/*
+│   └── ideauto/             # @ideauto/* (Recalls)
+└── productos-saas/          # SaaS @saas/*
 
-tools/                   # checks, dx, jest, scaffolds, mockserver, ai/ …
+tools/                       # checks, dx, jest, scaffolds, mockserver, ai/ …
 ```
 
-Mapa mental: [architecture/overview.md](./architecture/overview.md). Scripts: [runbooks/tools-layout.md](./runbooks/tools-layout.md).
+Mapa mental: [architecture/overview.md](./architecture/overview.md).  
+Ideauto: [ideauto/](./ideauto/). Scripts: [runbooks/tools-layout.md](./runbooks/tools-layout.md).
 
 ---
 
@@ -178,6 +183,7 @@ Mapa mental: [architecture/overview.md](./architecture/overview.md). Scripts: [r
 | Añadir API / dominio backend | [guides/add-backend-domain.md](./guides/add-backend-domain.md) |
 | Extraer un microservicio | [guides/add-microservice.md](./guides/add-microservice.md) |
 | Crear producto cliente nuevo | [clientes/nuevo-cliente-checklist.md](./clientes/nuevo-cliente-checklist.md) |
+| Ideauto / Recalls | [ideauto/](./ideauto/) |
 | Publicar / versionar una lib | [guides/npm-publish-and-versioning.md](./guides/npm-publish-and-versioning.md) |
 | UI plantilla sin backend | [runbooks/mockserver.md](./runbooks/mockserver.md) |
 | Cambiar auth, eventos, cifrado… | [adr/README.md](./adr/README.md) |

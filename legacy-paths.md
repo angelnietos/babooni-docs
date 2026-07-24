@@ -10,7 +10,8 @@
 </p>
 
 Historical docs and early plans refer to folders that were **renamed**. Use this
-table when reading first-round plans or old branches.
+table when reading first-round plans or old branches. Closed plan rounds are
+**not** in-tree (only F78 / F83 / F84 under `docs/plans/rounds/`); recover others from git.
 
 ## Libs (F5–F8)
 

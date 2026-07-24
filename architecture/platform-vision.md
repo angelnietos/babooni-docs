@@ -107,7 +107,7 @@ que ya pagaste construir en `@base`.
 1. **IA read-only por defecto** — writes solo allow-list explícita ([ai-cqrs-policy](../guides/ai-cqrs-policy.md)).
 2. **Un dominio = un slug = un módulo = un especialista** — sin dios monolito de prompts.
 3. **Biblia > chat** — si el agente contradice `docs/`, gana `docs/`.
-4. **Producto ≠ plantilla** — `@josanz` no importa `@arquetipos` (capas npm).
+4. **Producto ≠ plantilla** — `@josanz` / `@ideauto` no importan `@arquetipos` (capas npm).
 5. **MVP primero** — SPA + monolito; Next/mobile/MF opt-in ([ADR 0008](../adr/adr-0008-platform-scope-vs-mvp-client.md)).
 6. **Gates antes que fe** — typecheck, conventions, UI ownership en CI.
 
@@ -120,7 +120,7 @@ que ya pagaste construir en `@base`.
 | Junior | Sigue learning path + guías; deja que la IA proponga diffs pequeños | Inventar capas nuevas |
 | Senior | Diseña ADRs, revisa seams AI, pulir kernel | Copiar-pegar entre productos |
 | Platform | `@base`, Prisma, auth, gates, biblia | Features de marca de un solo cliente |
-| Producto | Wrappers UI, reglas Josanz/SaaS, composición apps | Forkear hex “porque sí” |
+| Producto | Wrappers UI, reglas Josanz/Ideauto/SaaS, composición apps | Forkear hex “porque sí” |
 | Futuro ML | Datasets por dominio, evals, allow-lists command | Bypass de CQRS / tenant |
 
 ---

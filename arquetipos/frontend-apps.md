@@ -29,8 +29,8 @@ Cuándo usarla: localizar la plantilla FE correcta tras decidir stack.
 - Útil cuando el equipo es React y **no** hace falta Next.
 
 Paridad: [../frontend/dual-stack-clients-parity.md](../frontend/dual-stack-clients-parity.md)
-(canario clients). Marco multi-framework + tooling:
-[F54-B4](../plans/rounds/plans-54-fifty-four-round/1750000104500-f54-arquetipos-cross-framework-parity.md).
+(canario clients). Marco multi-framework + tooling: [parity.md](./parity.md)
+(F54-B4, cerrada).
 
 ---
 

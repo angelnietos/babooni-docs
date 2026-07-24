@@ -7,7 +7,7 @@
 <p align="center">
   <img alt="frontend" src="https://img.shields.io/badge/frontend-0f766e?style=for-the-badge" />
   <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=for-the-badge" /></a>
-  <a href="../plans/rounds/plans-72-seventy-two-round/"><img alt="F72" src="https://img.shields.io/badge/F72-14b8a6?style=for-the-badge" /></a>
+  <img alt="F72" src="https://img.shields.io/badge/F72-14b8a6?style=for-the-badge" />
 </p>
 
 Contrato objetivo (F66-A3 + F68/F69): **un chrome de feature reutilizable** para list CRUD
@@ -45,7 +45,7 @@ Default: `auto`. Override por dominio (`roles` / `users` suelen forzar `table`).
 **`auto` CSS (SoT):** `@base/ui-styles` `pages/feature-list` —
 `.arq-feature[data-presentation='auto']` oculta table &lt; 1024px y cards ≥ 1024px.
 Ionic: mismos selectores + reglas encapsuladas en `ArqIonFeatureShell`.
-E2e: `ionic-multi-e2e` (desktop + narrow). Harden continuo → [F69-A1](../plans/rounds/plans-69-sixty-nine-round/1750000260000-f69-feature-shell-auto-e2e.md).
+E2e: `ionic-multi-e2e` (desktop + narrow). Harden continuo (F69-A1, cerrada).
 
 ### Relación con otras guías
 

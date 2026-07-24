@@ -24,7 +24,7 @@
 
 > **Empieza aquí.** Este índice orienta a cualquier desarrollador (o agente IA) sobre qué es el repo, por qué está organizado así, cómo hacer cambios y dónde profundizar.
 
-Este monorepo es el **motor de empresa**: kernel `@base/*` + productos (`@josanz/*`, `@saas/*`) + plantillas `@arquetipos/*`. Default = SPA + monolito; Next / mobile / MF / MS son opt-in ([ADR 0008](./adr/adr-0008-platform-scope-vs-mvp-client.md)).
+Este monorepo es el **motor de empresa**: kernel `@base/*` + productos cliente (`@josanz/*`, `@ideauto/*`) + SaaS (`@saas/*`) + plantillas `@arquetipos/*`. Default = SPA + monolito; Next / mobile / MF / MS son opt-in ([ADR 0008](./adr/adr-0008-platform-scope-vs-mvp-client.md)).
 
 ---
 
@@ -62,7 +62,7 @@ Después: [AGENTS.md](../AGENTS.md) y [SERVICES.md](../SERVICES.md).
 | **Primera feature** | Voy a cambiar un dominio | [domain-lifecycle](./architecture/domain-lifecycle.md) + deep dive FE o BE |
 | **Tarea específica** | Voy a hacer X | Guía en [guides/](./guides/) |
 
-Si un plan histórico contradice esta biblia, **prevalece la biblia**. Los planes activos viven en [docs/plans/](./plans/).
+Si un plan (activo o cerrado en git) contradice esta biblia, **prevalece la biblia**. Los planes activos viven en [docs/plans/](./plans/); rondas cerradas no se mantienen en el árbol.
 
 </details>
 
@@ -77,6 +77,7 @@ Si un plan histórico contradice esta biblia, **prevalece la biblia**. Los plane
 | `@base/*` | Kernel compartido | `@base/backend`, `@base/clients-features` |
 | `@arquetipos/*` | Plantillas copy-paste | thin shells → `@base/*` |
 | `@josanz/*` | Producto cliente Josanz | ERP completo |
+| `@ideauto/*` | Producto cliente Ideauto | Recalls (migración F84) |
 | `@saas/*` | Productos SaaS | Verifactu CRM, worker |
 
 <p align="center">
@@ -98,24 +99,25 @@ flowchart LR
 
 ```
 apps/
-├── arquetipos/              # Plantillas: monolito, gateway, clients-ms, SPAs
-├── clientes/josanz/         # Producto Josanz (josanz-api + SPA)
-└── productos-saas/          # verifactu-crm-api, worker, document-generator…
+├── arquetipos/                    # Plantillas: monolito, gateway, clients-ms, SPAs
+├── clientes/
+│   ├── josanz/                    # Producto Josanz (josanz-api + SPA)
+│   └── ideauto/recalls/           # Ideauto Recalls (api Nest + web Next)
+└── productos-saas/                # verifactu-crm-api, worker, document-generator…
 
 libs/
-├── base/                    # Kernel @base/*
-├── arquetipos/              # Thin @arquetipos/*
-├── clientes/josanz/         # @josanz/*
-└── productos-saas/          # @saas/*, verifactu worker/ledger
+├── base/                          # Kernel @base/*
+├── arquetipos/                    # Thin @arquetipos/*
+├── clientes/
+│   ├── josanz/                    # @josanz/*
+│   └── ideauto/                   # @ideauto/* (shared, backend, platform, ui)
+└── productos-saas/                # @saas/*, verifactu worker/ledger
 
-docs/                        # ← Estás aquí (biblia operativa)
-├── architecture/            # mapa, visión, decisión frameworks
-├── arquetipos/              # plantillas apps/arquetipos como modelo
-├── backend/ · frontend/     # cómo funciona cada lado
-├── guides/ · adr/ · runbooks/
-tools/                       # Utilidades por carpeta (checks, dx, jest, …)
-├── checks/ · scaffolds/ · typecheck/ · mockserver/ …
-└── ai/                      # índice agentes + migraciones Nx AI
+docs/                              # ← Estás aquí (biblia operativa)
+├── architecture/ · ideauto/       # mapa + doc producto Ideauto
+├── arquetipos/ · backend/ · frontend/
+├── guides/ · adr/ · runbooks/ · plans/
+tools/                             # checks, scaffolds, typecheck, mockserver, …
 ```
 
 Mapa de scripts: [runbooks/tools-layout.md](./runbooks/tools-layout.md) · [`tools/README.md`](../tools/README.md).  
@@ -201,6 +203,8 @@ Rutas legacy (libs) F5–F7: [legacy-paths.md](./legacy-paths.md).
 | Doc | Contenido |
 |-----|-----------|
 | [nuevo-cliente-checklist.md](./clientes/nuevo-cliente-checklist.md) | Scaffold `@acme/*` |
+| [ideauto/](./ideauto/) | Hub cliente Ideauto |
+| [ideauto/recalls/](./ideauto/recalls/) | Migración Recalls (F84) |
 | [new-product-e2e-walkthrough.md](./guides/new-product-e2e-walkthrough.md) | Narrativa E2E producto |
 | [josanz-verifactu-billing-integration.md](./clientes/josanz-verifactu-billing-integration.md) | Billing → Verifactu |
 | [productos-saas-extends-base.md](./productos-saas/productos-saas-extends-base.md) | SaaS sobre kernel |
@@ -260,8 +264,8 @@ pnpm check:legacy-paths
 pnpm check:migration-encoding
 ```
 
-Rondas activas: **[F84](./plans/rounds/plans-84-eighty-four-round/)** (Ideauto Recalls → `clientes/ideauto/recalls`) · **[F83](./plans/rounds/plans-83-eighty-three-round/)** (DB providers) · **[F78](./plans/rounds/plans-78-seventy-eight-round/)** (parity / mobile).  
-Última UI cerrada: **[F82](./plans/rounds/plans-82-eighty-two-round/)**. Índice: [plans/README.md](./plans/README.md).  
+Rondas en el árbol: **[F84](./plans/rounds/plans-84-eighty-four-round/)** (Ideauto Recalls) · **[F83](./plans/rounds/plans-83-eighty-three-round/)** (DB providers) · **[F78](./plans/rounds/plans-78-seventy-eight-round/)** (parity / mobile).  
+Rondas cerradas: solo en historial de git. Índice: [plans/README.md](./plans/README.md).  
 Recalls (doc producto): [ideauto/recalls/](./ideauto/recalls/). Assessment: [architecture/recalls-v2-assessment.md](./architecture/recalls-v2-assessment.md).
 
 Pirámide de tests: [guides/testing-pyramid.md](./guides/testing-pyramid.md).  
@@ -286,7 +290,7 @@ Operativa Jest/coverage: [runbooks/jest-coverage.md](./runbooks/jest-coverage.md
 ---
 
 <details>
-<summary><b>Planes históricos vs biblia operativa</b></summary>
+<summary><b>Planes (activos vs cerrados) vs biblia operativa</b></summary>
 
 <br/>
 
@@ -294,10 +298,11 @@ Operativa Jest/coverage: [runbooks/jest-coverage.md](./runbooks/jest-coverage.md
 |-----------|--------|
 | `docs/README.md`, `architecture/`, `guides/`, `backend/`, `frontend/`, `runbooks/`, `adr/` | **Fuente de verdad operativa** |
 | `AGENTS.md`, `tools/` ([mapa](./runbooks/tools-layout.md)) | Contrato para CI y agentes |
-| `docs/plans/` | Planes (activos + archivo) — [plans/README.md](./plans/README.md) |
+| `docs/plans/` | Solo rondas **activas** (F78 / F83 / F84) — [plans/README.md](./plans/README.md) |
+| Rondas cerradas (F41–F82 excepto F78) | **Solo en historial de git** — no recrear carpetas |
 | [CONTRIBUTING-DOCS.md](./CONTRIBUTING-DOCS.md) | Cómo escribir docs |
 
-Si un plan histórico contradice esta biblia, **prevalece la biblia**.
+Si un plan cerrado en git contradice esta biblia, **prevalece la biblia**.
 
 </details>
 
@@ -409,5 +414,5 @@ Si un plan histórico contradice esta biblia, **prevalece la biblia**.
 <p align="center">
   <img src="./assets/arquetipos-mark.svg" width="36" alt="" />
   <br/>
-  <sub>Mantén este índice al añadir runbooks o ADRs · F69 docs polish</sub>
+  <sub>Mantén este índice al añadir runbooks o ADRs · planes cerrados solo en git</sub>
 </p>

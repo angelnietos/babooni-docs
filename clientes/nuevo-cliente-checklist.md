@@ -9,10 +9,17 @@
   <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
 </p>
 
-**ID plan:** F7-A1 (`F7-A1.cliente-template`)  
-**Referencia:** Josanz (`libs/clientes/josanz/`, `apps/clientes/josanz/`)
+**ID plan (histórico):** F7-A1 (`F7-A1.cliente-template`) — cerrado; ver git si hace falta.  
+**Referencias vivas:** Josanz (`libs/clientes/josanz/`, `apps/clientes/josanz/`) · Ideauto Recalls (`libs/clientes/ideauto/`, `apps/clientes/ideauto/recalls/`)
 
 Guía para añadir un **producto cliente** al monorepo. Los clientes viven en `apps/clientes/{slug}/` + `libs/clientes/{slug}/`, consumen **`@base/*`** y **nunca** importan `@arquetipos/*`.
+
+Hay **dos layouts de apps** según el cliente:
+
+| Patrón | Cuándo | Ejemplo |
+|--------|--------|---------|
+| Plano | Un producto = un slug | `apps/clientes/josanz/{backend,frontend}` |
+| Multi-producto | Varios productos bajo el mismo cliente | `apps/clientes/ideauto/recalls/{backend,frontend}` |
 
 ---
 
@@ -24,7 +31,7 @@ Guía para añadir un **producto cliente** al monorepo. Los clientes viven en `a
 | **scope npm** | `@acme` | Paquetes `@acme/shared`, `@acme/backend`, `@acme/clients-features` |
 | **App Nx backend** | `acme-api` | `apps/clientes/acme/backend` |
 | **App Nx frontend** | `acme` | `apps/clientes/acme/frontend/acme` |
-| **Tags Nx** | `layer:clientes`, `runtime:*` | Mismo layer que Josanz; ver [check-lib-layout.mjs](../../tools/checks/check-lib-layout.mjs) |
+| **Tags Nx** | `layer:clientes`, `runtime:*` | `runtime:isomorphic\|backend\|angular\|react` — **no** tags `scope:*` (purgados; `check-lib-layout --strict` falla si reaparecen) |
 
 ---
 
@@ -70,7 +77,7 @@ El script **no** crea apps ni dominios de negocio; genera el esqueleto de libs y
 - Path: `libs/clientes/acme/shared/`
 - `package.json`: `"name": "@acme/shared"`, `"@base/shared": "workspace:*"`
 - `src/index.ts`: re-export tipos base + tipos exclusivos producto
-- Tags: `layer:clientes`, `scope:isomorphic`, `runtime:isomorphic`
+- Tags: `layer:clientes`, `runtime:isomorphic`
 
 ### 1.2 `@acme/backend`
 
@@ -212,11 +219,12 @@ pnpm nx serve acme
 |----------|-------|
 | slug | `ideauto` |
 | scope npm | `@ideauto` |
-| App | `apps/clientes/ideauto/recalls/{backend,frontend}` |
-| Libs | `libs/clientes/ideauto/` |
-| Plan | [F84](../plans/rounds/plans-84-eighty-four-round/) · [assessment](../architecture/recalls-v2-assessment.md) |
+| App Nest | `ideauto-recalls-api` → `apps/clientes/ideauto/recalls/backend` |
+| App Next | `ideauto-recalls-web` → `apps/clientes/ideauto/recalls/frontend` |
+| Libs | `@ideauto/shared`, `@ideauto/backend`, `@ideauto/angular-ui`, `@ideauto/platform-*` |
+| Plan | [F84](../plans/rounds/plans-84-eighty-four-round/) · [doc producto](../ideauto/recalls/) · [assessment](../architecture/recalls-v2-assessment.md) |
 
-FE: Next (opt-in), no Angular por defecto — el legacy ya es Next; las **capas de dominio** siguen el contrato del monorepo.
+FE: Next (opt-in ADR 0008); el legacy ya es Next. Las libs Angular `platform/*` del scaffold son chrome opcional / futuro. Capas de dominio siguen el contrato del monorepo.
 
 ---
 

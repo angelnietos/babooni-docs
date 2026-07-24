@@ -67,7 +67,7 @@ no duplicar todos los stacks.
 ### Paso 4 — Cablear dominios
 
 1. Reutilizar `@base/*` (o thin `@arquetipos` solo si la plantilla aporta UX).
-2. Dominios de producto en `@acme/*` / `@josanz/*`.
+2. Dominios de producto en `@acme/*` / `@josanz/*` / `@ideauto/*`.
 3. Misma regla de 4 capas FE + hex BE.
 
 Walkthrough: [../guides/new-product-e2e-walkthrough.md](../guides/new-product-e2e-walkthrough.md).
@@ -99,7 +99,7 @@ hasta que alguien overridea.
 
 Producto cliente serio:
 
-- Preferir `@josanz/*` o `@acme/*` sobre base.
+- Preferir `@josanz/*`, `@ideauto/*` o `@acme/*` sobre base.
 - Usar `@arquetipos` solo como referencia o si el producto *es* una plantilla.
 
 Detalle: [../frontend/arquetipos-thin-libs.md](../frontend/arquetipos-thin-libs.md).

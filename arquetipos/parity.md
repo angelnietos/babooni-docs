@@ -85,6 +85,6 @@ pnpm arq:typecheck:mobile-next
 pnpm arq:fe:build:smoke   # incluye next + ionic build
 ```
 
-Chromatic / Code Connect → carry **F62-D2**
-([plans-62](../plans/rounds/plans-62-sixty-two-round/1750000187000-f62-carry-visual-tooling-deprecated.md)).
-Composiciones nativas login/clients → **F60-C1/C2/D1**.
+Chromatic / Code Connect → carry F62-D2 (cerrada, solo en git);
+ver [design-system.md](../frontend/design-system.md).
+Composiciones nativas login/clients → F60-C1/C2/D1 (cerradas).

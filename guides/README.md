@@ -26,7 +26,7 @@ Estilo de autoría: [CONTRIBUTING-DOCS.md](../CONTRIBUTING-DOCS.md).
 | [add-frontend-domain.md](./add-frontend-domain.md) | Nueva pantalla / dominio Angular o React |
 | [add-backend-domain.md](./add-backend-domain.md) | Nuevo endpoint / módulo Nest |
 | [add-microservice.md](./add-microservice.md) | Extraer dominio a servicio gRPC/HTTP propio |
-| [new-client-product.md](./new-client-product.md) | Nuevo producto cliente (tipo Josanz) |
+| [new-client-product.md](./new-client-product.md) | Nuevo producto cliente (Josanz / Ideauto / `@acme/*`) |
 | [new-product-e2e-walkthrough.md](./new-product-e2e-walkthrough.md) | Narrativa única: scaffold → dominio → BD → auth → CI |
 | [extend-kernel-domain.md](./extend-kernel-domain.md) | Extender dominio `@base/*` sin producto |
 | [scaffold-arquetipos.md](./scaffold-arquetipos.md) | Scaffold plantillas Arquetipos |

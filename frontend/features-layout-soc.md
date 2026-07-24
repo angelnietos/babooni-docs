@@ -7,7 +7,7 @@
 <p align="center">
   <img alt="frontend" src="https://img.shields.io/badge/frontend-0f766e?style=flat-square" />
   <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
-  <a href="../plans/rounds/plans-66-sixty-six-round/1750000230000-f66-features-layout-soc.md"><img alt="F66-A1" src="https://img.shields.io/badge/F66--A1-14b8a6?style=flat-square" /></a>
+  <img alt="F66-A1" src="https://img.shields.io/badge/F66--A1-14b8a6?style=flat-square" />
 </p>
 
 Contrato para libs `*-features` (base + arquetipos, web y mobile): **estructura

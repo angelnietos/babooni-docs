@@ -16,7 +16,7 @@ documentada y migrable sin sorpresas para consumidores internos y externos.
 
 ## Ámbito
 
-- Paquetes: `@base/*`, `@arquetipos/*`, `@saas/*`, `@josanz/*`.
+- Paquetes: `@base/*`, `@arquetipos/*`, `@saas/*`, `@josanz/*`, `@ideauto/*`.
 - APIs HTTP: rutas NestJS expuestas por apps `apps/*/backend/` y libs `libs/*/backend/`.
 - Ciclo de versionado semver aplicable a paquetes y rutas.
 
@@ -95,8 +95,8 @@ Los primitivos Angular/React/Ionic **paralelos** a `@base/native-ui` están
 |------|--------|
 | F53+ | No añadir/evolucionar (salvo bug crítico) |
 | F54-A3 | Marcar `@deprecated` + alternativa `Native*` (**hecho** 2026-07-22) |
-| F58-B3 | **Defer F59** — siguen exportados desde `@base/angular-ui` / `@base/react-ui` (login-form, audit panels, stories, SaaS wrappers). Inventario consumers + unexport en F59. |
-| F59+ | Remove / dejar de exportar en `major` tras ventana de política |
+| Actual | Siguen exportados desde `@base/angular-ui` / `@base/react-ui` (login-form, audit panels, stories, SaaS wrappers). Inventario consumers + unexport pendiente. |
+| Futuro `major` | Remove / dejar de exportar tras ventana de política |
 
 Sigue las reglas JSDoc de § Paquetes. Branding `@josanz/angular-ui` **no** se
 depreca en bloque por este freeze.

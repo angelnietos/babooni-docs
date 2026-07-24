@@ -58,7 +58,7 @@ Seed packages must pass **without** allowlist: `@base/next-ui`, `@base/ionic-ui`
 | `@arquetipos/arquetipos-react-ui` | same |
 | `@arquetipos/*-ui` (next / ionic / rn) | **thin barrels** — `src/index.ts` only until local components exist |
 | `@saas/shared-ui` | `atoms/` + `composites/` |
-| `@josanz/angular-ui` | **product taxonomy** (`forms/`, `layout/`, `actions/`, …) — see below |
+| `@josanz/angular-ui` | `atoms/` + `composites/` + `theme/` (+ shared `forms/` helpers, `services/`, `styles/`) |
 
 Native CE adapters are atoms: one folder per component, same contract as seed
 `@base/{next,ionic,react-native}-ui`.
@@ -73,20 +73,7 @@ Native CE adapters are atoms: one folder per component, same contract as seed
 
 ## `@josanz/angular-ui` (F80 → F81-E1 → **F82**)
 
-Large ERP catalog: folders like `forms/`, `feedback/`, `layout/`, `navigation/`,
-`data-display/`, `overlays/`, `settings/`, `catalog/`, … map **conceptually** to
-`atoms/` (single controls, badges, toasts) vs `composites/` (lists, shells, panels).
-
-F80-B2 did **not** rename every product folder (import churn). Changes in F80:
-
-- Global `styles.scss` / `styles.css` → `src/lib/theme/` (apps/Storybook paths updated).
-- No loose `.ts` under `src/lib/` root (only folder taxonomy + `theme/`).
-
-**F82** ([plans-82-eighty-two-round](../plans/rounds/plans-82-eighty-two-round/)):
-
-1. Controles compartidos → wrappers sobre `@base/native-ui` / `Native*` (paridad visual app).
-2. Promover a base solo gaps reutilizables; producto-only permanece en Josanz.
-3. Carry físico `atoms|composites|theme` ([F82-D1](../plans/rounds/plans-82-eighty-two-round/1764000004000-f82-josanz-folder-carry.md)).
+Large ERP catalog: physical layout is **`atoms/`**, **`composites/`**, **`theme/`** (F82-D1 carry). Shared field helpers remain under `forms/` (`josanz-field/`, `josanz-datetime-utils/`, `josanz-value-accessor.base.ts`). Global SCSS may still live under `styles/` until fully merged into `theme/`.
 
 ## Public API
 

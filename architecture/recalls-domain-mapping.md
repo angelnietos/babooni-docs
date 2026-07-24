@@ -57,14 +57,16 @@ Frontend: **Next.js** (opt-in [ADR 0008](../adr/adr-0008-platform-scope-vs-mvp-c
 
 ```
 libs/clientes/ideauto/
-├── shared/                 # @ideauto/shared
-├── backend/                # @ideauto/backend
-└── frontend/next/
+├── shared/                 # @ideauto/shared          (M0 ✓)
+├── backend/                # @ideauto/backend         (M0 ✓)
+├── angular-ui/             # @ideauto/angular-ui      (M0 ✓)
+├── angular/platform/       # @ideauto/platform-*      (M0 ✓)
+└── frontend/next/          # dominios Next (M1+)
     └── {campaigns,dgt,…}/{api,data-access,shell,features}
 
 apps/clientes/ideauto/recalls/
-├── backend/
-└── frontend/
+├── backend/                # ideauto-recalls-api (M0 stub)
+└── frontend/               # ideauto-recalls-web (M0 stub)
 ```
 
 ---

@@ -11,7 +11,7 @@
 
 - Status: accepted
 - Date: 2026-07-22
-- Plan: [F65-B1](../plans/rounds/plans-65-sixty-five-round/1750000225000-f65-carry-isomorphic-validation.md)
+- Plan: F65-B1 (cerrada, solo en git)
 
 ## Context
 
@@ -30,9 +30,9 @@ while debating Zod vs class-validator as a second SoT.
    `Validators`, React messages) call these predicates — they do not own rules.
 3. **Async rules** (unique email, …): **ports** on the backend + stable error
    codes for the FE. Not isomorphic.
-4. **Zod / Standard Schema kit:** carry **[F68-B2](../plans/rounds/plans-68-sixty-eight-round/1750000254000-f68-carry-zod-kit.md)**
-   if we need one schema language for non-Nest consumers; until then, no second
-   library in app deps.
+4. **Zod / Standard Schema kit:** deferred historically (F68-B2 carry, cerrada);
+   if we need one schema language for non-Nest consumers, supersede this ADR;
+   until then, no second library in app deps.
 
 ## Consequences
 
@@ -43,6 +43,5 @@ while debating Zod vs class-validator as a second SoT.
 
 ## Links
 
-- [isomorphic-validation-defer.md](../frontend/isomorphic-validation-defer.md)
-- F59 strategy (historical):
-  [plans-59](../plans/rounds/plans-59-fifty-nine-round/1750000160000-f59-isomorphic-validation-strategy.md)
+- F59 strategy + isomorphic defer notes: cerradas (solo en git)
+- Living: [extend-kernel-domain.md](../guides/extend-kernel-domain.md) (validación)

@@ -22,7 +22,7 @@ Complementa [getting-started.md](../getting-started.md) (instalar) con **entende
 | **L0** Setup | 0.5–1 día | Repo corre en local |
 | **L1** Mapa | 1–2 días | Sabes dónde va cada cosa |
 | **L2** Un dominio | 3–5 días | Lees y cambias un dominio E2E |
-| **L3** Producto | 1–2 sem | Extiendes Josanz/SaaS sin romper capas |
+| **L3** Producto | 1–2 sem | Extiendes Josanz / Ideauto / SaaS sin romper capas |
 | **L4** Platform | continuo | ADRs, gates, seams AI, visión |
 
 ---
@@ -47,10 +47,10 @@ Lee en este orden:
 4. [overview.md](./overview.md) §9 — árbol “¿dónde va mi cambio?”
 5. Ojeada a [../arquetipos/catalog.md](../arquetipos/catalog.md) — mapa de plantillas
 
-**Analogía:** `@base` es el motor del coche; `@josanz` es la carrocería de un cliente;
+**Analogía:** `@base` es el motor del coche; `@josanz` / `@ideauto` son carrocerías de cliente;
 `@arquetipos` es el kit de exposición del concesionario (no lo montas dentro del coche del cliente).
 
-**Check:** dibujas de memoria el diagrama `producto → @base` y dices por qué Josanz no importa Arquetipos.
+**Check:** dibujas de memoria el diagrama `producto → @base` y dices por qué productos cliente no importan Arquetipos.
 
 ---
 
@@ -80,7 +80,7 @@ Elige **clients** (dominio de referencia).
 5. ADR [0008](../adr/adr-0008-platform-scope-vs-mvp-client.md) — MVP vs opt-in
 6. [framework-decision-guide.md](./framework-decision-guide.md)
 
-**Check:** decides sin dudar: ¿esto va en `@base` o en `@josanz`? ¿re-export o wrapper?
+**Check:** decides sin dudar: ¿esto va en `@base` o en `@josanz`/`@ideauto`? ¿re-export o wrapper?
 
 ---
 
@@ -117,7 +117,7 @@ Elige **clients** (dominio de referencia).
 
 ## Anti-patrones de aprendizaje
 
-- Leer solo planes históricos (`docs/plans/`) como si fueran la biblia.
+- Leer planes cerrados en git (o solo `docs/plans/` activas) como si fueran la biblia.
 - Empezar por microservicios / MF / RN el día 1 (opt-in).
 - Copiar un dominio entero a producto en vez de extender facade/token.
 - Pedir a la IA “haz un módulo” sin apuntarle a [add-backend-domain](../guides/add-backend-domain.md).

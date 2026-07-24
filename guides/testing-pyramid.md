@@ -114,7 +114,7 @@ pnpm exec playwright test -c apps/clientes/josanz/frontend/josanz-e2e/playwright
 proyecto bajo `coverage/<projectRoot>/`). Angular: `workspaceJestDefaults()` o
 `jest.preset.angular.cjs`. Detalle operativo:
 [runbooks/jest-coverage.md](../runbooks/jest-coverage.md). Rollout libs/apps:
-[F55-C3](../plans/rounds/plans-55-fifty-five-round/1750000126500-f55-jest-workspace-coverage-rollout.md).
+F55-C3 (cerrada, solo en git).
 
 Si `nx test` cuelga: [nx-daemon.md](../runbooks/nx-daemon.md) o jest directo.
 

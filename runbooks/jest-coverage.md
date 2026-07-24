@@ -85,7 +85,7 @@ No hay un % único para todo el monorepo. Umbrales por capa = opt-in (A2) o gate
 | Coverage útil | Sí | Bajo valor en bootstrap; no inventar suites vacías |
 | Integration | `*.int-spec.ts` configs aparte | — |
 
-Plan de rollout: [F55-C3](../plans/rounds/plans-55-fifty-five-round/1750000126500-f55-jest-workspace-coverage-rollout.md).
+Plan de rollout: F55-C3 (cerrada, solo en git).
 
 ## Plantillas de config
 

@@ -5,7 +5,8 @@
 <h1 align="center">F78 — Feature Parity, Mobile Logic Cleanup & Architecture Compliance</h1>
 
 <p align="center">
-  <b>Status:</b> Planificada · <a href="../plans-77-seventy-seven-round/README.md"><img alt="F77" src="https://img.shields.io/badge/preceded-F77-14b8a6?style=for-the-badge" /></a>
+  <b>Status:</b> Planificada · <img alt="F77" src="https://img.shields.io/badge/preceded-F77-14b8a6?style=for-the-badge" />
+  (F77 cerrada — solo en git)
 </p>
 
 ## Contexto

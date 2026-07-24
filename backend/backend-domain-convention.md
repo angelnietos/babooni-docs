@@ -22,6 +22,7 @@ Las apps bajo `apps/*/backend/` son **composition roots** NestJS delgados (`main
 
 ```
 apps/clientes/josanz/backend/          → importa @josanz/backend + @base/backend
+apps/clientes/ideauto/recalls/backend/ → importa @ideauto/backend + @base/backend (M0 stub)
 apps/arquetipos/backend/monolith/api/  → importa @arquetipos/arquetipos-backend → @base/backend
 apps/arquetipos/backend/microservices/clients-ms/ → ClientsModule + bootstrap-env (BD por app)
 apps/productos-saas/verifactu-crm-api/ → importa @saas/*-backend
@@ -51,6 +52,7 @@ El gateway (`api-gateway`) **no importa** `PrismaModule` — sin persistencia.
 | App (Nx) | Forma | Bootstrap | Env (prioridad) | Topología típica |
 |----------|-------|-----------|-----------------|------------------|
 | `josanz-api` | Monolito producto | `apps/clientes/josanz/backend/src/bootstrap-env.ts` | `JOSANZ_DATABASE_URL` → `DATABASE_URL` | BD única (todos los dominios Josanz + kernel) |
+| `ideauto-recalls-api` | Monolito producto (Recalls) | *(M0 stub — bootstrap en M1+)* | MSSQL vía F83 (pendiente) | Recalls / DGT |
 | `api` | Monolito plantilla multi | *(sin bootstrap dedicado)* | `DATABASE_URL` | `arquetipos_multi` |
 | `api-single` | Monolito plantilla single | `apps/arquetipos/backend/monolith/api-single/src/bootstrap-env.ts` | `ARQUETIPOS_DATABASE_URL` → `DATABASE_URL` | BD única single-tenant |
 | `clients-ms` | Microservicio (gRPC + health) | `apps/arquetipos/backend/microservices/clients-ms/src/bootstrap-env.ts` | `CLIENTS_MS_DATABASE_URL` → `DATABASE_URL` | Compartida con monolith **o** BD dedicada `clients` |
@@ -305,7 +307,7 @@ Capas internas (`presentation/`, `application/`, `infrastructure/`, `dto/`), no 
 | `invoicing` | `@saas/invoicing-backend` | `@saas/invoices-*` ⚠ slug distinto |
 | `verifactu` | `@saas/verifactu` | `@saas/verifactu-*` |
 
-**Legacy en migración:** `libs/productos-saas/crm/node/backend/{domain}/backend/` — objetivo F6-S1: consolidar en `crm/backend/{domain}/`.
+**Layout actual:** `libs/productos-saas/crm/backend/{domain}/` (migración F6-S1 de `crm/node/` — hecha). Ver [legacy-paths.md](../legacy-paths.md).
 
 **Verifactu adicional:** `libs/productos-saas/verifactu/{adapters,core,crm-core}/` — worker y ledger, no bajo `crm/backend/`.
 

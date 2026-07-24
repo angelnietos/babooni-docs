@@ -9,9 +9,11 @@ siguen su propia plantilla de ronda; no los reescribas por estética.
 |-----------|-----------|
 | 1 — Biblia | `docs/README.md`, `architecture/`, `guides/`, `backend/`, `frontend/`, `runbooks/`, `adr/` |
 | 2 — Agentes / CI | `AGENTS.md`, `tools/` (ver `tools/README.md`) |
-| 3 — Planes | `docs/plans/` (trabajo en curso o histórico) |
+| 3 — Planes | `docs/plans/` (rondas **activas** en el árbol; cerradas solo en git) |
 
-Si un plan contradice la biblia, **gana la biblia**.
+Si un plan contradice la biblia, **gana la biblia**. Rondas cerradas viven
+**solo en el historial de git** — no se mantienen ni se recrean bajo
+`docs/plans/rounds/`.
 
 ## Idioma
 

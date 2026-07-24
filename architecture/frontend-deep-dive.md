@@ -92,17 +92,18 @@ Si cambias un contrato en `@base/shared` / `*-api`, ambos stacks deben compilar
 
 ---
 
-## 5. Thin Arquetipos vs producto Josanz
+## 5. Thin Arquetipos vs producto cliente
 
-| | Arquetipos | Josanz |
+| | Arquetipos | Producto (`@josanz/*`, `@ideauto/*`, …) |
 |---|------------|--------|
 | Objetivo | Plantilla copy-paste | Producto real |
 | api/data-access | Thin → `@base` | Propios o extendidos |
 | features | Pueden re-exportar o demo UX | UX + reglas producto |
-| UI | `@arquetipos/*-ui` | `@josanz/angular-ui` |
+| UI | `@arquetipos/*-ui` | `@josanz/angular-ui`, `@ideauto/angular-ui`, … |
 
 Detalle: [arquetipos-thin-libs.md](../frontend/arquetipos-thin-libs.md),
-[josanz-product-exceptions.md](../frontend/josanz-product-exceptions.md).
+[josanz-product-exceptions.md](../frontend/josanz-product-exceptions.md),
+[ideauto/recalls/](../ideauto/recalls/).
 
 ---
 

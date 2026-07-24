@@ -86,7 +86,7 @@ Detalle de dominio: [../architecture/domain-lifecycle.md](../architecture/domain
 | Forma | Path | Cuándo |
 |-------|------|--------|
 | Kernel monolib | `libs/base/backend` → `@base/backend` | Dominios compartidos |
-| Producto flat | `libs/clientes/josanz/backend/src/lib/{domain}` | Solo Josanz |
+| Producto flat | `libs/clientes/{slug}/backend/src/lib/{domain}` | Josanz, Ideauto, … |
 | SaaS por dominio | `libs/productos-saas/.../{domain}-backend` | CRM Verifactu |
 
 Plantillas: `@arquetipos/arquetipos-backend` thin → base.

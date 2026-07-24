@@ -9,6 +9,9 @@
   <a href="../../adr/adr-0013-recalls-strangler-migration.md"><img alt="ADR" src="https://img.shields.io/badge/ADR-0013-0d5f59?style=flat-square" /></a>
 </p>
 
+> **Resumen de producto.** Canónico técnico (fases, riesgos, detalle):  
+> [architecture/recalls-migration-strategy.md](../../architecture/recalls-migration-strategy.md).
+
 ---
 
 ## Decisión

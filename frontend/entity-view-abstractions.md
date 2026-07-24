@@ -7,7 +7,7 @@
 <p align="center">
   <img alt="frontend" src="https://img.shields.io/badge/frontend-0f766e?style=flat-square" />
   <a href="../README.md"><img alt="Biblia" src="https://img.shields.io/badge/hub-biblia-0f766e?style=flat-square" /></a>
-  <a href="../plans/rounds/plans-66-sixty-six-round/1750000231000-f66-entity-view-abstractions.md"><img alt="F66-A2" src="https://img.shields.io/badge/F66--A2-14b8a6?style=flat-square" /></a>
+  <img alt="F66-A2" src="https://img.shields.io/badge/F66--A2-14b8a6?style=flat-square" />
 </p>
 
 Patrón objetivo (F66-A2): **vista de entidad domain-agnóstica** + config/extensión

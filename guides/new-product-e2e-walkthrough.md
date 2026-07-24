@@ -90,3 +90,4 @@ curl -i http://localhost:<api>/api/health/ready
 
 - [architecture/overview.md](../architecture/overview.md)
 - ADR [0008](../adr/adr-0008-platform-scope-vs-mvp-client.md)
+- Multi-producto (Ideauto Recalls): [ideauto/recalls/](../ideauto/recalls/) · [nuevo-cliente-checklist.md](../clientes/nuevo-cliente-checklist.md)

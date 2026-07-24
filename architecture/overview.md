@@ -34,7 +34,7 @@ vendidos como SaaS ([platform-vision.md](./platform-vision.md)).
 | Rol | Quién | Responsabilidad |
 |-----|-------|-----------------|
 | **Platform** | Equipo kernel | `@base/*`, ADRs, gates CI, Prisma dual, auth Keycloak, seams AI |
-| **Product** | Equipo cliente / SaaS | `@josanz/*`, `@saas/*`, branding, composición en `apps/` |
+| **Product** | Equipo cliente / SaaS | `@josanz/*`, `@ideauto/*`, `@saas/*`, branding, composición en `apps/` |
 | **Template** | Platform + DX | `@arquetipos/*` thin — copy-paste seguro sin acoplar productos |
 
 **Default (ADR 0008):** SPA web + monolito Nest. Opt-in: Next, Ionic, React Native,
@@ -87,6 +87,7 @@ ADRs: [0009 CQRS](../adr/adr-0009-cqrs-nest.md), [ai-cqrs-policy](../guides/ai-c
 flowchart TB
   subgraph products ["Productos y plantillas"]
     JOS["@josanz/* — Josanz ERP"]
+    IDE["@ideauto/* — Ideauto Recalls"]
     ARQ["@arquetipos/* — plantillas copy-paste"]
     SAAS["@saas/* — Verifactu CRM, worker…"]
   end
@@ -96,17 +97,19 @@ flowchart TB
   end
 
   JOS --> BASE
+  IDE --> BASE
   ARQ --> BASE
   SAAS --> BASE
   JOS -.->|"nunca"| ARQ
+  IDE -.->|"nunca"| ARQ
   ARQ -.->|"nunca"| JOS
 ```
 
 | Capa | Alias npm | Puede importar | No puede importar |
 |------|-----------|----------------|-------------------|
-| Kernel | `@base/*` | otros `@base/*` | `@arquetipos/*`, `@josanz/*`, `@saas/*` |
-| Plantilla | `@arquetipos/*` | `@base/*` | `@josanz/*` |
-| Producto cliente | `@josanz/*` | `@base/*` | `@arquetipos/*` |
+| Kernel | `@base/*` | otros `@base/*` | `@arquetipos/*`, `@josanz/*`, `@ideauto/*`, `@saas/*` |
+| Plantilla | `@arquetipos/*` | `@base/*` | `@josanz/*`, `@ideauto/*` |
+| Producto cliente | `@josanz/*`, `@ideauto/*` | `@base/*` | `@arquetipos/*` |
 | SaaS | `@saas/*` | `@base/*`, partes `@josanz/*` donde aplique | `@arquetipos/*` |
 
 Enforced por tags Nx (`layer:base`, `layer:arquetipos`, `layer:clientes`, `layer:productos-saas`) y ESLint `@nx/enforce-module-boundaries`.
@@ -262,6 +265,8 @@ flowchart TB
 | App Nx | Tipo | Libs típicas |
 |--------|------|--------------|
 | `josanz-api` | Monolito producto | `@josanz/backend` + `@base/backend` |
+| `ideauto-recalls-api` | Monolito producto (Recalls) | `@ideauto/backend` + `@base/backend` |
+| `ideauto-recalls-web` | Next.js producto | `@ideauto/*` + `@base/next-*` |
 | `api` / `api-single` | Monolito plantilla | `@arquetipos/arquetipos-backend` |
 | `clients-ms` | Microservicio | `ClientsModule` + Kafka |
 | `api-gateway` | Gateway | proxy + auth, sin Prisma |
@@ -310,21 +315,22 @@ Rutas antiguas: [legacy-paths.md](../legacy-paths.md).
 ¿Es lógica de negocio reutilizable?
 ├─ Sí → libs/ (¿kernel, producto o SaaS?)
 │        ├─ Sirve a todos → @base/*
-│        ├─ Solo un cliente → @josanz/* o @acme/*
+│        ├─ Solo un cliente → @josanz/* · @ideauto/* · @acme/*
 │        └─ SaaS CRM → @saas/*
 └─ No → apps/ (wiring, rutas globales, bootstrap, health de app)
 
 ¿Es UI?
 ├─ Genérico → @base/angular-ui o @base/react-shared
-├─ Marca cliente → @josanz/angular-ui
+├─ Marca Josanz → @josanz/angular-ui
+├─ Marca Ideauto → @ideauto/angular-ui (scaffold; Recalls FE = Next)
 └─ Plantilla demo → @arquetipos/*-ui
 
-¿Toca Postgres?
+¿Toca Postgres / MSSQL?
 ├─ Puerto/adaptador → lib infrastructure/
 └─ URL de conexión → app bootstrap-env.ts + deploy env
 
 ¿Es solo documentación de plan histórico?
-└─ Reconstruir desde git si hace falta; no es fuente de verdad operativa.
+└─ Recuperar desde git si hace falta; no es fuente de verdad operativa.
 ```
 
 ---
@@ -336,9 +342,10 @@ Rutas antiguas: [legacy-paths.md](../legacy-paths.md).
 | **Operativa (biblia)** | `docs/README.md`, `docs/architecture/`, `docs/guides/`, `docs/backend/`, `docs/frontend/`, `docs/runbooks/`, `docs/adr/` | Decisiones actuales |
 | **Agentes / CI** | `AGENTS.md`, `tools/` ([tools-layout](../runbooks/tools-layout.md)) | Automatización |
 | **Catálogo vivo** | `SERVICES.md`, `ui-component-catalog.yaml` | Inventario dominios/UI |
-| **Planes activos** | `docs/plans/` | Trabajo en curso |
+| **Planes activos** | `docs/plans/` (F78 / F83 / F84) | Trabajo en curso |
+| **Planes cerrados** | historial de git | No viven en el árbol |
 
-Si un plan histórico contradice `docs/backend/` o `AGENTS.md`, **gana la biblia operativa**.
+Si un plan cerrado en git contradice `docs/backend/` o `AGENTS.md`, **gana la biblia operativa**.
 
 ---
 

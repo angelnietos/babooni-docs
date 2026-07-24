@@ -126,6 +126,7 @@ Helpers CRUD repetitivos: `makeCrudCommandHandlers` / `makeCrudQueryHandlers` +
 |---------|-------|---------|
 | `@base/backend` | Kernel reutilizable | `clients`, `users`, `audit` |
 | `@josanz/backend` | Reglas solo Josanz | `fleet`, `staff` |
+| `@ideauto/backend` | Reglas solo Ideauto (Recalls) | campaigns, dgt, … (M1+) |
 | `@saas/*-backend` | CRM Verifactu | facturación fiscal |
 | App `*-api` | Composition root | importa módulos + `PrismaModule` + env |
 

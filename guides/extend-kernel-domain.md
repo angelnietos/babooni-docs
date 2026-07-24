@@ -10,7 +10,7 @@
 </p>
 
 
-Cuando el cambio beneficia a **todos** los productos (Josanz, plantillas, futuros clientes), va en el kernel — no en `@josanz/*`.
+Cuando el cambio beneficia a **todos** los productos (Josanz, Ideauto, plantillas, futuros clientes), va en el kernel — no en `@josanz/*` / `@ideauto/*`.
 
 ---
 
@@ -18,8 +18,8 @@ Cuando el cambio beneficia a **todos** los productos (Josanz, plantillas, futuro
 
 | Pregunta | Si sí → kernel |
 |----------|----------------|
-| ¿Lo usaría un segundo cliente sin reglas Josanz? | `@base/backend` / `@base/angular-*` |
-| ¿Es branding o regla comercial de Josanz? | `@josanz/*` |
+| ¿Lo usaría un segundo cliente sin reglas Josanz/Ideauto? | `@base/backend` / `@base/angular-*` |
+| ¿Es branding o regla comercial de un cliente? | `@josanz/*` o `@ideauto/*` |
 | ¿Es solo demo de plantilla? | `@arquetipos/*` thin re-export |
 
 ---
@@ -69,9 +69,9 @@ Plantillas Arquetipos: thin `shell` + `features` → `@base/{domain}-features` �
 
 Contratos isomórficos en `libs/base/shared/`. Frontend `*-api` y backend DTOs deben alinearse.
 
-**Validación (F59):** preferir reglas sync compartidas en shared (FE+BE) frente a
-`Validators.*` / checks Nest duplicados. Plan:
-[F59-A1](../plans/rounds/plans-59-fifty-nine-round/1750000160000-f59-isomorphic-validation-strategy.md).
+**Validación (F59, cerrada):** preferir reglas sync compartidas en shared (FE+BE)
+frente a `Validators.*` / checks Nest duplicados — ver
+[ADR 0012](../adr/adr-0012-isomorphic-validation.md).
 Async (unicidad DB, etc.) queda en puerto BE + código de error estable para el FE.
 
 ---

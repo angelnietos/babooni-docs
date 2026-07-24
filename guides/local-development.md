@@ -71,6 +71,7 @@ Copia `.env.example` → `.env`. Cada app puede tener env **específica** que se
 | App | Env dedicada (prioridad) | Bootstrap |
 |-----|--------------------------|-----------|
 | `josanz-api` | `JOSANZ_DATABASE_URL` | `apps/clientes/josanz/backend/src/bootstrap-env.ts` |
+| `ideauto-recalls-api` | *(M0 stub — MSSQL / F83 en M1+)* | `apps/clientes/ideauto/recalls/backend/` |
 | `api-single` | `ARQUETIPOS_DATABASE_URL` | `apps/arquetipos/backend/monolith/api-single/src/bootstrap-env.ts` |
 | `clients-ms` | `CLIENTS_MS_DATABASE_URL` | `apps/arquetipos/backend/microservices/clients-ms/src/bootstrap-env.ts` |
 | `verifactu-crm-api` | `VERIFACTU_DATABASE_URL` | `resolveCrmDatabaseUrl()` |
@@ -150,7 +151,7 @@ Un cambio nuevo debe preservar «arranca sin infra opcional».
 | Errores TS en `*-features/*` paths | Artefacto IDE | Wildcards en `tsconfig.base.json` — `tsc` sí pasa |
 | `pnpm install` falla workspace | Falta `workspace:*` | `pnpm add @base/foo --filter @josanz/bar --workspace` |
 | `pnpm install` 404 en `@base/ionic-*` / `@base/react-native-*` | Dep tipada como `"0.0.0"` en vez de `workspace:*` | En `package.json` de la lib: `"@base/…": "workspace:*"` (nunca versión fija de paquete privado). Luego `pnpm install`. |
-| `check:workspace-deps:strict` falla | Import `@base|@josanz|@arquetipos|@saas/*` sin declarar en el consumidor | `pnpm add <pkg> --filter <consumer> --workspace` — ver [workspace-packages.md](../frontend/workspace-packages.md); plan [F52-A2](../plans/rounds/plans-52-fifty-two-round/1750000071000-f52-fix-undeclared-workspace-deps.md). |
+| `check:workspace-deps:strict` falla | Import `@base|@josanz|@arquetipos|@saas/*` sin declarar en el consumidor | `pnpm add <pkg> --filter <consumer> --workspace` — ver [workspace-packages.md](../frontend/workspace-packages.md) (F52-A2, cerrada). |
 | Language server Nx no responde / cuelga | Node fuera de rango para Nx | 1) Recargar VS Code. 2) `pnpm nx reset`. 3) `pnpm check:node-nx` (Node 20/22 con Nx 23). |
 | Login plantilla pide Keycloak/API | Quieres solo UI | `pnpm mockserver` + `pnpm arq:fe:*-single:mock` — [mockserver.md](../runbooks/mockserver.md) |
 | Mismatch tipos React 18/19 en React Native | `@types/react` 19.x raíz vs 18.x RN | Pin Metro vía `tools/metro/create-arquetipos-expo-metro-config.cjs` (`disableHierarchicalLookup` + `extraNodeModules`) — [add-mobile-domain.md](./add-mobile-domain.md). Casts locales solo si queda mismatch de types. |
